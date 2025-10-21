@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: Microdados & Formatos - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 12 do Curso HTML5 - Microdados e dados estruturados">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 12 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 12</span>
+                    <h1 class="module-title">Microdados & Formatos</h1>
+                    <p class="module-subtitle">Dados estruturados para mecanismos de busca</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duração: 2 aulas</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Microdados & Formatos</h2>
+                        <p>Microdados e dados estruturados ajudam mecanismos de busca a entenderem melhor o conteúdo das páginas, melhorando resultados de pesquisa.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 O que vamos aprender:</h3>
+                            <ul>
+                                <li>Microdados (itemscope, itemtype, itemprop)</li>
+                                <li>JSON-LD (recomendado)</li>
+                                <li>Schema.org vocabulário</li>
+                                <li>Eventos, produtos, organizações</li>
+                                <li>Rich snippets no Google</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Dados estruturados transformam resultados de busca simples em rich snippets atrativos!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="structured-data">
+                                <div class="data-types">
+                                    <div class="data-item">
+                                        <span class="data-icon">📅</span>
+                                        <span class="data-name">Eventos</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-icon">🎵</span>
+                                        <span class="data-name">Música</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-icon">📖</span>
+                                        <span class="data-name">Livros</span>
+                                    </div>
+                                    <div class="data-item">
+                                        <span class="data-icon">🏢</span>
+                                        <span class="data-name">Organizações</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Conteúdo restante do módulo 12 -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Microdados</h2>
+                        <p>Microdados usam atributos HTML para marcar conteúdo com significado semântico.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplo de evento:</h4>
+                            <pre><code><div itemscope itemtype="https://schema.org/Event">
+    <h1 itemprop="name">Web Summit 2025</h1>
+    <time itemprop="startDate" datetime="2025-11-03">3 de novembro</time>
+    <div itemprop="location" itemscope itemtype="https://schema.org/Place">
+        <span itemprop="name">Lisboa, Portugal</span>
+    </div>
+</div></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="microdata-demo">
+                                <div class="event-card">
+                                    <h3>Web Summit 2025</h3>
+                                    <p>📅 3 de novembro</p>
+                                    <p>📍 Lisboa, Portugal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Continue com slides 3-7 -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>JSON-LD (Recomendado)</h2>
+                        <p>JSON-LD é a forma mais moderna e recomendada de adicionar dados estruturados.</p>
+
+                        <div class="code-example">
+                            <h4>💡 Script JSON-LD:</h4>
+                            <pre><code><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Web Summit 2025",
+    "startDate": "2025-11-03",
+    "location": {
+        "@type": "Place",
+        "name": "Lisboa, Portugal"
+    }
+}
+</script></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="jsonld-demo">
+                                <div class="json-structure">
+                                    <pre><code>{
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Web Summit 2025"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Schema.org</h2>
+                        <p>Schema.org fornece vocabulário padronizado para descrever conteúdo na web.</p>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="schema-demo">
+                                <div class="schema-types">
+                                    <div class="schema-item">Person</div>
+                                    <div class="schema-item">Organization</div>
+                                    <div class="schema-item">Event</div>
+                                    <div class="schema-item">Product</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Adicione JSON-LD a uma página de concerto com dados estruturados.</p>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="concert-page">
+                                    <h1>Concerto: Amália Rodrigues</h1>
+                                    <p>25 de dezembro de 2025 - Coliseu de Lisboa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Rich Snippets</h2>
+                        <p>Dados estruturados geram rich snippets nos resultados de busca.</p>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="rich-snippet-demo">
+                                <div class="search-result">
+                                    <h3>Concerto Amália Rodrigues</h3>
+                                    <p>📅 25 de dezembro de 2025</p>
+                                    <p>📍 Coliseu de Lisboa</p>
+                                    <p>⭐⭐⭐⭐⭐ (125 avaliações)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão</h2>
+                        <p>Dados estruturados melhoram significativamente a apresentação nos mecanismos de busca.</p>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 12 Completo!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 7</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-11.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-13.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 12:</strong> Microdados & Formatos | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>
