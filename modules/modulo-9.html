@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: SEO Rápido - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 9 do Curso HTML5 - Otimização para mecanismos de busca">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 9 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 9</span>
+                    <h1 class="module-title">SEO Rápido</h1>
+                    <p class="module-subtitle">Otimização para mecanismos de busca</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duração: 1 aula</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>SEO para HTML5</h2>
+                        <p>SEO (Search Engine Optimization) é otimizar seu site para aparecer melhor nos resultados de busca. HTML semântico é fundamental para SEO.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Por que SEO importa:</h3>
+                            <ul>
+                                <li>90% dos usuários não passam da primeira página</li>
+                                <li>Primeiro resultado recebe 30% dos cliques</li>
+                                <li>SEO bem feito aumenta tráfego orgânico</li>
+                                <li>Melhora experiência do usuário</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "SEO não é mágica, é método. HTML semântico + conteúdo de qualidade = sucesso nos mecanismos de busca!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="seo-concept">
+                                <div class="seo-elements">
+                                    <div class="element-item">
+                                        <span class="element-icon">📄</span>
+                                        <span class="element-name">Meta Tags</span>
+                                    </div>
+                                    <div class="element-item">
+                                        <span class="element-icon">🌐</span>
+                                        <span class="element-name">Open Graph</span>
+                                    </div>
+                                    <div class="element-item">
+                                        <span class="element-icon">🐦</span>
+                                        <span class="element-name">Twitter Cards</span>
+                                    </div>
+                                    <div class="element-item">
+                                        <span class="element-icon">🔗</span>
+                                        <span class="element-name">Links</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Meta Description -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Meta Description</h2>
+                        <p>A <code>meta description</code> aparece nos resultados de busca e influencia se usuários clicam no seu link.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Como usar:</h4>
+                            <pre><code><meta name="description" content="Aprenda HTML5 do zero ao expert com o Professor Sandro Pereira. Curso completo e prático para 2025."></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>✅ Boas práticas:</h3>
+                            <ul>
+                                <li>150-160 caracteres</li>
+                                <li>Inclua palavra-chave principal</li>
+                                <li>Descreva o conteúdo da página</li>
+                                <li>Seja atrativo e clique-induzente</li>
+                                <li>Único para cada página</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Pense na meta description como um anúncio gratuito no Google!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="meta-demo">
+                                <div class="search-result">
+                                    <div class="result-title">🔍 Como aparece no Google:</div>
+                                    <div class="result-item">
+                                        <h3 class="result-link">Curso HTML5 do Zero ao Expert | Sandro Pereira</h3>
+                                        <p class="result-url">https://html5expert.com/curso</p>
+                                        <p class="result-description">Aprenda HTML5 do zero ao expert com o Professor Sandro Pereira. Curso completo e prático para 2025 com módulos interativos e exercícios práticos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Open Graph -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Open Graph (Facebook)</h2>
+                        <p>Open Graph controla como sua página aparece quando compartilhada no Facebook e outros sites.</p>
+
+                        <div class="code-example">
+                            <h4>🏷️ Meta tags essenciais:</h4>
+                            <pre><code><meta property="og:title" content="Curso HTML5 Expert">
+<meta property="og:description" content="Aprenda HTML5...">
+<meta property="og:image" content="https://site.com/thumb.jpg">
+<meta property="og:url" content="https://site.com/curso">
+<meta property="og:type" content="website"></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>📱 Tipos de conteúdo:</h3>
+                            <ul>
+                                <li><code>website</code> - Página comum</li>
+                                <li><code>article</code> - Artigo ou post</li>
+                                <li><code>product</code> - Produto</li>
+                                <li><code>video</code> - Vídeo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="og-demo">
+                                <div class="facebook-preview">
+                                    <div class="fb-post">
+                                        <div class="fb-image">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%232563eb'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='white' font-size='20'%3E🚀 HTML5 Expert%3C/text%3E%3C/svg%3E"
+                                                 alt="Thumbnail do curso HTML5">
+                                        </div>
+                                        <div class="fb-content">
+                                            <h3 class="fb-title">Curso HTML5 do Zero ao Expert</h3>
+                                            <p class="fb-description">Aprenda HTML5 do zero ao expert com o Professor Sandro Pereira. Curso completo e prático para 2025.</p>
+                                            <p class="fb-url">html5expert.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Twitter Cards -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Twitter Cards</h2>
+                        <p>Twitter Cards controlam a aparência dos seus links quando compartilhados no Twitter/X.</p>
+
+                        <div class="code-example">
+                            <h4>🐦 Tags para Twitter:</h4>
+                            <pre><code><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Curso HTML5 Expert">
+<meta name="twitter:description" content="Aprenda HTML5...">
+<meta name="twitter:image" content="https://site.com/thumb.jpg"></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>📱 Tipos de card:</h3>
+                            <ul>
+                                <li><code>summary</code> - Imagem pequena (120x120)</li>
+                                <li><code>summary_large_image</code> - Imagem grande (300x200)</li>
+                                <li><code>player</code> - Para vídeos</li>
+                                <li><code>app</code> - Para aplicativos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="twitter-demo">
+                                <div class="twitter-card">
+                                    <div class="twitter-image">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23000'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='white' font-size='20'%3E🐦 Twitter Card%3C/text%3E%3C/svg%3E"
+                                             alt="Twitter Card do curso HTML5">
+                                    </div>
+                                    <div class="twitter-content">
+                                        <h3 class="twitter-title">Curso HTML5 do Zero ao Expert</h3>
+                                        <p class="twitter-description">Aprenda HTML5 do zero ao expert com o Professor Sandro Pereira. Curso completo e prático para 2025 com módulos interativos.</p>
+                                        <p class="twitter-handle">@html5expert</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Favicon e Canonical -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Favicon e Canonical</h2>
+                        <p>Favicon é o ícone da aba e canonical evita conteúdo duplicado nos mecanismos de busca.</p>
+
+                        <div class="code-example">
+                            <h4>🎨 Favicon:</h4>
+                            <pre><code><link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="icon-180.png"></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🔗 URL Canônica:</h4>
+                            <pre><code><link rel="canonical" href="https://site.com/pagina-oficial"></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>📏 Tamanhos de favicon:</h3>
+                            <ul>
+                                <li><code>16x16px</code> - Navegadores antigos</li>
+                                <li><code>32x32px</code> - Padrão moderno</li>
+                                <li><code>180x180px</code> - Apple Touch Icon</li>
+                                <li><code>192x192px</code> - Android</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="favicon-demo">
+                                <div class="browser-tabs">
+                                    <div class="tab active">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%232563eb'/%3E%3Ctext x='8' y='10' text-anchor='middle' fill='white' font-size='10'%3EH%3C/text%3E%3C/svg%3E"
+                                             alt="Favicon HTML5" class="tab-icon">
+                                        <span class="tab-title">HTML5 Expert</span>
+                                    </div>
+                                    <div class="tab">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23fff'/%3E%3C/svg%3E"
+                                             alt="Sem favicon" class="tab-icon">
+                                        <span class="tab-title">Site sem favicon</span>
+                                    </div>
+                                </div>
+                                <div class="canonical-demo">
+                                    <div class="url-info">
+                                        <p><strong>URL Oficial:</strong> https://html5expert.com/curso</p>
+                                        <p><strong>URL Alternativa:</strong> https://html5expert.com/curso/</p>
+                                        <p><strong>Canonical:</strong> Aponta para a versão oficial</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Exercício Prático -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos otimizar uma página para aparecer perfeitamente no Google e redes sociais!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Página Otimizada</h3>
+                            <p>Crie uma página que apareça com título atrativo no Google e imagem ao compartilhar no Facebook.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Requisitos:</h4>
+                                <ol>
+                                    <li>Meta description atrativa (150 chars)</li>
+                                    <li>Open Graph completo</li>
+                                    <li>Twitter Cards configurado</li>
+                                    <li>Favicon personalizado</li>
+                                    <li>URL canônica</li>
+                                    <li>Título otimizado</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultados esperados:</h4>
+                            <div class="result-grid">
+                                <div class="result-item">
+                                    <h5>🔍 No Google:</h5>
+                                    <div class="google-result">
+                                        <h4>Curso HTML5 do Zero ao Expert 2025</h4>
+                                        <p class="google-url">html5expert.com › curso</p>
+                                        <p class="google-desc">Aprenda HTML5 do zero ao expert com Professor Sandro Pereira. Curso completo com 20 módulos, exercícios práticos e certificado. ✅ 100% online.</p>
+                                    </div>
+                                </div>
+                                <div class="result-item">
+                                    <h5>📘 No Facebook:</h5>
+                                    <div class="fb-result">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='60' viewBox='0 0 100 60'%3E%3Crect width='100' height='60' fill='%232563eb'/%3E%3Ctext x='50' y='30' text-anchor='middle' fill='white' font-size='10'%3E🚀 HTML5%3C/text%3E%3C/svg%3E"
+                                             alt="Thumbnail" class="fb-thumb">
+                                        <div class="fb-content">
+                                            <h4>Curso HTML5 do Zero ao Expert</h4>
+                                            <p>Aprenda HTML5 do zero ao expert com Professor Sandro Pereira...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="head-section">
+                                    <h3>📋 Head Otimizado</h3>
+                                    <div class="head-code">
+                                        <pre><code><!-- SEO Básico -->
+<title>Curso HTML5 do Zero ao Expert 2025</title>
+<meta name="description" content="Aprenda HTML5 do zero ao expert com Professor Sandro Pereira. Curso completo com 20 módulos, exercícios práticos e certificado. 100% online.">
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="Curso HTML5 do Zero ao Expert">
+<meta property="og:description" content="Aprenda HTML5...">
+<meta property="og:image" content="https://site.com/html5-course.jpg">
+<meta property="og:url" content="https://html5expert.com/curso">
+<meta property="og:type" content="website">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Curso HTML5 Expert">
+<meta name="twitter:description" content="Aprenda HTML5...">
+<meta name="twitter:image" content="https://site.com/html5-course.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="canonical" href="https://html5expert.com/curso"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 7</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Conclusão -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu a otimizar páginas HTML5 para mecanismos de busca e redes sociais.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Meta descriptions atrativas</li>
+                                <li>✅ Open Graph para Facebook</li>
+                                <li>✅ Twitter Cards</li>
+                                <li>✅ Favicon e canonical URLs</li>
+                                <li>✅ Compartilhamento otimizado</li>
+                                <li>✅ Melhores práticas SEO</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre recursos estáticos otimizados e performance web!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 9 Completo!</h3>
+                                    <p>Você domina SEO HTML5!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 10: Recursos Estáticos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 7</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-8.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="../index.html" class="btn btn-primary">Voltar ao Curso</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 9:</strong> SEO Rápido | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>

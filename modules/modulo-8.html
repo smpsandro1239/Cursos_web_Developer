@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Acessibilidade - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 8 do Curso HTML5 - Acessibilidade web para todos">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 8 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 8</span>
+                    <h1 class="module-title">Acessibilidade</h1>
+                    <p class="module-subtitle">Web inclusiva para todos os usuários</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duração: 2 aulas</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Acessibilidade Web</h2>
+                        <p>Acessibilidade significa criar sites utilizáveis por pessoas com deficiência, seguindo diretrizes WCAG para inclusão digital.</p>
+
+                        <div class="highlight-box">
+                            <h3>♿ Por que é importante:</h3>
+                            <ul>
+                                <li>Mais de 1 bilhão de pessoas têm deficiência</li>
+                                <li>Requisito legal em muitos países</li>
+                                <li>Melhora experiência para todos</li>
+                                <li>Beneficia SEO e usabilidade</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Acessibilidade não é opcional. É um direito fundamental na era digital. Vamos tornar a web inclusiva!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="accessibility-concept">
+                                <div class="accessibility-icons">
+                                    <div class="icon-item">
+                                        <span class="icon">👁️</span>
+                                        <span class="label">Visão</span>
+                                    </div>
+                                    <div class="icon-item">
+                                        <span class="icon">🖐️</span>
+                                        <span class="label">Motora</span>
+                                    </div>
+                                    <div class="icon-item">
+                                        <span class="icon">🗣️</span>
+                                        <span class="label">Auditiva</span>
+                                    </div>
+                                    <div class="icon-item">
+                                        <span class="icon">🧠</span>
+                                        <span class="label">Cognitiva</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Textos Alternativos -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Textos Alternativos (Alt)</h2>
+                        <p>O atributo <code>alt</code> fornece descrição textual para imagens, essencial para screen readers e quando imagens não carregam.</p>
+
+                        <div class="code-example">
+                            <h4>✅ Exemplos corretos:</h4>
+                            <pre><code><img src="logo.png" alt="Logo HTML5 Expert - Curso de HTML5">
+
+<img src="grafico-vendas.jpg" alt="Gráfico mostrando crescimento de 150% nas vendas de 2024 para 2025">
+
+<img src="seta-direita.png" alt="Próxima página"></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>❌ Exemplos incorretos:</h4>
+                            <pre><code><img src="foto.jpg" alt="foto">                    ← Muito genérico
+
+<img src="imagem.png" alt="">                       ← Vazio (só use se decorativa)
+
+<img src="quadro.jpg">                              ← Sem alt</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Se a imagem for puramente decorativa, use <code>alt=""</code> (alt vazio).
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="alt-text-demo">
+                                <div class="image-examples">
+                                    <div class="example-item good">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100' viewBox='0 0 200 100'%3E%3Crect width='200' height='100' fill='%2322c55e'/%3E%3Ctext x='100' y='50' text-anchor='middle' fill='white' font-size='14'%3E✅ Bom Alt Text%3C/text%3E%3C/svg%3E"
+                                             alt="Exemplo de imagem com texto alternativo descritivo e útil">
+                                        <p class="example-label">✅ Texto alternativo descritivo</p>
+                                    </div>
+                                    <div class="example-item bad">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100' viewBox='0 0 200 100'%3E%3Crect width='200' height='100' fill='%23ef4444'/%3E%3Ctext x='100' y='50' text-anchor='middle' fill='white' font-size='14'%3E❌ Sem Alt%3C/text%3E%3C/svg%3E"
+                                             alt="">
+                                        <p class="example-label">❌ Imagem sem texto alternativo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: ARIA Labels -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>ARIA Labels</h2>
+                        <p>ARIA (Accessible Rich Internet Applications) fornece atributos para melhorar acessibilidade de elementos interativos.</p>
+
+                        <div class="steps-list">
+                            <h3>🏷️ Principais atributos ARIA:</h3>
+                            <ol>
+                                <li><code>aria-label</code> - Rótulo acessível</li>
+                                <li><code>aria-labelledby</code> - Referência a elemento que rotula</li>
+                                <li><code>aria-describedby</code> - Referência a descrição</li>
+                                <li><code>role</code> - Define função do elemento</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>💡 Exemplos práticos:</h4>
+                            <pre><code><button aria-label="Fechar modal">×</button>
+
+<div role="alert" aria-live="polite">
+    Mensagem importante
+</div>
+
+<input type="search" aria-describedby="help-search">
+<small id="help-search">Dicas de busca</small></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="aria-demo">
+                                <div class="demo-examples">
+                                    <div class="demo-item">
+                                        <button class="demo-button" aria-label="Adicionar item ao carrinho de compras">
+                                            🛒
+                                        </button>
+                                        <p class="demo-desc">Botão com aria-label descritivo</p>
+                                    </div>
+                                    <div class="demo-item">
+                                        <div class="alert-box" role="alert" aria-live="polite">
+                                            ✅ Item adicionado com sucesso!
+                                        </div>
+                                        <p class="demo-desc">Alerta com role e aria-live</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Navegação por Teclado -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Navegação por Teclado</h2>
+                        <p>Muitos usuários não usam mouse. Garanta que todo conteúdo seja acessível via teclado com <code>tabindex</code> e foco visível.</p>
+
+                        <div class="code-example">
+                            <h4>🎯 Ordem de tabulação:</h4>
+                            <pre><code><button>Botão 1</button>          ← tabindex="0" (padrão)
+<a href="#">Link</a>              ← tabindex="0" (padrão)
+<input type="text">               ← tabindex="0" (padrão)
+
+<div tabindex="0">Clicável</div>  ← Torna div focável</code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>⌨️ Teclas importantes:</h3>
+                            <ul>
+                                <li><kbd>Tab</kbd> - Próximo elemento focável</li>
+                                <li><kbd>Shift + Tab</kbd> - Elemento anterior</li>
+                                <li><kbd>Enter</kbd> - Ativar botões/links</li>
+                                <li><kbd>Esc</kbd> - Fechar modais</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Use <code>outline</code> CSS para destacar elementos com foco.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="keyboard-demo">
+                                <div class="keyboard-nav">
+                                    <div class="nav-item focused">
+                                        <span class="item-icon">🏠</span>
+                                        <span class="item-text">Início</span>
+                                        <span class="focus-indicator"></span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <span class="item-icon">📚</span>
+                                        <span class="item-text">Cursos</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <span class="item-icon">👨‍🏫</span>
+                                        <span class="item-text">Sobre</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <span class="item-icon">📞</span>
+                                        <span class="item-text">Contato</span>
+                                    </div>
+                                </div>
+                                <div class="keyboard-hint">
+                                    <p>👆 Use <kbd>Tab</kbd> para navegar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Screen Readers -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Screen Readers</h2>
+                        <p>Screen readers convertem texto em voz/sintetizador. Teste seu site com ferramentas como NVDA, JAWS ou VoiceOver.</p>
+
+                        <div class="steps-list">
+                            <h3>🔊 Como testar:</h3>
+                            <ol>
+                                <li>Instale NVDA (gratuito para Windows)</li>
+                                <li>Navegue apenas com teclado</li>
+                                <li>Ouça se o conteúdo faz sentido</li>
+                                <li>Verifique se há informações perdidas</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Estrutura recomendada:</h3>
+                            <ul>
+                                <li>Use títulos hierárquicos (h1-h6)</li>
+                                <li>Adicione textos alternativos</li>
+                                <li>Rotule formulários adequadamente</li>
+                                <li>Forneça contexto suficiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="screen-reader-demo">
+                                <div class="sr-demo">
+                                    <div class="demo-interface">
+                                        <div class="demo-screen">
+                                            <h1>Loja Online</h1>
+                                            <nav aria-label="Navegação principal">
+                                                <ul>
+                                                    <li><a href="#produtos">Produtos</a></li>
+                                                    <li><a href="#sobre">Sobre</a></li>
+                                                    <li><a href="#contato">Contato</a></li>
+                                                </ul>
+                                            </nav>
+                                            <main>
+                                                <h2 id="produtos">Nossos Produtos</h2>
+                                                <div class="produto" role="article">
+                                                    <img src="produto.jpg" alt="Camiseta HTML5 azul tamanho médio">
+                                                    <h3>Camiseta HTML5</h3>
+                                                    <p>€29,99</p>
+                                                    <button aria-label="Adicionar camiseta HTML5 azul tamanho médio ao carrinho">Comprar</button>
+                                                </div>
+                                            </main>
+                                        </div>
+                                        <div class="demo-output">
+                                            <div class="output-title">🔊 Screen Reader ouviria:</div>
+                                            <div class="output-text">
+                                                "Loja Online<br>
+                                                Navegação principal: Produtos, Sobre, Contato<br>
+                                                Nossos Produtos<br>
+                                                Camiseta HTML5, €29,99<br>
+                                                Botão: Adicionar camiseta HTML5 azul tamanho médio ao carrinho"
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Cores e Contraste -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Cores e Contraste</h2>
+                        <p>Contraste adequado entre texto e fundo é essencial para usuários com deficiência visual.</p>
+
+                        <div class="highlight-box">
+                            <h3>📊 Níveis WCAG:</h3>
+                            <ul>
+                                <li><strong>AA:</strong> Contraste mínimo 4.5:1</li>
+                                <li><strong>AAA:</strong> Contraste 7:1 (recomendado)</li>
+                                <li>Texto grande: requisitos menores</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>✅ Combinações aprovadas:</h4>
+                            <pre><code>.texto-escuro { color: #1a1a1a; }     /* Sobre fundo branco */
+.fundo-texto { background: #f8f8f8; }
+
+.texto-claro { color: #ffffff; }      /* Sobre fundo escuro */
+.fundo-escuro { background: #2563eb; }</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🎨 Ferramentas:</strong> Use contrast checkers online para verificar se suas cores atendem aos padrões.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="contrast-demo">
+                                <div class="contrast-examples">
+                                    <div class="example good-contrast">
+                                        <div class="contrast-bg dark">
+                                            <span class="contrast-text">Texto escuro sobre fundo claro</span>
+                                        </div>
+                                        <p class="example-label">✅ Bom contraste (4.5:1+)</p>
+                                    </div>
+                                    <div class="example poor-contrast">
+                                        <div class="contrast-bg light">
+                                            <span class="contrast-text">Texto claro sobre fundo claro</span>
+                                        </div>
+                                        <p class="example-label">❌ Pouco contraste</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Exercício Prático -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos tornar nossa galeria de imagens totalmente acessível via teclado!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Galeria Acessível</h3>
+                            <p>Crie uma galeria onde usuários possam navegar apenas com teclado (setas + Enter).</p>
+
+                            <div class="exercise-steps">
+                                <h4>⌨️ Funcionalidades:</h4>
+                                <ol>
+                                    <li>Navegação com setas do teclado</li>
+                                    <li>Foco visível em imagens</li>
+                                    <li>Textos alternativos descritivos</li>
+                                    <li>Ativação com Enter/Space</li>
+                                    <li>Indicadores ARIA apropriados</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Recursos implementados:</h4>
+                            <ul>
+                                <li>✅ Navegação por teclado completa</li>
+                                <li>✅ Estados visuais de foco</li>
+                                <li>✅ Textos alternativos informativos</li>
+                                <li>✅ Estrutura semântica</li>
+                                <li>✅ Compatibilidade com screen readers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="accessible-gallery">
+                                    <h3>🏛️ Galeria de Lisboa (Navegação: ← → + Enter)</h3>
+                                    <div class="gallery-container">
+                                        <div class="gallery-item focused" tabindex="0" role="button" aria-label="Torre de Belém - monumento histórico em Lisboa">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'%3E%3Crect width='150' height='100' fill='%2306b6d4'/%3E%3Ctext x='75' y='50' text-anchor='middle' fill='white' font-size='10'%3ETorre de Belém%3C/text%3E%3C/svg%3E"
+                                                 alt="Torre de Belém - torre histórica branca localizada na foz do rio Tejo em Lisboa">
+                                            <div class="item-overlay">
+                                                <span class="item-title">Torre de Belém</span>
+                                                <span class="item-desc">Monumento do século XVI</span>
+                                            </div>
+                                        </div>
+                                        <div class="gallery-item" tabindex="0" role="button" aria-label="Praça do Comércio - praça histórica no centro de Lisboa">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'%3E%3Crect width='150' height='100' fill='%23fbbf24'/%3E%3Ctext x='75' y='50' text-anchor='middle' fill='%2392400e' font-size='10'%3EPraça do Comércio%3C/text%3E%3C/svg%3E"
+                                                 alt="Praça do Comércio - grande praça histórica com arcadas amarelas no centro de Lisboa">
+                                            <div class="item-overlay">
+                                                <span class="item-title">Praça do Comércio</span>
+                                                <span class="item-desc">Centro histórico</span>
+                                            </div>
+                                        </div>
+                                        <div class="gallery-item" tabindex="0" role="button" aria-label="Castelo de São Jorge - castelo medieval no topo da colina em Lisboa">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='100' viewBox='0 0 150 100'%3E%3Crect width='150' height='100' fill='%2322c55e'/%3E%3Ctext x='75' y='50' text-anchor='middle' fill='white' font-size='10'%3ECastelo S. Jorge%3C/text%3E%3C/svg%3E"
+                                                 alt="Castelo de São Jorge - castelo medieval localizado no topo da colina com vista panorâmica de Lisboa">
+                                            <div class="item-overlay">
+                                                <span class="item-title">Castelo S. Jorge</span>
+                                                <span class="item-desc">Vista panorâmica</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gallery-instructions">
+                                        <p>⌨️ Use <kbd>←</kbd> <kbd>→</kbd> para navegar, <kbd>Enter</kbd> para selecionar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Conclusão -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu a criar sites acessíveis que funcionam para todos os usuários.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Textos alternativos descritivos</li>
+                                <li>✅ ARIA labels e roles</li>
+                                <li>✅ Navegação por teclado</li>
+                                <li>✅ Compatibilidade com screen readers</li>
+                                <li>✅ Contraste adequado</li>
+                                <li>✅ Galerias acessíveis</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre SEO, otimizando nossos sites para mecanismos de busca!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 8 Completo!</h3>
+                                    <p>Você cria sites inclusivos!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 9: SEO Rápido</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-7.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-9.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 8:</strong> Acessibilidade | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>
