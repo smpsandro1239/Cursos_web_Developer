@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Textos e Títulos - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 2 do Curso HTML5 - Textos, títulos e formatação">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 2 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 2</span>
+                    <h1 class="module-title">Textos e Títulos</h1>
+                    <p class="module-subtitle">Estrutura e formatação de conteúdo</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duração: 1 aula</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Textos e Títulos</h2>
+                        <p>Os títulos e textos formam a estrutura básica do conteúdo de qualquer página web. Eles organizam as informações e facilitam a leitura.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que vamos aprender:</h3>
+                            <ul>
+                                <li>Hierarquia de títulos (h1-h6)</li>
+                                <li>Parágrafos e quebras de linha</li>
+                                <li>Formatação semântica vs visual</li>
+                                <li>Entidades HTML especiais</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Uma boa hierarquia de títulos é como um mapa: guia o leitor e facilita a compreensão do conteúdo."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="text-hierarchy">
+                                <div class="hierarchy-item h1">
+                                    <span class="tag">H1</span>
+                                    <span class="desc">Título Principal</span>
+                                </div>
+                                <div class="hierarchy-item h2">
+                                    <span class="tag">H2</span>
+                                    <span class="desc">Subtítulo</span>
+                                </div>
+                                <div class="hierarchy-item h3">
+                                    <span class="tag">H3</span>
+                                    <span class="desc">Tópicos</span>
+                                </div>
+                                <div class="hierarchy-item p">
+                                    <span class="tag">P</span>
+                                    <span class="desc">Parágrafos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Títulos H1-H6 -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Títulos H1 a H6</h2>
+                        <p>Os títulos criam uma hierarquia no documento, semelhante aos capítulos de um livro. O H1 é o mais importante, H6 o menos importante.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Como usar títulos:</h4>
+                            <pre><code><h1>Título Principal da Página</h1>
+<h2>Seção Principal</h2>
+<h3>Subseção</h3>
+<h4>Tópico Específico</h4>
+<h5>Detalhe do Tópico</h5>
+<h6>Informação Muito Específica</h6></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>📏 Regras importantes:</h3>
+                            <ul>
+                                <li>Use apenas UM H1 por página</li>
+                                <li>Siga a ordem hierárquica</li>
+                                <li>Não pule níveis (H1 → H2 → H4 ❌)</li>
+                                <li>Use para estruturar, não para estilizar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="titles-demo">
+                                <div class="title-item h1-demo">
+                                    <span class="title-number">H1</span>
+                                    <span class="title-text">Curso HTML5 Expert</span>
+                                </div>
+                                <div class="title-item h2-demo">
+                                    <span class="title-number">H2</span>
+                                    <span class="title-text">Módulo 2: Textos</span>
+                                </div>
+                                <div class="title-item h3-demo">
+                                    <span class="title-number">H3</span>
+                                    <span class="title-text">Títulos e Hierarquia</span>
+                                </div>
+                                <div class="title-item h4-demo">
+                                    <span class="title-number">H4</span>
+                                    <span class="title-text">Exemplos Práticos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Parágrafos -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Parágrafos e Quebras</h2>
+                        <p>Parágrafos organizam o texto em blocos lógicos, facilitando a leitura. As quebras de linha controlam onde o texto "quebra".</p>
+
+                        <div class="steps-list">
+                            <h3>📝 Elementos de texto:</h3>
+                            <ol>
+                                <li><code><p></code> - Parágrafo (bloco de texto)</li>
+                                <li><code><br></code> - Quebra de linha simples</li>
+                                <li><code><hr></code> - Linha horizontal (separador)</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>💡 Exemplo prático:</h4>
+                            <pre><code><p>Este é o primeiro parágrafo.</p>
+<p>Este é o segundo parágrafo.</p>
+
+<p>Primeira linha<br>
+Segunda linha<br>
+Terceira linha</p>
+
+<p>Fim da seção</p>
+<hr>
+<p>Nova seção</p></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="text-demo">
+                                <div class="paragraph-demo">
+                                    <p>Este é o primeiro parágrafo com algum texto explicativo sobre HTML5.</p>
+                                    <p>Este é o segundo parágrafo que continua a explicação sobre textos e formatação.</p>
+                                    <hr style="margin: 1rem 0; border: none; height: 2px; background: var(--primary-color);">
+                                    <p>Esta é uma nova seção após a linha divisória.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Formatação Semântica -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Formatação Semântica vs Visual</h2>
+                        <p>HTML oferece duas formas de formatação: <strong>semântica</strong> (com significado) e <strong>visual</strong> (apenas aparência).</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Formatação SEMÂNTICA (recomendada):</h3>
+                            <ul>
+                                <li><code><strong></code> - Texto importante</li>
+                                <li><code><em></code> - Ênfase/itálico</li>
+                                <li><code><mark></code> - Texto destacado</li>
+                                <li><code><small></code> - Texto secundário</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎨 Formatação VISUAL (evitar):</h3>
+                            <ul>
+                                <li><code><b></code> - Negrito (sem significado)</li>
+                                <li><code><i></code> - Itálico (sem significado)</li>
+                                <li><code><u></code> - Sublinhado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="formatting-comparison">
+                                <div class="comparison-section">
+                                    <h4>✅ Semântica (correto)</h4>
+                                    <div class="semantic-example">
+                                        <p>Este é um texto <strong>importante</strong> que merece destaque.</p>
+                                        <p>Esta palavra está em <em>ênfase</em> para dar ênfase.</p>
+                                        <p>Este texto está <mark>destacado</mark> para chamar atenção.</p>
+                                    </div>
+                                </div>
+                                <div class="comparison-section">
+                                    <h4>❌ Visual (evitar)</h4>
+                                    <div class="visual-example">
+                                        <p>Este é um texto <b>em negrito</b> sem significado semântico.</p>
+                                        <p>Esta palavra está em <i>itálico</i> apenas visualmente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Entidades HTML -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Entidades HTML</h2>
+                        <p>As entidades HTML permitem exibir caracteres especiais que têm significado especial em HTML ou não existem no teclado.</p>
+
+                        <div class="steps-list">
+                            <h3>🔤 Entidades mais usadas:</h3>
+                            <ol>
+                                <li><code>&nbsp;</code> - Espaço inquebrável</li>
+                                <li><code>&copy;</code> - Símbolo de copyright ©</li>
+                                <li><code>&euro;</code> - Símbolo do Euro €</li>
+                                <li><code>&lt;</code> e <code>&gt;</code> - Sinais menor/maior < ></li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplos de uso:</h4>
+                            <pre><code><p>Espaço&nbsp;insquebrável</p>
+<p>Copyright &copy; 2025 Sandro Pereira</p>
+<p>Preço: 150&euro;</p>
+<p>Código: &lt;html&gt;</p></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="entities-demo">
+                                <div class="entity-grid">
+                                    <div class="entity-item">
+                                        <span class="entity-code">&nbsp;</span>
+                                        <span class="entity-result">Espaço insquebrável</span>
+                                    </div>
+                                    <div class="entity-item">
+                                        <span class="entity-code">&copy;</span>
+                                        <span class="entity-result">Copyright ©</span>
+                                    </div>
+                                    <div class="entity-item">
+                                        <span class="entity-code">&euro;</span>
+                                        <span class="entity-result">Euro €</span>
+                                    </div>
+                                    <div class="entity-item">
+                                        <span class="entity-code">&lt; &gt;</span>
+                                        <span class="entity-result">Menor < Maior ></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Artigo sobre Pastel de Nata -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exemplo Prático: Artigo</h2>
+                        <p>Vamos criar um pequeno artigo sobre o pastel de nata usando todos os elementos que aprendemos até agora.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Estrutura do artigo:</h4>
+                            <pre><code><h1>Pastel de Nata</h1>
+
+<h2>Origem Portuguesa</h2>
+<p>O pastel de nata é um doce tradicional português.</p>
+
+<h2>Ingredientes</h2>
+<p>Massa folhada, creme de leite, açúcar, gemas.</p>
+
+<h3>Calorias</h3>
+<p>Aproximadamente 150&nbsp;calorias por unidade.</p>
+
+<p>Receita completa &copy; 2025.</p></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🎯 Dica:</strong> Use a hierarquia de títulos para organizar seu conteúdo de forma lógica e acessível.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="article-preview">
+                                <div class="article-mock">
+                                    <h1>Pastel de Nata</h1>
+                                    <h2>Origem Portuguesa</h2>
+                                    <p>O pastel de nata é um doce tradicional português, famoso mundialmente pela sua massa crocante e recheio cremoso.</p>
+                                    <h2>Ingredientes</h2>
+                                    <p>• Massa folhada<br>
+                                    • Creme de leite<br>
+                                    • Açúcar refinado<br>
+                                    • Gemas de ovo</p>
+                                    <h3>Informação Nutricional</h3>
+                                    <p>Aproximadamente 150 calorias por unidade.</p>
+                                    <hr>
+                                    <p class="footer">Receita tradicional © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Exercício Prático -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos colocar em prática tudo que aprendemos sobre textos e títulos!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Tarefa:</h3>
+                            <p>Crie um pequeno artigo sobre o pastel de nata com seções bem marcadas usando títulos hierárquicos.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Requisitos:</h4>
+                                <ol>
+                                    <li>Estrutura HTML5 completa</li>
+                                    <li>Título principal (H1)</li>
+                                    <li>Pelo menos 3 seções (H2)</li>
+                                    <li>Parágrafos explicativos</li>
+                                    <li>Entidades HTML especiais</li>
+                                    <li>Formatação semântica</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado esperado:</h4>
+                            <div class="result-preview">
+                                <div class="file-editor">
+                                    <div class="editor-header">
+                                        <span class="file-name">pastel-de-nata.html</span>
+                                    </div>
+                                    <div class="editor-content">
+                                        <pre><code><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastel de Nata - Delícia Portuguesa</title>
+</head>
+<body>
+    <h1>Pastel de Nata</h1>
+    <p>Doce tradicional português.</p>
+
+    <h2>História</h2>
+    <p>Origem em &lt;strong>Portugal&lt;/strong>.</p>
+
+    <h2>Ingredientes</h2>
+    <p>Massa folhada, creme, &nbsp;açúcar.</p>
+
+    <p>Receita &copy; 2025.</p>
+</body>
+</html></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="article-mock">
+                                    <h1>Pastel de Nata 🥮</h1>
+                                    <h2>História</h2>
+                                    <p>O pastel de nata surgiu em Portugal no século XIX, criado pelos monges do Mosteiro dos Jerónimos.</p>
+                                    <h2>Ingredientes</h2>
+                                    <p>• Massa folhada<br>
+                                    • Creme de leite<br>
+                                    • Açúcar<br>
+                                    • Gemas<br>
+                                    • Canela</p>
+                                    <h2>Curiosidades</h2>
+                                    <p>Consumido em temperatura <em>ambiente</em> ou <strong>quentinho</strong>.</p>
+                                    <hr>
+                                    <p class="footer">Fonte: Cozinha Portuguesa © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Conclusão -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu sobre textos, títulos e formatação em HTML5.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Hierarquia de títulos (H1-H6)</li>
+                                <li>✅ Parágrafos e quebras de linha</li>
+                                <li>✅ Formatação semântica vs visual</li>
+                                <li>✅ Entidades HTML especiais</li>
+                                <li>✅ Estrutura de artigos</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre listas e links para criar navegação!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 2 Completo!</h3>
+                                    <p>Você está pronto para o próximo desafio!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 3: Listas e Links</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-1.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-3.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 2:</strong> Textos e Títulos | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>
