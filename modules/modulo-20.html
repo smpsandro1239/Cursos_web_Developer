@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 13: Web Components - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 13 do Curso HTML5 - Componentes reutilizáveis">
+    <title>Módulo 20: Projeto Final & Portfólio - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 20 do Curso HTML5 - Projeto final e portfólio">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
                     Voltar ao Curso
                 </a>
                 <div class="module-progress">
-                    <span class="progress-text">Módulo 13 de 20</span>
+                    <span class="progress-text">Módulo 20 de 20</span>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
                     </div>
@@ -29,9 +29,9 @@
             </div>
             <div class="module-header-content">
                 <div class="module-info">
-                    <span class="module-number">MÓDULO 13</span>
-                    <h1 class="module-title">Web Components</h1>
-                    <p class="module-subtitle">Componentes reutilizáveis</p>
+                    <span class="module-number">MÓDULO 20</span>
+                    <h1 class="module-title">Projeto Final & Portfólio</h1>
+                    <p class="module-subtitle">Agência de Viagens Portugal</p>
                 </div>
                 <div class="module-meta">
                     <div class="meta-item">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">⏱️</span>
-                        <span>Duração: 2 aulas</span>
+                        <span>Duracção: 3 aulas</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">📅</span>
@@ -53,19 +53,57 @@
 
     <main class="module-content">
         <div class="container">
+            <!-- Slide 1: Introdução -->
             <section class="slide" id="slide-1">
                 <div class="slide-content">
                     <div class="slide-text">
-                        <h2>Web Components</h2>
-                        <p>Web Components permitem criar elementos HTML reutilizáveis e encapsulados.</p>
+                        <h2>Projeto Final & Portfólio</h2>
+                        <p>Vamos criar um site completo para uma Agência de Viagens em Portugal, aplicando tudo que aprendemos!</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 O que vamos construir:</h3>
+                            <ul>
+                                <li>5 páginas completas e semânticas</li>
+                                <li>Design responsivo e acessível</li>
+                                <li>Otimizacção de performance</li>
+                                <li>Deploy no GitHub Pages</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Este projeto será seu portfólio. Mostre ao mundo suas habilidades HTML5!"
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="slide-visual">
                         <div class="visual-container">
-                            <div class="web-components-demo">
-                                <div class="component-showcase">
-                                    <div class="custom-component">
-                                        <h3>Cartão Produto</h3>
-                                        <p>Componente reutilizável</p>
+                            <div class="project-concept">
+                                <div class="project-showcase">
+                                    <div class="page-item">
+                                        <span class="page-icon">🏠</span>
+                                        <span class="page-name">Home</span>
+                                    </div>
+                                    <div class="page-item">
+                                        <span class="page-icon">📍</span>
+                                        <span class="page-name">Destinos</span>
+                                    </div>
+                                    <div class="page-item">
+                                        <span class="page-icon">📞</span>
+                                        <span class="page-name">Contato</span>
+                                    </div>
+                                    <div class="page-item">
+                                        <span class="page-icon">ℹ️</span>
+                                        <span class="page-name">Sobre</span>
+                                    </div>
+                                    <div class="page-item">
+                                        <span class="page-icon">📝</span>
+                                        <span class="page-name">Blog</span>
                                     </div>
                                 </div>
                             </div>
@@ -74,8 +112,435 @@
                 </div>
                 <div class="slide-navigation">
                     <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 6</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Estrutura do Projeto -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Estrutura do Projeto</h2>
+                        <p>Vamos planejar as 5 páginas e a estrutura de arquivos do nosso site.</p>
+
+                        <div class="steps-list">
+                            <h3>📋 Páginas a criar:</h3>
+                            <ol>
+                                <li><strong>index.html</strong> - Página inicial com hero e destaques</li>
+                                <li><strong>destinos.html</strong> - Lista de destinos em Portugal</li>
+                                <li><strong>sobre.html</strong> - Sobre a agência</li>
+                                <li><strong>contacto.html</strong> - Formulário de contacto</li>
+                                <li><strong>blog.html</strong> - Artigos sobre viagens</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📁 Estrutura de arquivos:</h4>
+                            <pre><code>agencia-viagens/
+├── index.html
+├── destinos.html
+├── sobre.html
+├── contacto.html
+├── blog.html
+├── css/
+│   ├── styles.css
+│   └── responsive.css
+├── js/
+│   └── main.js
+└── images/
+    ├── logo.png
+    ├── lisboa.jpg
+    ├── porto.jpg
+    └── algarve.jpg</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="project-structure">
+                                <div class="site-map">
+                                    <div class="page-node home">
+                                        <span class="node-name">Home</span>
+                                        <div class="node-connections">
+                                            <div class="connection destinos">Destinos</div>
+                                            <div class="connection sobre">Sobre</div>
+                                            <div class="connection contacto">Contato</div>
+                                            <div class="connection blog">Blog</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: HTML Semântico -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>HTML 100% Semântico</h2>
+                        <p>Use tags semânticas corretas para melhor acessibilidade e SEO.</p>
+
+                        <div class="code-example">
+                            <h4>🏗️ Estrutura semântica:</h4>
+                            <pre><code><header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/destinos">Destinos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Agência de Viagens Portugal</h1>
+    </section>
+
+    <article class="destino">
+        <h2>Lisboa</h2>
+        <p>Capital vibrante...</p>
+    </article>
+</main>
+
+<footer>
+    <address>Contato: info@viagens.pt</address>
+</footer></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>✅ Tags semânticas:</h3>
+                            <ul>
+                                <li><code><header></code>, <code><nav></code>, <code><main></code></li>
+                                <li><code><section></code>, <code><article></code>, <code><aside></code></li>
+                                <li><code><footer></code>, <code><address></code></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="semantic-demo">
+                                <div class="html-structure">
+                                    <div class="structure-level">
+                                        <span class="level-name">Header</span>
+                                        <span class="level-desc">Logo + Nav</span>
+                                    </div>
+                                    <div class="structure-level">
+                                        <span class="level-name">Main</span>
+                                        <span class="level-desc">Conteúdo principal</span>
+                                    </div>
+                                    <div class="structure-level">
+                                        <span class="level-name">Footer</span>
+                                        <span class="level-desc">Contato + Links</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Design Responsivo -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Design Responsivo</h2>
+                        <p>O site deve funcionar perfeitamente em desktop, tablet e mobile.</p>
+
+                        <div class="code-example">
+                            <h4>📱 Meta viewport:</h4>
+                            <pre><code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🎨 CSS responsivo:</h4>
+                            <pre><code>/* Mobile first */
+.container {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Teste em diferentes dispositivos e use ferramentas como BrowserStack.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="responsive-demo">
+                                <div class="device-previews">
+                                    <div class="device mobile">
+                                        <span class="device-name">📱 Mobile</span>
+                                        <div class="device-screen">Layout vertical</div>
+                                    </div>
+                                    <div class="device tablet">
+                                        <span class="device-name">📟 Tablet</span>
+                                        <div class="device-screen">Layout adaptado</div>
+                                    </div>
+                                    <div class="device desktop">
+                                        <span class="device-name">🖥️ Desktop</span>
+                                        <div class="device-screen">Layout completo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Otimizacção e Performance -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Otimizacção e Performance</h2>
+                        <p>Aplique todas as técnicas de otimizacção para um site rápido e eficiente.</p>
+
+                        <div class="highlight-box">
+                            <h3>⚡ Otimizações a implementar:</h3>
+                            <ul>
+                                <li>Imagens otimizadas (WebP)</li>
+                                <li>Preload de recursos críticos</li>
+                                <li>DNS prefetch</li>
+                                <li>Minificacção de CSS/JS</li>
+                                <li>Cache headers</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🚀 Performance headers:</h4>
+                            <pre><code><link rel="preload" href="css/styles.css" as="style">
+<link rel="dns-prefetch" href="//images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes"></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="performance-demo">
+                                <div class="speed-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">95+</span>
+                                        <span class="metric-name">PageSpeed</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">1.2s</span>
+                                        <span class="metric-name">LCP</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">0.05</span>
+                                        <span class="metric-name">CLS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Deploy GitHub Pages -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Deploy GitHub Pages</h2>
+                        <p>Publique seu site gratuitamente no GitHub Pages para o mundo ver.</p>
+
+                        <div class="steps-list">
+                            <h3>🚀 Passos para deploy:</h3>
+                            <ol>
+                                <li>Criar repositório no GitHub</li>
+                                <li>Fazer push do código</li>
+                                <li>Ativar GitHub Pages nas settings</li>
+                                <li>Escolher branch e pasta (geralmente /root)</li>
+                                <li>Aguardar deploy automático</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📝 Comandos Git:</h4>
+                            <pre><code>git init
+git add .
+git commit -m "Projeto final: Agência de Viagens"
+git branch -M main
+git remote add origin https://github.com/usuario/agencia-viagens.git
+git push -u origin main</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="deploy-demo">
+                                <div class="github-flow">
+                                    <div class="flow-step">
+                                        <span class="step-number">1</span>
+                                        <span class="step-text">Push to GitHub</span>
+                                    </div>
+                                    <div class="flow-step">
+                                        <span class="step-number">2</span>
+                                        <span class="step-text">GitHub Pages ativa</span>
+                                    </div>
+                                    <div class="flow-step">
+                                        <span class="step-number">3</span>
+                                        <span class="step-text">Site live!</span>
+                                    </div>
+                                </div>
+                                <div class="live-url">
+                                    <span class="url-text">https://usuario.github.io/agencia-viagens</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Exercício Prático -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Crie o site completo da Agência de Viagens Portugal!</p>
+
+                        <div class="exercise-box">
+                            <h3>🌍 Projeto Completo</h3>
+                            <p>Implemente todas as páginas com HTML semântico, CSS responsivo e optimização.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Requisitos:</h4>
+                                <ol>
+                                    <li>5 páginas HTML semânticas</li>
+                                    <li>Design responsivo</li>
+                                    <li>Otimizacção de performance</li>
+                                    <li>Deploy no GitHub Pages</li>
+                                    <li>Validacção W3C</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Entregável final:</h4>
+                            <div class="result-preview">
+                                <div class="final-project">
+                                    <pre><code>✅ 5 páginas HTML válidas
+✅ Design responsivo
+✅ Performance 95+ PageSpeed
+✅ Acessibilidade WCAG
+✅ Deploy público
+✅ Código no GitHub
+
+🏆 Parabéns, HTML5 Expert!</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="final-showcase">
+                                    <div class="site-preview">
+                                        <div class="preview-header">Agência de Viagens Portugal</div>
+                                        <div class="preview-content">
+                                            <div class="preview-page">🏠 Home</div>
+                                            <div class="preview-page">📍 Destinos</div>
+                                            <div class="preview-page">📞 Contato</div>
+                                        </div>
+                                    </div>
+                                    <div class="completion-badge">🎓 Projeto Finalizado!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Conclusão -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Parabéns! Curso Concluído</h2>
+                        <p>Você completou o curso HTML5 do Zero ao Expert! 🎉</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que conquistamos:</h3>
+                            <ul>
+                                <li>✅ 20 módulos completos</li>
+                                <li>✅ HTML5 semântico e moderno</li>
+                                <li>✅ Design responsivo</li>
+                                <li>✅ Performance otimizada</li>
+                                <li>✅ Acessibilidade e SEO</li>
+                                <li>✅ Projeto final no portfólio</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> Continue aprendendo CSS avançado, JavaScript e frameworks modernos!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎓</div>
+                                <div class="celebration-text">
+                                    <h3>HTML5 Expert!</h3>
+                                    <p>Curso concluído com sucesso!</p>
+                                </div>
+                                <div class="certificate">
+                                    <span class="cert-text">Certificado de Conclusão</span>
+                                    <span class="cert-name">Sandro Pereira - 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Curso</button>
                 </div>
             </section>
         </div>
@@ -85,11 +550,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="module-nav">
-                    <a href="modulo-12.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-14.html" class="btn btn-primary">Próximo Módulo →</a>
+                    <a href="modulo-19.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <span class="btn btn-disabled">Fim do Curso</span>
                 </div>
                 <div class="module-info">
-                    <p><strong>Módulo 13:</strong> Web Components | Professor: Sandro Pereira | 2025</p>
+                    <p><strong>Módulo 20:</strong> Projeto Final & Portfólio | Professor: Sandro Pereira | 2025</p>
                 </div>
             </div>
         </div>
