@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📚 Curso HTML5 do Zero ao Expert
 
 Curso completo de HTML5 ministrado pelo Professor Sandro Pereira em 2025.
@@ -127,3 +128,6 @@ Para dúvidas ou sugestões:
 ---
 
 **Desenvolvido com ❤️ por Sandro Pereira**
+=======
+# Cursos_web_Developer
+>>>>>>> a0086f51bce1c9eaa9fd6cff079b8b8d5ba80ff6
