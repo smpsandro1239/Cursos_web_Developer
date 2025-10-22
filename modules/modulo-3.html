@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Listas e Links - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 3 do Curso HTML5 - Listas e navegacção com links">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 3 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 3</span>
+                    <h1 class="module-title">Listas e Links</h1>
+                    <p class="module-subtitle">Navegacção e estrutura de conteúdo</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duracção: 1 aula</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Listas e Links</h2>
+                        <p>Listas organizam conteúdo em sequência e links criam navegacção entre páginas e seções. São elementos fundamentais para boa usabilidade.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 O que vamos aprender:</h3>
+                            <ul>
+                                <li>Listas ordenadas e não ordenadas</li>
+                                <li>Listas aninhadas (menus)</li>
+                                <li>Links internos e externos</li>
+                                <li>Âncoras e navegacção</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Links e listas são a espinha dorsal da navegacção web. Sem eles, os usuários se perdem na internet!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="lists-links-concept">
+                                <div class="concept-item">
+                                    <span class="concept-icon">📋</span>
+                                    <span class="concept-title">Listas</span>
+                                    <span class="concept-desc">Organizacção</span>
+                                </div>
+                                <div class="concept-arrow">→</div>
+                                <div class="concept-item">
+                                    <span class="concept-icon">🔗</span>
+                                    <span class="concept-title">Links</span>
+                                    <span class="concept-desc">Navegacção</span>
+                                </div>
+                                <div class="concept-arrow">→</div>
+                                <div class="concept-item">
+                                    <span class="concept-icon">🎯</span>
+                                    <span class="concept-title">UX</span>
+                                    <span class="concept-desc">Experiência</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Listas Não Ordenadas -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Listas Não Ordenadas</h2>
+                        <p>As listas não ordenadas (<code><ul></code>) criam listas com bullets/marcadores. São perfeitas para itens sem ordem específica.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Estrutura básica:</h4>
+                            <pre><code><ul>
+    <li>Primeiro item</li>
+    <li>Segundo item</li>
+    <li>Terceiro item</li>
+</ul></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>💡 Quando usar <ul>:</h3>
+                            <ul>
+                                <li>Menus de navegacção</li>
+                                <li>Listas de características</li>
+                                <li>Grupos de opções</li>
+                                <li>Lista de ingredientes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="list-demo">
+                                <h4>Exemplo prático:</h4>
+                                <ul class="demo-list">
+                                    <li>🍕 Pizza Margherita</li>
+                                    <li>🍝 Spaghetti Carbonara</li>
+                                    <li>🥗 Salada Caesar</li>
+                                    <li>🍷 Vinho Chianti</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Listas Ordenadas -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Listas Ordenadas</h2>
+                        <p>As listas ordenadas (<code><ol></code>) criam listas numeradas. São ideais quando a ordem dos itens é importante.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Como usar:</h4>
+                            <pre><code><ol>
+    <li>Primeiro passo</li>
+    <li>Segundo passo</li>
+    <li>Terceiro passo</li>
+</ol></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Quando usar <ol>:</h3>
+                            <ul>
+                                <li>Instruções passo-a-passo</li>
+                                <li>Rankings ou top lists</li>
+                                <li>Sequências cronológicas</li>
+                                <li>Processos ordenados</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="list-demo">
+                                <h4>Exemplo: Receita de Pastel de Nata</h4>
+                                <ol class="demo-list ordered">
+                                    <li>Aquecer o forno a 250°C</li>
+                                    <li>Preparar o recheio com leite e gemas</li>
+                                    <li>Estender a massa folhada</li>
+                                    <li>Rechear e levar ao forno</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Listas Aninhadas -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Listas Aninhadas</h2>
+                        <p>Podemos colocar listas dentro de listas para criar estruturas hierárquicas, como menus complexos ou outlines detalhados.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplo de menu:</h4>
+                            <pre><code><ul>
+    <li>Cursos
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+    </li>
+    <li>Contato</li>
+</ul></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Listas aninhadas são perfeitas para criar menus dropdown e navegacção complexa.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="nested-demo">
+                                <h4>Menu de Navegacção:</h4>
+                                <ul class="main-menu">
+                                    <li class="menu-item">
+                                        <span class="menu-title">🏠 Início</span>
+                                    </li>
+                                    <li class="menu-item has-submenu">
+                                        <span class="menu-title">📚 Cursos</span>
+                                        <ul class="submenu">
+                                            <li>HTML5 do Zero</li>
+                                            <li>CSS3 Avançado</li>
+                                            <li>JavaScript Moderno</li>
+                                            <li>React Completo</li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item">
+                                        <span class="menu-title">👨‍🏫 Sobre</span>
+                                    </li>
+                                    <li class="menu-item">
+                                        <span class="menu-title">📞 Contato</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Links Básicos -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Links Básicos</h2>
+                        <p>Links (<code><a></code>) conectam páginas e recursos. São a essência da navegacção web.</p>
+
+                        <div class="steps-list">
+                            <h3>🔗 Tipos de links:</h3>
+                            <ol>
+                                <li><strong>Externos:</strong> Para outros sites</li>
+                                <li><strong>Internos:</strong> Para páginas do mesmo site</li>
+                                <li><strong>Downloads:</strong> Para arquivos</li>
+                                <li><strong>Email:</strong> Para composição de email</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplos:</h4>
+                            <pre><code><a href="https://google.com">Google</a>
+<a href="sobre.html">Sobre Nós</a>
+<a href="documento.pdf">Baixar PDF</a>
+<a href="mailto:contacto@site.com">Email</a></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="links-demo">
+                                <div class="link-grid">
+                                    <div class="link-item">
+                                        <span class="link-icon">🌐</span>
+                                        <a href="#" class="demo-link external">Site Externo</a>
+                                        <span class="link-desc">https://exemplo.com</span>
+                                    </div>
+                                    <div class="link-item">
+                                        <span class="link-icon">📄</span>
+                                        <a href="#" class="demo-link internal">Página Interna</a>
+                                        <span class="link-desc">sobre.html</span>
+                                    </div>
+                                    <div class="link-item">
+                                        <span class="link-icon">📎</span>
+                                        <a href="#" class="demo-link download">Download</a>
+                                        <span class="link-desc">arquivo.pdf</span>
+                                    </div>
+                                    <div class="link-item">
+                                        <span class="link-icon">✉️</span>
+                                        <a href="#" class="demo-link email">Email</a>
+                                        <span class="link-desc">contacto@site.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Target e Âncoras -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Target="_blank" e Âncoras</h2>
+                        <p>O atributo <code>target="_blank"</code> abre links em nova aba. Âncoras criam links internos que "saltam" para seções específicas da página.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Nova aba e âncoras:</h4>
+                            <pre><code><!-- Nova aba -->
+<a href="https://site.com" target="_blank">Novo site</a>
+
+<!-- Âncoras -->
+<a href="#contactos">Ir para Contatos</a>
+...
+<div id="contactos">Seção de Contatos</div></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Melhores práticas:</h3>
+                            <ul>
+                                <li>Use <code>target="_blank"</code> para sites externos</li>
+                                <li>Sempre adicione <code>rel="noopener noreferrer"</code> por segurança</li>
+                                <li>Nomes de ID devem ser únicos</li>
+                                <li>Use âncoras para navegacção longa</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="anchors-demo">
+                                <div class="page-sections">
+                                    <div class="section-nav">
+                                        <h4>📍 Navegacção da página:</h4>
+                                        <ul>
+                                            <li><a href="#inicio" class="anchor-link">Início</a></li>
+                                            <li><a href="#sobre" class="anchor-link">Sobre</a></li>
+                                            <li><a href="#servicos" class="anchor-link">Serviços</a></li>
+                                            <li><a href="#contactos" class="anchor-link">Contatos</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="page-content">
+                                        <div id="inicio" class="section">🏠 Início</div>
+                                        <div id="sobre" class="section">👨‍🏫 Sobre</div>
+                                        <div id="servicos" class="section">⚙️ Serviços</div>
+                                        <div id="contactos" class="section">📞 Contatos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Exercício Prático -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos criar uma página com índice navegável que salta para diferentes seções!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Tarefa:</h3>
+                            <p>Crie uma página com 3 seções principais e um índice no topo com links âncora.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Requisitos:</h4>
+                                <ol>
+                                    <li>Estrutura HTML5 completa</li>
+                                    <li>Índice de navegacção no topo</li>
+                                    <li>3 seções com IDs únicos</li>
+                                    <li>Links âncora funcionais</li>
+                                    <li>Listas para organizar conteúdo</li>
+                                    <li>Pelo menos um link externo</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado esperado:</h4>
+                            <div class="result-preview">
+                                <div class="file-editor">
+                                    <div class="editor-header">
+                                        <span class="file-name">navegacao.html</span>
+                                    </div>
+                                    <div class="editor-content">
+                                        <pre><code><!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Navegacção com Âncoras</title>
+</head>
+<body>
+    <h1>Meu Site</h1>
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contactos">Contatos</a></li>
+    </ul>
+
+    <h2 id="sobre">Sobre</h2>
+    <p>Informações sobre a empresa.</p>
+
+    <h2 id="servicos">Serviços</h2>
+    <p>Lista de serviços oferecidos.</p>
+
+    <h2 id="contactos">Contatos</h2>
+    <p>Informações para contacto.</p>
+</body>
+</html></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="page-demo">
+                                    <div class="demo-header">
+                                        <h1>📚 Biblioteca Digital</h1>
+                                        <nav class="demo-nav">
+                                            <a href="#ficcao" class="nav-link">Ficção</a>
+                                            <a href="#tecnica" class="nav-link">Técnica</a>
+                                            <a href="#biografias" class="nav-link">Biografias</a>
+                                        </nav>
+                                    </div>
+                                    <div class="demo-content">
+                                        <section id="ficcao" class="demo-section">
+                                            <h2>📖 Ficção Científica</h2>
+                                            <ul>
+                                                <li>Duna - Frank Herbert</li>
+                                                <li>Neuromancer - William Gibson</li>
+                                                <li>Fundacção - Isaac Asimov</li>
+                                            </ul>
+                                        </section>
+                                        <section id="tecnica" class="demo-section">
+                                            <h2>🔧 Livros Técnicos</h2>
+                                            <ul>
+                                                <li>HTML5 do Zero ao Expert</li>
+                                                <li>CSS Grid Layout</li>
+                                                <li>JavaScript Moderno</li>
+                                            </ul>
+                                        </section>
+                                        <section id="biografias" class="demo-section">
+                                            <h2>👤 Biografias</h2>
+                                            <ul>
+                                                <li>Steve Jobs - Walter Isaacson</li>
+                                                <li>Elon Musk - Ashlee Vance</li>
+                                                <li>Tim Berners-Lee - James Gillies</li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Conclusão -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu sobre listas e links, elementos essenciais para navegacção web.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Listas ordenadas (<ol>) e não ordenadas (<ul>)</li>
+                                <li>✅ Listas aninhadas para menus</li>
+                                <li>✅ Links internos e externos</li>
+                                <li>✅ Âncoras para navegacção interna</li>
+                                <li>✅ Target="_blank" para novas abas</li>
+                                <li>✅ Índices navegáveis</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre imagens e multimédia para tornar nossas páginas mais atrativas!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 3 Completo!</h3>
+                                    <p>Você domina listas e navegacção!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 4: Imagens e Multimédia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-2.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-4.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 3:</strong> Listas e Links | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>

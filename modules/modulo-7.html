@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Semântica HTML5 - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 7 do Curso HTML5 - Tags semânticas e estrutura de documentos">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 7 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 7</span>
+                    <h1 class="module-title">Semântica HTML5</h1>
+                    <p class="module-subtitle">Estrutura e significado nos documentos</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duracção: 2 aulas</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Semântica HTML5</h2>
+                        <p>Semântica significa usar elementos HTML que expressam o significado do conteúdo, não apenas sua aparência. Isso beneficia acessibilidade, SEO e manutenção.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Benefícios da semântica:</h3>
+                            <ul>
+                                <li>Melhora acessibilidade para screen readers</li>
+                                <li>Ajuda mecanismos de busca entenderem o conteúdo</li>
+                                <li>Facilita manutenção e refatoracção</li>
+                                <li>Prepara para futuras tecnologias web</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Semântica não é apenas sobre máquinas entenderem seu código, mas sobre humanos conseguirem manter e evoluir seus projetos."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="semantic-concept">
+                                <div class="semantic-before-after">
+                                    <div class="before">
+                                        <div class="code-title">❌ Antes (apenas divs)</div>
+                                        <div class="code-snippet">
+                                            <div class="header"><br>
+                                            <div class="nav"><br>
+                                            <div class="content">
+                                        </div>
+                                    </div>
+                                    <div class="arrow">↓</div>
+                                    <div class="after">
+                                        <div class="code-title">✅ Depois (semântico)</div>
+                                        <div class="code-snippet">
+                                            <header><br>
+                                            <nav><br>
+                                            <main>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Tags de Layout -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Tags de Layout Semânticas</h2>
+                        <p>HTML5 introduziu elementos específicos para as principais seções de layout de uma página web.</p>
+
+                        <div class="steps-list">
+                            <h3>🏗️ Principais elementos:</h3>
+                            <ol>
+                                <li><code><header></code> - Cabeçalho da página/secção</li>
+                                <li><code><nav></code> - Navegacção principal</li>
+                                <li><code><main></code> - Conteúdo principal</li>
+                                <li><code><section></code> - Seção temática</li>
+                                <li><code><article></code> - Conteúdo independente</li>
+                                <li><code><aside></code> - Conteúdo relacionado</li>
+                                <li><code><footer></code> - Rodapé da página/secção</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📝 Estrutura típica:</h4>
+                            <pre><code><header>Logo + navegacção</header>
+<main>
+    <section>Conteúdo principal</section>
+    <aside>Barra lateral</aside>
+</main>
+<footer>Informações de contacto</footer></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="layout-demo">
+                                <div class="page-layout">
+                                    <div class="layout-header">📋 Header</div>
+                                    <div class="layout-main">
+                                        <div class="layout-nav">🧭 Nav</div>
+                                        <div class="layout-content">
+                                            <div class="layout-section">📄 Section</div>
+                                            <div class="layout-aside">📊 Aside</div>
+                                        </div>
+                                    </div>
+                                    <div class="layout-footer">📞 Footer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Header e Nav -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2><header> e <nav></h2>
+                        <p><code><header></code> representa o cabeçalho introdutório e <code><nav></code> a navegacção principal do documento.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplo prático:</h4>
+                            <pre><code><header>
+    <h1>Meu Site</h1>
+    <p>Slogan ou descrição</p>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contacto">Contato</a></li>
+        </ul>
+    </nav>
+</header></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Boas práticas:</h3>
+                            <ul>
+                                <li>Use apenas UM header principal por página</li>
+                                <li>Nav deve conter links importantes</li>
+                                <li>Não use nav para grupos pequenos de links</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="header-nav-demo">
+                                <header class="demo-header">
+                                    <div class="header-content">
+                                        <div class="logo">
+                                            <span class="logo-icon">🚀</span>
+                                            <h1>HTML5 Expert</h1>
+                                        </div>
+                                        <p class="tagline">Curso completo do zero ao expert</p>
+                                        <nav class="demo-nav">
+                                            <a href="#inicio" class="nav-link">Início</a>
+                                            <a href="#cursos" class="nav-link">Cursos</a>
+                                            <a href="#sobre" class="nav-link">Sobre</a>
+                                            <a href="#contacto" class="nav-link">Contato</a>
+                                        </nav>
+                                    </div>
+                                </header>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Main, Section e Article -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2><main>, <section> e <article></h2>
+                        <p><code><main></code> envolve o conteúdo principal, <code><section></code> agrupa conteúdo relacionado e <code><article></code> representa conteúdo independente.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Diferenças importantes:</h4>
+                            <pre><code><main>                          ← Apenas um por página
+    <section>                    ← Grupo temático
+        <h2>Título da Seção</h2>
+        <p>Conteúdo relacionado</p>
+    </section>
+
+    <article>                     ← Conteúdo independente
+        <h2>Título do Artigo</h2>
+        <p>Pode ser republicado sozinho</p>
+    </article>
+</main></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Article representa conteúdo que poderia ser distribuído ou reutilizado independentemente, como posts de blog.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="main-section-demo">
+                                <div class="content-structure">
+                                    <div class="main-content">
+                                        <div class="section-item">
+                                            <h3>📚 Seção de Tutoriais</h3>
+                                            <p>Grupo de conteúdo relacionado sobre HTML5</p>
+                                        </div>
+                                        <div class="article-item">
+                                            <h3>📰 Guia Completo de Formulários</h3>
+                                            <p>Artigo independente que pode ser compartilhado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Aside e Footer -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2><aside> e <footer></h2>
+                        <p><code><aside></code> representa conteúdo relacionado (sidebar) e <code><footer></code> informações finais da página ou secção.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Exemplos de uso:</h4>
+                            <pre><code><aside>                        ← Barra lateral
+    <h3>Posts Relacionados</h3>
+    <ul>
+        <li><a href="#">CSS Avançado</a></li>
+        <li><a href="#">JavaScript Moderno</a></li>
+    </ul>
+</aside>
+
+<footer>                       ← Rodapé
+    <p>&copy; 2025 HTML5 Expert</p>
+    <p>Contato: info@html5expert.com</p>
+</footer></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Quando usar aside:</h3>
+                            <ul>
+                                <li>Barras laterais informativas</li>
+                                <li>Caixas de destaque</li>
+                                <li>Conteúdo tangencialmente relacionado</li>
+                                <li>Não para propagandas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="aside-footer-demo">
+                                <div class="page-layout-demo">
+                                    <div class="main-column">
+                                        <h2>Artigo Principal</h2>
+                                        <p>Conteúdo do artigo aqui...</p>
+                                    </div>
+                                    <aside class="sidebar">
+                                        <h3>💡 Dicas Relacionadas</h3>
+                                        <ul>
+                                            <li>Como usar CSS Grid</li>
+                                            <li>Melhores práticas HTML</li>
+                                            <li>Ferramentas para desenvolvedores</li>
+                                        </ul>
+                                    </aside>
+                                </div>
+                                <footer class="demo-footer">
+                                    <p>© 2025 Curso HTML5 Expert</p>
+                                    <p>Professor: Sandro Pereira</p>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Elementos de Texto Semântico -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Elementos de Texto Semântico</h2>
+                        <p>HTML5 oferece elementos específicos para diferentes tipos de conteúdo textual.</p>
+
+                        <div class="steps-list">
+                            <h3>📝 Elementos úteis:</h3>
+                            <ol>
+                                <li><code><figure></code> - Agrupa imagem + legenda</li>
+                                <li><code><figcaption></code> - Legenda da figura</li>
+                                <li><code><time></code> - Representa data/hora</li>
+                                <li><code><mark></code> - Texto destacado/marcado</li>
+                                <li><code><details></code> - Widget expansível</li>
+                                <li><code><summary></code> - Título do details</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>💡 Exemplos práticos:</h4>
+                            <pre><code><figure>
+    <img src="grafico.jpg" alt="Gráfico de vendas">
+    <figcaption>Figura 1: Crescimento 2025</figcaption>
+</figure>
+
+<time datetime="2025-12-25">Natal de 2025</time>
+
+<mark>Texto importante destacado</mark></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="text-elements-demo">
+                                <div class="demo-grid">
+                                    <div class="demo-item">
+                                        <figure class="demo-figure">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%2364b5f6'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='white' font-size='14'%3EGráfico de Vendas%3C/text%3E%3C/svg%3E"
+                                                 alt="Demonstracção de figura com legenda">
+                                            <figcaption>📊 Figura 1: Crescimento de vendas em 2025</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="demo-item">
+                                        <p>Próxima aula: <time datetime="2025-10-22">22 de outubro de 2025</time></p>
+                                        <p>Texto <mark class="highlight">destacado</mark> para ênfase</p>
+                                    </div>
+                                </div>
+
+                                <details class="demo-details">
+                                    <summary class="details-summary">📖 Sobre o outline algorithm</summary>
+                                    <div class="details-content">
+                                        <p>O outline algorithm determina automaticamente a estrutura hierárquica do documento baseado nas tags semânticas utilizadas.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Outline Algorithm -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Outline Algorithm</h2>
+                        <p>O algoritmo de outline determina automaticamente a estrutura hierárquica do documento baseado nas seções semânticas.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Como funciona:</h3>
+                            <ul>
+                                <li>Analisa elementos de secção (article, section, nav, aside)</li>
+                                <li>Cria hierarquia baseada na nesting</li>
+                                <li>Não depende apenas dos títulos (h1-h6)</li>
+                                <li>Afeta navegacção por teclado e screen readers</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📝 Estrutura correta:</h4>
+                            <pre><code><article>
+    <h1>Título do Artigo</h1>
+    <section>
+        <h2>Seção Principal</h2>
+        <section>
+            <h3>Subsecção</h3>
+        </section>
+    </section>
+</article></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Use ferramentas como o HTML5 Outliner para visualizar a estrutura do seu documento.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="outline-demo">
+                                <div class="outline-tree">
+                                    <div class="outline-level-1">
+                                        <span class="outline-icon">📄</span>
+                                        <span class="outline-text">Artigo: HTML5 Semântico</span>
+                                        <div class="outline-level-2">
+                                            <span class="outline-icon">📑</span>
+                                            <span class="outline-text">Seção: Introdução</span>
+                                            <div class="outline-level-3">
+                                                <span class="outline-icon">📋</span>
+                                                <span class="outline-text">Subsecção: Conceitos Básicos</span>
+                                            </div>
+                                        </div>
+                                        <div class="outline-level-2">
+                                            <span class="outline-icon">📑</span>
+                                            <span class="outline-text">Seção: Exemplos Práticos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Exercício Prático -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos refatorar a página do "pastel de nata" usando todas as tags semânticas que aprendemos!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Refatoracção Semântica</h3>
+                            <p>Transforme uma página com divs genéricas em uma página semanticamente estruturada.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Tarefas:</h4>
+                                <ol>
+                                    <li>Identificar seções lógicas do conteúdo</li>
+                                    <li>Substituir divs por elementos semânticos</li>
+                                    <li>Usar header, nav, main, section, article</li>
+                                    <li>Adicionar figure para imagens</li>
+                                    <li>Estrutura com aside e footer</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Página semântica completa:</h4>
+                            <div class="result-preview">
+                                <div class="file-editor">
+                                    <div class="editor-header">
+                                        <span class="file-name">pastel-semantico.html</span>
+                                    </div>
+                                    <div class="editor-content">
+                                        <pre><code><!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastel de Nata - Receita Portuguesa</title>
+</head>
+<body>
+    <header>
+        <h1>Pastel de Nata</h1>
+        <nav>...</nav>
+    </header>
+
+    <main>
+        <article>
+            <section>
+                <h2>História</h2>
+                <p>...</p>
+            </section>
+
+            <section>
+                <h2>Receita</h2>
+                <figure>
+                    <img src="pastel.jpg" alt="Pastel de nata">
+                    <figcaption>Pastel de nata tradicional</figcaption>
+                </figure>
+            </section>
+        </article>
+
+        <aside>
+            <h3>Receitas Relacionadas</h3>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cozinha Portuguesa</p>
+    </footer>
+</body>
+</html></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="semantic-page-demo">
+                                    <header class="demo-header">
+                                        <h1>🥮 Pastel de Nata</h1>
+                                        <p>Receita tradicional portuguesa</p>
+                                    </header>
+
+                                    <nav class="demo-nav">
+                                        <a href="#historia">História</a>
+                                        <a href="#receita">Receita</a>
+                                        <a href="#dicas">Dicas</a>
+                                    </nav>
+
+                                    <main class="demo-main">
+                                        <article class="demo-article">
+                                            <section id="historia">
+                                                <h2>📜 História</h2>
+                                                <p>O pastel de nata surgiu em Portugal no século XIX...</p>
+                                            </section>
+
+                                            <section id="receita">
+                                                <h2>👨‍🍳 Receita</h2>
+                                                <figure>
+                                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23fbbf24'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='%2392400e' font-size='14'%3EPastel de Nata%3C/text%3E%3C/svg%3E"
+                                                         alt="Pastel de nata dourado e crocante">
+                                                    <figcaption>Pastel de nata tradicional português</figcaption>
+                                                </figure>
+                                                <p>Ingredientes e modo de preparo...</p>
+                                            </section>
+                                        </article>
+
+                                        <aside class="demo-aside">
+                                            <h3>🔗 Receitas Relacionadas</h3>
+                                            <ul>
+                                                <li><a href="#">Pastéis de Belém</a></li>
+                                                <li><a href="#">Toucinho do Céu</a></li>
+                                                <li><a href="#">Arroz Doce</a></li>
+                                            </ul>
+                                        </aside>
+                                    </main>
+
+                                    <footer class="demo-footer">
+                                        <p>© 2025 Cozinha Portuguesa</p>
+                                        <p>Publicado em <time datetime="2025-10-21">21 de outubro de 2025</time></p>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 9</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 9: Conclusão -->
+            <section class="slide" id="slide-9" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu a criar documentos HTML5 semanticamente estruturados e acessíveis.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Tags de layout semânticas</li>
+                                <li>✅ Diferença entre section e article</li>
+                                <li>✅ Elementos de texto semântico</li>
+                                <li>✅ Outline algorithm</li>
+                                <li>✅ Refatoracção para semântica</li>
+                                <li>✅ Melhores práticas</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre acessibilidade, tornando nossos sites inclusivos para todos!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 7 Completo!</h3>
+                                    <p>Você domina semântica HTML5!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 8: Acessibilidade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">9 / 9</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-6.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-8.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 7:</strong> Semântica HTML5 | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>

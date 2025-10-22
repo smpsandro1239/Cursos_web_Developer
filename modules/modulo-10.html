@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Recursos Estáticos Otimizados - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 10 do Curso HTML5 - Otimizacção de recursos estáticos">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 10 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 10</span>
+                    <h1 class="module-title">Recursos Estáticos Otimizados</h1>
+                    <p class="module-subtitle">Performance e otimizacção web</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duracção: 2 aulas</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Recursos Estáticos Otimizados</h2>
+                        <p>Otimizações de performance para CSS, JavaScript e recursos estáticos são cruciais para uma experiência web rápida e eficiente.</p>
+
+                        <div class="highlight-box">
+                            <h3>⚡ O que vamos aprender:</h3>
+                            <ul>
+                                <li>Estratégias de carregamento de recursos</li>
+                                <li>Preload, prefetch e preconnect</li>
+                                <li>DNS prefetch para fontes</li>
+                                <li>Sprite sheets SVG</li>
+                                <li>PageSpeed optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Performance não é luxo, é necessidade. Sites rápidos convertem mais e proporcionam melhor experiência!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="performance-concept">
+                                <div class="perf-elements">
+                                    <div class="perf-item">
+                                        <span class="perf-icon">🚀</span>
+                                        <span class="perf-name">Velocidade</span>
+                                    </div>
+                                    <div class="perf-item">
+                                        <span class="perf-icon">📈</span>
+                                        <span class="perf-name">Performance</span>
+                                    </div>
+                                    <div class="perf-item">
+                                        <span class="perf-icon">💰</span>
+                                        <span class="perf-name">Conversão</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Estratégias de Carregamento -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Estratégias de Carregamento</h2>
+                        <p>HTML5 oferece diferentes formas de carregar recursos: inline, internal e external CSS/JS, cada um com vantagens específicas.</p>
+
+                        <div class="steps-list">
+                            <h3>📋 Tipos de carregamento:</h3>
+                            <ol>
+                                <li><strong>Inline:</strong> Código dentro do HTML</li>
+                                <li><strong>Internal:</strong> No head do documento</li>
+                                <li><strong>External:</strong> Arquivos separados</li>
+                                <li><strong>Assíncrono:</strong> Carregamento não bloqueante</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>💡 Exemplo de external:</h4>
+                            <pre><code><link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js"></script></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>⚡ Carregamento assíncrono:</h4>
+                            <pre><code><script async src="js/analytics.js"></script>
+<script defer src="js/app.js"></script></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="loading-strategies">
+                                <div class="strategy-comparison">
+                                    <div class="strategy-item">
+                                        <div class="strategy-type">� INLINE</div>
+                                        <div class="strategy-desc">Rápido, mas aumenta HTML</div>
+                                    </div>
+                                    <div class="strategy-item">
+                                        <div class="strategy-type">📄 INTERNAL</div>
+                                        <div class="strategy-desc">No cabeçalho</div>
+                                    </div>
+                                    <div class="strategy-item">
+                                        <div class="strategy-type">📁 EXTERNAL</div>
+                                        <div class="strategy-desc">Arquivos separados</div>
+                                    </div>
+                                    <div class="strategy-item">
+                                        <div class="strategy-type">⚡ ASYNC</div>
+                                        <div class="strategy-desc">Não bloqueante</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Preload e Prefetch -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Preload e Prefetch</h2>
+                        <p>Estas técnicas permitem carregar recursos antecipadamente para melhorar a performance percebida.</p>
+
+                        <div class="code-example">
+                            <h4>🚀 Preload (crítico):</h4>
+                            <pre><code><link rel="preload" href="css/critical.css" as="style">
+<link rel="preload" href="js/main.js" as="script">
+<link rel="preload" href="fonts/primary.woff2" as="font" type="font/woff2"></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>⚡ Prefetch (futuro):</h4>
+                            <pre><code><link rel="prefetch" href="images/large-image.jpg">
+<link rel="prefetch" href="pages/about.html"></code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Quando usar:</h3>
+                            <ul>
+                                <li><strong>Preload:</strong> Recursos críticos para a página atual</li>
+                                <li><strong>Prefetch:</strong> Recursos prováveis para próxima navegacção</li>
+                                <li><strong>Preconnect:</strong> Conexões para domínios externos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="preload-demo">
+                                <div class="loading-timeline">
+                                    <div class="timeline-item">
+                                        <span class="timeline-icon">📄</span>
+                                        <span class="timeline-text">HTML carregado</span>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <span class="timeline-icon">🎨</span>
+                                        <span class="timeline-text">CSS crítico (preload)</span>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <span class="timeline-icon">⚡</span>
+                                        <span class="timeline-text">JS principal (preload)</span>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <span class="timeline-icon">🖼️</span>
+                                        <span class="timeline-text">Imagens (lazy load)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: DNS Prefetch -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>DNS Prefetch</h2>
+                        <p>DNS prefetch resolve nomes de domínio antecipadamente, reduzindo latência de recursos externos.</p>
+
+                        <div class="code-example">
+                            <h4>🌐 Para domínios externos:</h4>
+                            <pre><code><link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//cdn.exemplo.com">
+<link rel="dns-prefetch" href="//api.google.com"></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📱 Para subdomínios:</h4>
+                            <pre><code><link rel="dns-prefetch" href="//static.seusite.com">
+<link rel="dns-prefetch" href="//api.seusite.com"></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Use especialmente para Google Fonts, CDNs e APIs externos.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="dns-demo">
+                                <div class="dns-process">
+                                    <div class="process-step">
+                                        <span class="step-number">1</span>
+                                        <span class="step-text">Usuário clica no link</span>
+                                    </div>
+                                    <div class="process-step">
+                                        <span class="step-number">2</span>
+                                        <span class="step-text">DNS prefetch já resolveu</span>
+                                    </div>
+                                    <div class="process-step">
+                                        <span class="step-number">3</span>
+                                        <span class="step-text">Carregamento instantâneo</span>
+                                    </div>
+                                </div>
+                                <div class="dns-savings">
+                                    <p>⏱️ Economia: ~200-500ms por domínio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Sprite Sheets SVG -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Sprite Sheets SVG</h2>
+                        <p>SVG sprites combinam múltiplos ícones em um arquivo, reduzindo requests HTTP e melhorando performance.</p>
+
+                        <div class="code-example">
+                            <h4>🎨 SVG Sprite:</h4>
+                            <pre><code><svg style="display: none">
+    <defs>
+        <symbol id="home" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </symbol>
+        <symbol id="user" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </symbol>
+    </defs>
+</svg></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>📋 Como usar:</h4>
+                            <pre><code><svg><use href="#home"/></svg>
+<svg><use href="#user"/></svg></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="sprite-demo">
+                                <div class="sprite-sheet">
+                                    <div class="sprite-icons">
+                                        <div class="icon-item">
+                                            <svg class="sprite-icon" viewBox="0 0 24 24">
+                                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                            </svg>
+                                            <span class="icon-label">Home</span>
+                                        </div>
+                                        <div class="icon-item">
+                                            <svg class="sprite-icon" viewBox="0 0 24 24">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                            <span class="icon-label">User</span>
+                                        </div>
+                                        <div class="icon-item">
+                                            <svg class="sprite-icon" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                            </svg>
+                                            <span class="icon-label">Check</span>
+                                        </div>
+                                    </div>
+                                    <div class="sprite-info">
+                                        <p>📦 1 arquivo → ∞ ícones</p>
+                                        <p>⚡ 1 request → Performance</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: PageSpeed Insights -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>PageSpeed Insights</h2>
+                        <p>Ferramenta do Google que analisa performance e fornece sugestões específicas de otimizacção.</p>
+
+                        <div class="steps-list">
+                            <h3>📊 Métricas importantes:</h3>
+                            <ol>
+                                <li><strong>LCP:</strong> Largest Contentful Paint</li>
+                                <li><strong>FID:</strong> First Input Delay</li>
+                                <li><strong>CLS:</strong> Cumulative Layout Shift</li>
+                                <li><strong>Core Web Vitals</strong></li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Meta 95+:</h3>
+                            <ul>
+                                <li>Otimizações de imagem</li>
+                                <li>Minificacção de recursos</li>
+                                <li>Cache de navegador</li>
+                                <li>CDN para recursos estáticos</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Use PageSpeed Insights para identificar gargalos específicos no seu site.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="pagespeed-demo">
+                                <div class="score-demo">
+                                    <div class="score-circle">
+                                        <span class="score-number">95</span>
+                                        <span class="score-label">PageSpeed</span>
+                                    </div>
+                                    <div class="score-metrics">
+                                        <div class="metric">
+                                            <span class="metric-name">LCP</span>
+                                            <span class="metric-value good">1.2s</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-name">FID</span>
+                                            <span class="metric-value good">80ms</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-name">CLS</span>
+                                            <span class="metric-value good">0.05</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Exercício Prático -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos otimizar nossa galeria de Lisboa para alcançar PageSpeed 95+!</p>
+
+                        <div class="exercise-box">
+                            <h3>⚡ Otimizacção Completa</h3>
+                            <p>Implemente todas as técnicas de otimizacção aprendidas na galeria de imagens.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Tarefas:</h4>
+                                <ol>
+                                    <li>Adicionar preload para CSS crítico</li>
+                                    <li>Configurar DNS prefetch para imagens</li>
+                                    <li>Implementar lazy loading</li>
+                                    <li>Criar sprite SVG para ícones</li>
+                                    <li>Otimizar imagens (WebP + fallbacks)</li>
+                                    <li>Testar no PageSpeed Insights</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎯 Meta: 95+ PageSpeed</h4>
+                            <div class="result-preview">
+                                <div class="optimization-head">
+                                    <pre><code><!-- Otimizações implementadas -->
+<link rel="preload" href="css/critical.css" as="style">
+<link rel="dns-prefetch" href="//images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<img src="lisboa.webp" alt="Lisboa" loading="lazy">
+
+<svg style="display: none">
+    <defs>
+        <symbol id="camera" viewBox="0 0 24 24">...</symbol>
+    </defs>
+</svg></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="optimized-gallery">
+                                    <div class="gallery-optimized">
+                                        <div class="image-container">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%232563eb'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='white' font-size='16'%3ETorre de Belém%3C/text%3E%3C/svg%3E"
+                                                 alt="Torre de Belém em Lisboa - imagem otimizada WebP"
+                                                 loading="lazy"
+                                                 class="optimized-image">
+                                        </div>
+                                        <div class="image-container">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23fbbf24'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='%2392400e' font-size='16'%3EPraça do Comércio%3C/text%3E%3C/svg%3E"
+                                                 alt="Praça do Comércio em Lisboa - imagem comprimida"
+                                                 loading="lazy"
+                                                 class="optimized-image">
+                                        </div>
+                                    </div>
+                                    <div class="optimization-badges">
+                                        <span class="badge">⚡ Lazy Loading</span>
+                                        <span class="badge">🖼️ WebP Format</span>
+                                        <span class="badge">📦 DNS Prefetch</span>
+                                        <span class="badge">🎯 95+ Score</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Conclusão -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Você aprendeu técnicas avançadas de otimizacção de performance web.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Estratégias de carregamento</li>
+                                <li>✅ Preload e prefetch</li>
+                                <li>✅ DNS prefetch</li>
+                                <li>✅ Sprite sheets SVG</li>
+                                <li>✅ PageSpeed optimization</li>
+                                <li>✅ Performance 95+</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre multilinguagem e internacionalizacção!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 10 Completo!</h3>
+                                    <p>Você domina otimizacção web!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 11: Multilinguagem</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-9.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-11.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 10:</strong> Recursos Estáticos Otimizados | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>
