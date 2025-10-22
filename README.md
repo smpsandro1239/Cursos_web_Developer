@@ -12,7 +12,7 @@ Este curso foi desenvolvido para levar estudantes desde o conhecimento básico a
 ### Ano
 2025
 
-### Duração Sugerida
+### Duracção Sugerida
 3-6 meses (1 hora/semana)
 
 ## Estrutura do Curso
@@ -21,9 +21,9 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 
 ### 📋 Módulos Disponíveis
 
-#### Módulo 0: Preparação (1 aula)
-- Instalação do VS Code + Live Server
-- Criação do primeiro projeto HTML
+#### Módulo 0: Preparacção (1 aula)
+- Instalacção do VS Code + Live Server
+- Criacção do primeiro projeto HTML
 - Atalhos essenciais (Emmet)
 - Git básico
 
@@ -36,7 +36,7 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 #### Módulo 2: Textos e Títulos (1 aula)
 - Hierarquia de títulos (H1-H6)
 - Parágrafos e quebras de linha
-- Formatação semântica vs visual
+- Formatacção semântica vs visual
 - Entidades HTML
 
 ## Como Usar
@@ -53,7 +53,7 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 3. Cada módulo tem slides interativos
 4. Pratique os exercícios propostos
 
-### Navegação
+### Navegacção
 - Use as setas do teclado para navegar entre slides
 - Clique nos botões "Anterior" e "Próximo"
 - Use o menu lateral para pular módulos
@@ -61,7 +61,7 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 ## Tecnologias Utilizadas
 
 - **HTML5** - Estrutura e conteúdo
-- **CSS3** - Estilização e layout
+- **CSS3** - Estilizacção e layout
 - **JavaScript** - Interatividade
 - **VS Code** - Editor recomendado
 - **Live Server** - Desenvolvimento local
@@ -70,7 +70,7 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 
 ### ✅ Recursos Implementados
 - [x] Design responsivo
-- [x] Navegação por teclado
+- [x] Navegacção por teclado
 - [x] Controle de progresso
 - [x] Slides interativos
 - [x] Exemplos de código copiáveis
@@ -79,7 +79,7 @@ O curso está dividido em 20 módulos organizados por nível de dificuldade:
 
 ### 🚀 Próximas Implementações
 - [ ] Módulos 3-20 (Listas, Links, Imagens, etc.)
-- [ ] Sistema de avaliação
+- [ ] Sistema de avaliacção
 - [ ] Certificado de conclusão
 - [ ] Fórum de dúvidas
 - [ ] Projetos práticos
@@ -96,11 +96,11 @@ curso-html5/
 │   ├── main.js           # JavaScript principal
 │   └── module.js         # Controle dos módulos
 ├── modules/
-│   ├── modulo-0.html     # Módulo de preparação
+│   ├── modulo-0.html     # Módulo de preparacção
 │   ├── modulo-1.html     # Módulo do esqueleto
 │   └── modulo-2.html     # Módulo de textos
 ├── images/               # Imagens e ícones
-└── README.md            # Esta documentação
+└── README.md            # Esta documentacção
 ```
 
 ## Browser Support
@@ -121,7 +121,7 @@ Copyright © 2025 Sandro Pereira - HTML5 Expert. Todos os direitos reservados.
 ## Contato
 
 Para dúvidas ou sugestões:
-- Email: contato@html5expert.com
+- Email: contacto@html5expert.com
 - Website: www.html5expert.com
 
 ---
