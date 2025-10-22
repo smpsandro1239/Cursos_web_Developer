@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 13: Web Components - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 13 do Curso HTML5 - Componentes reutilizáveis">
+    <title>Módulo 17: Boas Práticas - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 17 do Curso HTML5 - Melhores práticas de desenvolvimento">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
                     Voltar ao Curso
                 </a>
                 <div class="module-progress">
-                    <span class="progress-text">Módulo 13 de 20</span>
+                    <span class="progress-text">Módulo 17 de 20</span>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
                     </div>
@@ -29,9 +29,9 @@
             </div>
             <div class="module-header-content">
                 <div class="module-info">
-                    <span class="module-number">MÓDULO 13</span>
-                    <h1 class="module-title">Web Components</h1>
-                    <p class="module-subtitle">Componentes reutilizáveis</p>
+                    <span class="module-number">MÓDULO 17</span>
+                    <h1 class="module-title">Boas Práticas</h1>
+                    <p class="module-subtitle">Código profissional</p>
                 </div>
                 <div class="module-meta">
                     <div class="meta-item">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">⏱️</span>
-                        <span>Duração: 2 aulas</span>
+                        <span>Duracção: 1 aula</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">📅</span>
@@ -53,19 +53,53 @@
 
     <main class="module-content">
         <div class="container">
+            <!-- Slide 1: Introdução -->
             <section class="slide" id="slide-1">
                 <div class="slide-content">
                     <div class="slide-text">
-                        <h2>Web Components</h2>
-                        <p>Web Components permitem criar elementos HTML reutilizáveis e encapsulados.</p>
+                        <h2>Boas Práticas</h2>
+                        <p>Desenvolvimento profissional vai além de código que funciona. É sobre código legível, mantível e escalável.</p>
+
+                        <div class="highlight-box">
+                            <h3>📋 O que vamos aprender:</h3>
+                            <ul>
+                                <li>Nomes de arquivos consistentes</li>
+                                <li>Estrutura de pastas organizada</li>
+                                <li>Comentários necessários</li>
+                                <li>Versionamento semântico</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Código bom é código que outros desenvolvedores podem entender e manter."
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="slide-visual">
                         <div class="visual-container">
-                            <div class="web-components-demo">
-                                <div class="component-showcase">
-                                    <div class="custom-component">
-                                        <h3>Cartão Produto</h3>
-                                        <p>Componente reutilizável</p>
+                            <div class="best-practices-concept">
+                                <div class="practice-categories">
+                                    <div class="category-item">
+                                        <span class="category-icon">📁</span>
+                                        <span class="category-name">Arquivos</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <span class="category-icon">🗂️</span>
+                                        <span class="category-name">Pastas</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <span class="category-icon">💬</span>
+                                        <span class="category-name">Comentários</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <span class="category-icon">📈</span>
+                                        <span class="category-name">Versões</span>
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +109,296 @@
                 <div class="slide-navigation">
                     <button class="btn btn-secondary" disabled>Anterior</button>
                     <span class="slide-counter">1 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Nomes de Arquivos -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Nomes de Arquivos</h2>
+                        <p>Nomes consistentes e descritivos facilitam a navegacção e manutenção do projeto.</p>
+
+                        <div class="highlight-box">
+                            <h3>✅ Boas práticas:</h3>
+                            <ul>
+                                <li>Use kebab-case: <code>minha-pagina.html</code></li>
+                                <li>Seja descritivo: <code>lista-produtos.html</code></li>
+                                <li>Evite espaços e caracteres especiais</li>
+                                <li>Use apenas letras, números e hífens</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>❌ Ruim:</h4>
+                            <pre><code>Minha Página.html
+file1.html
+pagina_do_site.html</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>✅ Bom:</h4>
+                            <pre><code>minha-pagina.html
+lista-produtos.html
+sobre-empresa.html</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="file-naming-demo">
+                                <div class="file-examples">
+                                    <div class="file-example good">
+                                        <span class="file-icon">📄</span>
+                                        <span class="file-name">contacto.html</span>
+                                    </div>
+                                    <div class="file-example good">
+                                        <span class="file-icon">📄</span>
+                                        <span class="file-name">galeria-imagens.html</span>
+                                    </div>
+                                    <div class="file-example bad">
+                                        <span class="file-icon">📄</span>
+                                        <span class="file-name">Página Inicial.html</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Estrutura de Pastas -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Estrutura de Pastas</h2>
+                        <p>Uma estrutura organizada facilita encontrar arquivos e escalar o projeto.</p>
+
+                        <div class="code-example">
+                            <h4>📁 Estrutura recomendada:</h4>
+                            <pre><code>projeto/
+├── index.html
+├── css/
+│   ├── styles.css
+│   └── module.css
+├── js/
+│   ├── main.js
+│   └── module.js
+├── images/
+│   ├── logo.png
+│   └── favicon.ico
+└── modules/
+    └── modulo-1.html</code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Princípios:</h3>
+                            <ul>
+                                <li>Uma pasta por tipo de arquivo</li>
+                                <li>Nomes em minúsculas</li>
+                                <li>Sem espaços em nomes de pastas</li>
+                                <li>Consistência em todo o projeto</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="folder-structure-demo">
+                                <div class="folder-tree">
+                                    <div class="folder-item">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">css</span>
+                                    </div>
+                                    <div class="folder-item">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">js</span>
+                                    </div>
+                                    <div class="folder-item">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">images</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Comentários Necessários -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Comentários Necessários</h2>
+                        <p>Comentários explicam o "porquê" do código, não o "o que". Use com moderacção e propósito.</p>
+
+                        <div class="code-example">
+                            <h4>💬 Comentários úteis:</h4>
+                            <pre><code><!-- Cabeçalho principal do site -->
+<header class="main-header">
+    <!-- Logo e navegacção -->
+    <div class="header-content">
+        <!-- Futuro: adicionar busca -->
+        <div class="logo">...</div>
+        <nav class="navigation">...</nav>
+    </div>
+</header></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>❌ Comentários desnecessários:</h4>
+                            <pre><code><!-- Div para o cabeçalho -->
+<div class="header">
+    <!-- H1 para o título -->
+    <h1>Título</h1>
+</div></code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Comente seções complexas, hacks temporários e decisões importantes.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="comments-demo">
+                                <div class="code-with-comments">
+                                    <div class="comment-line">
+                                        <span class="comment">/* Seção crítica - não alterar */</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="code"><div class="important-section"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Versionamento Semântico -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Versionamento Semântico</h2>
+                        <p>Versionamento semântico (SemVer) comunica mudanças de forma clara: MAJOR.MINOR.PATCH.</p>
+
+                        <div class="highlight-box">
+                            <h3>📈 Regras do SemVer:</h3>
+                            <ul>
+                                <li><strong>MAJOR:</strong> Mudanças incompatíveis</li>
+                                <li><strong>MINOR:</strong> Novas funcionalidades compatíveis</li>
+                                <li><strong>PATCH:</strong> Correções de bugs</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🔖 Exemplos:</h4>
+                            <pre><code>1.0.0 - Primeira versão estável
+1.1.0 - Adicionada funcionalidade X
+1.1.1 - Corrigido bug no formulário
+2.0.0 - Mudança na API (incompatível)</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="semver-demo">
+                                <div class="version-comparison">
+                                    <div class="version-item">
+                                        <span class="version-number">1.0.0</span>
+                                        <span class="version-desc">Lançamento</span>
+                                    </div>
+                                    <div class="version-item">
+                                        <span class="version-number">1.1.0</span>
+                                        <span class="version-desc">Funcionalidade</span>
+                                    </div>
+                                    <div class="version-item">
+                                        <span class="version-number">2.0.0</span>
+                                        <span class="version-desc">Quebra</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Exercício Prático -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Organize um projeto seguindo todas as boas práticas aprendidas!</p>
+
+                        <div class="exercise-box">
+                            <h3>🏗️ Projeto Organizado</h3>
+                            <p>Estruture um projeto HTML com nomes corretos, pastas organizadas e comentários.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Tarefas:</h4>
+                                <ol>
+                                    <li>Renomear arquivos para kebab-case</li>
+                                    <li>Criar estrutura de pastas</li>
+                                    <li>Adicionar comentários necessários</li>
+                                    <li>Definir versão semântica</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado:</h4>
+                            <div class="result-preview">
+                                <div class="project-structure-preview">
+                                    <pre><code>portfolio/
+├── index.html          <!-- v1.0.0 -->
+├── sobre.html
+├── css/
+│   ├── styles.css      <!-- Estilos principais -->
+│   └── portfolio.css   <!-- Layout do portfolio -->
+├── js/
+│   └── main.js         <!-- Funcionalidades -->
+└── images/
+    └── avatar.jpg      <!-- Foto do perfil --></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="organized-project">
+                                    <div class="project-folders">
+                                        <div class="folder">📁 css</div>
+                                        <div class="folder">📁 js</div>
+                                        <div class="folder">📁 images</div>
+                                    </div>
+                                    <div class="version-badge">v1.0.0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 6</span>
                     <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
                 </div>
             </section>
@@ -85,11 +409,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="module-nav">
-                    <a href="modulo-12.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-14.html" class="btn btn-primary">Próximo Módulo →</a>
+                    <a href="modulo-16.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-18.html" class="btn btn-primary">Próximo Módulo →</a>
                 </div>
                 <div class="module-info">
-                    <p><strong>Módulo 13:</strong> Web Components | Professor: Sandro Pereira | 2025</p>
+                    <p><strong>Módulo 17:</strong> Boas Práticas | Professor: Sandro Pereira | 2025</p>
                 </div>
             </div>
         </div>
