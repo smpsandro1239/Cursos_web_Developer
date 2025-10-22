@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 13: Web Components - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 13 do Curso HTML5 - Componentes reutilizáveis">
+    <title>Módulo 16: Validacção & Debug - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 16 do Curso HTML5 - Validacção e debugging de código">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
                     Voltar ao Curso
                 </a>
                 <div class="module-progress">
-                    <span class="progress-text">Módulo 13 de 20</span>
+                    <span class="progress-text">Módulo 16 de 20</span>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 0%"></div>
                     </div>
@@ -29,9 +29,9 @@
             </div>
             <div class="module-header-content">
                 <div class="module-info">
-                    <span class="module-number">MÓDULO 13</span>
-                    <h1 class="module-title">Web Components</h1>
-                    <p class="module-subtitle">Componentes reutilizáveis</p>
+                    <span class="module-number">MÓDULO 16</span>
+                    <h1 class="module-title">Validacção & Debug</h1>
+                    <p class="module-subtitle">Código sem erros</p>
                 </div>
                 <div class="module-meta">
                     <div class="meta-item">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">⏱️</span>
-                        <span>Duração: 2 aulas</span>
+                        <span>Duracção: 1 aula</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-icon">📅</span>
@@ -53,19 +53,49 @@
 
     <main class="module-content">
         <div class="container">
+            <!-- Slide 1: Introdução -->
             <section class="slide" id="slide-1">
                 <div class="slide-content">
                     <div class="slide-text">
-                        <h2>Web Components</h2>
-                        <p>Web Components permitem criar elementos HTML reutilizáveis e encapsulados.</p>
+                        <h2>Validacção & Debug</h2>
+                        <p>Código de qualidade é código validado e sem erros. Vamos aprender a validar HTML e debugar problemas.</p>
+
+                        <div class="highlight-box">
+                            <h3>🔍 O que vamos aprender:</h3>
+                            <ul>
+                                <li>W3C Validator para HTML</li>
+                                <li>DevTools Elements para debugging</li>
+                                <li>Linters como HTMLHint</li>
+                                <li>Meta: 0 erros / 0 warnings</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Código limpo não é luxo, é profissionalismo. Zero erros é o padrão!"
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="slide-visual">
                         <div class="visual-container">
-                            <div class="web-components-demo">
-                                <div class="component-showcase">
-                                    <div class="custom-component">
-                                        <h3>Cartão Produto</h3>
-                                        <p>Componente reutilizável</p>
+                            <div class="validation-concept">
+                                <div class="validation-tools">
+                                    <div class="tool-item">
+                                        <span class="tool-icon">✅</span>
+                                        <span class="tool-name">Validator</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <span class="tool-icon">🔧</span>
+                                        <span class="tool-name">DevTools</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <span class="tool-icon">📋</span>
+                                        <span class="tool-name">Linter</span>
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +105,279 @@
                 <div class="slide-navigation">
                     <button class="btn btn-secondary" disabled>Anterior</button>
                     <span class="slide-counter">1 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: W3C Validator -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>W3C Validator</h2>
+                        <p>O W3C Markup Validator verifica se seu HTML está correto e segue os padrões web.</p>
+
+                        <div class="steps-list">
+                            <h3>📋 Como usar:</h3>
+                            <ol>
+                                <li>Acesse <strong>validator.w3.org</strong></li>
+                                <li>Insira a URL do seu site ou cole o código</li>
+                                <li>Clique em "Check"</li>
+                                <li>Analise os erros e warnings</li>
+                                <li>Corrigir problemas</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>❌ Erro comum:</h4>
+                            <pre><code><img src="image.jpg" alt=""><!-- alt vazio --></code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>✅ Correção:</h4>
+                            <pre><code><img src="image.jpg" alt="Descrição da imagem"></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="validator-demo">
+                                <div class="validator-interface">
+                                    <div class="validator-result">
+                                        <span class="result-status valid">✅ Valid</span>
+                                        <span class="result-details">No errors found</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: DevTools Elements -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>DevTools Elements</h2>
+                        <p>As DevTools do navegador são essenciais para debugar HTML, CSS e layout em tempo real.</p>
+
+                        <div class="steps-list">
+                            <h3>🔧 Como abrir:</h3>
+                            <ol>
+                                <li><kbd>F12</kbd> ou <kbd>Ctrl + Shift + I</kbd></li>
+                                <li>Clique na aba "Elements"</li>
+                                <li>Inspecione elementos clicando no ícone de seta</li>
+                                <li>Edite HTML/CSS diretamente</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>💡 Funcionalidades úteis:</h3>
+                            <ul>
+                                <li>Visualizar estrutura DOM</li>
+                                <li>Editar estilos em tempo real</li>
+                                <li>Ver computed styles</li>
+                                <li>Debug de layout issues</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="devtools-demo">
+                                <div class="devtools-mockup">
+                                    <div class="devtools-tabs">
+                                        <span class="tab active">Elements</span>
+                                        <span class="tab">Console</span>
+                                    </div>
+                                    <div class="devtools-content">
+                                        <div class="dom-tree">
+                                            <div class="dom-element selected"><div class="card"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Linters HTMLHint -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Linters HTMLHint</h2>
+                        <p>Linters analisam código automaticamente e sugerem melhorias antes de executar.</p>
+
+                        <div class="code-example">
+                            <h4>📦 Instalar HTMLHint:</h4>
+                            <pre><code>npm install -g htmlhint</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>⚙️ Configuracção .htmlhintrc:</h4>
+                            <pre><code>{
+    "tagname-lowercase": true,
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "doctype-first": true,
+    "spec-char-escape": true,
+    "id-unique": true,
+    "src-not-empty": true
+}</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🚀 Executando:</h4>
+                            <pre><code>htmlhint index.html</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="linter-demo">
+                                <div class="terminal-output">
+                                    <div class="terminal-line">
+                                        <span class="prompt">$</span>
+                                        <span class="command">htmlhint index.html</span>
+                                    </div>
+                                    <div class="terminal-line">
+                                        <span class="output">No errors found.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Meta 0 Erros -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Meta: 0 Erros / 0 Warnings</h2>
+                        <p>Nosso objetivo é código perfeito. Vamos ver como alcançar validacção total.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Checklist de validacção:</h3>
+                            <ul>
+                                <li>✅ HTML válido no W3C</li>
+                                <li>✅ Sem erros no console</li>
+                                <li>✅ Linter sem warnings</li>
+                                <li>✅ Acessibilidade OK</li>
+                                <li>✅ Performance otimizada</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Valide frequentemente durante o desenvolvimento, não só no final.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="zero-errors-demo">
+                                <div class="score-board">
+                                    <div class="score-item">
+                                        <span class="score-number">0</span>
+                                        <span class="score-label">Erros</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="score-number">0</span>
+                                        <span class="score-label">Warnings</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="score-number">100%</span>
+                                        <span class="score-label">Qualidade</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Exercício Prático -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Valide e corrija uma página HTML para alcançar 0 erros!</p>
+
+                        <div class="exercise-box">
+                            <h3>🔍 Validacção Completa</h3>
+                            <p>Corrija todos os problemas em uma página HTML usando as ferramentas aprendidas.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Tarefas:</h4>
+                                <ol>
+                                    <li>Validar no W3C Validator</li>
+                                    <li>Corrigir erros encontrados</li>
+                                    <li>Usar DevTools para debug</li>
+                                    <li>Executar HTMLHint</li>
+                                    <li>Alcançar validacção total</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado:</h4>
+                            <div class="result-preview">
+                                <div class="validation-success">
+                                    <pre><code><!-- Página validada -->
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Perfeita</title>
+</head>
+<body>
+    <h1>HTML Válido! ✅</h1>
+</body>
+</html></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="validation-checklist">
+                                    <div class="check-item completed">
+                                        <span class="check-icon">✅</span>
+                                        <span class="check-text">W3C Valid</span>
+                                    </div>
+                                    <div class="check-item completed">
+                                        <span class="check-icon">✅</span>
+                                        <span class="check-text">No Console Errors</span>
+                                    </div>
+                                    <div class="check-item completed">
+                                        <span class="check-icon">✅</span>
+                                        <span class="check-text">Linter Clean</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 6</span>
                     <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
                 </div>
             </section>
@@ -85,11 +388,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="module-nav">
-                    <a href="modulo-12.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-14.html" class="btn btn-primary">Próximo Módulo →</a>
+                    <a href="modulo-15.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-17.html" class="btn btn-primary">Próximo Módulo →</a>
                 </div>
                 <div class="module-info">
-                    <p><strong>Módulo 13:</strong> Web Components | Professor: Sandro Pereira | 2025</p>
+                    <p><strong>Módulo 16:</strong> Validacção & Debug | Professor: Sandro Pereira | 2025</p>
                 </div>
             </div>
         </div>
