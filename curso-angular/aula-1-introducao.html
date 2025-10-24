@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1: O que é Angular? - Curso de Angular</title>
+    <meta name="description" content="Aula 1 do Curso de Angular sobre o que é uma framework, componentes e como configurar o ambiente.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 1</span>
+                    <h1 class="module-title">O que é Angular?</h1>
+                    <p class="module-subtitle">Uma introdução ao poderoso framework da Google para criar aplicações web.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Explicar o que é uma framework e por que Angular é tão popular.</li>
+                        <li>🎯 Descrever a arquitetura básica de uma aplicação Angular (componentes).</li>
+                        <li>🎯 Instalar o Angular CLI, a ferramenta de linha de comando para criar e gerir projetos Angular.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que é uma Framework?</h3>
+                    <p>Uma framework (como Angular) é um conjunto de ferramentas e regras que nos ajuda a construir aplicações complexas de forma mais rápida e organizada. Em vez de construir tudo do zero, a framework já nos dá uma base sólida.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Construir com LEGO</h4>
+                            <p>Usar JavaScript puro é como ter barro: você pode construir qualquer coisa, mas tem de moldar cada peça. Usar uma framework como Angular é como ter um kit de LEGO. As peças (componentes) já vêm prontas, e você só precisa de as encaixar para construir algo incrível. É mais rápido e menos propenso a erros.</p>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 2rem;">A Arquitetura de Componentes</h3>
+                    <p>A ideia principal do Angular é construir a interface do utilizador com <strong>componentes</strong>. Um componente é um bloco de construção independente que consiste em três coisas: um template (HTML), estilos (CSS) e lógica (TypeScript, um "super-conjunto" de JavaScript).</p>
+                    <p>Por exemplo, numa rede social, a barra de navegação, a lista de amigos e o campo para escrever uma publicação seriam componentes diferentes, cada um com a sua própria lógica e estilo.</p>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos preparar o seu ambiente para começar a desenvolver com Angular. Precisamos do Node.js e do Angular CLI.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Instalar o Node.js</h4>
+                            <p>Angular precisa do Node.js para funcionar. Se ainda não o tiver, vá a <a href="https://nodejs.org/" target="_blank">nodejs.org</a> e descarregue a versão LTS.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Instalar o Angular CLI</h4>
+                            <p>O Angular CLI (Command Line Interface) é a ferramenta que nos vai ajudar a criar e gerir projetos. Abra o seu terminal (ou linha de comandos) e escreva o seguinte comando:</p>
+                            <pre><code>npm install -g @angular/cli</code></pre>
+                            <p>O <code>-g</code> significa que o estamos a instalar globalmente no seu computador.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Criar o seu primeiro projeto Angular</h4>
+                            <p>Com o CLI instalado, criar um projeto é muito fácil. No terminal, navegue para a pasta onde quer criar o projeto e execute:</p>
+                            <pre><code>ng new meu-primeiro-app</code></pre>
+                            <p>O CLI vai fazer algumas perguntas (se quer adicionar routing, que tipo de CSS quer usar). Pode pressionar Enter para aceitar as opções padrão. Depois de alguns minutos, o seu projeto estará criado!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual comando é usado para instalar o Angular CLI globalmente no seu computador?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false"><code>ng install angular</code></button>
+                                <button class="option" data-correct="false"><code>npm new @angular/cli</code></button>
+                                <button class="option" data-correct="true"><code>npm install -g @angular/cli</code></button>
+                                <button class="option" data-correct="false"><code>npm angular --install</code></button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é <code>npm install -g @angular/cli</code>. <code>npm</code> é o gestor de pacotes do Node.js, <code>install</code> é o comando para instalar, <code>-g</code> indica que a instalação é global, e <code>@angular/cli</code> é o nome do pacote da ferramenta de linha de comando do Angular.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Pense no <code>npm</code> como uma loja de aplicações para o seu computador. O comando é como dizer: "Loja, por favor, instale a aplicação '@angular/cli' para que eu a possa usar em qualquer pasta do meu computador".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta introdução ao Angular, vimos que:</p>
+                    <ul>
+                        <li style="list-style-type: '✅';">Angular é uma framework que nos ajuda a construir aplicações web complexas, como um kit de LEGO.</li>
+                        <li style="list-style-type: '✅';">As aplicações Angular são construídas a partir de pequenos blocos reutilizáveis chamados <strong>componentes</strong>.</li>
+                        <li style="list-style-type: '✅';">O <strong>Angular CLI</strong> é a nossa principal ferramenta de trabalho, e instalámo-la com o comando <code>npm install -g @angular/cli</code>.</li>
+                    </ul>
+                    <p>Com o ambiente configurado, você está pronto para mergulhar no mundo do desenvolvimento com Angular!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="../curso-js/aula-1-introducao.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

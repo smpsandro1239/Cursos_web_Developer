@@ -1,0 +1,161 @@
+/* CSS para o modelo de página de aula */
+
+.lesson-container {
+    padding: 3rem 0;
+}
+
+.lesson-section {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.lesson-section:last-child {
+    border-bottom: none;
+}
+
+.lesson-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.content-box {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+}
+
+.content-box ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 1.5rem;
+}
+
+.content-box li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.content-box li::before {
+    content: '🎯';
+    position: absolute;
+    left: -1.5rem;
+    font-size: 1rem;
+}
+
+/* Analogia */
+.analogy-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: #eef2ff;
+    border: 2px solid #c7d2fe;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-top: 1.5rem;
+}
+
+.analogy-icon {
+    font-size: 2rem;
+}
+
+.analogy-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Prática */
+.step-by-step .step {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.step-by-step .step:last-child {
+    border-bottom: none;
+}
+
+.step-by-step h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.step-by-step pre {
+    background: #1e293b;
+    color: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+
+/* Quiz */
+#quiz-container .question {
+    margin-bottom: 2rem;
+}
+
+#quiz-container .question-text {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+#quiz-container .options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+#quiz-container .option {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--background-color);
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+#quiz-container .option:hover {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+#quiz-container .option.correct {
+    background: #dcfce7;
+    border-color: var(--success-color);
+}
+
+#quiz-container .option.incorrect {
+    background: #fee2e2;
+    border-color: var(--error-color);
+}
+
+#quiz-container .explanation {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    background: #f1f5f9;
+}
+
+#quiz-container .explanation .analogy-box {
+    background: white;
+}
+
+.feedback-icon {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question.answered .option:not(.correct):not(.incorrect) {
+    opacity: 0.6;
+}

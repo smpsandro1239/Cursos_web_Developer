@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1: Introdução ao JavaScript - Curso de JavaScript</title>
+    <meta name="description" content="Aula 1 do Curso de JavaScript sobre o que é JavaScript, variáveis e como adicioná-lo ao HTML.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 1</span>
+                    <h1 class="module-title">Introdução ao JavaScript</h1>
+                    <p class="module-subtitle">Dê os seus primeiros passos na linguagem que torna a web interativa.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Definir o que é JavaScript e qual a sua função no trio HTML, CSS e JS.</li>
+                        <li>🎯 Declarar variáveis usando <code>let</code> e <code>const</code>.</li>
+                        <li>🎯 Adicionar código JavaScript a uma página HTML usando a tag <code>&lt;script&gt;</code>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que é JavaScript?</h3>
+                    <p>JavaScript (ou JS) é uma linguagem de programação que permite implementar funcionalidades complexas em páginas web. Se o HTML é o esqueleto e o CSS a aparência, o JavaScript são os músculos e o cérebro, permitindo a interatividade.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Um Carro</h4>
+                            <p>Pense num carro. O HTML seria o chassi e a carroçaria (a estrutura). O CSS seria a pintura e os estofos (a aparência). O JavaScript seria o motor, o volante e os pedais, ou seja, tudo o que faz o carro andar e responder aos seus comandos.</p>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 2rem;">Variáveis: Guardar Informação</h3>
+                    <p>Variáveis são como caixas onde podemos guardar informações. Em JavaScript, usamos <code>let</code> para variáveis que podem mudar de valor, e <code>const</code> para constantes, que não mudam.</p>
+                    <pre><code>// 'let' para algo que pode mudar
+let idade = 30;
+idade = 31; // Funciona
+
+// 'const' para algo que não muda
+const nome = "Sandro";
+// nome = "Pedro"; // Daria um erro!</code></pre>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos adicionar um pouco de interatividade à nossa página. Vamos fazer um alerta aparecer quando a página carregar.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Use a tag &lt;script&gt;</h4>
+                            <p>O código JavaScript é colocado dentro da tag <code>&lt;script&gt;</code>. A melhor prática é colocá-la no final do <code>&lt;body&gt;</code>, para que a página carregue primeiro o conteúdo visível.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Adicione o seu primeiro comando</h4>
+                            <p>O comando <code>alert()</code> mostra uma janela de alerta no navegador. Vamos usá-lo para dar as boas-vindas.</p>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Página com JS&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bem-vindo!&lt;/h1&gt;
+
+    &lt;script&gt;
+      alert('Olá, esta é a sua primeira interação com JavaScript!');
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p>Se guardar este código num ficheiro <code>.html</code> e o abrir no navegador, uma janela de alerta irá aparecer.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Onde é o local <strong>mais recomendado</strong> para colocar a tag <code>&lt;script&gt;</code> num documento HTML?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">No <code>&lt;head&gt;</code></button>
+                                <button class="option" data-correct="true">No final do <code>&lt;body&gt;</code></button>
+                                <button class="option" data-correct="false">Fora da tag <code>&lt;html&gt;</code></button>
+                                <button class="option" data-correct="false">Dentro de uma tag <code>&lt;p&gt;</code></button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é <strong>no final do <code>&lt;body&gt;</code></strong>. Colocar o script no final permite que o navegador carregue e mostre todo o conteúdo HTML e CSS primeiro. Isto melhora a performance e a experiência do utilizador, que não terá de esperar que o JavaScript carregue para ver a página.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> É como montar um móvel. Primeiro você monta toda a estrutura (HTML) e pinta-o (CSS). Só depois é que instala a parte elétrica (JavaScript). Se tentasse instalar a eletricidade primeiro, iria atrapalhar e atrasar toda a montagem.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta introdução ao JavaScript, aprendemos que:</p>
+                    <ul>
+                        <li style="list-style-type: '✅';">JavaScript é a linguagem de programação que adiciona interatividade à web.</li>
+                        <li style="list-style-type: '✅';">Variáveis (<code>let</code>) e constantes (<code>const</code>) servem para armazenar dados.</li>
+                        <li style="list-style-type: '✅';">O código JS é adicionado ao HTML através da tag <code>&lt;script&gt;</code>.</li>
+                        <li style="list-style-type: '✅';">A melhor prática é colocar a tag <code>&lt;script&gt;</code> no final do <code>&lt;body&gt;</code>.</li>
+                    </ul>
+                    <p>Agora você já sabe como dar "vida" às suas páginas!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="../curso-css/aula-1-introducao.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
