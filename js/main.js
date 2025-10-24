@@ -163,35 +163,15 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollBtn.innerHTML = '↑';
         scrollBtn.className = 'scroll-to-top';
         scrollBtn.setAttribute('aria-label', 'Voltar ao topo');
-        scrollBtn.style.cssText = `
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            font-size: 1.25rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: var(--shadow-lg);
-        `;
 
         document.body.appendChild(scrollBtn);
 
         // Show/hide based on scroll position
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
-                scrollBtn.style.opacity = '1';
-                scrollBtn.style.visibility = 'visible';
+                scrollBtn.classList.add('visible');
             } else {
-                scrollBtn.style.opacity = '0';
-                scrollBtn.style.visibility = 'hidden';
+                scrollBtn.classList.remove('visible');
             }
         });
 
