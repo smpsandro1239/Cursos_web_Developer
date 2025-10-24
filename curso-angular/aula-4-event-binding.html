@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4: Event Binding e Two-Way Binding - Curso Angular</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">CodeMaster Academy</a></h1>
+    </header>
+
+    <main>
+        <article class="lesson-content">
+            <h2 class="lesson-title">Aula 4: Event Binding e Two-Way Binding</h2>
+
+            <section id="o-que-vai-ser-capaz">
+                <h3>O que vai ser capaz de fazer</h3>
+                <p>No final desta aula, saberá como fazer as suas aplicações reagirem a interações do utilizador, como cliques e escrita, utilizando Event Binding, e como manter os dados do seu template e da sua lógica sincronizados com Two-Way Binding.</p>
+            </section>
+
+            <section id="teoria">
+                <h3>Teoria (Com Analogia)</h3>
+                <p>Se o Data Binding que vimos antes era uma comunicação de sentido único (da lógica para o template), agora vamos abrir a comunicação nos dois sentidos. Vamos ouvir o que o utilizador faz e atualizar os nossos dados em tempo real.</p>
+                <p><strong>Analogia do Comando e do Termostato:</strong></p>
+                <ul>
+                    <li>
+                        <strong>Event Binding (`( )`):</strong> Pense num comando de televisão. Você carrega num botão (um evento, como um `(click)`) e a televisão (a sua aplicação) reage, executando uma ação (uma função no seu componente, como `mudarCanal()`). A comunicação vai do utilizador para a aplicação.
+                        <pre><code>&lt;button (click)="mudarCanal()"&gt;Mudar de Canal&lt;/button&gt;</code></pre>
+                    </li>
+                    <li>
+                        <strong>Two-Way Binding (`[( )]` ou `[(ngModel)]`):</strong> Agora pense num termostato digital. Ele faz duas coisas: <strong>mostra</strong> a temperatura atual (como a interpolação) e <strong>permite-lhe alterar</strong> essa temperatura, atualizando o sistema de aquecimento (como o event binding). Os dados estão perfeitamente sincronizados nos dois sentidos. Se o sistema aquece, o valor no ecrã sobe. Se você aumenta o valor no ecrã, o sistema aquece. Em Angular, isto é feito de forma muito simples com a diretiva `ngModel`.
+                        <pre><code>&lt;input [(ngModel)]="nomeUtilizador"&gt;
+&lt;p&gt;Olá, {{ nomeUtilizador }}!&lt;/p&gt;</code></pre>
+                        Quando o utilizador escreve no `input`, a variável `nomeUtilizador` é atualizada automaticamente, e o parágrafo abaixo reflete essa mudança instantaneamente.
+                    </li>
+                </ul>
+                <p><strong>Nota:</strong> Para usar `[(ngModel)]`, precisa de importar o `FormsModule` no seu módulo Angular (`app.module.ts`).</p>
+            </section>
+
+            <section id="pratica">
+                <h3>Prática (Guiada Passo a Passo)</h3>
+                <p>Vamos criar um pequeno contador e um campo de input dinâmico.</p>
+                <ol>
+                    <li>
+                        <strong>No ficheiro TypeScript do seu componente (`contador.component.ts`):</strong>
+                        <pre><code>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-contador',
+  templateUrl: './contador.component.html'
+})
+export class ContadorComponent {
+  contador: number = 0;
+  textoInput: string = 'Escreva aqui';
+
+  incrementar() {
+    this.contador++;
+  }
+
+  decrementar() {
+    this.contador--;
+  }
+}
+</code></pre>
+                    </li>
+                    <li>
+                        <strong>No ficheiro HTML do seu componente (`contador.component.html`):</strong>
+                        <pre><code>&lt;h2&gt;Contador&lt;/h2&gt;
+&lt;p&gt;Valor atual: {{ contador }}&lt;/p&gt;
+
+&lt;!-- Usando Event Binding para chamar as funções --&gt;
+&lt;button (click)="incrementar()"&gt;+1&lt;/button&gt;
+&lt;button (click)="decrementar()"&gt;-1&lt;/button&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Two-Way Binding&lt;/h2&gt;
+&lt;!-- Usando Two-Way Binding para sincronizar o input com a variável --&gt;
+&lt;input [(ngModel)]="textoInput"&gt;
+&lt;p&gt;O que está a escrever: {{ textoInput }}&lt;/p&gt;
+</code></pre>
+                    </li>
+                    <li><strong>Não se esqueça!</strong> No ficheiro `app.module.ts`, adicione `FormsModule` às suas importações: `import { FormsModule } from '@angular/forms';` e adicione `FormsModule` ao array `imports`.</li>
+                </ol>
+            </section>
+
+            <section id="perguntas">
+                <h3>Perguntas de Escolha Múltipla</h3>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. Que sintaxe é usada para o Event Binding em Angular?</p>
+                        <label><input type="radio" name="q1" value="a"> [ ]</label><br>
+                        <label><input type="radio" name="q1" value="b"> {{ }}</label><br>
+                        <label><input type="radio" name="q1" value="c"> ( )</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. A diretiva `[(ngModel)]` é um exemplo de que tipo de Data Binding?</p>
+                        <label><input type="radio" name="q2" value="a"> One-Way Binding</label><br>
+                        <label><input type="radio" name="q2" value="b"> Two-Way Binding</label><br>
+                        <label><input type="radio" name="q2" value="c"> No Binding</label><br>
+                    </div>
+                    <button type="button" onclick="checkAnswers()">Verificar</button>
+                </form>
+                <div id="quiz-feedback"></div>
+            </section>
+
+            <section id="resumo">
+                <h3>Resumo do que aprendeu</h3>
+                <p>Nesta aula, fechou o ciclo da comunicação entre a lógica e a apresentação:</p>
+                <ul>
+                    <li><strong>Event Binding (`(evento)="funcao()"`):</strong> Permite que o template "ouça" eventos do utilizador (como `click`, `keyup`, `submit`) e execute uma função no componente. É a via de comunicação do template para a lógica.</li>
+                    <li><strong>Two-Way Binding (`[(ngModel)]="propriedade"`):</strong> A "autoestrada" da comunicação. Combina Property Binding (`[ ]`) e Event Binding (`( )`) para manter os dados sincronizados em ambas as direções, ideal para formulários.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodeMaster Academy. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = { q1: 'c', q2: 'b' };
+            const feedback = document.getElementById('quiz-feedback');
+            const form = document.getElementById('quiz-form');
+            const q1 = form.elements['q1'].value;
+            const q2 = form.elements['q2'].value;
+            let feedbackHTML = '';
+
+            if (q1 === correctAnswers.q1) {
+                feedbackHTML += '<p><strong>Questão 1: Correto!</strong> Os parênteses `( )` são usados para detetar eventos do template e chamar funções no componente.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 1: Incorreto.</strong> A resposta certa é `( )`. Lembre-se da analogia: o utilizador "grita" um evento para a aplicação, que o "ouve" com os parênteses.</p>';
+            }
+
+            if (q2 === correctAnswers.q2) {
+                feedbackHTML += '<p><strong>Questão 2: Correto!</strong> `[(ngModel)]` é o exemplo clássico de Two-Way Binding, mantendo a vista e o modelo em perfeita sincronia, como um termostato.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 2: Incorreto.</strong> A resposta certa é Two-Way Binding. É chamado de "two-way" (duas vias) precisamente porque os dados fluem em ambos os sentidos.</p>';
+            }
+
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html>
