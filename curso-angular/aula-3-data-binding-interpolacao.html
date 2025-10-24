@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3: Data Binding e Interpolação - Curso Angular</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">CodeMaster Academy</a></h1>
+    </header>
+
+    <main>
+        <article class="lesson-content">
+            <h2 class="lesson-title">Aula 3: Data Binding e Interpolação</h2>
+
+            <section id="o-que-vai-ser-capaz">
+                <h3>O que vai ser capaz de fazer</h3>
+                <p>No final desta aula, saberá como exibir dados da lógica do seu componente diretamente no template HTML, criando páginas dinâmicas usando as técnicas de Interpolação e Property Binding.</p>
+            </section>
+
+            <section id="teoria">
+                <h3>Teoria (Com Analogia)</h3>
+                <p>Data Binding é a ponte que liga a lógica do seu componente (o ficheiro TypeScript) à sua apresentação (o ficheiro HTML). É o que torna a sua página dinâmica em vez de estática.</p>
+                <p><strong>Analogia do Menu Digital de um Restaurante:</strong></p>
+                <p>Pense num menu digital num tablet. A lista de pratos e preços não está escrita diretamente no ecrã; ela vem de uma base de dados.</p>
+                <ul>
+                    <li><strong>Lógica do Componente (TypeScript):</strong> É a "cozinha" ou a base de dados que sabe o nome do prato (`nomePrato = 'Bacalhau à Brás'`) e o seu preço (`preco = 15`).</li>
+                    <li><strong>Template (HTML):</strong> É o ecrã do menu que os clientes veem.</li>
+                    <li>
+                        <strong>Interpolação (`{{ }}`):</strong> É como mostrar um dado simples no menu. O template pede à cozinha: "Qual é o nome do prato?". A cozinha responde "Bacalhau à Brás", e o ecrã mostra:
+                        <pre><code>&lt;h3&gt;{{ nomePrato }}&lt;/h3&gt;</code></pre>
+                        É usado para exibir texto.
+                    </li>
+                    <li>
+                        <strong>Property Binding (`[ ]`):</strong> É usado para ligar dados a propriedades de elementos HTML. Imagine que um prato está esgotado. Na cozinha, definimos `esgotado = true`. No template, queremos desativar o botão de pedir:
+                        <pre><code>&lt;button [disabled]="esgotado"&gt;Pedir&lt;/button&gt;</code></pre>
+                        O botão fica cinzento e não clicável porque a sua propriedade `disabled` está ligada ao estado `esgotado`.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="pratica">
+                <h3>Prática (Guiada Passo a Passo)</h3>
+                <p>Vamos criar um componente simples que mostra o perfil de um utilizador.</p>
+                <ol>
+                    <li>
+                        <strong>No ficheiro TypeScript do seu componente (`perfil.component.ts`):</strong>
+                        <pre><code>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html'
+})
+export class PerfilComponent {
+  nome: string = 'Maria Silva';
+  idade: number = 30;
+  imagemURL: string = 'https://i.pravatar.cc/150'; // URL de uma imagem de placeholder
+  botaoAtivo: boolean = true;
+}
+</code></pre>
+                    </li>
+                    <li>
+                        <strong>No ficheiro HTML do seu componente (`perfil.component.html`):</strong>
+                        <pre><code>&lt;h2&gt;Perfil do Utilizador&lt;/h2&gt;
+
+&lt;!-- Usando Interpolação para mostrar texto --&gt;
+&lt;p&gt;Nome: {{ nome }}&lt;/p&gt;
+&lt;p&gt;Idade: {{ idade }} anos&lt;/p&gt;
+
+&lt;!-- Usando Property Binding para o 'src' da imagem --&gt;
+&lt;img [src]="imagemURL" alt="Foto de perfil de {{ nome }}"&gt;
+
+&lt;!-- Usando Property Binding para desativar um botão --&gt;
+&lt;br&gt;
+&lt;button [disabled]="!botaoAtivo"&gt;Contactar&lt;/button&gt;
+</code></pre>
+                    </li>
+                    <li><strong>Como testar:</strong> Adicione o seletor `<app-perfil></app-perfil>` ao seu `app.component.html`. Execute a aplicação com `ng serve` e verá os dados do perfil no ecrã. Tente mudar o valor de `botaoAtivo` para `false` no TypeScript e veja o botão ser desativado.</li>
+                </ol>
+            </section>
+
+            <section id="perguntas">
+                <h3>Perguntas de Escolha Múltipla</h3>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. Que sintaxe é usada para a Interpolação em Angular?</p>
+                        <label><input type="radio" name="q1" value="a"> [ ]</label><br>
+                        <label><input type="radio" name="q1" value="b"> {{ }}</label><br>
+                        <label><input type="radio" name="q1" value="c"> ( )</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. Se quiser definir dinamicamente o `src` de uma tag `<img>` a partir de uma variável no seu componente, qual das seguintes opções usaria?</p>
+                        <label><input type="radio" name="q2" value="a"> `&lt;img src="{{ url }}"&gt;`</label><br>
+                        <label><input type="radio" name="q2" value="b"> `&lt;img [src]="url"&gt;`</label><br>
+                        <label><input type="radio" name="q2" value="c"> `&lt;img src="url"&gt;`</label><br>
+                    </div>
+                    <button type="button" onclick="checkAnswers()">Verificar</button>
+                </form>
+                <div id="quiz-feedback"></div>
+            </section>
+
+            <section id="resumo">
+                <h3>Resumo do que aprendeu</h3>
+                <p>Nesta aula, aprendeu as duas formas mais comuns de Data Binding unidirecional (da lógica para o template):</p>
+                <ul>
+                    <li><strong>Interpolação (`{{ propriedade }}`):</strong> A forma mais simples e direta de exibir dados como texto no HTML. É o "mostrar" da analogia do menu.</li>
+                    <li><strong>Property Binding (`[propriedade]="valor"`):</strong> Usado para ligar o valor de uma variável a um atributo de um elemento HTML, como `disabled`, `src`, `href`, etc. É o "controlar" da analogia do menu.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodeMaster Academy. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = { q1: 'b', q2: 'b' };
+            const feedback = document.getElementById('quiz-feedback');
+            const form = document.getElementById('quiz-form');
+            const q1 = form.elements['q1'].value;
+            const q2 = form.elements['q2'].value;
+            let feedbackHTML = '';
+
+            if (q1 === correctAnswers.q1) {
+                feedbackHTML += '<p><strong>Questão 1: Correto!</strong> As chaves duplas `{{ }}` são a marca registada da interpolação em Angular para exibir texto.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 1: Incorreto.</strong> A resposta certa é `{{ }}`. Lembre-se, `[ ]` é para Property Binding e `( )` para Event Binding, que veremos mais tarde.</p>';
+            }
+
+            if (q2 === correctAnswers.q2) {
+                feedbackHTML += '<p><strong>Questão 2: Correto!</strong> O Property Binding (`[src]="url"`) é a forma canónica de ligar uma propriedade de um elemento a uma variável do componente.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 2: Incorreto.</strong> A resposta certa é `[src]="url"`. Embora a interpolação possa funcionar em alguns casos, o Property Binding é a forma recomendada e mais poderosa para atributos de elementos.</p>';
+            }
+
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html>

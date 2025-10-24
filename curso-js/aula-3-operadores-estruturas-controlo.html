@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3: Operadores e Estruturas de Controlo - Curso JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">CodeMaster Academy</a></h1>
+    </header>
+
+    <main>
+        <article class="lesson-content">
+            <h2 class="lesson-title">Aula 3: Operadores e Estruturas de Controlo</h2>
+
+            <section id="o-que-vai-ser-capaz">
+                <h3>O que vai ser capaz de fazer</h3>
+                <p>No final desta aula, conseguirá usar operadores para realizar cálculos e comparações, e utilizar estruturas de controlo como `if/else` e `for` para criar lógica e repetições no seu código.</p>
+            </section>
+
+            <section id="teoria">
+                <h3>Teoria (Com Analogia)</h3>
+                <p>O código não é apenas uma lista de tarefas; ele precisa de tomar decisões e repetir ações. É aqui que entram os operadores e as estruturas de controlo.</p>
+                <p><strong>Analogia da Receita de Cozinha Inteligente:</strong></p>
+                <p>Imagine uma receita que se adapta sozinha:</p>
+                <ul>
+                    <li>
+                        <strong>Operadores:</strong> São as ações básicas da cozinha.
+                        <ul>
+                            <li><strong>Aritméticos (`+`, `-`, `*`, `/`):</strong> Somar ou dividir ingredientes. Ex: `2 + 2`.</li>
+                            <li><strong>Comparação (`>`, `<`, `===`):</strong> Verificar se algo é verdade. Ex: "A temperatura do forno é superior a 180 graus?" (`temperatura > 180`).</li>
+                            <li><strong>Lógicos (`&&`, `||`):</strong> Combinar verificações. Ex: "Temos farinha E ovos?" (`temFarinha && temOvos`).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Estruturas de Controlo:</strong> São as instruções lógicas da receita.
+                        <ul>
+                            <li><strong>`if/else` (Se/Senão):</strong> A tomada de decisão. "<strong>Se</strong> tivermos chocolate, adicionamos. <strong>Senão</strong>, usamos baunilha."</li>
+                            <li><strong>`for` (Para):</strong> A repetição. "<strong>Para</strong> cada um dos 10 biscoitos na bandeja, adicione uma amêndoa."</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="pratica">
+                <h3>Prática (Guiada Passo a Passo)</h3>
+                <p>Vamos criar um pequeno script que decide se um número é par ou ímpar e depois conta até esse número.</p>
+                <ol>
+                    <li>
+                        <strong>Abra a consola do seu navegador</strong> (F12 ou Clique direito > Inspecionar > Consola).
+                    </li>
+                    <li>
+                        <strong>Declare uma variável e use `if/else`:</strong>
+                        <pre><code>let numero = 10;
+
+if (numero % 2 === 0) {
+  console.log(numero + ' é um número par.');
+} else {
+  console.log(numero + ' é um número ímpar.');
+}
+// O operador '%' (módulo) dá o resto de uma divisão. Se o resto por 2 for 0, o número é par.</code></pre>
+                    </li>
+                    <li>
+                        <strong>Agora, adicione um loop `for`</strong> para contar de 1 até ao nosso número:
+                        <pre><code>console.log('A contar até ' + numero + ':');
+
+for (let i = 1; i <= numero; i++) {
+  console.log(i);
+}
+// O loop começa com i=1; continua enquanto i for menor ou igual a 'numero'; e incrementa i a cada passo.
+</code></pre>
+                    </li>
+                    <li>Experimente mudar o valor da variável `numero` e veja como o resultado se altera.</li>
+                </ol>
+            </section>
+
+            <section id="perguntas">
+                <h3>Perguntas de Escolha Múltipla</h3>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. Qual operador é usado para verificar se dois valores são estritamente iguais (valor e tipo)?</p>
+                        <label><input type="radio" name="q1" value="a"> =</label><br>
+                        <label><input type="radio" name="q1" value="b"> ==</label><br>
+                        <label><input type="radio" name="q1" value="c"> ===</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. Que estrutura de controlo usaria para executar um bloco de código repetidamente, um número específico de vezes?</p>
+                        <label><input type="radio" name="q2" value="a"> if/else</label><br>
+                        <label><input type="radio" name="q2" value="b"> for</label><br>
+                        <label><input type="radio" name="q2" value="c"> let</label><br>
+                    </div>
+                    <button type="button" onclick="checkAnswers()">Verificar</button>
+                </form>
+                <div id="quiz-feedback"></div>
+            </section>
+
+            <section id="resumo">
+                <h3>Resumo do que aprendeu</h3>
+                <p>Nesta aula, aprendeu a dar "inteligência" ao seu código:</p>
+                <ul>
+                    <li><strong>Operadores:</strong> Permitem-lhe manipular dados, desde simples somas (`+`) a comparações lógicas complexas (`===`, `&&`).</li>
+                    <li><strong>Estrutura `if/else`:</strong> É o pilar da tomada de decisões, permitindo que o seu código siga caminhos diferentes com base em condições.</li>
+                    <li><strong>Estrutura `for`:</strong> É a forma mais comum de criar repetições (loops), ideal para quando sabe exatamente quantas vezes precisa de repetir uma ação.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodeMaster Academy. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = { q1: 'c', q2: 'b' };
+            const feedback = document.getElementById('quiz-feedback');
+            const form = document.getElementById('quiz-form');
+            const q1 = form.elements['q1'].value;
+            const q2 = form.elements['q2'].value;
+            let feedbackHTML = '';
+
+            if (q1 === correctAnswers.q1) {
+                feedbackHTML += '<p><strong>Questão 1: Correto!</strong> O operador `===` (igualdade estrita) verifica tanto o valor como o tipo, sendo a forma mais segura de comparação.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 1: Incorreto.</strong> A resposta certa é `===`. `=` é para atribuição e `==` pode levar a conversões de tipo inesperadas. Pense no `===` como o "super igual".</p>';
+            }
+
+            if (q2 === correctAnswers.q2) {
+                feedbackHTML += '<p><strong>Questão 2: Correto!</strong> O loop `for` é perfeito para repetições contadas, como na analogia de "para cada um dos 10 biscoitos...".</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 2: Incorreto.</strong> A resposta certa é `for`. A estrutura `if/else` decide, não repete. Lembre-se, `for` é para "repetir por um tempo".</p>';
+            }
+
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html>
