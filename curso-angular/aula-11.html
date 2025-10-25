@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11 - Angular: Serviços e Injeção de Dependência</title>
+    <meta name="description" content="Aprenda a criar e injetar serviços para partilhar lógica e dados em Angular.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="aula-10-projeto-final.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar à Aula 10
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 11</span>
+                    <h1 class="module-title">Angular: Serviços e Injeção de Dependência</h1>
+                    <p class="module-subtitle">Organize o seu código de forma eficiente e reutilizável.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Criar um serviço em Angular para encapsular a lógica de negócio.</li>
+                        <li>🎯 Entender o conceito de Injeção de Dependência (DI).</li>
+                        <li>🎯 Injetar e utilizar um serviço dentro de um componente.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Componentes não devem fazer tudo sozinhos</h3>
+                    <p>Em Angular, os componentes são responsáveis por controlar a view (o HTML). Tarefas como buscar dados de um servidor, lógica de negócio complexa ou partilhar dados entre componentes não devem estar diretamente no componente. Para isso, usamos Serviços. A Injeção de Dependência é o mecanismo que o Angular usa para "entregar" (injetar) uma instância de um serviço a um componente que precise dele.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Imagine que o seu <strong>componente</strong> é um chef de cozinha a preparar um prato. O chef não deve ir à quinta buscar os ingredientes. Em vez disso, ele depende de um <strong>serviço</strong> de entregas. O chef simplesmente diz: "Preciso de tomates". O sistema de <strong>Injeção de Dependência</strong> é como o gerente do restaurante que garante que o serviço de entregas entrega os tomates frescos ao chef no momento certo, sem que o chef precise de saber de onde vieram.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um serviço que fornece uma lista de utilizadores a um componente.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Criar o Serviço</h4>
+                            <p>Usamos o Angular CLI para gerar o serviço. Este comando cria o ficheiro `user.service.ts`.</p>
+                            <pre><code>ng generate service user</code></pre>
+                            <p>Dentro do serviço, adicionamos um método para obter os utilizadores.</p>
+                            <pre><code>// src/app/user.service.ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  getUsers() {
+    return [
+      { id: 1, name: 'Ana' },
+      { id: 2, name: 'Bruno' },
+      { id: 3, name: 'Carla' }
+    ];
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Injetar o Serviço no Componente</h4>
+                            <p>No nosso componente (ex: `app.component.ts`), pedimos ao Angular para injetar o `UserService` através do construtor.</p>
+                            <pre><code>// src/app/app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent implements OnInit {
+  users: any[];
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.users = this.userService.getUsers();
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Exibir os Dados no Template</h4>
+                            <p>Agora, no `app.component.html`, podemos usar a lista de utilizadores.</p>
+                            <pre><code>&lt;h1&gt;Lista de Utilizadores&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li *ngFor="let user of users"&gt;{{ user.name }}&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Como um componente em Angular recebe uma instância de um serviço?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Criando uma nova instância com `new UserService()`.</button>
+                                <button class="option" data-correct="true">Declarando-o como uma dependência no seu construtor.</button>
+                                <button class="option" data-correct="false">Através de um `@Input()`.</button>
+                                <button class="option" data-correct="false">Importando-o diretamente no template HTML.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B. O sistema de Injeção de Dependência do Angular analisa o construtor do componente e fornece as instâncias de serviço necessárias.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> O chef (componente) não cria o serviço de entregas. Ele apenas declara no seu "contrato" (o construtor) que precisa de um, e o gerente (Angular DI) trata de o fornecer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ Serviços são classes em Angular usadas para encapsular lógica e dados reutilizáveis.</li>
+                        <li>✅ A Injeção de Dependência (DI) é um padrão de design onde as dependências de uma classe são fornecidas externamente.</li>
+                        <li>✅ Em Angular, injetamos serviços nos componentes através dos seus construtores, permitindo uma boa separação de responsabilidades.</li>
+                    </ul>
+                    <p>Usar serviços é fundamental para construir aplicações Angular escaláveis e bem estruturadas.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-10-projeto-final.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
