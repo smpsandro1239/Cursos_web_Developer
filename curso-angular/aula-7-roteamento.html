@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7: Roteamento - Curso de Angular</title>
+    <meta name="description" content="Aprenda a criar aplicações de página única (SPA) com navegação entre diferentes vistas usando o Angular Router.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 7</span>
+                    <h1 class="module-title">Roteamento em Angular</h1>
+                    <p class="module-subtitle">Construa Single-Page Applications (SPAs) com navegação fluida entre componentes.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o conceito de roteamento numa SPA.</li>
+                        <li>🎯 Configurar rotas básicas para navegar entre componentes.</li>
+                        <li>🎯 Utilizar <code>router-outlet</code> e <code>routerLink</code> para navegação.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Navegação sem Recarregar a Página</h3>
+                    <p>Roteamento em Angular permite definir caminhos de navegação na aplicação. Quando um utilizador clica num link, o Angular Router, em vez de carregar uma nova página do servidor, renderiza o componente associado àquela rota, criando uma experiência de navegação rápida, típica de uma Single-Page Application (SPA).</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense no Angular Router como o sistema de GPS de um centro comercial. O centro comercial é a sua aplicação (uma única página). Em vez de sair do centro comercial (recarregar a página) para ir a uma loja diferente, você consulta o mapa (as suas rotas). O GPS (Router) guia-o até à loja desejada (o componente). O <code>&lt;router-outlet&gt;</code> é a montra da loja que muda o seu conteúdo dependendo de onde está.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos configurar uma navegação básica entre dois componentes: <code>HomeComponent</code> e <code>AboutComponent</code>.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Configurar as Rotas</h4>
+                            <p>No ficheiro <code>app-routing.module.ts</code>, defina as rotas.</p>
+                            <pre><code>// app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Adicionar o Ponto de Renderização</h4>
+                            <p>No <code>app.component.html</code>, adicione a tag <code>&lt;router-outlet&gt;</code>. É aqui que os componentes das rotas serão exibidos.</p>
+                            <pre><code>&lt;!-- app.component.html --&gt;
+&lt;h1&gt;A Minha Aplicação&lt;/h1&gt;
+&lt;nav&gt;
+  &lt;a routerLink="/home"&gt;Início&lt;/a&gt;
+  &lt;a routerLink="/about"&gt;Sobre&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Os componentes das rotas aparecem aqui --&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Que diretiva é usada para indicar onde o Angular deve renderizar o componente da rota ativa?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">router-view</button>
+                                <button class="option" data-correct="false">ng-view</button>
+                                <button class="option" data-correct="true">router-outlet</button>
+                                <button class="option" data-correct="false">app-router</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A diretiva <code>&lt;router-outlet&gt;</code> funciona como um placeholder que o Angular preenche dinamicamente com o componente da rota atual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, explorámos o sistema de roteamento do Angular:</p>
+                    <ul>
+                        <li>✅ Roteamento permite a navegação entre componentes numa SPA.</li>
+                        <li>✅ As rotas são configuradas no <code>AppRoutingModule</code>.</li>
+                        <li>✅ A diretiva <code>&lt;router-outlet&gt;</code> marca onde os componentes são renderizados.</li>
+                        <li>✅ A diretiva <code>routerLink</code> é usada para criar links de navegação.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-6-componentes.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

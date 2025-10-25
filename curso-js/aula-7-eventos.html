@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7: Eventos - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a responder a interações do utilizador, como cliques e teclas, com eventos em JavaScript.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 7</span>
+                    <h1 class="module-title">Eventos em JavaScript</h1>
+                    <p class="module-subtitle">Torne as suas páginas interativas respondendo às ações do utilizador.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que são eventos e como funcionam no browser.</li>
+                        <li>🎯 Adicionar "event listeners" a elementos HTML para detetar ações como cliques.</li>
+                        <li>🎯 Executar uma função em resposta a um evento do utilizador.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Ouvir o Utilizador</h3>
+                    <p>Eventos são ações que acontecem na página web, como um clique de rato, o pressionar de uma tecla, ou o scroll da página. JavaScript permite-nos "ouvir" estes eventos e executar código em resposta, tornando a página dinâmica e interativa.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num evento como uma campainha. O botão da campainha é o seu elemento HTML (ex: um botão). O ato de carregar no botão é o evento ('click'). A função que toca a música da campainha é a sua função JavaScript, que só é executada quando o evento acontece. O método <code>addEventListener</code> é o fio que liga o botão à campainha.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um botão que mostra uma mensagem quando é clicado.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie o botão em HTML</h4>
+                            <pre><code>&lt;button id="meuBotao"&gt;Clique em mim!&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Selecione o botão em JavaScript</h4>
+                            <pre><code>const botao = document.querySelector('#meuBotao');</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Adicione um Event Listener</h4>
+                            <p>Vamos ouvir o evento 'click' e executar uma função que mostra um alerta.</p>
+                            <pre><code>botao.addEventListener('click', function() {
+  alert('Botão clicado!');
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual método é usado para fazer um elemento "ouvir" um evento, como um clique?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">listenFor('click', ...)</button>
+                                <button class="option" data-correct="false">on('click', ...)</button>
+                                <button class="option" data-correct="true">addEventListener('click', ...)</button>
+                                <button class="option" data-correct="false">attachEvent('click', ...)</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é <code>addEventListener</code>. É o método padrão e moderno para registar um "ouvinte" de eventos num elemento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendemos os fundamentos da interatividade em JavaScript:</p>
+                    <ul>
+                        <li>✅ Eventos são ações do utilizador que podemos detetar.</li>
+                        <li>✅ O método <code>addEventListener</code> permite-nos "ouvir" e responder a esses eventos.</li>
+                        <li>✅ Funções de callback são executadas quando o evento correspondente ocorre.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-6-dom-manipulation.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
