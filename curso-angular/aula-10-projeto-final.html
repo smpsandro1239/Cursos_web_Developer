@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10: Projeto Final - Curso de Angular</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Curso de Angular</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="aula-9-http-client.html">Aula Anterior</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="objetivo">
+            <h2>Objetivo da Aula</h2>
+            <p>O objetivo é integrar todo o conhecimento do curso de Angular para construir uma Single Page Application (SPA) funcional, como uma lista de tarefas (To-Do List), utilizando componentes, serviços e roteamento.</p>
+        </section>
+        <section id="teoria">
+            <h2>Teoria com Analogia</h2>
+            <p>Pense em construir uma aplicação Angular como montar um carro complexo com peças de LEGO. Cada peça é um componente (roda, porta, motor). Os serviços são como o sistema elétrico que fornece energia para todos. O roteamento é o GPS que te leva para diferentes partes do carro (diferentes telas).</p>
+        </section>
+        <section id="pratica">
+            <h2>Prática Apoiada</h2>
+            <p>O desafio é criar uma aplicação de To-Do List. Crie um componente para exibir a lista de tarefas, um componente para adicionar novas tarefas e um serviço para gerenciar os dados. Use o roteamento para navegar entre uma página "Home" e a página da "Lista de Tarefas".</p>
+            <pre><code>
+// Exemplo de um serviço de tarefas
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class TaskService {
+  private tasks = ['Estudar Angular', 'Fazer o projeto final'];
+
+  getTasks() { return this.tasks; }
+  addTask(task: string) { this.tasks.push(task); }
+}
+            </code></pre>
+        </section>
+        <section id="quiz">
+            <h2>Perguntas de Múltipla Escolha</h2>
+            <p>Qual é a principal responsabilidade de um Serviço em Angular?</p>
+            <form>
+                <input type="radio" name="q1" value="a"> A. Controlar a interface do usuário e a lógica de exibição.<br>
+                <input type="radio" name="q1" value="b"> B. Compartilhar dados e lógica de negócios entre componentes.<br>
+                <input type="radio" name="q1" value="c"> C. Definir os estilos da aplicação.<br>
+            </form>
+            <p id="explicacao" style="display: none;"><b>Explicação:</b> Serviços são usados para encapsular lógica que não está diretamente ligada à visão, como busca de dados ou comunicação com APIs. Eles são injetáveis e ajudam a manter os componentes mais limpos e focados na UI.</p>
+        </section>
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <p>Parabéns por chegar ao fim do curso de Angular! Você aprendeu a construir aplicações web robustas e escaláveis, desde a criação de componentes e serviços até o gerenciamento de estado e comunicação com servidores. Agora você está pronto para criar suas próprias SPAs.</p>
+        </section>
+        <section id="navegacao">
+            <button onclick="window.location.href='../index.html'">Voltar ao Início</button>
+        </section>
+    </main>
+</body>
+</html>

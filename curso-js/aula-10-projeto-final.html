@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10: Projeto Final - Curso de JavaScript</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Curso de JavaScript</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="aula-9-es6-features.html">Aula Anterior</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="objetivo">
+            <h2>Objetivo da Aula</h2>
+            <p>O objetivo é aplicar os conhecimentos de JavaScript para adicionar interatividade à página de portfólio. Vamos criar um "dark mode", carregar projetos de uma API e manipular o DOM.</p>
+        </section>
+        <section id="teoria">
+            <h2>Teoria com Analogia</h2>
+            <p>Se o HTML é a estrutura e o CSS é a decoração, o JavaScript é a eletricidade da casa. Ele permite que as coisas funcionem: acender e apagar luzes (dark mode), buscar informações de fora (API) e interagir com os moradores (eventos do usuário).</p>
+        </section>
+        <section id="pratica">
+            <h2>Prática Apoiada</h2>
+            <p>O desafio é adicionar um botão que alterne a classe `dark-mode` no `&lt;body&gt;`. Além disso, use `fetch` para buscar dados de uma API (como a API do GitHub para listar seus repositórios) e exibi-los dinamicamente na seção de projetos.</p>
+            <pre><code>
+// Exemplo para o dark mode
+const btnToggle = document.getElementById('toggle-dark-mode');
+btnToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+// Exemplo para buscar dados da API
+fetch('https://api.github.com/users/SEU-USUARIO/repos')
+    .then(response => response.json())
+    .then(data => {
+        // Lógica para exibir os repositórios na página
+    });
+            </code></pre>
+        </section>
+        <section id="quiz">
+            <h2>Perguntas de Múltipla Escolha</h2>
+            <p>Qual é a maneira moderna e mais comum de fazer requisições assíncronas em JavaScript?</p>
+            <form>
+                <input type="radio" name="q1" value="a"> A. Usando `XMLHttpRequest`.<br>
+                <input type="radio" name="q1" value="b"> B. Usando a `fetch` API com Promises ou `async/await`.<br>
+                <input type="radio" name="q1" value="c"> C. Usando jQuery `$.ajax`.<br>
+            </form>
+            <p id="explicacao" style="display: none;"><b>Explicação:</b> A `fetch` API é a interface nativa do navegador para fazer requisições de rede. Ela é baseada em Promises, tornando o código assíncrono mais limpo e legível, especialmente com `async/await`.</p>
+        </section>
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <p>Parabéns por completar o curso de JavaScript! Você aprendeu a manipular o DOM, lidar com eventos, fazer requisições assíncronas e usar features modernas do ES6+. Agora você pode criar aplicações web dinâmicas e interativas.</p>
+        </section>
+        <section id="navegacao">
+            <button onclick="window.location.href='../index.html'">Voltar ao Início</button>
+        </section>
+    </main>
+</body>
+</html>
