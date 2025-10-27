@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16: Local Storage - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a armazenar dados no navegador do utilizador com Local Storage.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 16</span>
+                    <h1 class="module-title">Local Storage</h1>
+                    <p class="module-subtitle">Descubra como guardar informações no navegador que persistem mesmo depois de a página ser fechada.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Guardar dados no Local Storage usando `setItem()`.</li>
+                        <li>🎯 Ler dados do Local Storage com `getItem()`.</li>
+                        <li>🎯 Remover dados específicos (`removeItem()`) ou limpar todo o armazenamento (`clear()`).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>A Memória do Navegador</h3>
+                    <p>O Local Storage é um mecanismo que permite que sites e aplicações guardem pares de chave-valor (apenas strings) num navegador web. Os dados não expiram, o que significa que permanecem guardados até serem removidos pelo código ou pelo utilizador.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense no Local Storage como um pequeno quadro de avisos na sua secretária. Você pode afixar uma nota (ex: `setItem('lembrete', 'Comprar pão')`). Mais tarde, pode ler essa nota (`getItem('lembrete')`). Quando já não precisar dela, pode tirá-la do quadro (`removeItem('lembrete')`). A nota fica lá, mesmo que saia do escritório e volte no dia seguinte.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar uma página que guarda e exibe o nome do utilizador.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Guardar um Item</h4>
+                            <p>Abra a consola do seu navegador e execute este código para guardar o nome "Ana".</p>
+                            <pre><code>localStorage.setItem('nomeUtilizador', 'Ana');</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Ler o Item</h4>
+                            <p>Agora, leia o valor que acabou de guardar. Atualize a página e execute este comando—o valor ainda lá estará!</p>
+                            <pre><code>const nome = localStorage.getItem('nomeUtilizador');
+console.log(nome); // Deverá mostrar "Ana"</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Guardar Objetos</h4>
+                            <p>Como o Local Storage só aceita strings, use `JSON.stringify` para guardar objetos e `JSON.parse` para os ler.</p>
+                            <pre><code>const utilizador = { nome: 'Carlos', idade: 30 };
+localStorage.setItem('dadosUtilizador', JSON.stringify(utilizador));
+
+const dadosGuardados = JSON.parse(localStorage.getItem('dadosUtilizador'));
+console.log(dadosGuardados.nome); // "Carlos"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Que tipo de dados o Local Storage armazena nativamente?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Numbers</button>
+                                <button class="option" data-correct="false">Objects</button>
+                                <button class="option" data-correct="true">Strings</button>
+                                <button class="option" data-correct="false">Booleans</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> O Local Storage armazena todos os dados como strings. Para guardar estruturas mais complexas como objetos, é preciso convertê-los para uma string JSON.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, explorou o Local Storage:</p>
+                    <ul>
+                        <li>✅ `localStorage.setItem(chave, valor)` para guardar dados.</li>
+                        <li>✅ `localStorage.getItem(chave)` para ler dados.</li>
+                        <li>✅ `localStorage.removeItem(chave)` para remover um item específico.</li>
+                        <li>✅ `JSON.stringify()` e `JSON.parse()` para trabalhar com objetos.</li>
+                    </ul>
+                    <p>O Local Storage é uma excelente ferramenta para guardar preferências do utilizador, temas, ou outras informações simples.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-15.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

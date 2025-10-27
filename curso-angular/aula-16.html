@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16: Angular Forms - Curso de Angular</title>
+    <meta name="description" content="Aprenda a criar e validar formulários em Angular com Template-Driven e Reactive Forms.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 16</span>
+                    <h1 class="module-title">Angular Forms</h1>
+                    <p class="module-subtitle">Domine a arte de recolher e validar dados do utilizador com as duas abordagens de formulários do Angular.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Criar um formulário simples usando Template-Driven Forms.</li>
+                        <li>🎯 Construir um formulário robusto e escalável com Reactive Forms.</li>
+                        <li>🎯 Implementar validações básicas para campos de formulário.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Duas Formas de Construir</h3>
+                    <p>Angular oferece duas abordagens para lidar com formulários: Template-Driven, que é mais simples e declarativa, e Reactive, que é mais programática e poderosa.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p><strong>Template-Driven Forms</strong> são como comprar mobília pré-montada. É rápido e fácil; a maior parte da configuração já está feita para si no template (HTML). <strong>Reactive Forms</strong> são como construir a sua própria mobília a partir do zero. Dá mais trabalho e requer que defina a estrutura no seu código (TypeScript), mas oferece controlo total e flexibilidade para cenários complexos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um formulário de login com Reactive Forms.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Importe o Módulo</h4>
+                            <p>No seu `app.module.ts`, importe o `ReactiveFormsModule`.</p>
+                            <pre><code>import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    // ...
+    ReactiveFormsModule
+  ],
+  // ...
+})
+export class AppModule { }</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Crie o FormGroup no Componente</h4>
+                            <p>No seu `login.component.ts`, defina a estrutura do formulário.</p>
+                            <pre><code>import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+@Component({ /* ... */ })
+export class LoginComponent {
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
+  });
+
+  onSubmit() {
+    console.log(this.loginForm.value);
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Conecte ao Template</h4>
+                            <p>No seu `login.component.html`, ligue o formulário ao `FormGroup`.</p>
+                            <pre><code>&lt;form [formGroup]="loginForm" (ngSubmit)="onSubmit()"&gt;
+  &lt;input type="email" formControlName="email"&gt;
+  &lt;input type="password" formControlName="password"&gt;
+  &lt;button type="submit" [disabled]="!loginForm.valid"&gt;Entrar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Em Reactive Forms, onde é definida a estrutura principal do formulário?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">No template HTML</button>
+                                <button class="option" data-correct="true">Na classe do componente (TypeScript)</button>
+                                <button class="option" data-correct="false">Num serviço separado</button>
+                                <button class="option" data-correct="false">No módulo principal</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A principal característica dos Reactive Forms é que a estrutura, a lógica e as validações são definidas programaticamente no ficheiro TypeScript do componente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, explorou os formulários em Angular:</p>
+                    <ul>
+                        <li>✅ <strong>Template-Driven Forms:</strong> Simples, baseados em diretivas no template.</li>
+                        <li>✅ <strong>Reactive Forms:</strong> Programáticos, escaláveis e mais testáveis.</li>
+                        <li>✅ <strong>`FormGroup` e `FormControl`:</strong> As classes centrais para construir formulários reativos.</li>
+                        <li>✅ <strong>Validação:</strong> Como usar validadores para garantir a qualidade dos dados.</li>
+                    </ul>
+                    <p>Saber quando usar cada abordagem é fundamental para ser um desenvolvedor Angular eficaz.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-15.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
