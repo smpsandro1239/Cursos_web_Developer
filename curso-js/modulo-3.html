@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 3: Funções & Scope - Curso de JavaScript</title>
-    <meta name="description" content="Funções e escopo em JavaScript.">
+    <meta name="description" content="Aprenda a organizar o seu código com funções e a entender como o escopo funciona em JavaScript.">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="stylesheet" href="../css/lesson.css">
@@ -26,7 +26,7 @@
                 <div class="module-info">
                     <span class="module-number">MÓDULO 3</span>
                     <h1 class="module-title">FUNÇÕES & SCOPE</h1>
-                    <p class="module-subtitle">4 aulas</p>
+                    <p class="module-subtitle">Criar blocos de código reutilizáveis e entender onde as variáveis vivem.</p>
                 </div>
             </div>
         </div>
@@ -34,19 +34,154 @@
 
     <main class="lesson-container">
         <div class="container">
-            <section id="topicos" class="lesson-section">
-                <h2 class="section-title">Tópicos Abordados</h2>
+            <!-- Secção: Objetivos -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
                 <div class="content-box">
-                    <ol>
-                        <li>Declaração vs Expressão vs Arrow</li>
-                        <li>Parâmetros, default values, rest (<code>...args</code>)</li>
-                        <li>Return múltiplo (object / array)</li>
-                        <li>Escopo global, função e bloco (let/const)</li>
-                        <li>Closures (exemplo: contador privado)</li>
-                        <li>IIFE & modo estrito</li>
-                        <li>Recursão simples (fatorial, fibonacci)</li>
-                        <li>✏️ Exercício: simulador de caixa multibanco com funções</li>
-                    </ol>
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Criar "comandos" personalizados com funções para evitar a repetição de código.</li>
+                        <li>🎯 Passar informação para dentro das funções (parâmetros) e receber resultados de volta (<code>return</code>).</li>
+                        <li>🎯 Entender a diferença entre os vários tipos de funções.</li>
+                        <li>🎯 Compreender o conceito de escopo e evitar erros comuns com variáveis.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Funções: As Receitas do Código</h2>
+                <div class="content-box">
+                    <h3>O que são Funções?</h3>
+                    <p>Funções são blocos de código nomeados que executam uma tarefa específica. Em vez de escrever o mesmo código várias vezes, você "empacota-o" numa função e chama-a pelo nome sempre que precisar.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Uma Receita de Bolo</h4>
+                            <p>Uma função é como uma receita. A <strong>declaração da função</strong> é o momento em que você escreve a receita (os passos para fazer o bolo). <strong>Chamar a função</strong> é o ato de seguir a receita para fazer o bolo. Pode usar a mesma receita quantas vezes quiser para fazer vários bolos!</p>
+                        </div>
+                    </div>
+
+                    <h3>Parâmetros e Return: Ingredientes e o Bolo Pronto</h3>
+                    <ul>
+                        <li><strong>Parâmetros</strong>: São as informações que você "passa para dentro" da função, como os ingredientes de uma receita.</li>
+                        <li><strong>Return</strong>: É o valor que a função "devolve" depois de terminar a sua tarefa. É o bolo pronto! Uma função sem <code>return</code> faz uma tarefa, mas não entrega um resultado final.</li>
+                    </ul>
+<pre><code>// Função `somar` com dois parâmetros (ingredientes): a e b
+function somar(a, b) {
+  const resultado = a + b;
+  return resultado; // Devolve o resultado (o bolo pronto)
+}
+
+const total = somar(5, 3); // Chama a função com os argumentos 5 e 3
+console.log(total); // Mostra 8</code></pre>
+
+                    <h3>Scope: Onde as Variáveis Moram</h3>
+                    <p>Escopo (Scope) define onde as variáveis são acessíveis no seu código.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: A Casa e os Quartos</h4>
+                            <p>Pense no seu programa como uma casa. O <strong>Escopo Global</strong> é a sala de estar – qualquer variável declarada aqui é acessível de qualquer lugar da casa. O <strong>Escopo de Função</strong> é como um quarto privado. Variáveis declaradas dentro de uma função (num quarto) só são visíveis e acessíveis lá dentro. Ninguém na sala de estar sabe o que se passa dentro do quarto.</p>
+                        </div>
+                    </div>
+<pre><code>const nomeGlobal = "Mundo"; // Escopo Global (na sala)
+
+function saudar() {
+  const nomeLocal = "Ana"; // Escopo de Função (no quarto)
+  console.log(`Olá, ${nomeLocal}!`); // Funciona, estamos dentro do quarto
+  console.log(`Adeus, ${nomeGlobal}.`); // Funciona, a sala é visível do quarto
+}
+
+saudar();
+// console.log(nomeLocal); // Erro! Não conseguimos ver o que está no quarto a partir da sala.</code></pre>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Exercício: Simulador de Caixa Multibanco</h2>
+                <div class="content-box">
+                    <p>Vamos criar um programa que simula as operações básicas de um multibanco usando funções para organizar o nosso código.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Definir o saldo inicial</h4>
+                            <p>Começamos com uma variável para guardar o saldo da conta. Como o saldo vai mudar, usamos <code>let</code>.</p>
+                            <pre><code>let saldo = 1000; // Saldo inicial de 1000€</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Criar a função para depositar</h4>
+                            <p>Esta função recebe um valor como parâmetro, adiciona-o ao saldo e informa o utilizador.</p>
+                            <pre><code>function depositar(valor) {
+  saldo += valor;
+  console.log(`Depósito de ${valor}€ efetuado. Saldo atual: ${saldo}€.`);
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Criar a função para levantar</h4>
+                            <p>Esta função verifica se há saldo suficiente. Se houver, subtrai o valor; senão, mostra um erro.</p>
+                            <pre><code>function levantar(valor) {
+  if (valor <= saldo) {
+    saldo -= valor;
+    console.log(`Levantamento de ${valor}€ efetuado. Saldo atual: ${saldo}€.`);
+  } else {
+    console.log("Saldo insuficiente para este levantamento.");
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 4: Criar a função para consultar o saldo</h4>
+                            <p>Uma função simples que apenas mostra o saldo atual.</p>
+                            <pre><code>function consultarSaldo() {
+  console.log(`O seu saldo atual é de ${saldo}€.`);
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 5: Testar as nossas funções</h4>
+                            <p>Agora, vamos chamar as funções para simular as operações.</p>
+                            <pre><code>consultarSaldo(); // Mostra 1000€
+depositar(200);     // Mostra "Depósito de 200€... Saldo atual: 1200€."
+levantar(300);      // Mostra "Levantamento de 300€... Saldo atual: 900€."
+levantar(1000);     // Mostra "Saldo insuficiente..."
+consultarSaldo(); // Mostra 900€</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Uma função foi definida como <code>function calcularIva(preco) { const total = preco * 1.23; }</code>. Se você chamar <code>let resultado = calcularIva(100);</code>, qual será o valor de <code>resultado</code>?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">123</button>
+                                <button class="option" data-correct="false">100</button>
+                                <button class="option" data-correct="true">undefined</button>
+                                <button class="option" data-correct="false">Erro</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é <code>undefined</code>. A função calcula o valor correto, mas nunca o "devolve" para o exterior porque falta a palavra-chave <code>return</code>. Sem um <code>return</code> explícito, uma função devolve sempre <code>undefined</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu a organizar e reutilizar o seu código de forma eficiente:</p>
+                    <ul>
+                        <li>✅ <strong>Funções</strong> são como "receitas" que guardam um bloco de código para ser reutilizado.</li>
+                        <li>✅ Usamos <strong>parâmetros</strong> para enviar "ingredientes" para a função e <strong><code>return</code></strong> para receber o "prato final".</li>
+                        <li>✅ O <strong>Escopo</strong> é como uma casa com quartos: variáveis globais são públicas (na sala), e variáveis de função são privadas (no quarto).</li>
+                        <li>✅ Organizar o código em funções torna-o mais limpo, mais fácil de ler e de manter.</li>
+                    </ul>
+                    <p>Agora que sabe organizar o seu código, o próximo passo é aprender a organizar os seus dados com Arrays e Objetos!</p>
                 </div>
             </section>
         </div>

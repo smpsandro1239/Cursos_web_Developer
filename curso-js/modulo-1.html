@@ -26,7 +26,7 @@
                 <div class="module-info">
                     <span class="module-number">MÓDULO 1</span>
                     <h1 class="module-title">FUNDAMENTOS ABSOLUTOS</h1>
-                    <p class="module-subtitle">4 aulas</p>
+                    <p class="module-subtitle">Onde tudo começa: a base para construir qualquer programa.</p>
                 </div>
             </div>
         </div>
@@ -34,20 +34,142 @@
 
     <main class="lesson-container">
         <div class="container">
-            <section id="topicos" class="lesson-section">
-                <h2 class="section-title">Tópicos Abordados</h2>
+            <!-- Secção: Objetivos -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
                 <div class="content-box">
-                    <ol>
-                        <li>O que é JavaScript? História, motores, ECMAScript</li>
-                        <li>Sintaxe mínima: <code>;</code>, <code>{}</code>, <code>()</code>, comentários</li>
-                        <li><code>console.log</code> vs <code>prompt</code> vs <code>alert</code></li>
-                        <li>Variáveis: <code>var</code> → <code>let</code> → <code>const</code> (hoisting & TDZ)</li>
-                        <li>Tipos primitivos: <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code></li>
-                        <li>Operadores: aritméticos, comparação (<code>===</code> vs <code>==</code>), lógicos, ternário</li>
-                        <li>Template literals & interpolação</li>
-                        <li>Conversão de tipos: <code>Number()</code>, <code>String()</code>, <code>Boolean()</code></li>
-                        <li>✏️ Exercício: calculadora de IMC no console</li>
-                    </ol>
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Guardar e gerir informações usando variáveis.</li>
+                        <li>🎯 Distinguir os tipos de dados essenciais em JavaScript.</li>
+                        <li>🎯 Realizar operações matemáticas e lógicas.</li>
+                        <li>🎯 Criar um programa simples que interage com o utilizador.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Variáveis: As Caixas da Memória</h2>
+                <div class="content-box">
+                    <h3>O que são variáveis?</h3>
+                    <p>Variáveis são contentores para guardar dados. Cada "caixa" tem uma etiqueta (o nome da variável) e um conteúdo (o valor).</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Caixas de Arrumação</h4>
+                            <p>Pense em variáveis como caixas. Você pode ter uma caixa etiquetada como <strong>"Idade"</strong> e guardar lá o número <strong>30</strong>. Se a idade mudar, você abre a caixa e troca o valor. Simples!</p>
+                        </div>
+                    </div>
+
+                    <h3><code>let</code>, <code>const</code> e o velho <code>var</code></h3>
+                    <p>Em JavaScript moderno, usamos principalmente <code>let</code> e <code>const</code> para criar variáveis.</p>
+                    <ul>
+                        <li><code>let</code>: Cria uma "caixa" cujo conteúdo pode ser alterado. Use-a para valores que vão mudar, como a pontuação num jogo.</li>
+                        <li><code>const</code>: Cria uma "caixa selada". Uma vez que guarda algo nela, não pode mais trocar. Use-a para valores que não devem mudar, como a data de nascimento.</li>
+                        <li><code>var</code>: É a forma antiga de criar variáveis. Evite-a em código novo, pois tem um comportamento que pode causar confusão (chamado <em>hoisting</em>).</li>
+                    </ul>
+<pre><code>// O valor pode ser atualizado
+let pontuacao = 100;
+pontuacao = 120; // Válido
+
+// O valor não pode ser alterado
+const nome = "Ana";
+// nome = "Bia"; // Inválido! Causa um erro.</code></pre>
+
+                    <h3>Tipos Primitivos: Os Ingredientes Básicos</h3>
+                    <p>JavaScript tem vários "sabores" de dados que podemos guardar nas nossas caixas:</p>
+                    <ul>
+                        <li><strong>String</strong>: Texto, sempre entre aspas. Ex: <code>"Olá, mundo!"</code>.</li>
+                        <li><strong>Number</strong>: Números, para cálculos. Ex: <code>42</code>, <code>3.14</code>.</li>
+                        <li><strong>Boolean</strong>: Verdadeiro ou falso (<code>true</code> ou <code>false</code>). Como um interruptor de luz.</li>
+                        <li><strong>undefined</strong>: Uma caixa vazia, que nunca teve nada lá dentro.</li>
+                        <li><strong>null</strong>: Uma caixa que foi intencionalmente esvaziada.</li>
+                    </ul>
+
+                    <h3>Operadores: As Ferramentas</h3>
+                    <p>Operadores permitem-nos manipular as nossas variáveis.</p>
+                    <ul>
+                        <li><strong>Aritméticos</strong>: <code>+</code> (soma), <code>-</code> (subtração), <code>*</code> (multiplicação), <code>/</code> (divisão).</li>
+                        <li><strong>Comparação</strong>: <code>===</code> (estritamente igual a), <code>!==</code> (estritamente diferente de), <code>></code> (maior que), <code><</code> (menor que). Eles sempre devolvem um <code>boolean</code>.</li>
+                        <li><strong>Lógicos</strong>: <code>&&</code> (E lógico), <code>||</code> (OU lógico). Permitem combinar várias comparações.</li>
+                    </ul>
+                     <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: A Comparação Estrita (===)</h4>
+                            <p>Usar <code>===</code> é como comparar duas coisas não só pelo seu valor, mas também pelo seu tipo. O número <code>5</code> e o texto <code>"5"</code> parecem iguais, mas não são a mesma coisa. O <code>===</code> é o inspetor rigoroso que diz "não, um é um número, o outro é texto". Use sempre <code>===</code> em vez de <code>==</code> para evitar surpresas!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Exercício: Calculadora de IMC</h2>
+                <div class="content-box">
+                    <p>Vamos criar um programa que calcula o Índice de Massa Corporal (IMC). A fórmula é: <code>peso / (altura * altura)</code>.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Perguntar o peso e a altura</h4>
+                            <p>Usamos a função <code>prompt()</code> para pedir ao utilizador que insira os dados. O valor que o utilizador escreve é guardado como <strong>string</strong>.</p>
+                            <pre><code>const pesoString = prompt("Qual é o seu peso em kg?");
+const alturaString = prompt("Qual é a sua altura em metros (ex: 1.75)?");</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Converter o texto em números</h4>
+                            <p>Como o <code>prompt</code> devolve texto, precisamos de converter os valores para <strong>number</strong> para podermos fazer cálculos. Usamos a função <code>Number()</code>.</p>
+                            <pre><code>const peso = Number(pesoString);
+const altura = Number(alturaString);</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Calcular o IMC</h4>
+                            <p>Agora aplicamos a fórmula matemática e guardamos o resultado numa nova variável.</p>
+                            <pre><code>const imc = peso / (altura * altura);</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 4: Mostrar o resultado</h4>
+                            <p>Usamos <code>console.log()</code> e <em>template literals</em> (texto com `) para mostrar o resultado de forma clara na consola do navegador.</p>
+                            <pre><code>console.log(`O seu IMC é: ${imc.toFixed(2)}`);</code></pre>
+                            <p>O <code>.toFixed(2)</code> serve para arredondar o resultado a duas casas decimais, para ficar mais legível!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Você precisa de guardar o nome de um utilizador, que não vai mudar depois de definido. Qual é a palavra-chave correta para declarar esta variável?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">let</button>
+                                <button class="option" data-correct="true">const</button>
+                                <button class="option" data-correct="false">var</button>
+                                <button class="option" data-correct="false">string</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é <code>const</code>. Usamo-la para valores que não devem ser alterados após a sua definição inicial, o que é ideal para algo como um nome de utilizador ou a data de nascimento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, demos os primeiros passos fundamentais em JavaScript:</p>
+                    <ul>
+                        <li>✅ <strong>Variáveis</strong> são caixas para guardar dados, declaradas com <code>let</code> (se mudam) ou <code>const</code> (se não mudam).</li>
+                        <li>✅ Os <strong>tipos de dados</strong> básicos são <code>string</code>, <code>number</code>, e <code>boolean</code>.</li>
+                        <li>✅ Os <strong>operadores</strong> permitem-nos fazer cálculos (<code>+</code>, <code>*</code>) e comparações (<code>===</code>, <code>></code>).</li>
+                        <li>✅ Combinámos tudo para criar um programa prático que resolve um problema do mundo real!</li>
+                    </ul>
+                    <p>Com esta base, você está pronto para aprender a controlar o fluxo do seu programa. Vamos a isso!</p>
                 </div>
             </section>
         </div>

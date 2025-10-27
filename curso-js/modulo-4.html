@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 4: Estruturas de Dados - Curso de JavaScript</title>
-    <meta name="description" content="Estruturas de dados em JavaScript: arrays e objetos.">
+    <meta name="description" content="Aprenda a organizar coleções de dados com arrays e objetos em JavaScript.">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="stylesheet" href="../css/lesson.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family-Inter:wght@300;400;500;600;700&family-Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <div class="module-info">
                     <span class="module-number">MÓDULO 4</span>
                     <h1 class="module-title">ESTRUTURAS DE DADOS</h1>
-                    <p class="module-subtitle">4 aulas</p>
+                    <p class="module-subtitle">Como organizar e agrupar os seus dados de forma inteligente.</p>
                 </div>
             </div>
         </div>
@@ -34,18 +34,155 @@
 
     <main class="lesson-container">
         <div class="container">
-            <section id="topicos" class="lesson-section">
-                <h2 class="section-title">Tópicos Abordados</h2>
+            <!-- Secção: Objetivos -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
                 <div class="content-box">
-                    <ol>
-                        <li>Arrays: CRUD (<code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>)</li>
-                        <li>Iterações: <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, <code>some</code>, <code>every</code></li>
-                        <li>Objetos: propriedades, métodos, <code>this</code> implícito</li>
-                        <li>Destructuring array & object</li>
-                        <li>Spread vs Rest (<code>...</code>)</li>
-                        <li>Object shorthand & computed keys</li>
-                        <li>✏️ Exercício: carrinho de compras (total + descontos)</li>
-                    </ol>
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Armazenar listas de dados, como uma lista de compras, usando Arrays.</li>
+                        <li>🎯 Agrupar dados relacionados, como as informações de um utilizador, usando Objetos.</li>
+                        <li>🎯 Aceder, adicionar e remover itens de arrays e objetos.</li>
+                        <li>🎯 Percorrer listas de dados para executar operações em cada item.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Arrays e Objetos: Os Arquivos do Código</h2>
+                <div class="content-box">
+                    <h3>Arrays: O Comboio de Dados</h3>
+                    <p>Um Array é uma lista ordenada de valores. É perfeito para guardar uma coleção de itens do mesmo tipo, como uma lista de nomes ou de números.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Um Comboio</h4>
+                            <p>Pense num Array como um comboio. Cada valor é um passageiro numa <strong>vagão</strong>. O mais importante é que cada vagão é numerado, a começar pelo <strong>vagão 0</strong>. Para encontrar um passageiro, basta saber o número do seu vagão (o seu <strong>índice</strong>).</p>
+                        </div>
+                    </div>
+<pre><code>// Um array de nomes
+const nomes = ["Ana", "Bruno", "Carlos"];
+
+// Aceder ao passageiro no vagão 0
+console.log(nomes[0]); // Mostra "Ana"
+
+// Adicionar um novo passageiro ao fim do comboio
+nomes.push("Diana");
+console.log(nomes); // Mostra ["Ana", "Bruno", "Carlos", "Diana"]</code></pre>
+
+                    <h3>Objetos: O Armário Etiquetado</h3>
+                    <p>Um Objeto é uma coleção de pares chave-valor. É ideal para descrever uma única "coisa" com várias propriedades.</p>
+                     <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Um Armário com Gavetas</h4>
+                            <p>Pense num Objeto como um armário. O armário representa uma única entidade (ex: uma pessoa). Cada <strong>gaveta tem uma etiqueta</strong> (a "chave" ou "propriedade", como "nome" ou "idade") e um <strong>conteúdo</strong> (o "valor"). Para encontrar uma informação, você não usa um número, mas sim o nome da etiqueta na gaveta.</p>
+                        </div>
+                    </div>
+<pre><code>// Um objeto que descreve um utilizador
+const utilizador = {
+  nome: "Sandro",
+  idade: 30,
+  isAdmin: true
+};
+
+// Aceder ao conteúdo da gaveta "nome"
+console.log(utilizador.nome); // Mostra "Sandro"
+
+// Adicionar uma nova gaveta "cidade"
+utilizador.cidade = "Lisboa";
+console.log(utilizador.cidade); // Mostra "Lisboa"</code></pre>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Exercício: Carrinho de Compras</h2>
+                <div class="content-box">
+                    <p>Vamos criar um sistema simples para um carrinho de compras online, usando arrays e objetos.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Criar os produtos</h4>
+                            <p>Vamos criar um array chamado <code>carrinho</code>. Cada item no carrinho será um objeto com as propriedades <code>nome</code> e <code>preco</code>.</p>
+                            <pre><code>const carrinho = [
+  { nome: "Maçã", preco: 0.5 },
+  { nome: "Pão", preco: 1.2 },
+  { nome: "Leite", preco: 0.9 }
+];</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Adicionar um novo produto</h4>
+                            <p>Vamos adicionar um novo produto ao nosso carrinho usando o método <code>.push()</code>.</p>
+                            <pre><code>function adicionarProduto(nome, preco) {
+  carrinho.push({ nome: nome, preco: preco });
+  console.log(`"${nome}" foi adicionado ao carrinho.`);
+}
+
+adicionarProduto("Queijo", 2.5);</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Calcular o total</h4>
+                            <p>Vamos criar uma função que percorre o array <code>carrinho</code> e soma o preço de todos os produtos. Usaremos um loop <code>for...of</code> para isto.</p>
+                            <pre><code>function calcularTotal() {
+  let total = 0;
+  for (const produto of carrinho) {
+    total += produto.preco; // Adiciona o preço do produto ao total
+  }
+  return total;
+}
+
+const totalAPagar = calcularTotal();
+console.log(`Total do carrinho: ${totalAPagar.toFixed(2)}€`);</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 4: Aplicar um desconto</h4>
+                            <p>Agora, uma função que recebe o total e uma percentagem de desconto, e devolve o novo total.</p>
+                            <pre><code>function aplicarDesconto(total, percentagem) {
+  const desconto = total * (percentagem / 100);
+  const totalComDesconto = total - desconto;
+  return totalComDesconto;
+}
+
+const totalFinal = aplicarDesconto(totalAPagar, 10); // Aplicar 10% de desconto
+console.log(`Total com 10% de desconto: ${totalFinal.toFixed(2)}€`);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Você quer guardar os detalhes de um filme: título, ano de lançamento e realizador. Qual estrutura de dados é mais adequada?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Um Array, porque é uma lista de informações.</button>
+                                <button class="option" data-correct="true">Um Objeto, porque permite etiquetar cada informação (título, ano, etc.).</button>
+                                <button class="option" data-correct="false">Variáveis separadas para cada detalhe.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é um Objeto. Um objeto é perfeito para agrupar propriedades relacionadas que descrevem uma única entidade, como um filme. As chaves (<code>título</code>, <code>ano</code>) tornam o código muito mais legível do que um array com índices numéricos (<code>filme[0]</code>, <code>filme[1]</code>).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, descobriu como organizar os seus dados de forma estruturada:</p>
+                    <ul>
+                        <li>✅ <strong>Arrays</strong> são como comboios, ideais para listas ordenadas de itens, acedidos por um índice numérico (<code>meuArray[0]</code>).</li>
+                        <li>✅ <strong>Objetos</strong> são como armários etiquetados, perfeitos para descrever uma entidade com as suas propriedades, acedidas por chaves (<code>meuObjeto.nome</code>).</li>
+                        <li>✅ Aprendemos a manipular estas estruturas, adicionando e acedendo a dados.</li>
+                        <li>✅ Usámos um loop para processar uma lista de objetos, uma das tarefas mais comuns em programação!</li>
+                    </ul>
+                    <p>Com o domínio das estruturas de dados, você está pronto para mergulhar num dos paradigmas mais poderosos da programação: a Programação Orientada a Objetos.</p>
                 </div>
             </section>
         </div>
