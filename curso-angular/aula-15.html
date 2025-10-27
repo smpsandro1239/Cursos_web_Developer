@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 15: RxJS em Angular - Curso de Angular</title>
+    <meta name="description" content="Aprenda a usar RxJS para programação reativa em Angular.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 15</span>
+                    <h1 class="module-title">RxJS em Angular</h1>
+                    <p class="module-subtitle">Explore o poder da programação reativa com RxJS para gerir fluxos de dados assíncronos.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que são Observables e como se subscrever a eles.</li>
+                        <li>🎯 Usar operadores RxJS (como `map` e `filter`) para transformar dados.</li>
+                        <li>🎯 Integrar RxJS com o HttpClient do Angular para lidar com pedidos HTTP.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que é RxJS?</h3>
+                    <p>RxJS é uma biblioteca para programação reativa que usa Observables para trabalhar com fluxos de dados assíncronos. Em Angular, é fundamental para lidar com eventos, pedidos HTTP e outras operações assíncronas.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num Observable como uma subscrição de um jornal. Você subscreve (`subscribe`) e, sempre que há uma nova edição (dados), ela é entregue à sua porta. Os operadores (`map`, `filter`) são como pedir ao jornaleiro para lhe entregar apenas as notícias de desporto, ou para as embrulhar de uma forma diferente.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos usar RxJS com o HttpClient para buscar dados de uma API.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie um Serviço</h4>
+                            <p>Crie um serviço que use o HttpClient para fazer um pedido GET.</p>
+                            <pre><code>// data.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class DataService {
+  constructor(private http: HttpClient) {}
+
+  getUsers(): Observable&lt;any&gt; {
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Subscreva no Componente</h4>
+                            <p>No seu componente, injete o serviço e subscreva ao Observable.</p>
+                            <pre><code>// app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+
+@Component({ selector: 'app-root', template: `...` })
+export class AppComponent implements OnInit {
+  users: any[];
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getUsers().subscribe(data => {
+      this.users = data;
+    });
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Use um Operador</h4>
+                            <p>Vamos usar o operador `map` para extrair apenas os nomes dos utilizadores.</p>
+                            <pre><code>// app.component.ts
+import { map } from 'rxjs/operators';
+
+// ...
+this.dataService.getUsers().pipe(
+  map(users => users.map(user => user.name))
+).subscribe(names => {
+  console.log(names);
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual método é usado para "ouvir" os dados de um Observable?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">.listen()</button>
+                                <button class="option" data-correct="true">.subscribe()</button>
+                                <button class="option" data-correct="false">.on()</button>
+                                <button class="option" data-correct="false">.pipe()</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> O método `.subscribe()` é usado para se subscrever a um Observable e receber os dados que ele emite.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes conceitos de RxJS:</p>
+                    <ul>
+                        <li>✅ <strong>Observables:</strong> Fluxos de dados que podem ser observados ao longo do tempo.</li>
+                        <li>✅ <strong>Subscription:</strong> O ato de se "inscrever" para receber os dados de um Observable.</li>
+                        <li>✅ <strong>Operators:</strong> Funções que transformam, filtram ou combinam dados de Observables.</li>
+                    </ul>
+                    <p>RxJS é uma ferramenta poderosa para lidar com a assincronicidade em Angular.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-14.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
