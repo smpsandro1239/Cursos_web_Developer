@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 14: JavaScript Modules - Curso de JavaScript</title>
+    <meta name="description" content="Décima quarta aula do curso de JavaScript, focada em módulos ES6.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 14</span>
+                    <h1 class="module-title">JavaScript Modules</h1>
+                    <p class="module-subtitle">Aprenda a organizar o seu código com módulos ES6.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender a importância de usar módulos em JavaScript.</li>
+                        <li>🎯 Exportar e importar funcionalidades entre ficheiros.</li>
+                        <li>🎯 Utilizar `export default` e `named exports`.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que são JavaScript Modules?</h3>
+                    <p>Módulos permitem-lhe dividir o seu código em ficheiros separados e reutilizáveis. Isto torna o código mais organizado, mais fácil de manter e evita a poluição do escopo global.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense nos módulos como peças de LEGO. Cada peça (módulo) tem uma função específica e pode ser combinada com outras para construir algo maior e mais complexo. Em vez de ter uma única peça gigante e confusa, tem várias peças pequenas e organizadas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar e usar um módulo. Siga os passos abaixo:</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie o módulo</h4>
+                            <p>Crie um ficheiro `utils.js` e exporte uma função.</p>
+                            <pre><code>// utils.js
+export function saudacao(nome) {
+  return `Olá, ${nome}!`;
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Importe o módulo</h4>
+                            <p>Crie um ficheiro `main.js` e importe a função do módulo.</p>
+                            <pre><code>// main.js
+import { saudacao } from './utils.js';
+
+console.log(saudacao('Mundo'));</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Use no HTML</h4>
+                            <p>No seu ficheiro HTML, inclua o `main.js` como um módulo.</p>
+                            <pre><code>&lt;script type="module" src="main.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Como se importa um `export default`?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">import { meuModulo } from './meu-modulo.js';</button>
+                                <button class="option" data-correct="true">import meuModulo from './meu-modulo.js';</button>
+                                <button class="option" data-correct="false">import * as meuModulo from './meu-modulo.js';</button>
+                                <button class="option" data-correct="false">require('./meu-modulo.js');</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B, pois `export default` não utiliza chavetas na importação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ O que são módulos e por que são úteis.</li>
+                        <li>✅ Como usar `export` e `import`.</li>
+                        <li>✅ A diferença entre `named exports` e `export default`.</li>
+                    </ul>
+                    <p>Agora você está pronto para o próximo desafio!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-13.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
