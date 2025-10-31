@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 18: Custom Directives - Curso de Angular</title>
+    <meta name="description" content="Aprenda a criar as suas próprias diretivas de atributo em Angular.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 18</span>
+                    <h1 class="module-title">Custom Directives</h1>
+                    <p class="module-subtitle">Expanda o vocabulário do HTML com as suas próprias diretivas de atributo.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que são diretivas de atributo.</li>
+                        <li>🎯 Gerar uma nova diretiva com o Angular CLI.</li>
+                        <li>🎯 Manipular o elemento hospedeiro de uma diretiva com `ElementRef`.</li>
+                        <li>🎯 Responder a eventos do utilizador com `@HostListener`.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Superpoderes para o seu HTML</h3>
+                    <p>Diretivas são classes que adicionam novo comportamento aos elementos no template. Já conhece algumas, como `ngIf` e `ngFor`. As diretivas de atributo, especificamente, modificam a aparência ou o comportamento de um elemento, componente ou outra diretiva.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense nas tags HTML como atores. Uma diretiva de atributo é como dar a um ator um adereço especial ou uma instrução. Por exemplo, pode criar uma diretiva `appHighlight` que funciona como um holofote. Onde quer que coloque essa diretiva no seu template (`<p appHighlight>`), o "ator" (o parágrafo) fica iluminado.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar uma diretiva `appHighlight` que muda a cor de fundo de um elemento quando o rato passa por cima.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Gere a Diretiva</h4>
+                            <p>Use o Angular CLI.</p>
+                            <pre><code>ng generate directive highlight</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Injete `ElementRef`</h4>
+                            <p>No `highlight.directive.ts`, injete o `ElementRef` para obter acesso ao elemento hospedeiro.</p>
+                            <pre><code>import { Directive, ElementRef } from '@angular/core';
+
+@Directive({ selector: '[appHighlight]' })
+export class HighlightDirective {
+  constructor(private el: ElementRef) {
+     this.el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Use `@HostListener` para Reagir a Eventos</h4>
+                            <p>Vamos tornar a diretiva interativa.</p>
+                            <pre><code>import { Directive, ElementRef, HostListener } from '@angular/core';
+
+@Directive({ selector: '[appHighlight]' })
+export class HighlightDirective {
+  constructor(private el: ElementRef) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string | null) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}</code></pre>
+                        </div>
+                         <div class="step">
+                            <h4>Passo 4: Aplique a Diretiva</h4>
+                            <p>No seu template, adicione a diretiva a qualquer elemento.</p>
+                            <pre><code>&lt;p appHighlight&gt;Passe o rato por cima de mim!&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> O que o decorador `@HostListener` faz?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Injeta um serviço.</button>
+                                <button class="option" data-correct="false">Define o seletor da diretiva.</button>
+                                <button class="option" data-correct="true">Permite subscrever a eventos do elemento hospedeiro.</button>
+                                <button class="option" data-correct="false">Modifica o conteúdo do elemento.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> `@HostListener` declara um método que será chamado quando o elemento hospedeiro emitir um evento específico (como `mouseenter`, `mouseleave` ou `click`).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu a criar as suas próprias diretivas:</p>
+                    <ul>
+                        <li>✅ Gerar uma diretiva com o CLI.</li>
+                        <li>✅ Aceder ao elemento DOM com `ElementRef`.</li>
+                        <li>✅ Reagir a eventos do utilizador com `@HostListener`.</li>
+                    </ul>
+                    <p>As diretivas personalizadas são uma forma poderosa de criar componentes HTML reutilizáveis e encapsulados.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-17.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
