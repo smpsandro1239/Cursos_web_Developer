@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 20: Http Interceptors - Curso de Angular</title>
+    <meta name="description" content="Aprenda a intercetar e transformar pedidos HTTP globalmente com Http Interceptors.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 20</span>
+                    <h1 class="module-title">Http Interceptors</h1>
+                    <p class="module-subtitle">Uma forma poderosa de gerir todos os seus pedidos e respostas HTTP a partir de um único local.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que é um Http Interceptor e qual o seu propósito.</li>
+                        <li>🎯 Criar um intercetor para adicionar cabeçalhos de autenticação a todos os pedidos.</li>
+                        <li>🎯 Lidar com erros HTTP de forma centralizada.</li>
+                        <li>🎯 Registar (log) todos os pedidos e respostas da sua aplicação.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O Porteiro dos seus Pedidos</h3>
+                    <p>Um Http Interceptor em Angular é uma funcionalidade que se posiciona no meio do caminho entre a sua aplicação e o servidor. Ele pode "intercetar" todos os pedidos HTTP que saem da sua aplicação e todas as respostas que chegam, permitindo-lhe modificá-los ou executar lógica sobre eles de forma global.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num intercetor como o porteiro de um hotel. Sempre que um hóspede (a sua aplicação) quer enviar uma carta (um pedido HTTP), o porteiro pode verificar a carta, adicionar um selo do hotel (um token de autenticação) e só depois enviá-la. Da mesma forma, quando chega correio para o hóspede (uma resposta HTTP), o porteiro pode verificar se a carta está danificada (um erro HTTP) antes de a entregar.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um intercetor para adicionar um token de autenticação a todos os pedidos.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie o Intercetor</h4>
+                            <p>Use o Angular CLI para gerar um novo intercetor.</p>
+                            <pre><code>ng generate interceptor auth</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Implemente a Lógica</h4>
+                            <p>No `auth.interceptor.ts`, implemente o método `intercept`.</p>
+                            <pre><code>import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler) {
+    const authToken = 'o-meu-token-secreto';
+    const authReq = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${authToken}`)
+    });
+    return next.handle(authReq);
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Registe o Intercetor no Módulo</h4>
+                            <p>No seu `app.module.ts`, adicione o intercetor ao array de `providers`.</p>
+                            <pre><code>import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+
+@NgModule({
+  // ...
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
+  // ...
+})
+export class AppModule { }</code></pre>
+                            <p>Agora, todos os pedidos HTTP feitos com o `HttpClient` incluirão automaticamente o cabeçalho de autorização.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Por que a opção `multi: true` é importante ao registar um intercetor?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Para permitir que o intercetor lide com múltiplos pedidos ao mesmo tempo.</button>
+                                <button class="option" data-correct="true">Para permitir que múltiplos intercetores sejam registados sem se sobreporem uns aos outros.</button>
+                                <button class="option" data-correct="false">Para o intercetor funcionar em múltiplos módulos.</button>
+                                <button class="option" data-correct="false">Não é importante e pode ser omitida.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> `multi: true` diz ao sistema de injeção de dependências do Angular para adicionar o novo intercetor a um array de intercetores, em vez de substituir qualquer intercetor que já exista. Isto permite criar uma cadeia de intercetores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu sobre Http Interceptors:</p>
+                    <ul>
+                        <li>✅ O que são e como funcionam no ciclo de vida de um pedido HTTP.</li>
+                        <li>✅ Como criar um intercetor para modificar cabeçalhos de pedidos.</li>
+                        <li>✅ Como registar o seu intercetor para que o Angular o possa usar.</li>
+                    </ul>
+                    <p>Os intercetores são uma ferramenta essencial para gerir de forma limpa e centralizada as preocupações transversais da sua aplicação, como autenticação e tratamento de erros.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-19-pipes.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
