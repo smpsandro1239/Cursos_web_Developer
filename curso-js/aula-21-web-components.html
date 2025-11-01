@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 21: Web Components - Curso JavaScript</title>
+    <meta name="description" content="Aprenda a criar os seus próprios elementos HTML reutilizáveis com Web Components.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html#modulos-js" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 21</span>
+                    <h1 class="module-title">Web Components: O Futuro da Web</h1>
+                    <p class="module-subtitle">Crie os seus próprios elementos HTML encapsulados e reutilizáveis.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Definir e registar um Custom Element.</li>
+                        <li>🎯 Usar o Shadow DOM para encapsular estilos e markup.</li>
+                        <li>🎯 Criar um componente simples e reutilizável.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que são Web Components?</h3>
+                    <p>Web Components são um conjunto de tecnologias que permitem criar elementos HTML personalizados, com o seu próprio comportamento e estilo, que não entram em conflito com o resto da sua página. As tecnologias principais são: Custom Elements, Shadow DOM e HTML Templates.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num Web Component como uma peça de LEGO. Cada peça tem uma forma e função específicas, e pode encaixar com outras para construir algo maior. Um Web Component é uma "peça" de interface que pode usar em qualquer projeto, sem se preocupar com os "encaixes" (estilos ou scripts) que estão à sua volta.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um Web Component para um cartão de utilizador (`<user-card>`).</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie a classe do componente</h4>
+                            <p>Crie uma classe que estende `HTMLElement` e defina o seu construtor.</p>
+                            <pre><code>class UserCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Defina o HTML e CSS no Shadow DOM</h4>
+                            <p>Dentro do construtor, crie um Shadow DOM e adicione o HTML e o CSS do cartão. Isto mantém os estilos encapsulados.</p>
+                            <pre><code>this.attachShadow({ mode: 'open' });
+this.shadowRoot.innerHTML = `
+    &lt;style&gt;
+        .card { border: 1px solid #ccc; padding: 16px; }
+    &lt;/style&gt;
+    &lt;div class="card"&gt;
+        &lt;h3&gt;Nome do Utilizador&lt;/h3&gt;
+    &lt;/div&gt;
+`;</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Registe o Custom Element</h4>
+                            <p>Finalmente, diga ao browser que o seu novo elemento existe com `customElements.define()`.</p>
+                            <pre><code>customElements.define('user-card', UserCard);</code></pre>
+                            <p>Agora pode usar `&lt;user-card&gt;&lt;/user-card&gt;` no seu HTML!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual método é usado para registar um novo Custom Element?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">document.registerElement()</button>
+                                <button class="option" data-correct="false">window.defineElement()</button>
+                                <button class="option" data-correct="true">customElements.define()</button>
+                                <button class="option" data-correct="false">HTMLElement.register()</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> `customElements.define()` é a API padrão para definir novos elementos HTML personalizados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ O que são Web Components e as suas vantagens.</li>
+                        <li>✅ Como criar um Custom Element com uma classe JavaScript.</li>
+                        <li>✅ A importância do Shadow DOM para o encapsulamento.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-20-poo-classes.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
