@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 23: Programação Funcional - Curso de JavaScript</title>
+    <meta name="description" content="Aula sobre os conceitos de programação funcional em JavaScript.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 23</span>
+                    <h1 class="module-title">Programação Funcional em JavaScript</h1>
+                    <p class="module-subtitle">Descubra os princípios da programação funcional e como aplicá-los para escrever um código mais declarativo e previsível.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Compreender os conceitos de funções puras, imutabilidade e "higher-order functions".</li>
+                        <li>🎯 Utilizar os métodos `map`, `filter` e `reduce` para manipular arrays.</li>
+                        <li>🎯 Escrever código JavaScript com uma abordagem mais funcional.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Princípios da Programação Funcional</h3>
+                    <p>A programação funcional é um paradigma que trata a computação como a avaliação de funções matemáticas e evita estados e dados mutáveis. Funções puras, por exemplo, sempre produzem o mesmo resultado para os mesmos argumentos e não têm efeitos secundários observáveis.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense numa função pura como uma máquina de vender automática: você insere uma moeda específica (argumento) e ela entrega sempre o mesmo produto (retorno), sem alterar nada à sua volta. Funções impuras seriam como cozinhar: o resultado pode variar dependendo da temperatura do fogão (estado externo) e o processo suja a cozinha (efeito secundário).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos usar `map`, `filter` e `reduce` para processar uma lista de números.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Utilizar `map` para duplicar os números</h4>
+                            <p>O método `map` cria um novo array com os resultados de uma função aplicada a cada elemento.</p>
+                            <pre><code>const numeros = [1, 2, 3, 4, 5];
+const duplicados = numeros.map(n => n * 2);
+// resultado: [2, 4, 6, 8, 10]</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Utilizar `filter` para obter apenas os números pares</h4>
+                            <p>O método `filter` cria um novo array com todos os elementos que passam num teste.</p>
+                            <pre><code>const pares = numeros.filter(n => n % 2 === 0);
+// resultado: [2, 4]</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Utilizar `reduce` para somar todos os números</h4>
+                            <p>O método `reduce` aplica uma função a um acumulador e a cada elemento do array para o reduzir a um único valor.</p>
+                            <pre><code>const soma = numeros.reduce((acumulador, n) => acumulador + n, 0);
+// resultado: 15</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual método de array cria um novo array com base numa condição de filtragem?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">map</button>
+                                <button class="option" data-correct="true">filter</button>
+                                <button class="option" data-correct="false">reduce</button>
+                                <button class="option" data-correct="false">forEach</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B. O método `filter` itera sobre um array e retorna um novo array contendo apenas os elementos que satisfazem a condição especificada na função de callback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ Os conceitos fundamentais da programação funcional.</li>
+                        <li>✅ Como usar `map` para transformar os elementos de um array.</li>
+                        <li>✅ Como usar `filter` para selecionar elementos e `reduce` para os agregar.</li>
+                    </ul>
+                    <p>Estes métodos permitem escrever um código mais expressivo e menos propenso a erros.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-22-fetch-avancado.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
