@@ -210,6 +210,41 @@ const QUIZ_DATA = {
             correct: 'd',
             explanation: "✅ Correto! O atributo booleano <code>required</code> impede o envio do formulário se o campo estiver vazio."
         }
+    ],
+    'module-7': [
+        {
+            question: "Para que serve a semântica em HTML?",
+            options: [
+                { id: 'a', text: "Para dar cores ao site sem CSS" },
+                { id: 'b', text: "Para dar significado e estrutura ao conteúdo" },
+                { id: 'c', text: "Para acelerar a internet" },
+                { id: 'd', text: "Para criar animações" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A semântica diz ao navegador e aos motores de busca (como o Google) o que cada parte do site representa (ex: isto é um cabeçalho, isto é a navegação)."
+        },
+        {
+            question: "Qual tag deve ser usada apenas UMA VEZ por página para envolver o conteúdo principal?",
+            options: [
+                { id: 'a', text: "&lt;section&gt;" },
+                { id: 'b', text: "&lt;article&gt;" },
+                { id: 'c', text: "&lt;main&gt;" },
+                { id: 'd', text: "&lt;body&gt;" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A tag <code>&lt;main&gt;</code> deve ser única e conter o conteúdo exclusivo daquela página."
+        },
+        {
+            question: "Qual a diferença principal entre &lt;article&gt; e &lt;section&gt;?",
+            options: [
+                { id: 'a', text: "Não há diferença" },
+                { id: 'b', text: "Article é para texto e Section para imagens" },
+                { id: 'c', text: "Article é conteúdo independente (ex: post de blog), Section é um grupo temático" },
+                { id: 'd', text: "Section é obrigatório, Article é opcional" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Um <code>&lt;article&gt;</code> deve fazer sentido por si só, se for removido e colocado noutro site (como uma notícia)."
+        }
     ]
 };
 
