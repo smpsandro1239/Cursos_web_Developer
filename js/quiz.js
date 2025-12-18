@@ -35,6 +35,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! O DOCTYPE instrui o navegador a interpretar a página como <strong>HTML5 moderno</strong>, evitando o 'quirks mode' (modo de compatibilidade antigo)."
         }
+    ],
+    'module-2': [
+        {
+            question: "Qual é o elemento HTML correto para o título principal da página?",
+            options: [
+                { id: 'a', text: "&lt;head&gt;" },
+                { id: 'b', text: "&lt;title&gt;" },
+                { id: 'c', text: "&lt;h1&gt;" },
+                { id: 'd', text: "&lt;h6&gt;" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>&lt;h1&gt;</code> representa o nível mais alto de título numa página e geralmente é usado uma única vez para o título principal."
+        },
+        {
+            question: "Para que serve o elemento &lt;br&gt;?",
+            options: [
+                { id: 'a', text: "Criar um parágrafo novo" },
+                { id: 'b', text: "Deixar o texto em negrito" },
+                { id: 'c', text: "Inserir uma quebra de linha" },
+                { id: 'd', text: "Criar uma linha horizontal" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A tag <code>&lt;br&gt;</code> (break) insere uma quebra de linha forçada sem criar um novo parágrafo."
+        },
+        {
+            question: "Qual tag deve ser usada para texto em negrito com importância semântica?",
+            options: [
+                { id: 'a', text: "&lt;b&gt;" },
+                { id: 'b', text: "&lt;strong&gt;" },
+                { id: 'c', text: "&lt;bold&gt;" },
+                { id: 'd', text: "&lt;em&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! <code>&lt;strong&gt;</code> indica que o texto tem grande importância. Use <code>&lt;b&gt;</code> apenas para efeitos visuais sem significado."
+        }
     ]
 };
 
