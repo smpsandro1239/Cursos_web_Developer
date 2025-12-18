@@ -560,6 +560,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! Os browsers são 'tolerantes', mas erros de tags abertas são a causa número 1 de layouts estragados."
         }
+    ],
+    'module-17': [
+        {
+            question: "Qual é o padrão recomendado para dar nomes a ficheiros HTML (ex: a minha página)?",
+            options: [
+                { id: 'a', text: "A Minha Pagina.html (com espaços)" },
+                { id: 'b', text: "a_minha_pagina.html (snake_case)" },
+                { id: 'c', text: "a-minha-pagina.html (kebab-case)" },
+                { id: 'd', text: "aminhapagina.html (tudo junto)" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>kebab-case</code> (minúsculas e hífens) é o padrão da web para URLs limpas e seguras."
+        },
+        {
+            question: "Para que servem os comentários no código?",
+            options: [
+                { id: 'a', text: "Para o Google ler o conteúdo do site" },
+                { id: 'b', text: "Para explicar o 'porquê' de uma decisão complexa a outros programadores (ou a ti próprio no futuro)" },
+                { id: 'c', text: "Para esconder código que não funciona" },
+                { id: 'd', text: "Para ocupar espaço" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Comentários devem ser úteis e não apenas repetir o que a tag já diz."
+        },
+        {
+            question: "No versionamento semântico (Ex: 1.2.3), o que representa o primeiro número?",
+            options: [
+                { id: 'a', text: "O número de erros corrigidos" },
+                { id: 'b', text: "A versão 'MAJOR', usada para mudanças grandes que podem quebrar o código antigo" },
+                { id: 'c', text: "O número de páginas do site" },
+                { id: 'd', text: "O ano de lançamento" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Se mudares de 1.x para 2.x, estás a avisar que houve uma mudança radical no sistema."
+        }
     ]
 };
 
