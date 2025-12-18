@@ -558,6 +558,181 @@ const QUIZ_DATA_JS = {
             correct: 'b',
             explanation: "✅ Correto! O fetch devolve uma resposta bruta. Precisamos de a converter para um formato que o JS entenda (JSON)."
         }
+    ],
+    'modulo-16': [
+        {
+            question: "Qual a principal característica das Arrow Functions?",
+            options: [
+                { id: 'a', text: "São mais lentas" },
+                { id: 'b', text: "Usam a sintaxe ( ) => { }" },
+                { id: 'c', text: "Não podem ter parâmetros" },
+                { id: 'd', text: "Só funcionam em CSS" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! As Arrow Functions permitem uma escrita mais curta e moderna."
+        },
+        {
+            question: "Para que serve a Desestruturação (Destructuring)?",
+            options: [
+                { id: 'a', text: "Para apagar um objeto" },
+                { id: 'b', text: "Para mudar o nome de uma variável" },
+                { id: 'c', text: "Para extrair valores de objetos ou arrays diretamente para variáveis" },
+                { id: 'd', text: "Para destruir o site" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Facilita muito a vida quando queremos usar apenas algumas partes de um objeto gigante."
+        },
+        {
+            question: "O que faz o operador Spread (...) em [1, 2, ...outros]?",
+            options: [
+                { id: 'a', text: "Elimina duplicados" },
+                { id: 'b', text: "Expande os elementos da lista 'outros' dentro da nova lista" },
+                { id: 'c', text: "Multiplica os números por 3" },
+                { id: 'd', text: "Cria um erro" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Spread (...) 'espalha' os elementos de um conjunto dentro de outro."
+        }
+    ],
+    'modulo-17': [
+        {
+            question: "Quanto tempo duram os dados guardados no LocalStorage?",
+            options: [
+                { id: 'a', text: "Apagam-se quando o browser fecha" },
+                { id: 'b', text: "Duram apenas 24 horas" },
+                { id: 'c', text: "Ficam guardados para sempre até serem apagados manualmente ou via código" },
+                { id: 'd', text: "Apagam-se ao fim de 5 segundos" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Ao contrário da SessionStorage, o LocalStorage é persistente."
+        },
+        {
+            question: "Qual o comando para ler um dado do LocalStorage?",
+            options: [
+                { id: 'a', text: "localStorage.readItem('chave')" },
+                { id: 'b', text: "localStorage.getItem('chave')" },
+                { id: 'c', text: "localStorage.find('chave')" },
+                { id: 'd', text: "document.storage.get('chave')" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O getItem devolve o valor associado à chave que pedires."
+        },
+        {
+            question: "Como guardamos um objeto ou array no LocalStorage corretamente?",
+            options: [
+                { id: 'a', text: "Basta passar o objeto diretamente" },
+                { id: 'b', text: "Temos de converter para string com JSON.stringify()" },
+                { id: 'c', text: "Temos de converter para imagem" },
+                { id: 'd', text: "Não se pode guardar objetos no LocalStorage" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Como o LocalStorage só aceita texto, o JSON.stringify() é o nosso tradutor de objetos."
+        }
+    ],
+    'modulo-18': [
+        {
+            question: "Para que serve o comando 'debugger;' no código?",
+            options: [
+                { id: 'a', text: "Para apagar os bugs automaticamente" },
+                { id: 'b', text: "Para enviar um email ao programador" },
+                { id: 'c', text: "Para pausar a execução do programa no Inspetor do browser" },
+                { id: 'd', text: "Para acelerar o site" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O debugger é como um botão de PAUSE que nos permite ver o estado de todas as variáveis naquele momento."
+        },
+        {
+            question: "Qual o bloco utilizado para tentar executar um código que pode falhar?",
+            options: [
+                { id: 'a', text: "try { }" },
+                { id: 'b', text: "error { }" },
+                { id: 'c', text: "wait { }" },
+                { id: 'd', text: "if_fail { }" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! Tentamos (try) o código; se falhar, ele salta para o catch em vez de travar o site."
+        },
+        {
+            question: "O que acontece se um erro ocorrer e não tivermos um Try/Catch?",
+            options: [
+                { id: 'a', text: "O JavaScript resolve sozinho" },
+                { id: 'b', text: "O site explode" },
+                { id: 'c', text: "A execução do script para e o site pode ficar bloqueado ou sem resposta" },
+                { id: 'd', text: "O browser fecha" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Erros não tratados (uncaught errors) param o motor do JavaScript naquele script."
+        }
+    ],
+    'modulo-19': [
+        {
+            question: "O que significa o princípio DRY na programação?",
+            options: [
+                { id: 'a', text: "Do Real Yesterday (Faz ontem)" },
+                { id: 'b', text: "Don't Repeat Yourself (Não te repitas)" },
+                { id: 'c', text: "Data Ready Yet (Dados prontos?)" },
+                { id: 'd', text: "Drink Real Yogurt" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! DRY foca-se em criar funções reutilizáveis em vez de copiar e colar código em todo o lado."
+        },
+        {
+            question: "Qual o melhor nome para uma variável que guarda a lista de utilizadores?",
+            options: [
+                { id: 'a', text: "const x = [...]" },
+                { id: 'b', text: "const lista = [...]" },
+                { id: 'c', text: "const usersBackupFinal_v2 = [...]" },
+                { id: 'd', text: "const listaUtilizadores = [...]" }
+            ],
+            correct: 'd',
+            explanation: "✅ Correto! Nomes descritivos (em CamelCase) ajudam qualquer pessoa a perceber o código sem precisar de comentários."
+        },
+        {
+            question: "O que é o 'Clean Code'?",
+            options: [
+                { id: 'a', text: "Apagar o código todo" },
+                { id: 'b', text: "Formas de escrever código fácil de ler, manter e testar" },
+                { id: 'c', text: "Código que brilha" },
+                { id: 'd', text: "Um plugin do Chrome" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Clean Code são princípios que diferenciam um programador amador de um profissional."
+        }
+    ],
+    'modulo-20': [
+        {
+            question: "Qual o primeiro passo recomendado para começar o teu Projeto Final?",
+            options: [
+                { id: 'a', text: "Escrever 200 linhas de código sem parar" },
+                { id: 'b', text: "Copiar um projeto inteiro do YouTube" },
+                { id: 'c', text: "Planear as funcionalidades e desenhar a lógica no papel ou notas" },
+                { id: 'd', text: "Escolher as cores do site" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Um bom planeamento evita que te percas no meio do código e poupa horas de erros."
+        },
+        {
+            question: "Como podes saber que o teu projeto está concluído e pronto?",
+            options: [
+                { id: 'a', text: "Quando já não tiveres sono" },
+                { id: 'b', text: "Quando testares todas as funcionalidades e elas funcionarem como planeado" },
+                { id: 'c', text: "Quando o ficheiro tiver 1000 linhas" },
+                { id: 'd', text: "Quando o professor disser" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O teste é a fase final fundamental para garantir a qualidade do teu trabalho."
+        },
+        {
+            question: "O que deves fazer agora que terminaste o curso de JavaScript?",
+            options: [
+                { id: 'a', text: "Parar de programar" },
+                { id: 'b', text: "Esquecer tudo o que aprendeste" },
+                { id: 'c', text: "Continuar a praticar, criar projetos próprios e explorar frameworks (como Angular)" },
+                { id: 'd', text: "Apagar o computador" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A programação é uma jornada contínua. Próxima paragem: Frameworks Modernas!"
+        }
     ]
 };
 

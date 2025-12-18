@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 19: Boas Práticas - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 19 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">💎</span>
+            </div>
+            <h1>Módulo 19: Boas Práticas (Clean Code)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 18</strong>, aprendemos a caçar bugs e a usar o <code>try...catch</code>. Hoje, vamos dar o passo final antes do grande projeto: aprender a escrever código que outros seres humanos consigam ler sem chorar. Vamos falar de <strong>Clean Code</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O princípio <strong>DRY</strong> (Don't Repeat Yourself).</li>
+                <li>✅ Nomes de variáveis e funções que fazem sentido.</li>
+                <li>✅ Funções Pequenas e com uma única responsabilidade.</li>
+                <li>✅ O perigo das variáveis globais.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Código é para Humanos</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Computadores conseguem ler qualquer "maralhal" de código que funcione. No entanto, o código é escrito para ser mantido por pessoas. Código profissional é **limpo**, **simples** e **organizado**.</p>
+                <div class="analogy">
+                    <h3>📚 Analogia: A Biblioteca vs O Quarto Bagunçado</h3>
+                    <p>Imagina que estás à procura de uma informação:</p>
+                    <ul>
+                        <li><strong>Código Mau (Quarto Bagunçado)</strong>: As meias estão em cima dos livros, os papéis não têm nome e estão todos no chão. Podes até encontrar o que queres, mas demoras horas e ficas irritado.</li>
+                        <li><strong>Código Limpo (Biblioteca)</strong>: Cada livro tem um título claro no lombo, está na prateleira certa e as secções estão bem sinalizadas. Encontras o que precisas em segundos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Nomes Significativos</h3>
+                <p>Dar nome ao que a variável REALMENTE faz.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Código Mau ❌
+const d = 30; // 30 o quê? Dias? Dinheiro?
+function calc(a, b) { return a * b; }
+
+// Código Limpo ✅
+const diasParaExpulso = 30;
+function calcularAreaRetangulo(largura, altura) {
+  return largura * altura;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Princípio DRY</h3>
+                <p>Não te repitas. Cria funções para tarefas comuns.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Código Mau (Repetitivo) ❌
+const preco1 = 100 + (100 * 0.23);
+const preco2 = 50 + (50 * 0.23);
+
+// Código Limpo ✅
+const aplicarIVA = (preco) => preco + (preco * 0.23);
+
+const total1 = aplicarIVA(100);
+const total2 = aplicarIVA(50);</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Funções Pequenas</h3>
+                <p>Uma função deve fazer apenas UMA coisa bem feita.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Em vez de uma função gigante que valida, guarda e envia email...
+// Divide em:
+function validarEmail(email) { ... }
+function salvarNoBanco(dados) { ... }
+function enviarConfirmacao() { ... }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos refatorar (limpar) um código:</p>
+                <ol class="steps-list">
+                    <li>Olha para este código: <code>let x = 1.23; function f(v) { return v * x; }</code>.</li>
+                    <li>Muda o nome de <code>x</code> para <code>TAXA_CONVERSAO_EURO</code>.</li>
+                    <li>Muda o nome da função para <code>converterDolarParaEuro</code>.</li>
+                    <li>Usa o <strong>CamelCase</strong> (ex: minhaVariavel) em vez de tudo junto ou com hífens.</li>
+                    <li>Cria uma única função que use as ferramentas de módulos anteriores (Ex: Arrow Functions) para tornar o código mais moderno e limpo.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-19">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Escreve código para que o teu "Eu do futuro" o entenda.</li>
+                <li>📌 Se copiaste e colaste código, provavelmente precisas de uma **Função**.</li>
+                <li>📌 Nomes curtos são maus (<code>a</code>, <code>b</code>, <code>x</code>). Nomes longos e claros são bons.</li>
+                <li>📌 Mantém as tuas funções pequenas; se ela tem mais de 20 linhas, talvez deva ser dividida.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Detetive de Código</h3>
+                <p>Pega num ficheiro de JavaScript que tenhas escrito anteriormente e tenta renomear 3 variáveis para nomes mais claros. Notas diferença na facilidade de leitura?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Dica:</strong> Se tens uma variável <code>data</code>, tenta ser mais específico: <code>dataNascimento</code> ou <code>dataCriacaoPost</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Comentários vs Código Limpo</h3>
+                <p>Muitos dizem: "Se precisas de um comentário para explicar o que o código faz, o código não está limpo". O que achas disto? Quando é que um comentário é realmente útil?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Comentários devem explicar o <strong>PORQUÊ</strong> (a intenção) e não o <strong>O QUÊ</strong> (que o próprio código já deve dizer).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: KISS</h3>
+                <p>Pesquisa o que significa o acrónimo <strong>KISS</strong> no mundo do software e como ele se aplica ao JavaScript.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Keep It Simple, Stupid! (Mantém isto simples, estúpido!). Lembra-nos que a solução mais simples é quase sempre a melhor.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-18.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-20.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

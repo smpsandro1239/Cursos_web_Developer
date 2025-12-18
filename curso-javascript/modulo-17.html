@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 17: LocalStorage - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 17 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">💾</span>
+            </div>
+            <h1>Módulo 17: LocalStorage (Memória)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 16</strong>, aprendemos os atalhos do ES6+ para escrever código mais limpo. Hoje, vamos resolver um problema irritante: por que é que os dados do nosso site desaparecem sempre que fazemos refresh? Bem-vindo ao <strong>LocalStorage</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o <strong>LocalStorage</strong> e para que serve.</li>
+                <li>✅ Como guardar (set) e ler (get) dados.</li>
+                <li>✅ Converter Objetos para Strings com <strong>JSON.stringify</strong>.</li>
+                <li>✅ Converter Strings de volta para Objetos com <strong>JSON.parse</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Cacifo do Browser</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O JavaScript vive na memória RAM; quando fechas a aba, tudo morre. O LocalStorage é como um pequeno disco rígido (5MB a 10MB) que o browser reserva para cada site. Os dados ali guardados ficam lá para sempre, mesmo que desligues o computador.</p>
+                <div class="analogy">
+                    <h3>🗝️ Analogia: O Cacifo do Ginásio</h3>
+                    <p>Imagina que o teu site é um ginásio:</p>
+                    <ul>
+                        <li><strong>Chave</strong>: É o nome que dás à gaveta (ex: "nomeUtilizador").</li>
+                        <li><strong>Valor</strong>: É o que guardas lá dentro (ex: "Sandro").</li>
+                        <li><strong>Persistence</strong>: Podes ir para casa, dormir, voltar no dia seguinte e, se usares a chave certa, as tuas coisas continuam lá.</li>
+                    </ul>
+                    <p><strong>Importante:</strong> O cacifo só aceita "roupa dobrada" (Strings). Se quiseres guardar um "equipamento complexo" (Objeto), tens de o desmontar (JSON.stringify) e depois voltar a montar (JSON.parse).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Guardar e Ler Texto</h3>
+                <p>Operações básicas de string.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Guardar
+localStorage.setItem("tema", "escuro");
+
+// Ler
+const temaSalvo = localStorage.getItem("tema");
+console.log(temaSalvo); // "escuro"
+
+// Remover
+localStorage.removeItem("tema");</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Desafio dos Objetos</h3>
+                <p>Usar JSON para guardar dados complexos.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const user = { nome: "Sandro", pts: 150 };
+
+// ❌ Se fizeres isto, ele guarda "[object Object]"
+// localStorage.setItem("usuario", user);
+
+// ✅ O jeito certo:
+localStorage.setItem("usuario", JSON.stringify(user));
+
+// Para ler de volta:
+const dadosTexto = localStorage.getItem("usuario");
+const userObjeto = JSON.parse(dadosTexto);
+
+console.log(userObjeto.nome); // "Sandro"</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Verificar se existe</h3>
+                <p>Evitar erros ao ler dados vazios.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const nome = localStorage.getItem("nome");
+
+if (nome) {
+  console.log(`Bem-vindo de volta, ${nome}!`);
+} else {
+  console.log("É a tua primeira vez aqui?");
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Lembrador de Nome":</p>
+                <ol class="steps-list">
+                    <li>Cria um <code>&lt;input&gt;</code> e um botão "Salvar Nome".</li>
+                    <li>Ao clicar no botão, guarda o valor do input no LocalStorage.</li>
+                    <li>Faz com que, ao carregar a página (<code>window.onload</code>), o site verifique se existe um nome salvo.</li>
+                    <li>Se existir, mostra um <code>alert</code> ou muda um <code>&lt;h1&gt;</code> para dizer "Olá, [Nome]!".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-17">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O **LocalStorage** persiste dados mesmo após fechar o browser.</li>
+                <li>📌 Usamos **setItem** para guardar e **getItem** para ler.</li>
+                <li>📌 O armazenamento é por **Chave e Valor**.</li>
+                <li>📌 **JSON.stringify** e **JSON.parse** são obrigatórios para trabalhar com Objetos/Arrays.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Limpa-Tudo</h3>
+                <p>Existe um comando que apaga absolutamente TODOS os dados que o teu site guardou no LocalStorage de uma só vez. Qual é?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>localStorage.clear();</code>. Cuidado ao usar, pois remove tudo o que foi guardado pelo domínio!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Carrinho de Compras</h3>
+                <p>Imagina que o utilizador adiciona produtos a um Array. Como salvarias esse Array no LocalStorage para que ele não o perdesse ao atualizar o site?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>const lista = ["Maçã", "Pêra"]; localStorage.setItem("carrinho", JSON.stringify(lista));</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: LocalStorage vs SessionStorage</h3>
+                <p>Existe um "irmão" do LocalStorage chamado <strong>SessionStorage</strong>. Pesquisa qual a única diferença entre os dois.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A duração. O SessionStorage apaga os dados automaticamente assim que a aba ou o browser é fechado. O LocalStorage não.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-16.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-18.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

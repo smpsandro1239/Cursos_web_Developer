@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 18: Erros e Debugging - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 18 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔍</span>
+            </div>
+            <h1>Módulo 18: Erros e Debugging (Bugs!)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 17</strong>, aprendemos a salvar dados permanentemente com o <code>LocalStorage</code>. Hoje, vamos aprender a lidar com o pior inimigo (ou melhor amigo) do programador: o <strong>ERRO</strong>. Vamos aprender a caçar bugs.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Tipos comuns de Erros (Syntax, Reference, Type).</li>
+                <li>✅ Como usar o bloco <strong>Try...Catch</strong>.</li>
+                <li>✅ O comando <strong>debugger</strong> e as DevTools.</li>
+                <li>✅ Boas práticas para mensagens de erro.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Ser o Detetive do Teu Código</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Erros não são o fim do mundo; são sinais de trânsito. O JavaScript tem formas de nos avisar quando algo corre mal, e nós temos ferramentas para "pausar" o tempo e observar o que está a acontecer.</p>
+                <div class="analogy">
+                    <h3>🕵️ Analogia: O Detetive e a Cena do Crime</h3>
+                    <p>Imagina que o teu código é um percurso de dominó:</p>
+                    <ul>
+                        <li><strong>O Erro</strong>: É quando uma peça cai para o lado errado e o movimento para.</li>
+                        <li><strong>Console.log</strong>: É tirares fotos em várias partes do percurso para ver onde as peças ainda estavam em pé.</li>
+                        <li><strong>Debugger</strong>: É congelares o tempo exatamente no momento em que a peça caiu para observares com uma lupa quem é que lhe deu o toque.</li>
+                        <li><strong>Try...Catch</strong>: É meteres uma rede de segurança. Se a peça cair, a rede apanha-a e não deixa que o resto do cenário se estrague.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Try...Catch na Realidade</h3>
+                <p>Evitar que o site trave por um erro inesperado.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">try {
+  // Código que pode falhar
+  const user = JSON.parse("texto-invalido-json");
+  console.log(user);
+} catch (erro) {
+  // O que fazer se falhar
+  console.warn("Ups! Os dados estavam corrompidos.");
+  console.error("Detalhes técnicos: ", erro.message);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Comando Debugger</h3>
+                <p>Pausar o browser automaticamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function calcularTotal(preco, taxa) {
+  const total = preco + taxa;
+
+  // Abre o inspetor e o código vai parar aqui!
+  debugger;
+
+  return total;
+}
+
+calcularTotal(10, 2);</code></pre>
+                </div>
+                <p class="explanation">Quando o browser encontra o `debugger`, ele para tudo e deixa-te ver o valor de `total` antes de a função acabar.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Lançar o teu próprio erro</h3>
+                <p>Forçar uma paragem se algo não for aceite.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function setIdade(idade) {
+  if (idade < 0) {
+    throw new Error("A idade não pode ser negativa!");
+  }
+  return idade;
+}
+
+try {
+  setIdade(-5);
+} catch (e) {
+  alert(e.message);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos caçar um culpado:</p>
+                <ol class="steps-list">
+                    <li>Escreve um código que tenta ler uma variável que não existe (ex: <code>console.log(xpto)</code>).</li>
+                    <li>Observa o erro vermelho na consola (F12). Que tipo de erro é? (ReferenceError?).</li>
+                    <li>Envolve esse código num <code>try...catch</code> para que a mensagem apareça num <code>alert</code> amigável em vez de um erro vermelho.</li>
+                    <li>Cria uma função com o comando <code>debugger</code> lá dentro e corre-a. Explora os botões "Step Over" e "Play" no Inspetor do browser.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-18">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Erros são ferramentas de aprendizagem, não falhas pessoais.</li>
+                <li>📌 **Try...Catch** é essencial para operações arriscadas (como APIs ou JSON.parse).</li>
+                <li>📌 **console.error** e **console.warn** ajudam a organizar a consola.</li>
+                <li>📌 O **Debugger** é a arma secreta dos programadores sénior.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Erro Silencioso</h3>
+                <p>Porque é que nunca deves deixar um bloco <code>catch (e) { }</code> vazio e sem código nenhum lá dentro?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Chama-se "engolir o erro". Se algo falhar, tu nunca vais saber porquê, o que torna o debugging quase impossível no futuro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Reference vs Type Error</h3>
+                <p>Se tentares apagar uma propriedade de um valor que é `null`, que tipo de erro recebes? (Reference ou Type?).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Recebes um <strong>TypeError</strong>. O JavaScript sabe o que é o valor, mas diz que não podes fazer aquela operação naquele "tipo" de dado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Ponto de Interrupção</h3>
+                <p>Sabias que podes colocar o efeito do <code>debugger</code> sem escrever código? Pesquisa como colocar "Breakpoints" diretamente no separador "Sources" do Inspetor do Chrome.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Basta clicar no número da linha no separador Sources. Fica uma marca azul e o browser para ali sempre que passar por aquela linha.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-17.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-19.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
