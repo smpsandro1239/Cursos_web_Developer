@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: CSS Grid - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 10 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🏁</span>
+            </div>
+            <h1>Módulo 10: CSS Grid (Layouts de Elite)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 9</strong>, dominámos o alinhamento de elite com Flexbox. Agora, vamos conhecer o seu "irmão mais velho" e ainda mais poderoso: o CSS Grid, capaz de controlar todo o layout do site em duas dimensões.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Ativar a grelha com <strong>display: grid</strong>.</li>
+                <li>✅ Criar colunas e linhas flexíveis.</li>
+                <li>✅ Usar a unidade <strong>fr</strong> (fracção).</li>
+                <li>✅ A função <strong>repeat()</strong>.</li>
+                <li>✅ Diferença real entre Flexbox e Grid.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Malha de Ferro</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Enquanto o Flexbox é ótimo para alinhar coisas numa única direção (uma fila de botões, por exemplo), o Grid permite-nos desenhar colunas e linhas ao mesmo tempo. É como ter uma folha de excel invisível onde encaixamos as peças do site.</p>
+                <div class="analogy">
+                    <h3>📓 Analogia: O Jornal vs. A Corda</h3>
+                    <p>Imagina que estás a organizar elementos:</p>
+                    <ul>
+                        <li><strong>Flexbox (A Corda)</strong>: Estás a pendurar fotos numa corda de roupa. Elas Movem-se ao longo da corda (uma dimensão).</li>
+                        <li><strong>CSS Grid (O Jornal)</strong>: Tens uma página de jornal com grelhas pré-definidas para o título, a notícia principal e a coluna da direita. Podes colocar o conteúdo exatamente no "quadradinho" que queres (duas dimensões).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Uma Grelha Básica</h3>
+                <p>Criar 3 colunas iguais em segundos.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colunas iguais */
+  gap: 20px; /* Espaço entre elas */
+}</code></pre>
+                </div>
+                <p class="explanation">A unidade <code>fr</code> divide o espaço livre de forma justa.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Poder do Repeat</h3>
+                <p>Escrever menos código para grelhas grandes.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.grid-fotos {
+  display: grid;
+  /* Cria 4 colunas de 200px cada uma */
+  grid-template-columns: repeat(4, 200px);
+}</code></pre>
+                </div>
+                <p class="explanation">O <code>repeat(quantidade, tamanho)</code> é essencial para não repetires valores iguais.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o layout de um "Painel de Admin":</p>
+                <ol class="steps-list">
+                    <li>Cria uma <code>&lt;main&gt;</code> com 4 divs lá dentro (Menu, Estatística 1, Estatística 2, Tabela).</li>
+                    <li>No CSS, ativa o <code>display: grid</code> na main.</li>
+                    <li>Define <code>grid-template-columns: 250px 1fr 1fr;</code> (Uma barra lateral fixa e duas colunas flexíveis).</li>
+                    <li>Adiciona um <code>gap: 15px</code> para tudo respirar.</li>
+                    <li>Experimenta mudar o <code>1fr 1fr</code> por <code>repeat(2, 1fr)</code>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-10">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>CSS Grid</strong> é bidimensional (Colunas e Linhas).</li>
+                <li>📌 <strong>grid-template-columns</strong> define a "largura" das colunas.</li>
+                <li>📌 <strong>fr</strong> é a unidade de "Fracção" do espaço disponível.</li>
+                <li>📌 <strong>gap</strong> funciona tanto para disparidade entre colunas como entre linhas.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Ecrã Inteiro</h3>
+                <p>Como farias uma grelha que ocupa 100% da altura da página de forma automática?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>height: 100vh;</code> no contentor grid.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Misturar Unidades</h3>
+                <p>É possível ter <code>grid-template-columns: 100px 1fr;</code>? O que aconteceria?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! A primeira coluna teria sempre 100px (fixa) e a segunda ocuparia TODO o resto do espaço disponível (flexível).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Quando usar o quê?</h3>
+                <p>Se tens apenas 2 botões para alinhar no centro de uma caixa, usas Flexbox ou Grid?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <strong>Flexbox</strong>. Para componentes pequenos e unidimensionais, o Flexbox é mais simples e rápido.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-9.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-11.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

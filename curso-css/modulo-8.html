@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Flexbox Master I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 8 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🧱</span>
+            </div>
+            <h1>Módulo 8: Flexbox (Parte I)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 7</strong>, aprendemos a dar vida ao site com animações e transições. Agora, vamos aprender a organizar os nossos elementos no ecrã de forma moderna e flexível com a ferramenta mais usada do CSS: o Flexbox.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Ativar o Flexbox com <strong>display: flex</strong>.</li>
+                <li>✅ O conceito de <strong>Contentor Flex</strong> e <strong>Itens Flex</strong>.</li>
+                <li>✅ Os eixos: <strong>Main Axis</strong> (Eixo Principal) e <strong>Cross Axis</strong> (Eixo Transversal).</li>
+                <li>✅ Direção dos itens (flex-direction).</li>
+                <li>✅ Quebras de linha controladas (flex-wrap).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Caixa que se Adapta</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O Flexbox foi criado para resolver o pesadelo de alinhar elementos lado a lado ou ao centro. Ao contrário do modelo antigo, o Flexbox entende o espaço disponível e distribui os itens de forma inteligente.</p>
+                <div class="analogy">
+                    <h3>🍱 Analogia: A Lancheira Inteligente</h3>
+                    <p>Imagina uma lancheira moderna:</p>
+                    <ul>
+                        <li><strong>Contentor Flex</strong>: É a própria lancheira. Tu defines se os alimentos ficam em fila ou em coluna.</li>
+                        <li><strong>Itens Flex</strong>: São as peças de fruta e sandes. Elas podem encolher ou esticar para caber perfeitamente no espaço que a lancheira lhes dá.</li>
+                        <li><strong>Eixos</strong>: Se alinhares as uvas da esquerda para a direita, esse é o teu eixo principal. Se as empilhares, o eixo principal passa a ser de cima para baixo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Teu Primeiro Menu Flex</h3>
+                <p>Colocar links lado a lado instantaneamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.menu {
+  display: flex; /* Ativa a magia */
+  background-color: #f4f4f4;
+}
+
+.item {
+  padding: 10px 20px;
+}</code></pre>
+                </div>
+                <p class="explanation">Só com <code>display: flex;</code>, os itens que antes estavam uns por cima dos outros passam a estar lado a lado.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Mudar a Direção e Quebrar Linha</h3>
+                <p>Garantir que os itens não saem fora do ecrã.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.galeria {
+  display: flex;
+  flex-direction: row; /* Padrão: Horizontal */
+  flex-wrap: wrap;     /* Passa para a linha de baixo se não couber */
+}</code></pre>
+                </div>
+                <p class="explanation">Se usares <code>flex-direction: column;</code>, os itens voltam a ficar empilhados (útil para menus de telemóvel!).</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Cria uma "Barra de Navegação" simples:</p>
+                <ol class="steps-list">
+                    <li>Cria uma <code>&lt;div&gt;</code> com 4 parágrafos pequenos lá dentro.</li>
+                    <li>No CSS, transforma a div num <code>display: flex</code>.</li>
+                    <li>Muda a direção para <code>column</code> e vê o que acontece.</li>
+                    <li>Muda de volta para <code>row</code> e adiciona vários parágrafos até eles saírem do ecrã.</li>
+                    <li>Ativa o <code>flex-wrap: wrap</code> e observa-os a saltar ordenadamente para a linha seguinte.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-8">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>display: flex</strong> é aplicado no elemento PAI (o contentor).</li>
+                <li>📌 Por padrão, os itens ficam em <strong>fila (row)</strong>.</li>
+                <li>📌 <strong>flex-direction</strong> muda o sentido (row ou column).</li>
+                <li>📌 <strong>flex-wrap</strong> permite que os itens ocupem várias linhas em ecrãs pequenos.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Inverter a Ordem</h3>
+                <p>Sem mudar o HTML, como podes fazer com que o último item de uma lista apareça em primeiro lugar no ecrã usando Flexbox?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>flex-direction: row-reverse;</code> ou <code>column-reverse;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Eixo Vertical</h3>
+                <p>Se definires <code>flex-direction: column</code>, qual passa a ser o teu Eixo Principal (Main Axis)?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O eixo vertical (de cima para baixo).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Mágica do Display</h3>
+                <p>O que acontece a um elemento <code>&lt;span&gt;</code> (que normalmente não aceita largura) se o colocares dentro de um contentor flex?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Ele torna-se um <strong>Item Flex</strong> e passa a ter super-poderes, aceitando larguras, alturas e alinhamentos que antes eram impossíveis.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-7.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-9.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

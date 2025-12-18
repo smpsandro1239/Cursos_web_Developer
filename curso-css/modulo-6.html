@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Responsividade - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 6 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📱</span>
+            </div>
+            <h1>Módulo 6: Responsividade</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 5</strong>, aprendemos a dar um toque premium ao nosso design com gradientes, sombras e imagens de fundo imersivas. Agora, vamos garantir que esse design fantástico funciona em qualquer ecrã.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A tag <strong>Viewport</strong> e por que é obrigatória.</li>
+                <li>✅ O conceito de <strong>Mobile-first</strong>.</li>
+                <li>✅ Como usar <strong>Media Queries</strong>.</li>
+                <li>✅ Breakpoints comuns (Tablet, Desktop).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Site Elástico</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um site responsivo não é um site diferente para cada dispositivo; é o mesmo site que "se adapta" como um elástico. As Media Queries são como sensores que detetam a largura do ecrã e mudam as regras do CSS em tempo real.</p>
+                <div class="analogy">
+                    <h3>👕 Analogia: A T-shirt de Tamanho Único</h3>
+                    <p>Imagina uma t-shirt mágica:</p>
+                    <ul>
+                        <li><strong>Versão Desktop</strong>: A t-shirt está esticada e mostra um desenho grande e complexo no peito.</li>
+                        <li><strong>Versão Mobile</strong>: Quando uma criança a veste, a t-shirt encolhe e o desenho reorganiza-se para caber no espaço pequeno sem ficar cortado ou deformado.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: A Media Query Base</h3>
+                <p>Mudar a cor de fundo apenas em ecrãs maiores.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">/* Este estilo aplica-se a TODOS (começando pelo telemóvel) */
+body { background-color: white; }
+
+/* Só aplica se o ecrã tiver 768px ou mais (Tablet/Desktop) */
+@media (min-width: 768px) {
+  body { background-color: lightblue; }
+}</code></pre>
+                </div>
+                <p class="explanation">O segredo é o <code>min-width</code>. Ele diz: "daqui para cima, usa esta regra".</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Reorganizar Layout</h3>
+                <p>Mudar de uma coluna para duas quando houver espaço.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.container { width: 100%; }
+
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+    margin: 0 auto; /* Centra o conteúdo */
+  }
+}</code></pre>
+                </div>
+                <p class="explanation">No telemóvel o site usa 100% da largura. No computador, para não ficar "esticado" demais, limitamos a 80%.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um menu que se esconde:</p>
+                <ol class="steps-list">
+                    <li>Cria uma lista de links <code>&lt;nav&gt;</code>.</li>
+                    <li>No CSS base (Mobile), dá-lhe um <code>display: none;</code> (para simular um menu hambúrguer escondido).</li>
+                    <li>Cria uma Media Query para <code>min-width: 768px</code>.</li>
+                    <li>Dentro da Media Query, coloca o menu com <code>display: block;</code>.</li>
+                    <li>Redimensiona o teu browser e vê a "mágica" a acontecer!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-6">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Mobile-first</strong>: Começa a desenhar para o ecrã pequeno.</li>
+                <li>📌 <strong>Media Queries</strong> permitem estilos condicionais.</li>
+                <li>📌 <strong>Breakpoints</strong> são os pontos de corte (ex: 768px, 1024px).</li>
+                <li>📌 Nunca te esqueças da tag <strong>Meta Viewport</strong> no <code>head</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Inverter o Mobile-first</h3>
+                <p>Se quisesses fazer o contrário (estilo para desktop e aplicar algo só em telemóveis), que propriedade usarias na Media Query em vez de `min-width`?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usarias <code>max-width</code> (ex: @media (max-width: 600px)).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Desaparecido</h3>
+                <p>Qual a propriedade CSS para esconder um elemento totalmente da página num determinado breakpoint?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>display: none;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Tag Crítica</h3>
+                <p>Se o teu site responsivo parece minúsculo e "esmagado" no telemóvel real, que linha de código provavelmente falta no teu HTML?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A meta tag viewport: <br><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-5.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-7.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

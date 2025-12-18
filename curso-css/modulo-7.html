@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Animações e Transições - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 7 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">✨</span>
+            </div>
+            <h1>Módulo 7: Dar Vida ao Site</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 6</strong>, aprendemos a usar Media Queries para tornar o nosso site responsivo. Agora que ele se adapta a qualquer ecrã, vamos aprender a torná-lo interativo e fluido com animações.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Transições suaves com <strong>transition</strong>.</li>
+                <li>✅ Transformações (rodar, escalar, mover) com <strong>transform</strong>.</li>
+                <li>✅ Animações complexas com <strong>@keyframes</strong>.</li>
+                <li>✅ Boas práticas para não tornar o site lento.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Cinema do CSS</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Uma transição acontece quando um elemento muda de um estado para outro (ex: quando passas o rato por cima). Uma animação é uma sequência de estados definida por ti que pode rodar em loop ou uma única vez.</p>
+                <div class="analogy">
+                    <h3>🎬 Analogia: O Interruptor vs. O Filme</h3>
+                    <p>Imagina as luzes da tua sala:</p>
+                    <ul>
+                        <li><strong>Sem Transição</strong>: Clicas no botão e a luz acende instantaneamente. É brusco.</li>
+                        <li><strong>Transition (O Dimmer)</strong>: Clicas no botão e a luz vai aumentando de brilho suavemente durante 1 segundo. É elegante.</li>
+                        <li><strong>Animation (O Filme)</strong>: Clicas no botão e as luzes começam a piscar, mudam de cor e fazem um padrão rítmico. Tu defines o guião!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Transição Suave no Botão</h3>
+                <p>Mudar a cor sem ser brusco.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.btn {
+  background-color: blue;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darkblue;
+  transform: scale(1.1); /* Aumenta um pouco */
+}</code></pre>
+                </div>
+                <p class="explanation">O <code>transition</code> diz ao browser: "se a cor mudar, fá-lo em 0.3 segundos".</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Criar uma Animação (Pulsação)</h3>
+                <p>Definir o movimento e aplicá-lo.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">@keyframes pulsar {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+.notificacao {
+  animation: pulsar 1s infinite alternate;
+}</code></pre>
+                </div>
+                <p class="explanation"><code>alternate</code> faz com que a animação vá e volte, criando um efeito de pulsação suave.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um ícone que roda:</p>
+                <ol class="steps-list">
+                    <li>Cria uma <code>&lt;div&gt;</code> com um emoji lá dentro.</li>
+                    <li>No CSS, adiciona uma transição para a propriedade <code>transform</code>.</li>
+                    <li>No <code>:hover</code> da div, adiciona <code>transform: rotate(360deg);</code>.</li>
+                    <li>Experimenta passar o rato e vê o ícone dar uma volta completa!</li>
+                    <li>Dica: Tenta adicionar <code>border-radius: 50%</code> para o ícone parecer uma roda.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-7">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Transition</strong> é excelente para interações simples (hover, focus).</li>
+                <li>📌 <strong>Transform</strong> move, roda e escala sem estragar o layout.</li>
+                <li>📌 <strong>@keyframes</strong> define os passos de uma animação.</li>
+                <li>📌 Menos é mais: usa animações para guiar o utilizador, não para o distrair.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Atrasado</h3>
+                <p>Como podes fazer uma animação esperar 2 segundos antes de começar?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando a propriedade <code>animation-delay: 2s;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Velocidade Constante</h3>
+                <p>Se quiseres uma animação que ande sempre à mesma velocidade (sem acelerar ou travar), que valor usas no timing function?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O valor <code>linear</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Ponto Final</h3>
+                <p>Como garantires que um elemento fica na posição final de uma animação e não volta ao início quando ela acaba?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>animation-fill-mode: forwards;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-6.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-8.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
