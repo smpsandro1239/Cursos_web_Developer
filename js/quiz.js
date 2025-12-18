@@ -385,6 +385,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! <code>rtl</code> significa 'Right to Left'."
         }
+    ],
+    'module-12': [
+        {
+            question: "O que são Microdados ou Dados Estruturados?",
+            options: [
+                { id: 'a', text: "Imagens muito pequenas" },
+                { id: 'b', text: "Código que ajuda o Google a entender exatamente o que é um conteúdo (ex: um preço, uma data de evento ou uma nota de 5 estrelas)" },
+                { id: 'c', text: "Vírus informáticos" },
+                { id: 'd', text: "Um novo tipo de letra" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Os dados estruturados permitem que o Google mostre 'Rich Snippets' (resultados ricos com estrelas, preços, etc)."
+        },
+        {
+            question: "Qual o formato de dados estruturados mais recomendado pela Google atualmente?",
+            options: [
+                { id: 'a', text: "Microformatos" },
+                { id: 'b', text: "RDFa" },
+                { id: 'c', text: "JSON-LD" },
+                { id: 'd', text: "XML" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O JSON-LD é um script que se coloca no HTML e é o mais fácil de manter e o preferido do Google."
+        },
+        {
+            question: "Para que serve o site Schema.org?",
+            options: [
+                { id: 'a', text: "Para descarregar templates" },
+                { id: 'b', text: "É o vocabulário padrão universal para definir as propriedades dos dados estruturados" },
+                { id: 'c', text: "É uma rede social para programadores" },
+                { id: 'd', text: "Serve para testar a velocidade do site" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! No Schema.org encontras as 'etiquetas' para tudo: receitas, filmes, livros, empresas, etc."
+        }
     ]
 };
 
