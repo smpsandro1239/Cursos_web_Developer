@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 15: Projeto Prático: O Hero de Elite - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 15 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🏆</span>
+            </div>
+            <h1>Módulo 15: O Hero de Elite (Projeto)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 14</strong>, aprendemos a organizar o nosso código com a metodologia BEM. Agora, vamos juntar tudo: variáveis, Flexbox, Grid, Animações e BEM num único projeto prático de alto nível.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Fazer Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Construir uma secção "Hero" (impacto inicial do site).</li>
+                <li>✅ Aplicar o sistema de <strong>Variáveis CSS</strong> para cores.</li>
+                <li>✅ Criar um layout responsivo que muda de Grid para Flex.</li>
+                <li>✅ Adicionar efeitos de hover avançados com <strong>Pseudo-elementos</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria: A Anatomia de uma Secção Hero -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Por que o Hero importa?</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> A secção "Hero" é a primeira coisa que um utilizador vê. Se ela não for apelativa e profissional em menos de 3 segundos, o utilizador fecha o site. Um Hero de elite deve ter: Texto claro, Contraste alto e um Botão de Ação (CTA) óbvio.</p>
+                <div class="analogy">
+                    <h3>🏆 Analogia: A Montra da Loja</h3>
+                    <p>Imagina uma loja de luxo na Avenida da Liberdade:</p>
+                    <ul>
+                        <li><strong>O Vidro (Contentor Hero)</strong>: Deve estar limpo e mostrar tudo o que é importante.</li>
+                        <li><strong>O Manequim (Título)</strong>: É a peça central que chama a atenção.</li>
+                        <li><strong>O Preço/Sinalética (CTA)</strong>: Diz ao cliente exatamente o que fazer a seguir (Entra agora!).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Guia do Projeto (Exemplo de Código) -->
+        <section class="lesson-step">
+            <h2>5. Estrutura do Projeto</h2>
+
+            <div class="code-example-card">
+                <h3>HTML Recomendado (BEM)</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;section class="hero"&gt;
+  &lt;div class="hero__content"&gt;
+    &lt;h1 class="hero__title"&gt;Cria Sites Incríveis&lt;/h1&gt;
+    &lt;p class="hero__subtitle"&gt;Domina o CSS como um profissional.&lt;/p&gt;
+    &lt;button class="hero__cta"&gt;Começar Agora&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>CSS Recomendado (Moderno)</h3>
+                <div class="code-window">
+                    <pre><code class="language-css">:root {
+  --hero-bg: #0f172a;
+  --accent: #38bdf8;
+}
+
+.hero {
+  height: 80vh;
+  background-color: var(--hero-bg);
+  display: grid;
+  place-items: center; /* Centramento instantâneo! */
+  text-align: center;
+  color: white;
+}
+
+.hero__cta {
+  padding: 15px 30px;
+  background-color: var(--accent);
+  border: none;
+  transition: transform 0.2s;
+}
+
+.hero__cta:hover {
+  transform: translateY(-5px);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada (O Teu Desafio) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez de Criar!</h2>
+            <div class="practice-guide">
+                <p>O teu objetivo é criar o Hero mais bonito possível:</p>
+                <ol class="steps-list">
+                    <li>Usa as variáveis do <code>:root</code> para as cores.</li>
+                    <li>Adiciona uma imagem de fundo (<code>background-image</code>) com um overlay escuro (usa <code>linear-gradient</code>).</li>
+                    <li>Usa <code>aspect-ratio</code> no contentor da imagem se quiseres um formato específico.</li>
+                    <li>Faz com que o título <code>hero__title</code> tenha uma animação suave de entrada.</li>
+                    <li>Garante que no telemóvel (Media Query) o texto diminui de tamanho para não quebrar o design.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-15">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo: O que um Hero precisa?</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Hierarquia Visual</strong>: O título deve ser o maior elemento.</li>
+                <li>📌 <strong>Contraste</strong>: O texto deve ser sempre fácil de ler.</li>
+                <li>📌 <strong>Interatividade</strong>: O botão deve reagir ao toque do utilizador.</li>
+                <li>📌 <strong>Mobile-first</strong>: Testa sempre como fica no telemóvel primeiro!</li>
+            </ul>
+        </section>
+
+        <!-- 9. Parabéns! -->
+        <section class="lesson-step">
+            <h2>9. Conclusão do Batismo de Fogo</h2>
+            <p>Se chegaste aqui e conseguiste construir o teu Hero, parabéns! Acabas de passar da fase de "aprender propriedades" para a fase de "construir produtos". Estás a 5 módulos de terminar o curso de CSS!</p>
+            <div class="challenge-card">
+                <h3>O Próximo Passo</h3>
+                <p>Nos próximos módulos vamos focar-nos em Filtros, Transformações 3D e o Grande Projeto Final.</p>
+            </div>
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-14.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-16.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

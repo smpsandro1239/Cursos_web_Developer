@@ -383,6 +383,181 @@ const QUIZ_DATA_CSS = {
             correct: 'b',
             explanation: "✅ Correto! Podes também usar o atalho: repeat(3, 1fr)."
         }
+    ],
+    'modulo-11': [
+        {
+            question: "Qual a diferença entre uma Pseudo-classe e um Pseudo-elemento?",
+            options: [
+                { id: 'a', text: "Não há diferença" },
+                { id: 'b', text: "Pseudo-classe indica um estado (ex: :hover), Pseudo-elemento indica uma parte específica do conteúdo (ex: ::after)" },
+                { id: 'c', text: "Pseudo-classe usa dois pontos (::), Pseudo-elemento usa um (:)" },
+                { id: 'd', text: "Pseudo-elementos só funcionam em imagens" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Pseudo-classes como :hover controlam o estado, enquanto pseudo-elementos como ::before injetam conteúdo extra via CSS."
+        },
+        {
+            question: "Para o ::before ou ::after aparecer no ecrã, qual propriedade é obrigatória?",
+            options: [
+                { id: 'a', text: "display: block;" },
+                { id: 'b', text: "content: '';" },
+                { id: 'c', text: "visibility: visible;" },
+                { id: 'd', text: "color: black;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Sem a propriedade 'content' (mesmo que vazia), o pseudo-elemento não é renderizado."
+        },
+        {
+            question: "Qual pseudo-classe permite estilizar o primeiro item de uma lista?",
+            options: [
+                { id: 'a', text: ":first-of-all" },
+                { id: 'b', text: ":begin" },
+                { id: 'c', text: ":first-child" },
+                { id: 'd', text: ":index(0)" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! :first-child seleciona o primeiro filho do elemento pai."
+        }
+    ],
+    'modulo-12': [
+        {
+            question: "Como se declara uma variável global no CSS?",
+            options: [
+                { id: 'a', text: "var-primary-color: blue;" },
+                { id: 'b', text: ":root { --primary-color: blue; }" },
+                { id: 'c', text: "$primary-color: blue;" },
+                { id: 'd', text: "const primaryColor = 'blue';" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O seletor :root representa o elemento <html> e é o melhor sítio para variáveis globais."
+        },
+        {
+            question: "Como se utiliza uma variável CSS que já foi declarada?",
+            options: [
+                { id: 'a', text: "color: --primary-color;" },
+                { id: 'b', text: "color: var(--primary-color);" },
+                { id: 'c', text: "color: get(--primary-color);" },
+                { id: 'd', text: "color: $primary-color;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A função var() é necessária para ler o valor da variável."
+        },
+        {
+            question: "Qual a maior vantagem de usar variáveis CSS para cores e fontes?",
+            options: [
+                { id: 'a', text: "O site carrega mais depressa" },
+                { id: 'b', text: "Podes mudar a cor de todo o site num único lugar (o :root)" },
+                { id: 'c', text: "O Google gosta mais do site" },
+                { id: 'd', text: "Desativa o cache do browser" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Variáveis facilitam imenso a manutenção e a criação de temas (como o Dark Mode)."
+        }
+    ],
+    'modulo-13': [
+        {
+            question: "Para que serve a propriedade aspect-ratio: 16 / 9;?",
+            options: [
+                { id: 'a', text: "Para mudar a escala do site" },
+                { id: 'b', text: "Para garantir que um elemento (como um vídeo) mantém sempre a mesma proporção, independentemente da largura" },
+                { id: 'c', text: "Para aumentar a resolução das imagens" },
+                { id: 'd', text: "Para dividir o ecrã em 16 colunas" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O aspect-ratio resolve o antigo problema de manter vídeos ou imagens proporcionais sem cálculos complexos."
+        },
+        {
+            question: "O que é uma 'Logical Property' no CSS moderno?",
+            options: [
+                { id: 'a', text: "Uma propriedade que usa lógica IF/ELSE" },
+                { id: 'b', text: "Propriedades que usam 'inline' e 'block' em vez de 'left' e 'right' (ex: margin-inline-start)" },
+                { id: 'c', text: "Propriedades que só funcionam em ecrãs táteis" },
+                { id: 'd', text: "Propriedades que mudam a cor automaticamente" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Elas adaptam-se automaticamente a idiomas lidos da direita para a esquerda (RTL) ou na vertical."
+        },
+        {
+            question: "Qual seletor permite aplicar estilos apenas se o browser suportar uma determinada propriedade?",
+            options: [
+                { id: 'a', text: "@media" },
+                { id: 'b', text: "@supports" },
+                { id: 'c', text: "@test-prop" },
+                { id: 'd', text: "@import" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O @supports permite usar as novidades sem 'partir' o site em browsers antigos."
+        }
+    ],
+    'modulo-14': [
+        {
+            question: "O que significa a sigla BEM?",
+            options: [
+                { id: 'a', text: "Best Essential Methods" },
+                { id: 'b', text: "Block, Element, Modifier" },
+                { id: 'c', text: "Binary Entry Mode" },
+                { id: 'd', text: "Basic Element Management" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! BEM é uma convenção de nomes que ajuda a manter o CSS organizado e legível."
+        },
+        {
+            question: "Como se representa um 'Elemento' seguindo a convenção BEM?",
+            options: [
+                { id: 'a', text: "bloco--elemento" },
+                { id: 'b', text: "bloco__elemento" },
+                { id: 'c', text: "bloco.elemento" },
+                { id: 'd', text: "elemento-do-bloco" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Usamos dois underscores (__) para separar o bloco do seu elemento interno."
+        },
+        {
+            question: "Qual a principal vantagem de usar uma metodologia como o BEM?",
+            options: [
+                { id: 'a', text: "O CSS fica mais curto" },
+                { id: 'b', text: "Evita conflitos de nomes e torna o código fácil de manter em equipa" },
+                { id: 'c', text: "O site fica mais rápido a carregar" },
+                { id: 'd', text: "Não precisas de usar IDs no HTML" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O BEM resolve o problema do CSS global 'partir' outras secções do site sem querer."
+        }
+    ],
+    'modulo-15': [
+        {
+            question: "Qual a técnica mais recomendada para alinhar o conteúdo de um 'Hero' no centro do ecrã vertical e horizontalmente?",
+            options: [
+                { id: 'a', text: "Usar margin-top com muitos pixels" },
+                { id: 'b', text: "Usar Flexbox no contentor (justify-content e align-items: center)" },
+                { id: 'c', text: "Usar a tag <center> do HTML" },
+                { id: 'd', text: "Não se deve centrar o conteúdo num Hero" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Flexbox é a forma mais robusta e matemática de garantir o centramento perfeito."
+        },
+        {
+            question: "Para o texto de um Hero ser legível sobre uma imagem de fundo escura, o que deves usar?",
+            options: [
+                { id: 'a', text: "Diminuir o tamanho da letra" },
+                { id: 'b', text: "Usar um contraste alto (ex: texto branco) e talvez um overlay escuro na imagem" },
+                { id: 'c', text: "Mudar a fonte para Arial" },
+                { id: 'd', text: "Colocar o texto em Itálico" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A acessibilidade e o contraste são fundamentais num design 'Premium'."
+        },
+        {
+            question: "Num projeto prático seguindo o BEM, se o bloco for 'hero', como se chamaria a classe do botão principal?",
+            options: [
+                { id: 'a', text: ".hero-button" },
+                { id: 'b', text: ".hero__cta" },
+                { id: 'c', text: ".button-inside-hero" },
+                { id: 'd', text: "#hero-btn" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Seguindo a regra Bloco__Elemento, .hero__cta (Call to Action) é uma excelente escolha."
+        }
     ]
 };
 
