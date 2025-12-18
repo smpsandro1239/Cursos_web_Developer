@@ -595,6 +595,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! Se mudares de 1.x para 2.x, estás a avisar que houve uma mudança radical no sistema."
         }
+    ],
+    'module-18': [
+        {
+            question: "O que é 'Hospedagem' (Hosting)?",
+            options: [
+                { id: 'a', text: "Um hotel para programadores" },
+                { id: 'b', text: "O processo de colocar os teus ficheiros num computador ligado 24h à internet para que todos os possam ver" },
+                { id: 'c', text: "Um tipo de vírus" },
+                { id: 'd', text: "A bateria do portátil" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Hospedar um site é como alugar um espaço na 'grande biblioteca' que é a internet."
+        },
+        {
+            question: "Qual destas ferramentas é famosa por permitir hospedar sites estáticos gratuitamente a partir do GitHub?",
+            options: [
+                { id: 'a', text: "Netflix" },
+                { id: 'b', text: "GitHub Pages" },
+                { id: 'c', text: "Spotify" },
+                { id: 'd', text: "Photoshop" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O GitHub Pages é uma das formas mais simples e gratuitas de colocar o teu portfólio online."
+        },
+        {
+            question: "Porque é que o ficheiro principal do site se deve chamar obrigatoriamente 'index.html'?",
+            options: [
+                { id: 'a', text: "Porque soa melhor" },
+                { id: 'b', text: "Porque os servidores estão configurados para procurar esse nome por defeito quando alguém acede ao domínio" },
+                { id: 'c', text: "Porque foi o nome dado pelo inventor da internet" },
+                { id: 'd', text: "Não se deve chamar index.html" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O <code>index.html</code> é a porta de entrada automática do teu site."
+        }
     ]
 };
 

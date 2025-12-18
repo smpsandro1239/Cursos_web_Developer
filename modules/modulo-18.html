@@ -3,501 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 18: Ferramentas Modernas - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 18 do Curso HTML5 - Ferramentas modernas de desenvolvimento">
+    <title>Módulo 18: Hospedagem e Deploy - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 18 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 18</span>
-                    <h1 class="module-title">Ferramentas Modernas</h1>
-                    <p class="module-subtitle">Desenvolvimento acelerado</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 2 aulas</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 18 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Ferramentas Modernas</h2>
-                        <p>Ferramentas modernas aceleram o desenvolvimento, melhoram a produtividade e mantêm código de qualidade.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>🚀 O que vamos aprender:</h3>
-                            <ul>
-                                <li>Emmet avançado para HTML rápido</li>
-                                <li>Pug para templates elegantes</li>
-                                <li>Markdown para HTML</li>
-                                <li>Vite e Parcel para bundling</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "Ferramentas modernas transformam horas de trabalho em minutos!"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="modern-tools-concept">
-                                <div class="tools-showcase">
-                                    <div class="tool-item">
-                                        <span class="tool-icon">⚡</span>
-                                        <span class="tool-name">Emmet</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <span class="tool-icon">📝</span>
-                                        <span class="tool-name">Pug</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <span class="tool-icon">📄</span>
-                                        <span class="tool-name">Markdown</span>
-                                    </div>
-                                    <div class="tool-item">
-                                        <span class="tool-icon">🔧</span>
-                                        <span class="tool-name">Vite</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Emmet Avançado -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Emmet Avançado</h2>
-                        <p>Emmet permite escrever HTML complexo com abreviações simples e poderosas.</p>
-
-                        <div class="code-example">
-                            <h4>📝 Abreviaturas básicas:</h4>
-                            <pre><code>nav>ul>li*5>a
-div.container>h1+p
-form>label+input+button</code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>⚡ Avançado:</h4>
-                            <pre><code>header.header>nav.nav>ul.nav-list>li.nav-item*3>a.nav-link
-section.hero>div.hero-content>h1.hero-title+p.hero-text
-.card*3>h3.card-title+p.card-desc+button.btn</code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>💡 Dicas:</h3>
-                            <ul>
-                                <li><kbd>Tab</kbd> para expandir</li>
-                                <li><code>*n</code> para multiplicar</li>
-                                <li><code>+</code> para irmãos</li>
-                                <li><code>></code> para filhos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="emmet-demo">
-                                <div class="emmet-input">
-                                    <span class="input-text">div.container>h1+p*2>button</span>
-                                    <span class="arrow">→</span>
-                                    <div class="emmet-output">
-                                        <pre><code><div class="container">
-    <h1></h1>
-    <p></p>
-    <p></p>
-    <button></button>
-</div></code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: Pug Templates -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Pug Templates</h2>
-                        <p>Pug (antigo Jade) é um template engine que usa indentacção em vez de tags HTML.</p>
-
-                        <div class="code-example">
-                            <h4>📝 HTML vs Pug:</h4>
-                            <pre><code><!-- HTML -->
-<div class="container">
-    <h1>Título</h1>
-    <p>Parágrafo</p>
-</div>
-
-<!-- Pug -->
-.container
-    h1 Título
-    p Parágrafo</code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>🔄 Com variáveis:</h4>
-                            <pre><code>// Pug
-- var title = "Meu Site"
-- var items = ['Item 1', 'Item 2', 'Item 3']
-
-header
-    h1= title
-    nav
-        ul
-            each item in items
-                li= item</code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="pug-demo">
-                                <div class="template-comparison">
-                                    <div class="template-side html">
-                                        <span class="template-title">HTML</span>
-                                        <pre><code><ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-</ul></code></pre>
-                                    </div>
-                                    <div class="template-side pug">
-                                        <span class="template-title">Pug</span>
-                                        <pre><code>ul
-    li Item 1
-    li Item 2</code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Markdown para HTML -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Markdown para HTML</h2>
-                        <p>Markdown é uma linguagem de marcacção leve que pode ser convertida para HTML.</p>
-
-                        <div class="code-example">
-                            <h4>📝 Markdown básico:</h4>
-                            <pre><code># Título Principal
-
-## Subtítulo
-
-- Item 1
-- Item 2
-- Item 3
-
-**Texto em negrito**
-*Texto em itálico*
-
-[Link para Google](https://google.com)
-
-```html
-<p>Código HTML</p>
-```</code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>🔧 Ferramentas:</h4>
-                            <pre><code># Instalar marked
-npm install marked
-
-# Converter MD para HTML
-marked arquivo.md > arquivo.html</code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="markdown-demo">
-                                <div class="markdown-preview">
-                                    <div class="markdown-input">
-                                        <span class="input-title">Markdown</span>
-                                        <pre><code># Olá Mundo</code></pre>
-                                    </div>
-                                    <div class="arrow">→</div>
-                                    <div class="html-output">
-                                        <span class="output-title">HTML</span>
-                                        <pre><code><h1>Olá Mundo</h1></code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: Vite e Parcel -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Vite e Parcel</h2>
-                        <p>Bundlers modernos como Vite e Parcel otimizam o desenvolvimento com hot reload e builds rápidos.</p>
-
-                        <div class="steps-list">
-                            <h3>🚀 Vite:</h3>
-                            <ol>
-                                <li><code>npm create vite@latest</code></li>
-                                <li>Escolha template (vanilla, vue, react)</li>
-                                <li><code>npm install && npm run dev</code></li>
-                                <li>Hot reload automático</li>
-                            </ol>
-                        </div>
-
-                        <div class="steps-list">
-                            <h3>📦 Parcel:</h3>
-                            <ol>
-                                <li><code>npm install -g parcel</code></li>
-                                <li><code>parcel index.html</code></li>
-                                <li>Zero configuracção</li>
-                                <li>Suporte automático</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="bundler-demo">
-                                <div class="bundler-comparison">
-                                    <div class="bundler-item">
-                                        <span class="bundler-name">Vite</span>
-                                        <span class="bundler-speed">⚡ Ultra Fast</span>
-                                    </div>
-                                    <div class="bundler-item">
-                                        <span class="bundler-name">Parcel</span>
-                                        <span class="bundler-speed">🚀 Zero Config</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Exercício Prático -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Use ferramentas modernas para criar uma página web rapidamente!</p>
-
-                        <div class="exercise-box">
-                            <h3>⚡ Desenvolvimento Rápido</h3>
-                            <p>Crie uma landing page usando Emmet, Markdown e um bundler.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Tarefas:</h4>
-                                <ol>
-                                    <li>Usar Emmet para estrutura HTML</li>
-                                    <li>Converter Markdown para HTML</li>
-                                    <li>Configurar Vite ou Parcel</li>
-                                    <li>Implementar hot reload</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎉 Resultado:</h4>
-                            <div class="result-preview">
-                                <div class="modern-setup">
-                                    <pre><code># Terminal
-npm create vite@latest landing-page
-cd landing-page
-npm run dev
-
-# Emmet no VS Code
-header.hero>nav+h1+p+button.btn
-
-# Markdown
-# Landing Page
-Bem-vindo ao meu site!</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <div class="modern-workflow">
-                                    <div class="workflow-steps">
-                                        <div class="step">
-                                            <span class="step-icon">📝</span>
-                                            <span class="step-text">Emmet</span>
-                                        </div>
-                                        <div class="step">
-                                            <span class="step-icon">🔄</span>
-                                            <span class="step-text">Bundler</span>
-                                        </div>
-                                        <div class="step">
-                                            <span class="step-icon">🌐</span>
-                                            <span class="step-text">Live Preview</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 7: Conclusão -->
-            <section class="slide" id="slide-7" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Conclusão do Módulo</h2>
-                        <p>Parabéns! Agora você domina ferramentas modernas que aceleram o desenvolvimento.</p>
-
-                        <div class="highlight-box">
-                            <h3>📚 O que aprendemos:</h3>
-                            <ul>
-                                <li>✅ Emmet avançado</li>
-                                <li>✅ Pug templates</li>
-                                <li>✅ Markdown para HTML</li>
-                                <li>✅ Vite e Parcel</li>
-                                <li>✅ Desenvolvimento acelerado</li>
-                            </ul>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre security headers!
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="completion-celebration">
-                                <div class="celebration-icon">🎉</div>
-                                <div class="celebration-text">
-                                    <h3>Módulo 18 Completo!</h3>
-                                    <p>Desenvolvimento moderno dominado!</p>
-                                </div>
-                                <div class="next-module">
-                                    <span class="next-arrow">→</span>
-                                    <span class="next-text">Módulo 19: Security</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">7 / 8</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 8: Final -->
-            <section class="slide" id="slide-8" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Parabéns! Módulo Concluído</h2>
-                        <p>Você agora é um desenvolvedor moderno!</p>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="final-badge">🏆</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">8 / 8</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">☁️</span>
+            </div>
+            <h1>Módulo 18: Hospedagem e Deploy</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-17.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-19.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 18:</strong> Ferramentas Modernas | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste as <strong>Boas Práticas</strong> para manter o teu código limpo e organizado. Agora que o teu site está perfeito no teu computador, chegou a hora de o mostrares ao mundo!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A diferença entre Localhost e Servidor.</li>
+                <li>✅ Como funciona o Sistema de Domínios (DNS).</li>
+                <li>✅ Colocar o site online grátis com <strong>GitHub Pages</strong>.</li>
+                <li>✅ Introdução a plataformas como Netlify e Vercel.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Tua Casa na Internet</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Hospedar um site significa guardar os teus ficheiros num servidor (um computador potente que nunca se desliga). Deploy é o ato de enviar os teus ficheiros locais para esse servidor.</p>
+                <div class="analogy">
+                    <h3>🏠 Analogia: A Morada e o Lote</h3>
+                    <p>Imagina que queres abrir uma loja:</p>
+                    <ul>
+                        <li><strong>O Teu Computador</strong>: É a cave da tua casa onde estás a construir as prateleiras. Ninguém as vê a não ser tu.</li>
+                        <li><strong>Hospedagem (Hosting)</strong>: É o terreno que alugas no centro da cidade para colocar a tua loja.</li>
+                        <li><strong>Domínio (URL)</strong>: É a morada (ex: Rua da Web, nº 5). Sem ela, as pessoas não sabem onde fica o terreno.</li>
+                        <li><strong>Deploy</strong>: É o camião de mudanças que leva as prateleiras da tua cave para a nova loja.</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Ficheiro Obrigatório</h3>
+                <p>Todo o site precisa de uma porta de entrada principal.</p>
+                <div class="code-window">
+                    <pre><code class="language-text">📁 meu-projeto/
+   ├── index.html  <-- O SERVIDOR PROCURA ESTE NOME!
+   ├── sobre.html
+   └── style.css</code></pre>
+                </div>
+                <p class="explanation">Se chamares o ficheiro de <code>inicio.html</code>, o servidor não saberá o que mostrar quando alguém digita apenas o teu domínio.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Estrutura para GitHub Pages</h3>
+                <p>Usar o GitHub para hospedar o teu portfólio.</p>
+                <div class="developer-tip">
+                    <p>💡 <strong>Dica Pro:</strong> No GitHub, vai a <strong>Settings > Pages</strong> e escolhe a "Main branch". Em poucos minutos, o teu site estará disponível em <code>teu-utilizador.github.io/nome-do-repo</code>.</p>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Netlify "Drag and Drop"</h3>
+                <p>A forma mais rápida de todas.</p>
+                <div class="rich-snippet-preview" style="background: #f0f0f0; border: 2px dashed #ccc; padding: 20px; text-align: center;">
+                    <p>🚀 Arraste a sua pasta aqui para publicar instantaneamente!</p>
+                </div>
+                <p class="explanation">Plataformas como Netlify permitem que publiques um site sem saber usar a linha de comando, bastando arrastar a pasta do projeto.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos colocar o teu curso online:</p>
+                <ol class="steps-list">
+                    <li>Cria uma conta no <strong>GitHub</strong> se ainda não tiveres.</li>
+                    <li>Cria um novo repositório chamado "meu-primeiro-site".</li>
+                    <li>Faz o upload dos teus ficheiros HTML e CSS.</li>
+                    <li>Ativa o <strong>GitHub Pages</strong> nas definições.</li>
+                    <li>Partilha o link com um amigo!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-18">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Um site só existe para o mundo se estiver num <strong>Servidor</strong>.</li>
+                <li>📌 O <strong>index.html</strong> é o nome sagrado para a página inicial.</li>
+                <li>📌 <strong>GitHub Pages</strong> é a melhor ferramenta para estudantes e portfólios.</li>
+                <li>📌 Um <strong>Domínio</strong> (.pt, .com) é apenas uma máscara bonita para o endereço IP do servidor.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Domínio Próprio</h3>
+                <p>Qual é a vantagem de comprar um domínio <code>www.omeunome.pt</code> em vez de usar o grátis do GitHub?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Profissionalismo e memorização. É muito mais fácil para um cliente decorar um domínio curto do que um endereço longo de uma plataforma gratuita.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Site Estático vs Dinâmico</h3>
+                <p>O GitHub Pages permite hospedar um site que use uma base de dados como MySQL ou PHP?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não. O GitHub Pages é apenas para <strong>sites estáticos</strong> (HTML, CSS, JS e Imagens). Para bases de dados, precisas de um serviço de alojamento completo (Host).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Custo da Internet</h3>
+                <p>Existem formas de hospedar um site profissional para sempre sem pagar um cêntimo?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, para sites pequenos (estáticos). Ferramentas como GitHub Pages, Netlify e Vercel têm planos gratuitos vitalícios que são perfeitos para portfólios e currículos.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-17.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-19.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
