@@ -140,6 +140,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! A tag <code>&lt;figcaption&gt;</code> deve ser usada dentro de um elemento <code>&lt;figure&gt;</code> para legendar a imagem."
         }
+    ],
+    'module-5': [
+        {
+            question: "Qual tag define uma linha numa tabela?",
+            options: [
+                { id: 'a', text: "&lt;line&gt;" },
+                { id: 'b', text: "&lt;tr&gt;" },
+                { id: 'c', text: "&lt;td&gt;" },
+                { id: 'd', text: "&lt;row&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! <code>&lt;tr&gt;</code> significa 'Table Row' (Linha da Tabela)."
+        },
+        {
+            question: "Para que serve o atributo 'colspan'?",
+            options: [
+                { id: 'a', text: "Para mudar a cor da coluna" },
+                { id: 'b', text: "Para mesclar células verticalmente" },
+                { id: 'c', text: "Para mesclar células horizontalmente" },
+                { id: 'd', text: "Para definir a largura da coluna" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! <code>colspan</code> (Column Span) faz uma célula ocupar o espaço de várias colunas (horizontalmente)."
+        },
+        {
+            question: "Qual é a diferença entre &lt;td&gt; e &lt;th&gt;?",
+            options: [
+                { id: 'a', text: "Não há diferença" },
+                { id: 'b', text: "TH é para dados, TD para títulos" },
+                { id: 'c', text: "TH é para cabeçalhos (negrito/centrado), TD para dados normais" },
+                { id: 'd', text: "TD só funciona no rodapé" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! <code>&lt;th&gt;</code> (Table Header) é usado semanticamente para títulos de colunas ou linhas."
+        }
     ]
 };
 

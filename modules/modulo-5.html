@@ -3,557 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 5: Tabelas Clássicas - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 5 do Curso HTML5 - Tabelas para organizacção de dados">
+    <title>Módulo 5: Tabelas - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 5 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 5</span>
-                    <h1 class="module-title">Tabelas Clássicas</h1>
-                    <p class="module-subtitle">Organizando dados tabulares</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 1 aula</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 5 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Tabelas em HTML</h2>
-                        <p>As tabelas organizam dados em linhas e colunas, facilitando a compreensão de informações relacionais como preços, horários e estatísticas.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>📊 O que vamos aprender:</h3>
-                            <ul>
-                                <li>Estrutura básica de tabelas</li>
-                                <li>Cabeçalhos e dados</li>
-                                <li>Mesclagem de células</li>
-                                <li>Acessibilidade em tabelas</li>
-                                <li>Estilizacção básica</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "Tabelas bem estruturadas são como planilhas: organizam informações complexas de forma clara e acessível."
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="table-concept">
-                                <div class="table-grid">
-                                    <div class="table-header">Cabeçalho</div>
-                                    <div class="table-data">Dados</div>
-                                    <div class="table-footer">Resumo</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Estrutura Básica -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Estrutura Básica da Tabela</h2>
-                        <p>Toda tabela HTML5 deve usar as tags semânticas corretas para melhor acessibilidade e estrutura.</p>
-
-                        <div class="code-example">
-                            <h4>🏗️ Estrutura fundamental:</h4>
-                            <pre><code><table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>João</td>
-            <td>25</td>
-        </tr>
-    </tbody>
-</table></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>📋 Elementos principais:</h3>
-                            <ul>
-                                <li><code><table></code> - Container da tabela</li>
-                                <li><code><thead></code> - Cabeçalho da tabela</li>
-                                <li><code><tbody></code> - Corpo da tabela</li>
-                                <li><code><tr></code> - Linha da tabela</li>
-                                <li><code><th></code> - Célula de cabeçalho</li>
-                                <li><code><td></code> - Célula de dados</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="table-structure">
-                                <table class="demo-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>Idade</th>
-                                            <th>Cidade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>João Silva</td>
-                                            <td>25</td>
-                                            <td>Lisboa</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Santos</td>
-                                            <td>30</td>
-                                            <td>Porto</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: Colspan e Rowspan -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Mesclagem de Células</h2>
-                        <p><code>colspan</code> mescla células horizontalmente e <code>rowspan</code> verticalmente, permitindo layouts mais complexos.</p>
-
-                        <div class="code-example">
-                            <h4>📐 Mesclagem horizontal:</h4>
-                            <pre><code><tr>
-    <th colspan="2">Informações Pessoais</th>
-    <th>Contato</th>
-</tr></code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>📏 Mesclagem vertical:</h4>
-                            <pre><code><td rowspan="2">Dados Gerais</td>
-<td>Nome</td>
-<td>Email</td></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="merge-demo">
-                                <table class="merge-table">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="3">Relatório de Vendas 2025</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Produto</th>
-                                            <th colspan="2">Vendas</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="2">Eletrónicos</td>
-                                            <td>Q1</td>
-                                            <td>€15,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Q2</td>
-                                            <td>€18,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Livros</td>
-                                            <td>Q1</td>
-                                            <td>€8,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Acessibilidade -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Acessibilidade em Tabelas</h2>
-                        <p>O atributo <code>scope</code> indica se uma célula de cabeçalho se aplica à linha ou coluna, melhorando a navegacção para screen readers.</p>
-
-                        <div class="code-example">
-                            <h4>🎯 Cabeçalhos acessíveis:</h4>
-                            <pre><code><th scope="col">Nome</th>     ← Aplica-se à coluna
-<th scope="row">Total</th>    ← Aplica-se à linha</code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>♿ Boas práticas:</h3>
-                            <ul>
-                                <li>Use <code>scope</code> em todos os cabeçalhos</li>
-                                <li>Evite tabelas muito complexas</li>
-                                <li>Forneça resumos com <code>caption</code></li>
-                                <li>Teste com screen readers</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="accessibility-demo">
-                                <table class="accessible-table">
-                                    <caption>Preços de Bilhetes CP - 2025</caption>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Tipo</th>
-                                            <th scope="col">Lisboa-Porto</th>
-                                            <th scope="col">Porto-Coimbra</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Económica</th>
-                                            <td>€25</td>
-                                            <td>€15</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Conforto</th>
-                                            <td>€45</td>
-                                            <td>€28</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: CSS para Tabelas -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Estilizacção Básica</h2>
-                        <p>CSS simples pode transformar tabelas básicas em elementos visuais elegantes e profissionais.</p>
-
-                        <div class="code-example">
-                            <h4>🎨 CSS essencial:</h4>
-                            <pre><code>table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 1rem 0;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}</code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Dica:</strong> Use <code>border-collapse: collapse</code> para eliminar espaços duplos entre bordas.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="styled-table-demo">
-                                <table class="styled-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Produto</th>
-                                            <th>Preço</th>
-                                            <th>Stock</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>HTML5 Expert</td>
-                                            <td>€49.99</td>
-                                            <td>100</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CSS3 Master</td>
-                                            <td>€39.99</td>
-                                            <td>75</td>
-                                        </tr>
-                                        <tr>
-                                            <td>JavaScript Pro</td>
-                                            <td>€59.99</td>
-                                            <td>50</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th colspan="2">Total</th>
-                                            <th>225</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Exercício Prático -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Vamos criar uma tabela de preços de bilhetes de comboio como exercício prático!</p>
-
-                        <div class="exercise-box">
-                            <h3>🎯 Tarefa:</h3>
-                            <p>Crie uma tabela com preços de bilhetes CP (Comboios de Portugal) incluindo diferentes tipos de serviço e destinos.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Requisitos:</h4>
-                                <ol>
-                                    <li>Estrutura HTML5 completa</li>
-                                    <li>Cabeçalho com destinos</li>
-                                    <li>Linhas com tipos de serviço</li>
-                                    <li>Mesclagem de células onde apropriado</li>
-                                    <li>Caption para acessibilidade</li>
-                                    <li>Scope em cabeçalhos</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎉 Resultado esperado:</h4>
-                            <div class="result-preview">
-                                <div class="file-editor">
-                                    <div class="editor-header">
-                                        <span class="file-name">tabela-cp.html</span>
-                                    </div>
-                                    <div class="editor-content">
-                                        <pre><code><!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <title>Preços CP 2025</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Preços de Bilhetes CP</h1>
-    <table>
-        <caption>Preços em Euros - 2025</caption>
-        <thead>
-            <tr>
-                <th scope="col">Tipo</th>
-                <th scope="col">Lisboa-Porto</th>
-                <th scope="col">Porto-Coimbra</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">Económica</th>
-                <td>25.00€</td>
-                <td>15.00€</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html></code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <table class="final-table">
-                                    <caption>Tabela de Preços - CP 2025</caption>
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2">Tipo de Serviço</th>
-                                            <th colspan="3">Destinos Principais</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Lisboa ↔ Porto</th>
-                                            <th>Porto ↔ Coimbra</th>
-                                            <th>Lisboa ↔ Faro</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Económica</th>
-                                            <td>€25,00</td>
-                                            <td>€15,00</td>
-                                            <td>€35,00</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Conforto</th>
-                                            <td>€45,00</td>
-                                            <td>€28,00</td>
-                                            <td>€65,00</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Premium</th>
-                                            <td>€75,00</td>
-                                            <td>€45,00</td>
-                                            <td>€110,00</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th scope="row">Média</th>
-                                            <td>€48,33</td>
-                                            <td>€29,33</td>
-                                            <td>€70,00</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 7: Conclusão -->
-            <section class="slide" id="slide-7" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Conclusão do Módulo</h2>
-                        <p>Parabéns! Você aprendeu a criar tabelas acessíveis e bem estruturadas em HTML5.</p>
-
-                        <div class="highlight-box">
-                            <h3>📚 O que aprendemos:</h3>
-                            <ul>
-                                <li>✅ Estrutura básica de tabelas</li>
-                                <li>✅ Cabeçalhos e dados organizados</li>
-                                <li>✅ Mesclagem com colspan e rowspan</li>
-                                <li>✅ Acessibilidade com scope</li>
-                                <li>✅ Estilizacção básica com CSS</li>
-                                <li>✅ Tabelas de preços práticas</li>
-                            </ul>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre formulários, elementos interativos essenciais para qualquer site!
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="completion-celebration">
-                                <div class="celebration-icon">🎉</div>
-                                <div class="celebration-text">
-                                    <h3>Módulo 5 Completo!</h3>
-                                    <p>Você domina tabelas HTML!</p>
-                                </div>
-                                <div class="next-module">
-                                    <span class="next-arrow">→</span>
-                                    <span class="next-text">Módulo 6: Formulários</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">7 / 7</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📊</span>
+            </div>
+            <h1>Módulo 5: Tabelas Clássicas</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-4.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-6.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 5:</strong> Tabelas Clássicas | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>Já sabes como adicionar texto, links e imagens. O teu site já tem conteúdo rico! Agora, precisamos de aprender a organizar dados complexos de forma estruturada. É aqui que entram as tabelas.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A estrutura base de uma tabela (<code>table</code>, <code>tr</code>, <code>td</code>).</li>
+                <li>✅ Como criar cabeçalhos com <code>th</code>.</li>
+                <li>✅ Como mesclar células (como no Excel) usando <code>colspan</code> e <code>rowspan</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Folha de Cálculo</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Tabelas servem para apresentar dados tabulares (linhas e colunas), como horários, preços ou classificações.</p>
+                <div class="analogy">
+                    <h3>📅 Analogia: O Excel</h3>
+                    <p>Pensa numa folha de Excel:</p>
+                    <ul>
+                        <li><strong>&lt;table&gt;</strong>: É o ficheiro Excel inteiro.</li>
+                        <li><strong>&lt;tr&gt;</strong> (Table Row): É uma linha horizontal (1, 2, 3...).</li>
+                        <li><strong>&lt;td&gt;</strong> (Table Data): É a célula individual onde escreves os dados (A1, B2...).</li>
+                        <li><strong>&lt;th&gt;</strong> (Table Header): É a primeira linha a negrito que diz o que é cada coluna ("Nome", "Idade").</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Tabela Simples</h3>
+                <p>Uma lista de alunos e notas.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nome&lt;/th&gt;
+    &lt;th&gt;Nota&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ana&lt;/td&gt;
+    &lt;td&gt;18&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;João&lt;/td&gt;
+    &lt;td&gt;15&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+                <p class="explanation">O atributo <code>border="1"</code> é antigo, mas útil para visualizar. No futuro, faremos as bordas com CSS.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Mesclando Colunas</h3>
+                <p>Usar <code>colspan</code> para ocupar mais de uma coluna.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th colspan="2"&gt;Horário Escolar&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Manhã&lt;/td&gt;
+    &lt;td&gt;Tarde&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+                <p class="explanation">O título "Horário Escolar" estica-se sobre as duas colunas de baixo.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Estrutura Completa</h3>
+                <p>Boas práticas com <code>thead</code> e <code>tbody</code>.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Produto&lt;/th&gt;
+      &lt;th&gt;Preço&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pão&lt;/td&gt;
+      &lt;td&gt;1€&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+                <p class="explanation">Separar a cabeça (head) do corpo (body) ajuda o navegador e o Google a entenderem a tabela.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um Boletim de Notas:</p>
+                <ol class="steps-list">
+                    <li>Cria uma <code>&lt;table&gt;</code>.</li>
+                    <li>Na primeira linha (<code>tr</code>), usa <code>th</code> para criar as colunas: "Disciplina" e "Classificação".</li>
+                    <li>Cria 3 linhas de dados com as tuas disciplinas favoritas e as notas.</li>
+                    <li>Adiciona uma última linha com a média.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-5">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Tabelas são definidas por linhas (<code>tr</code>), não por colunas.</li>
+                <li>📌 Usa <strong>th</strong> para títulos e <strong>td</strong> para dados normais.</li>
+                <li>📌 <strong>colspan</strong> estica para os lados, <strong>rowspan</strong> estica para baixo.</li>
+                <li>📌 Não uses tabelas para fazer o layout do site (isso era nos anos 90)! Usa-as apenas para dados.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Jogo do Galo</h3>
+                <p>Consegues criar a grelha do jogo do galo (3x3) usando uma tabela?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;td&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; &lt;/td&gt;&lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; &lt;/td&gt;&lt;td&gt; &lt;/td&gt;&lt;td&gt;X&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: A Fatura</h3>
+                <p>Cria uma tabela onde a última célula ("Total") ocupa duas colunas usando <code>colspan</code>.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;tr&gt;
+  &lt;td&gt;Artigo 1&lt;/td&gt;
+  &lt;td&gt;10€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td colspan="2"&gt;Total: 10€&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Sem Bordas?</h3>
+                <p>Por defeito, as tabelas não têm bordas. Como as adicionas sem CSS (método antigo) só para testar?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Adicionando o atributo <code>border="1"</code> na tag <code>&lt;table&gt;</code>. Mas lembra-te: no mundo real, usamos sempre CSS (<code>border: 1px solid black;</code>)!</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-4.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-6.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
