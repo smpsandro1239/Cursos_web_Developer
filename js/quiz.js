@@ -70,6 +70,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! <code>&lt;strong&gt;</code> indica que o texto tem grande importância. Use <code>&lt;b&gt;</code> apenas para efeitos visuais sem significado."
         }
+    ],
+    'module-3': [
+        {
+            question: "Qual é a tag correta para criar um link?",
+            options: [
+                { id: 'a', text: "&lt;link&gt;" },
+                { id: 'b', text: "&lt;href&gt;" },
+                { id: 'c', text: "&lt;a&gt;" },
+                { id: 'd', text: "&lt;url&gt;" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A tag <code>&lt;a&gt;</code> (anchor/âncora) é usada para criar hiperligações."
+        },
+        {
+            question: "Como se faz uma lista numerada?",
+            options: [
+                { id: 'a', text: "&lt;ul&gt;" },
+                { id: 'b', text: "&lt;ol&gt;" },
+                { id: 'c', text: "&lt;dl&gt;" },
+                { id: 'd', text: "&lt;list&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! <code>&lt;ol&gt;</code> (ordered list) cria listas numeradas (1, 2, 3...). <code>&lt;ul&gt;</code> cria listas com marcadores."
+        },
+        {
+            question: "Qual atributo abre o link numa nova aba?",
+            options: [
+                { id: 'a', text: "new='tab'" },
+                { id: 'b', text: "target='_new'" },
+                { id: 'c', text: "target='_blank'" },
+                { id: 'd', text: "mode='blank'" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! <code>target='_blank'</code> instrui o navegador a abrir o link numa nova aba ou janela."
+        }
     ]
 };
 
