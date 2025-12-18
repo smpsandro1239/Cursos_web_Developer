@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Curso HTML5 do Zero ao Expert - Sandro Pereira (2025)</title>
-    <meta name="description" content="Curso completo de HTML5 ministrado pelo Professor Sandro Pereira em 2025">
+    <title>Aprende Web – Do Zero ao Heroi</title>
+    <meta name="description" content="Curso completo de desenvolvimento web: HTML, CSS e JavaScript. Do zero ao heroi.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -17,15 +17,15 @@
             <div class="header-content">
                 <div class="logo">
                     <span class="logo-icon">🚀</span>
-                    <h1>HTML5 Expert</h1>
+                    <h1>Aprende Web</h1>
                 </div>
                 <nav class="nav">
                     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
                     <ul class="nav-menu">
+                        <li><a href="#cursos">Cursos</a></li>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#modulos">Módulos</a></li>
-                        <li><a href="#instrutor">Instrutor</a></li>
-                        <li><a href="#contacto">Contato</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -38,30 +38,18 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
+                        <span class="hero-badge">🎓 Novo Currículo 2025</span>
                         <h1 class="hero-title">
-                            <span class="highlight">📚 Plano de Estudos Completo:</span>
-                            <br>HTML5 do Zero ao Expert
+                            De 0 a <span class="highlight">Heroi</span> do <br>
+                            Desenvolvimento Web
                         </h1>
                         <p class="hero-subtitle">
-                            De 5ª classe ao Jedi do markup — duracção sugerida 3-6 meses (1 h/semana)
+                            Domina HTML, CSS e JavaScript com uma metodologia
+                            prática, didática e 100% em Português.
                         </p>
-                        <div class="hero-meta">
-                            <div class="meta-item">
-                                <span class="meta-icon">👨‍🏫</span>
-                                <span>Professor: Sandro Pereira</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-icon">📅</span>
-                                <span>Ano: 2025</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-icon">🌟</span>
-                                <span>20 Módulos Completos</span>
-                            </div>
-                        </div>
                         <div class="hero-buttons">
-                            <a href="#modulos" class="btn btn-primary">Começar Curso</a>
-                            <a href="modules/modulo-0.html" class="btn btn-secondary">Módulo 0</a>
+                            <a href="#cursos" class="btn btn-primary">Começar a Jornada</a>
+                            <a href="#sobre" class="btn btn-secondary">Saber Mais</a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -73,19 +61,21 @@
                                         <span class="control yellow"></span>
                                         <span class="control green"></span>
                                     </span>
-                                    <span class="window-title">index.html</span>
+                                    <span class="window-title">heroi.js</span>
                                 </div>
                                 <div class="window-content">
-                                    <pre><code><!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <meta charset="UTF-8">
-    <title>Olá Mundo!</title>
-</head>
-<body>
-    <h1>Olá Mundo!</h1>
-</body>
-</html></code></pre>
+                                    <pre><code>const tu = {
+    nivel: 'Iniciante',
+    vontade: 100
+};
+
+function evoluir() {
+    tu.nivel = 'Heroi';
+    tu.skills = ['HTML', 'CSS', 'JS'];
+    return '🚀 Sucesso!';
+}
+
+console.log(evoluir());</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -94,485 +84,99 @@
             </div>
         </section>
 
-        <!-- Sobre Section -->
-        <section id="sobre" class="section">
+        <!-- Motivation Section -->
+        <section class="motivation-section">
             <div class="container">
-                <h2 class="section-title">Sobre o Curso</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <div class="card-icon">🎯</div>
-                        <h3>Objetivo</h3>
-                        <p>Dominar HTML5 desde os conceitos básicos até técnicas avançadas, preparando para o mercado de trabalho.</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-icon">⏱️</div>
-                        <h3>Duracção</h3>
-                        <p>3-6 meses de estudo com 1 hora por semana de dedicacção.</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-icon">📈</div>
-                        <h3>Nível</h3>
-                        <p>Do absoluto iniciante ao desenvolvedor HTML5 expert.</p>
-                    </div>
+                <div class="quote-card">
+                    <span class="quote-icon">❝</span>
+                    <p class="quote-text">Cada linha de código é um passo rumo à criação do teu próprio mundo digital.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Módulos Section -->
-        <section id="modulos" class="section">
+        <!-- Cursos Section -->
+        <section id="cursos" class="section">
             <div class="container">
-                <h2 class="section-title">Módulos do Curso</h2>
-                <div class="modulos-grid">
-                    <!-- Módulo 0 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">0</span>
-                            <h3>Preparacção</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Instalar VS Code + Live Server</li>
-                                <li>Criar projeto HTML</li>
-                                <li>Atalhos essenciais</li>
-                                <li>Git básico</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-0.html" class="btn-modulo">Acessar</a>
-                        </div>
+                <h2 class="section-title">Escolhe o teu Caminho</h2>
+                <div class="courses-grid">
+                    <!-- HTML Course -->
+                    <div class="course-card">
+                        <div class="course-icon html-icon">🌐</div>
+                        <h3>Curso de HTML5</h3>
+                        <p>O esqueleto da web. Aprende a estruturar conteúdo de forma semântica e acessível.</p>
+                        <ul class="course-features">
+                            <li>✅ Semântica Moderna</li>
+                            <li>✅ Acessibilidade</li>
+                            <li>✅ SEO Básico</li>
+                        </ul>
+                        <a href="modules/modulo-1.html" class="btn-course">Começar Agora</a>
                     </div>
 
-                    <!-- Módulo 1 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">1</span>
-                            <h3>O Esqueleto</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que é HTML?</li>
-                                <li>Estrutura básica</li>
-                                <li>Meta tags essenciais</li>
-                                <li>Comentários</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-1.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- CSS Course -->
+                    <div class="course-card">
+                        <div class="course-icon css-icon">🎨</div>
+                        <h3>Curso de CSS3</h3>
+                        <p>A arte da web. Domina layouts, cores, tipografia e animações.</p>
+                        <ul class="course-features">
+                            <li>✅ Flexbox & Grid</li>
+                            <li>✅ Responsividade</li>
+                            <li>✅ Animações</li>
+                        </ul>
+                        <button class="btn-course secondary" disabled>Em Breve</button>
                     </div>
 
-                    <!-- Módulo 2 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">2</span>
-                            <h3>Textos e Títulos</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Hierarquia de títulos</li>
-                                <li>Parágrafos e quebras</li>
-                                <li>Ênfase e formatacção</li>
-                                <li>Entidades HTML</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-2.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- JS Course -->
+                    <div class="course-card">
+                        <div class="course-icon js-icon">⚡</div>
+                        <h3>Curso de JavaScript</h3>
+                        <p>O cérebro da web. Cria interatividade e lógica de programacção.</p>
+                        <ul class="course-features">
+                            <li>✅ Lógica de Programacção</li>
+                            <li>✅ DOM Manipulation</li>
+                            <li>✅ APIs Modernas</li>
+                        </ul>
+                        <button class="btn-course secondary" disabled>Em Breve</button>
                     </div>
 
-                    <!-- Módulo 3 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">3</span>
-                            <h3>Listas e Links</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Listas ordenadas e não ordenadas</li>
-                                <li>Links internos e externos</li>
-                                <li>Âncoras e navegacção</li>
-                                <li>Menus simples</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-3.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 4 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">4</span>
-                            <h3>Imagens e Multimédia</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Imagens otimizadas</li>
-                                <li>Áudio e vídeo</li>
-                                <li>Legendas e acessibilidade</li>
-                                <li>Lazy loading</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-4.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 5 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">5</span>
-                            <h3>Tabelas Clássicas</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Estrutura de tabelas</li>
-                                <li>Cabeçalhos e dados</li>
-                                <li>Mesclagem de células</li>
-                                <li>Estilizacção básica</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-5.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 6 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">6</span>
-                            <h3>Formulários</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Tipos de inputs</li>
-                                <li>Validacção nativa</li>
-                                <li>Acessibilidade</li>
-                                <li>Formatacção avançada</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">3 aulas</span>
-                            <a href="modules/modulo-6.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 7 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">7</span>
-                            <h3>Semântica HTML5</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Tags semânticas</li>
-                                <li>Estrutura de documentos</li>
-                                <li>Elementos interativos</li>
-                                <li>Outline algorithm</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-7.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 8 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">8</span>
-                            <h3>Acessibilidade</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>ARIA labels</li>
-                                <li>Navegacção por teclado</li>
-                                <li>Screen readers</li>
-                                <li>Testes de acessibilidade</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-8.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 9 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">9</span>
-                            <h3>SEO Rápido</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Meta descriptions</li>
-                                <li>Open Graph</li>
-                                <li>Twitter Cards</li>
-                                <li>Favicon e manifest</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-9.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 10 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">10</span>
-                            <h3>Recursos Estáticos Otimizados</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Inline vs external CSS/JS</li>
-                                <li>Preload, prefetch, preconnect</li>
-                                <li>DNS prefetch para fontes</li>
-                                <li>Sprite sheets SVG</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-10.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 11 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">11</span>
-                            <h3>Multilinguagem & Charset</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>lang="pt-PT" vs lang="en"</li>
-                                <li>Links alternativos hreflang</li>
-                                <li>Direções: dir="rtl"</li>
-                                <li>Sites bilingues</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-11.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 12 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">12</span>
-                            <h3>Microdados & Formatos</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Microdados: itemscope, itemtype</li>
-                                <li>JSON-LD no script</li>
-                                <li>Schema.org vocabulário</li>
-                                <li>Rich snippets Google</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-12.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 13 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">13</span>
-                            <h3>Web Components</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Custom elements com hífen</li>
-                                <li>Template e slot</li>
-                                <li>Shadow DOM</li>
-                                <li>Componentes reutilizáveis</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-13.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 14 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">14</span>
-                            <h3>Offline & Cache</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Service Worker básico</li>
-                                <li>Cache API</li>
-                                <li>Manifest.json</li>
-                                <li>Add to Home Screen</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-14.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 15 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">15</span>
-                            <h3>HTML + CSS + JS</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Separacção conteúdo vs apresentacção</li>
-                                <li>Data-attributes</li>
-                                <li>Event handlers</li>
-                                <li>Integracção completa</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">3 aulas</span>
-                            <a href="modules/modulo-15.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 16 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">16</span>
-                            <h3>Validacção & Debug</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>W3C Validator</li>
-                                <li>DevTools Elements</li>
-                                <li>Linters HTMLHint</li>
-                                <li>0 erros / 0 warnings</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-16.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 17 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">17</span>
-                            <h3>Boas Práticas</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Nomes de ficheiros</li>
-                                <li>Estrutura de pastas</li>
-                                <li>Comentários necessários</li>
-                                <li>Versionamento semântico</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-17.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 18 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">18</span>
-                            <h3>Ferramentas Modernas</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Emmet avançado</li>
-                                <li>Pug (templates)</li>
-                                <li>Markdown → HTML</li>
-                                <li>Vite / Parcel</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">2 aulas</span>
-                            <a href="modules/modulo-18.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 19 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">19</span>
-                            <h3>Security Headers</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Content-Security-Policy</li>
-                                <li>X-Frame-Options</li>
-                                <li>Meta tag CSP</li>
-                                <li>Segurança web</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-19.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 20 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">20</span>
-                            <h3>Projeto Final & Portfólio</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Agência de Viagens Portugal</li>
-                                <li>5 páginas completas</li>
-                                <li>100% semântico</li>
-                                <li>Deploy GitHub Pages</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">3 aulas</span>
-                            <a href="modules/modulo-20.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- Full Course -->
+                    <div class="course-card highlight-card">
+                        <div class="course-badge">Recomendado</div>
+                        <div class="course-icon full-icon">🚀</div>
+                        <h3>Full Stack Hero</h3>
+                        <p>O pacote completo. Domina as três tecnologias e torna-te um Web Developer completo.</p>
+                        <ul class="course-features">
+                            <li>✅ Projetos Reais</li>
+                            <li>✅ Mentoria</li>
+                            <li>✅ Certificado</li>
+                        </ul>
+                        <button class="btn-course secondary" disabled>Em Breve</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Instrutor Section -->
-        <section id="instrutor" class="section">
+        <section id="sobre" class="section bg-surface">
             <div class="container">
-                <h2 class="section-title">Sobre o Instrutor</h2>
                 <div class="instrutor-card">
                     <div class="instrutor-avatar">
-                        <div class="avatar-placeholder">👨‍🏫</div>
+                        👨‍🏫
                     </div>
                     <div class="instrutor-info">
-                        <h3>Sandro Pereira</h3>
+                        <h2>Sandro Pereira</h2>
                         <p class="instrutor-title">Professor e Desenvolvedor Web</p>
                         <p class="instrutor-description">
-                            Especialista em desenvolvimento web com anos de experiência no ensino de tecnologias frontend.
-                            Apaixonado por compartilhar conhecimento e ajudar estudantes a alcançarem seus objetivos na programacção.
+                            "A minha missão é transformar curiosidade em competência. Com uma abordagem prática e direta,
+                            ajudo-te a dominar as tecnologias que constroem a web moderna."
                         </p>
                         <div class="instrutor-stats">
                             <div class="stat">
-                                <span class="stat-number">2025</span>
-                                <span class="stat-label">Ano</span>
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Anos de XP</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">20+</span>
-                                <span class="stat-label">Módulos</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Prático</span>
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Alunos</span>
                             </div>
                         </div>
                     </div>
@@ -580,24 +184,20 @@
             </div>
         </section>
 
-        <!-- Contato Section -->
+        <!-- Contact Section -->
         <section id="contacto" class="section">
             <div class="container">
-                <h2 class="section-title">Contato</h2>
-                <div class="contacto-content">
-                    <p>Entre em contacto para mais informações sobre o curso ou esclarecimentos de dúvidas.</p>
-                    <div class="contacto-info">
-                        <div class="contacto-item">
-                            <span class="contacto-icon">📧</span>
-                            <span>Email: smpsandro1239@gmail.com</span>
-                        </div>
-                        <div class="contacto-item">
-                            <span class="contacto-icon">📱</span>
-                            <span>Telefone: +351 XXX XXX XXX</span>
-                        </div>
-                        <div class="contacto-item">
-                            <span class="contacto-icon">🌐</span>
-                            <span>Website: www.html5expert.com</span>
+                <h2 class="section-title">Tens Dúvidas?</h2>
+                <div class="contato-content">
+                    <p>Estamos aqui para ajudar na tua jornada de aprendizagem.</p>
+                    <div class="contato-info">
+                        <a href="mailto:ajuda@aprendeweb.pt" class="contato-item">
+                            <span class="contato-icon">📧</span>
+                            <span>ajuda@aprendeweb.pt</span>
+                        </a>
+                        <div class="contato-item">
+                            <span class="contato-icon">🌐</span>
+                            <span>www.aprendeweb.pt</span>
                         </div>
                     </div>
                 </div>
@@ -608,19 +208,18 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h4>📚 HTML5 do Zero ao Expert</h4>
-                    <p>Curso ministrado pelo Professor Sandro Pereira em 2025</p>
+                <div class="footer-brand">
+                    <h4>🚀 Aprende Web</h4>
+                    <p>Do Zero ao Heroi no mundo digital.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#modulos">Módulos</a>
-                    <a href="#instrutor">Instrutor</a>
-                    <a href="#contacto">Contato</a>
+                    <a href="#cursos">Cursos</a>
+                    <a href="#sobre">Instrutor</a>
+                    <a href="#contacto">Contacto</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sandro Pereira - HTML5 Expert. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Sandro Pereira. Feito com ❤️ em Portugal.</p>
             </div>
         </div>
     </footer>
