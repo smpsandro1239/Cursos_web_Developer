@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: O DOM - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 10 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🏗️</span>
+            </div>
+            <h1>Módulo 10: O DOM (A Ponte para o HTML)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>Até ao <strong>Módulo 9</strong>, focámo-nos na lógica pura: variáveis, listas, objetos e funções. Mas tudo isso acontecia "escondido" na consola. Hoje, vamos aprender como o JavaScript "agarra" o HTML e o transforma em algo vivo.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o <strong>DOM</strong> (Document Object Model).</li>
+                <li>✅ Como selecionar elementos com <code>getElementById</code> e <code>querySelector</code>.</li>
+                <li>✅ Alterar textos, estilos e conteúdo via código.</li>
+                <li>✅ A hierarquia (árvore) de elementos do browser.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Site como um Objeto</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O DOM é a representação que o browser cria do teu ficheiro HTML. Ele transforma cada tag (h1, p, div) num "objeto" que o JavaScript consegue manipular. É como se o HTML fosse o corpo e o DOM fosse o painel de controlo.</p>
+                <div class="analogy">
+                    <h3>🤵 Analogia: O Mordomo do Site</h3>
+                    <p>Imagina que o teu site é uma mansão de luxo:</p>
+                    <ul>
+                        <li><strong>O HTML (A Mansão)</strong>: É a estrutura física com paredes e móveis.</li>
+                        <li><strong>O DOM (O Mordomo)</strong>: É o funcionário que conhece todos os recantos. Se tu disseres "Mordomo, muda a cor do sofá da sala", ele vai lá e faz.</li>
+                        <li><strong>O JavaScript (As Tuas Ordens)</strong>: Tu és o dono da casa. Tu dás as ordens ao Mordomo através de comandos de código.</li>
+                    </ul>
+                    <p>Sem o Mordomo (DOM), tu não consegues falar com a casa!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Selecionar Elementos</h3>
+                <p>Como "agarrar" o HTML pelo código.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Pelo ID (Mais rápido)
+const titulo = document.getElementById("meu-titulo");
+
+// Por Seletor CSS (Mais flexível)
+const subtitulo = document.querySelector(".descricao");</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Mudar Conteúdo</h3>
+                <p>Injetar novos textos sem editar o ficheiro HTML.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const link = document.getElementById("meu-link");
+
+// Muda apenas o texto
+link.textContent = "Clica aqui agora!";
+
+// Muda o HTML lá dentro
+link.innerHTML = "<strong>Novo Texto</strong>";</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Alterar Estilos (CSS)</h3>
+                <p>O JavaScript também sabe "pintar" o site.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const caixa = document.querySelector(".caixa-azul");
+
+caixa.style.backgroundColor = "red";
+caixa.style.borderRadius = "10px";
+caixa.style.display = "none"; // Faz desaparecer!</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos fazer uma "Mensagem Mágica":</p>
+                <ol class="steps-list">
+                    <li>No teu HTML, cria um <code>&lt;h1 id="mensagem"&gt;Texto Antigo&lt;/h1&gt;</code>.</li>
+                    <li>No teu <code>app.js</code>, cria uma variável para agarrar esse h1.</li>
+                    <li>Usa o <code>textContent</code> para mudar o texto para "O DOM é fantástico!".</li>
+                    <li>Muda a cor do texto para azul (blue) usando <code>.style.color</code>.</li>
+                    <li>Muda o tamanho da fonte para 50px.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-10">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **DOM** é a árvore de objetos que representa o HTML no browser.</li>
+                <li>📌 Usamos o objeto global **document** para interagir com o site.</li>
+                <li>📌 **getElementById** e **querySelector** são as ferramentas de seleção.</li>
+                <li>📌 Através do DOM, podemos mudar textos, links e estilos CSS dinamicamente.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Camaleão</h3>
+                <p>Cria uma função que, ao ser chamada, muda a cor de fundo (background) de todo o site (document.body) para uma cor aleatória.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>document.body.style.backgroundColor = "lightgreen";</code> (Podes testar com nomes de cores ou hexadecimais).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Contador Visual</h3>
+                <p>Imagina que tens um <code>&lt;span id="contador"&gt;0&lt;/span&gt;</code>. Como farias para aumentar esse número via JavaScript?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>const s = document.getElementById("contador"); s.textContent = Number(s.textContent) + 1;</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: QuerySelector All</h3>
+                <p>Se quiseres trocar a cor de TODOS os parágrafos <code>&lt;p&gt;</code> do site de uma só vez, o <code>querySelector</code> normal chega para o trabalho?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não. O <code>querySelector</code> comum agarra apenas o **primeiro** que encontrar. Para todos, deves usar <code>querySelectorAll</code> e um loop para percorrer cada parágrafo.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-9.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-11.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

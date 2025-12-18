@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Arrays - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 6 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📦</span>
+            </div>
+            <h1>Módulo 6: Arrays (Listas)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 5</strong>, aprendemos a usar loops (<code>for</code> e <code>while</code>) para repetir tarefas. Mas repetir tarefas com uma única variável é limitado. Hoje, vamos aprender a guardar várias coisas dentro de uma única variável organizada: o <strong>Array</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é um Array e como criá-lo.</li>
+                <li>✅ Aceder a dados através do <strong>índice</strong> (e porquê começamos no zero).</li>
+                <li>✅ Métodos básicos: adicionar e remover elementos.</li>
+                <li>✅ Percorrer listas com loops.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Estante de Livros</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um Array é uma lista ordenada de valores. Em vez de teres 10 variáveis diferentes para 10 alunos, tens um único "Array de Alunos" onde cada um ocupa uma posição numerada.</p>
+                <div class="analogy">
+                    <h3>🛒 Analogia: A Lista de Compras</h3>
+                    <p>Imagina que vais ao supermercado:</p>
+                    <ul>
+                        <li><strong>A Lista (Array)</strong>: É o papel onde escreves tudo o que precisas.</li>
+                        <li><strong>Os Itens (Elementos)</strong>: Arroz, Massa, Leite. Cada um é um valor no teu Array.</li>
+                        <li><strong>A Posição (Índice)</strong>: No JavaScript, o primeiro item está na posição número **0**. O segundo na **1**, e assim por diante.</li>
+                    </ul>
+                    <p>Se tiveres 3 itens na lista, o último item está na posição **2**. Lembra-te: o computador sempre conta a partir do zero!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Criar e Aceder</h3>
+                <p>Usar parênteses retos `[]` e índices.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const frutas = ["Maçã", "Banana", "Laranja"];
+
+console.log(frutas[0]); // "Maçã" ✅
+console.log(frutas[2]); // "Laranja"
+console.log(frutas.length); // 3 (quantidade de itens)</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Manipular a Lista</h3>
+                <p>Adicionar e remover dados de forma dinâmica.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const compras = ["Arroz", "Pão"];
+
+compras.push("Leite"); // Adiciona ao fim da lista
+compras.pop();         // Remove o último item ("Leite")
+
+console.log(compras); // ["Arroz", "Pão"]</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: O Array com o Loop FOR</h3>
+                <p>A combinação mais poderosa do JavaScript.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const nomes = ["Ana", "Bruno", "Carla"];
+
+for (let i = 0; i < nomes.length; i++) {
+  console.log("Olá, " + nomes[i]);
+}</code></pre>
+                </div>
+                <p class="explanation">O loop começa em 0 e vai até ao tamanho da lista, visitando cada nome um por um.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar a tua "Playlist":</p>
+                <ol class="steps-list">
+                    <li>Cria um Array <code>const playlist = ["Musica 1", "Musica 2"];</code>.</li>
+                    <li>Usa o <code>push</code> para adicionar uma terceira música.</li>
+                    <li>Imprime na consola apenas a segunda música da lista (lembra-te do índice!).</li>
+                    <li>Usa um loop <code>for</code> para imprimir todas as músicas da tua playlist.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-6">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Arrays** guardam coleções de dados entre `[]`.</li>
+                <li>📌 O primeiro elemento está sempre no **índice 0**.</li>
+                <li>📌 **.length** diz-nos quantos itens existem no Array.</li>
+                <li>📌 **.push()** adiciona ao final; **.pop()** remove do final.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Último da Fila</h3>
+                <p>Se tiveres um Array chamado <code>cores</code>, como acederias ao último elemento de forma dinâmica (sem saber se tem 3 ou 50 itens)?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>cores[cores.length - 1]</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Carrinho de Compras</h3>
+                <p>Cria um Array com preços e usa um loop para somar o valor total de todos os itens.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>let total = 0; for(let i=0; i < precos.length; i++) { total += precos[i]; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Alteração Direta</h3>
+                <p>Como mudarias o valor da primeira posição de <code>const lista = ["Antigo"];</code> para "Novo"?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>lista[0] = "Novo";</code> (Nota: podes mudar o conteúdo de um Array mesmo que ele seja uma <code>const</code>!).</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-5.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-7.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Controlo de Fluxo II (Switch) - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 4 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🕹️</span>
+            </div>
+            <h1>Módulo 4: A Escolha Múltipla (Switch)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 3</strong>, aprendemos a usar <code>if</code> e <code>else</code> para tomar decisões. Mas o que acontece quando temos 10 opções diferentes? Usar 10 <code>else if</code> torna o código muito "sujo" e difícil de ler. É aqui que o <strong>Switch</strong> nos salva!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A sintaxe do comando <strong>switch</strong>.</li>
+                <li>✅ Os termos <strong>case</strong>, <strong>break</strong> e <strong>default</strong>.</li>
+                <li>✅ Porquê o <code>break</code> é obrigatório (e o que acontece se o esqueceres).</li>
+                <li>✅ Organizar escolhas como dias da semana ou menus de opções.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Estação de Comboios</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O Switch avalia uma expressão e compara o resultado com vários "casos" possíveis. É uma forma mais organizada e limpa de gerir múltiplas condições que dependem da mesma variável.</p>
+                <div class="analogy">
+                    <h3>🚂 Analogia: A Estação de Comboios</h3>
+                    <p>Imagina que o teu código é um comboio que chega a uma grande estação com 7 linhas:</p>
+                    <ul>
+                        <li><strong>A Variável (Bilhete)</strong>: O comboio tem um bilhete que diz "Linha 4".</li>
+                        <li><strong>O Case (A Linha)</strong>: O comboio passa pela Linha 1? Não. Linha 2? Não. Linha 3? Não. Linha 4? SIM!</li>
+                        <li><strong>O Break (O Batente)</strong>: Mal o comboio entra na linha certa, ele deve parar. Se não houver travão (break), o comboio continua a andar e entra nas linhas 5, 6 e 7 sem autorização!</li>
+                        <li><strong>O Default (Linha de Emergência)</strong>: Se o bilhete for para uma linha que não existe, o comboio é enviado para a linha de segurança por defeito.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Dias da Semana</h3>
+                <p>O uso mais comum do switch.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const dia = 3;
+
+switch (dia) {
+  case 1: console.log("Segunda-feira"); break;
+  case 2: console.log("Terça-feira"); break;
+  case 3: console.log("Quarta-feira"); break; // Vai parar aqui! ✅
+  default: console.log("Fim de semana ou dia inválido");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Menu de Comandos</h3>
+                <p>Gerindo ações do utilizador.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const accao = "delete";
+
+switch (accao) {
+  case "save":
+    console.log("A guardar ficheiro...");
+    break;
+  case "delete":
+    console.log("A apagar ficheiro... 🔥");
+    break;
+  default:
+    console.log("Ação não reconhecida.");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Cases Agrupados</h3>
+                <p>Quando várias opções levam ao mesmo resultado.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const fruta = "Laranja";
+
+switch (fruta) {
+  case "Limão":
+  case "Laranja":
+  case "Toranja":
+    console.log("Esta fruta é um Citrino! 🍊");
+    break;
+  default:
+    console.log("Outro tipo de fruta.");
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Seletor de Idiomas":</p>
+                <ol class="steps-list">
+                    <li>Cria uma variável <code>const lang = "pt";</code>.</li>
+                    <li>Cria um <code>switch(lang)</code>.</li>
+                    <li>No <code>case "pt"</code>, imprime "Bem-vindo!".</li>
+                    <li>No <code>case "en"</code>, imprime "Welcome!".</li>
+                    <li>No <code>case "es"</code>, imprime "Bienvenido!".</li>
+                    <li>Adiciona um <code>default</code> que imprime "Idioma não suportado".</li>
+                    <li>Lembra-te de colocar o <code>break</code> em cada caso!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-4">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **switch** compara uma variável com vários valores fixos.</li>
+                <li>📌 **case** define cada uma das opções.</li>
+                <li>📌 **break** é vital para o código não continuar a executar os próximos casos.</li>
+                <li>📌 **default** é o plano B se nada coincidir.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Batente em falta</h3>
+                <p>Se o teu código imprimir duas coisas ao mesmo tempo num switch, qual é o erro mais provável?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Esqueceste-te de colocar o comando <code>break;</code> no final do caso que foi ativado primeiro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: A Calculadora Simples</h3>
+                <p>Como estruturarias um switch que recebe uma variável <code>operacao</code> (que pode ser "+", "-", "*" ou "/") para fazer uma conta entre dois números?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>switch(operacao) { case "+": res = a + b; break; case "-": res = a - b; break; ... }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Default Power</h3>
+                <p>É possível ter um switch sem o comando <code>default</code>? Isso causará um erro?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, é possível e **não dá erro**. No entanto, se nenhum caso coincidir, o switch simplesmente não fará nada, o que pode ser mau para a experiência do utilizador.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-3.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-5.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

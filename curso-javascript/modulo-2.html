@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Operadores e Expressões - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 2 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🧮</span>
+            </div>
+            <h1>Módulo 2: Operadores e Lógica</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 1</strong>, aprendemos a guardar dados em caixas chamadas variáveis usando <code>let</code> e <code>const</code>. Hoje, vamos aprender a fazer operações com esses dados: somar, comparar e decidir.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Operadores Aritméticos (+, -, *, /, %).</li>
+                <li>✅ Operadores de Comparação (==, ===, >, <).</li>
+                <li>✅ Operadores Lógicos (&&, ||, !).</li>
+                <li>✅ A diferença crucial entre igualdade comum e estrita.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: As Engrenagens do Código</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Os operadores são símbolos que dizem ao JavaScript para realizar uma ação. Pode ser uma conta matemática simples ou uma comparação complexa para saber se uma palavra-passe está correta.</p>
+                <div class="analogy">
+                    <h3>🍳 Analogia: Receita de Culinária</h3>
+                    <p>Imagina que estás a seguir uma receita:</p>
+                    <ul>
+                        <li><strong>Aritméticos (+)</strong>: "Adiciona 2 ovos ao leite". Estás a somar ingredientes.</li>
+                        <li><strong>Comparação (>)</strong>: "Verifica se a temperatura é maior que 180 graus". Estás a comparar valores.</li>
+                        <li><strong>Lógicos (&&)</strong>: "O bolo está pronto SE o tempo acabou E o palito sair seco". Precisas que as duas coisas sejam verdade ao mesmo tempo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Operadores Matemáticos</h3>
+                <p>Muito além da soma básica.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const soma = 10 + 5;     // 15
+const resto = 10 % 3;    // 1 (O que sobra da divisão)
+let contador = 1;
+contador++;              // Agora é 2 (Atalho para somar 1)</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Comparação (O Perigo)</h3>
+                <p>Usa quase sempre o triplo igual (===).</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">console.log(5 == "5");  // true (O JS tenta ser "simpático" e converte o tipo)
+console.log(5 === "5"); // false (Estrito: Tipos diferentes, logo é falso)
+console.log(10 > 2);    // true</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Operadores Lógicos</h3>
+                <p>Combinar condições.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const temIdade = true;
+const temBilhete = false;
+
+// && (E) - Precisa dos dois
+console.log(temIdade && temBilhete); // false
+
+// || (OU) - Basta um ser verdade
+console.log(temIdade || temBilhete); // true</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos testar a lógica na consola:</p>
+                <ol class="steps-list">
+                    <li>Cria uma variável <code>const precoItem = 25;</code>.</li>
+                    <li>Cria uma variável <code>const saldoConta = 50;</code>.</li>
+                    <li>Escreve <code>console.log(saldoConta >= precoItem);</code>. O que aparece?</li>
+                    <li>Tenta agora: <code>console.log(10 % 2 === 0);</code> (Isso verifica se um número é par!).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-2">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **% (Módulo)** dá-nos o resto de uma divisão.</li>
+                <li>📌 **===** compara valor e tipo (Usa sempre este!).</li>
+                <li>📌 **&&** exige que tudo seja verdadeiro.</li>
+                <li>📌 **||** exige que apenas um seja verdadeiro.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Par ou Ímpar</h3>
+                <p>Como verificarias se o número 7 é ímpar usando o operador de módulo?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>7 % 2 !== 0</code> ou <code>7 % 2 === 1</code>. Se o resto da divisão por 2 for 1, o número é ímpar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Segurança no Login</h3>
+                <p>Tens duas variáveis: <code>const emailCorreto = true;</code> e <code>const passCorreta = false;</code>. Qual operador usarias para garantir que o utilizador só entra se AMBAS forem verdadeiras?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O operador **&&** (E lógico). Ex: <code>emailCorreto && passCorreta</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Mistério do Contrário</h3>
+                <p>O que acontece se escreveres <code>console.log(!true);</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Aparece `false`. O operador **!** (NÃO lógico) inverte o valor booleano.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-1.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-3.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

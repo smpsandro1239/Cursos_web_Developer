@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Objetos - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 7 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">👤</span>
+            </div>
+            <h1>Módulo 7: Objetos (Estruturas)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 6</strong>, aprendemos que os Arrays são listas ordenadas de dados. Mas e se quisermos guardar informações mais complexas sobre uma única coisa, como o nome, idade e email de um utilizador? Para isso, usamos os <strong>Objetos</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é um Objeto e a sintaxe <code>{ }</code>.</li>
+                <li>✅ Pares de <strong>Chave: Valor</strong>.</li>
+                <li>✅ Notação de Ponto (Dot Notation) vs Colchetes.</li>
+                <li>✅ Como aninhar dados (Arrays dentro de Objetos).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Identidade de um Objeto</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um objeto é uma coleção de propriedades relacionadas. Em vez de ser apenas um valor, ele descreve "características" de um elemento através de etiquetas chamadas chaves.</p>
+                <div class="analogy">
+                    <h3>🚗 Analogia: O Carro</h3>
+                    <p>Imagina um carro estacionado à tua frente:</p>
+                    <ul>
+                        <li><strong>O Objeto</strong>: O Carro propriamente dito.</li>
+                        <li><strong>As Propriedades (Chave: Valor)</strong>:
+                            <ul>
+                                <li>Marca: "Ferrari"</li>
+                                <li>Cor: "Vermelho"</li>
+                                <li>Ano: 2024</li>
+                                <li>Ligado: false</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Qualquer coisa no mundo real pode ser imitada por um objeto no JavaScript. Um utilizador, um produto de uma loja, ou até uma personagem de um jogo!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Criar um Objeto</h3>
+                <p>Usar chavetas `{}`.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const telemovel = {
+  marca: "Apple",
+  modelo: "iPhone 15",
+  preco: 999,
+  estaNovo: true
+};
+
+console.log(telemovel.marca); // "Apple" (Aceder com ponto .) ✅</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Modificar e Adicionar</h3>
+                <p>Os objetos são flexíveis.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const carro = { marca: "Toyota" };
+
+carro.cor = "Cinzento"; // Adiciona uma nova propriedade
+carro.marca = "Tesla";  // Altera a propriedade existente
+
+console.log(carro); // { marca: "Tesla", cor: "Cinzento" }</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Misturar Estruturas</h3>
+                <p>O nível profissional: Objetos e Arrays juntos.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const curso = {
+  nome: "Aprende Web",
+  modulos: ["HTML", "CSS", "JS"], // Array dentro de objeto
+  autor: {
+    nome: "Sandro",
+    pais: "Portugal"
+  }
+};
+
+console.log(curso.modulos[1]); // "CSS" ✅</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o teu "Cartão de Identidade":</p>
+                <ol class="steps-list">
+                    <li>Cria um objeto <code>const eu = { };</code>.</li>
+                    <li>Adiciona as chaves: <code>nome</code>, <code>profissao</code> e <code>nivelJS</code> (de 1 a 10).</li>
+                    <li>Cria uma chave chamada <code>hobbies</code> que seja um Array com 3 coisas que gostas de fazer.</li>
+                    <li>Imprime na consola: "Olá, o meu nome é [teuNome] e gosto de [primeiroHobby]".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-7">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Objetos** guardam dados complexos entre `{ }`.</li>
+                <li>📌 Funcionam com o sistema de **Chave: Valor**.</li>
+                <li>📌 Usamos a **Notação de Ponto** (`objeto.chave`) para ver ou mudar valores.</li>
+                <li>📌 Podes ter listas dentro de objetos e objetos dentro de objetos.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Produtor de Filmes</h3>
+                <p>Cria um objeto chamado <code>filme</code> com Título, Ano e um Array de Atores. Como imprimirias o nome do primeiro ator da lista?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>console.log(filme.atores[0]);</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: A Chave Dinâmica</h3>
+                <p>Se tiveres <code>const chave = "nome";</code> e um objeto <code>user</code>, como podes aceder ao nome do utilizador usando a variável <code>chave</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando colchetes: <code>user[chave]</code>. (A notação <code>user.chave</code> procuraria literalmente por uma chave chamada "chave").</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Existência</h3>
+                <p>Como verificarias na consola se o objeto <code>carro</code> contém a propriedade <code>motor</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>console.log("motor" in carro);</code> ou <code>console.log(carro.motor !== undefined);</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-6.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-8.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

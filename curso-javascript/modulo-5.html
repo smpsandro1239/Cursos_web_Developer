@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Loops e Iteração - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 5 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">♻️</span>
+            </div>
+            <h1>Módulo 5: O Poder da Repetição (Loops)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 4</strong>, aprendemos a usar o <code>switch</code> para escolher um caminho entre vários. Hoje, vamos aprender como fazer o computador trabalhar por nós, repetindo o mesmo código centenas de vezes num piscar de olhos.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O loop <strong>for</strong> (o mais usado).</li>
+                <li>✅ Os loops <strong>while</strong> e <strong>do while</strong>.</li>
+                <li>✅ Como evitar o temido "Loop Infinito".</li>
+                <li>✅ Contadores e Incrementos.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Automatizar o Trabalho Chato</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um loop (ciclo) é uma estrutura que repete um bloco de código enquanto uma condição for verdadeira. É ideal para tarefas repetitivas, como listar 100 produtos ou contar até 1000.</p>
+                <div class="analogy">
+                    <h3>♻️ Analogia: O Castigo das 100 Frases</h3>
+                    <p>Lembras-te dos filmes onde o aluno tem de escrever 100 vezes no quadro "Não voltarei a lançar aviões"?</p>
+                    <ul>
+                        <li><strong>Forma Manual</strong>: Tu escreves a frase 1. Depois a 2. Depois a 3... cansas-te e demoras o dia todo.</li>
+                        <li><strong>Forma Programador (Loop)</strong>: Tu dizes ao robot: "Enquanto o número de frases for menor que 100, escreve a frase e soma 1 ao contador".</li>
+                        <li><strong>O Robot (Computador)</strong>: Faz as 100 frases em menos de um segundo sem reclamar e sem se cansar!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Loop FOR</h3>
+                <p>O mestre da contagem precisa.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// (início; condição; incremento)
+for (let i = 1; i <= 5; i++) {
+  console.log("Número: " + i);
+}</code></pre>
+                </div>
+                <p class="explanation">Este loop vai imprimir de 1 a 5. O <code>i++</code> significa que somamos 1 ao "i" em cada volta.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Loop WHILE</h3>
+                <p>Repete enquanto não sabemos o fim exato.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">let bateria = 100;
+
+while (bateria > 0) {
+  console.log("Smartphone ligado...");
+  bateria = bateria - 20; // Consumindo bateria
+}
+console.log("Desligado.");</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: O Perigo do Infinito ⚠️</h3>
+                <p>Nunca faças isto!</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// while (true) {
+//   console.log("Socorro!");
+// }</code></pre>
+                </div>
+                <p class="explanation">Se a condição nunca for falsa, o loop nunca para. Isso gasta toda a memória e faz o browser travar.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma contagem decrescente:</p>
+                <ol class="steps-list">
+                    <li>Abre o <code>app.js</code>.</li>
+                    <li>Cria um loop <code>for</code> que começa em 10.</li>
+                    <li>A condição deve ser "enquanto for maior ou igual a zero".</li>
+                    <li>Em vez de <code>i++</code>, usa <code>i--</code> (para subtrair).</li>
+                    <li>Dentro do loop, imprime o valor de `i`.</li>
+                    <li>Fora do loop, imprime "LANÇAMENTO! 🚀".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-5">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **for** usa-se quando sabemos o número de voltas.</li>
+                <li>📌 **while** usa-se quando a repetição depende de uma condição externa.</li>
+                <li>📌 Lembra-te sempre de **incrementar** ou alterar a variável para o loop não ser infinito.</li>
+                <li>📌 Loops são ideais para percorrer listas de dados (que veremos em breve!).</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Números Pares</h3>
+                <p>Como farias um loop que imprime apenas os números pares de 0 a 10?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>for (let i = 0; i <= 10; i += 2) { console.log(i); }</code> ou usando <code>if (i % 2 === 0)</code> lá dentro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Soma Acumulada</h3>
+                <p>Queres somar todos os números de 1 a 10. Como guardarias esse resultado?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>let soma = 0; for (let i = 1; i <= 10; i++) { soma += i; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Do While vs While</h3>
+                <p>Em que situação usarias o <code>do while</code> em vez do <code>while</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sempre que precisares que a ação aconteça **pelo menos uma vez** antes de perguntar "devo continuar?". Ex: Pedir uma password ao utilizador.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-4.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-6.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
