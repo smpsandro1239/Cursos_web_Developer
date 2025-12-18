@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 0: O Cérebro JS - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 0 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⚡</span>
+            </div>
+            <h1>Módulo 0: O Cérebro do Site</h1>
+        </div>
+
+        <!-- 2. Resumo do Percurso -->
+        <section class="lesson-step">
+            <h2>2. Onde Estamos?</h2>
+            <p>Até agora, aprendeste a criar o esqueleto (HTML) e a dar estilo (CSS). Mas um site profissional precisa de lógica, interatividade e "pensamento". É aí que entra o **JavaScript**.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o JavaScript e o seu papel na Web.</li>
+                <li>✅ A "Consola" - A ferramenta secreta do programador.</li>
+                <li>✅ Como ligar ficheiros JS ao teu HTML.</li>
+                <li>✅ O teu primeiro comando: <code>console.log</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Inteligência Web</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> JavaScript é uma linguagem de programação que permite criar conteúdo que se move, atualiza e reage ao utilizador sem ter de recarregar a página.</p>
+                <div class="analogy">
+                    <h3>💡 Analogia: A Lâmpada Inteligente</h3>
+                    <p>Imagina uma lâmpada em tua casa:</p>
+                    <ul>
+                        <li><strong>O Candeeiro (HTML)</strong>: É a estrutura física onde a lâmpada está enroscada.</li>
+                        <li><strong>A Cor do Abajur (CSS)</strong>: É o que torna a luz bonita (azul, quente, etc.).</li>
+                        <li><strong>O Interruptor e o Sensor (JavaScript)</strong>: É a lógica que diz: "SE alguém entrar na sala, ENTÃO liga a luz".</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O comando console.log</h3>
+                <p>Falar com o computador através da consola.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">console.log("Olá do JavaScript! 🚀");
+console.log(10 + 20); // O computador vai calcular e mostrar 30</code></pre>
+                </div>
+                <p class="explanation">Este comando serve para mostrar informações na consola de programador (F12 > Console).</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O comando alert</h3>
+                <p>Criar um aviso que interrompe o utilizador.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">alert("Bem-vindo ao curso de JS!");</code></pre>
+                </div>
+                <p class="explanation">Cuidado! O <code>alert</code> bloqueia tudo até que o utilizador clique em "OK". Usa-o com moderação.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Ligar o ficheiro JS</h3>
+                <p>Onde colocar o código no HTML.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;Olá Mundo!&lt;/h1&gt;
+
+  &lt;!-- Coloca o link para o JS SEMPRE no fim do body --&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+                </div>
+                <p class="explanation">Colocamos no fim para o browser carregar todo o site primeiro antes de tentar executar a lógica.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o teu primeiro "Log":</p>
+                <ol class="steps-list">
+                    <li>Cria uma pasta chamada <code>projeto-js</code>.</li>
+                    <li>Cria o ficheiro <code>index.html</code>.</li>
+                    <li>Cria um ficheiro chamado <code>app.js</code> na mesma pasta.</li>
+                    <li>No <code>app.js</code>, escreve: <code>console.log("Sistema Iniciado!");</code>.</li>
+                    <li>Abre o ficheiro no browser e prime <strong>F12</strong> para veres a magia na Consola.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-0">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>JavaScript</strong> dá vida e interatividade à web.</li>
+                <li>📌 A <strong>Consola</strong> é o teu melhor amigo para encontrar erros.</li>
+                <li>📌 Usa-se <code>console.log()</code> para testar e ver dados.</li>
+                <li>📌 O ficheiro JS liga-se com a tag <code>&lt;script&gt;</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Matemática Rápida</h3>
+                <p>Usa a consola para calcular quanto é 1234 multiplicado por 5678.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Escreve na consola: <code>console.log(1234 * 5678);</code><br>O resultado é: 7,006,652.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Mensagem de Boas-vindas</h3>
+                <p>Faz com que o site abra um <code>alert</code> que diga "Olá, eu sou o [Teu Nome]!".</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>alert("Olá, eu sou o Sandro!");</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Mistério do F12</h3>
+                <p>Se o teu código JS não estiver a funcionar, qual é a primeira coisa que deves fazer?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Abrir a consola (F12) e ver se existe algum erro a vermelho (Error log).</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="../index.html" class="btn btn-secondary">« Sair do Curso</a>
+            <a href="modulo-1.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
