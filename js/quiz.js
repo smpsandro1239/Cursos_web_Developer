@@ -350,6 +350,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! O <code>defer</code> garante que o script não bloqueia a leitura do corpo do site (HTML)."
         }
+    ],
+    'module-11': [
+        {
+            question: "Onde deves definir o idioma principal do teu site?",
+            options: [
+                { id: 'a', text: "Na tag &lt;body&gt;" },
+                { id: 'b', text: "Na tag &lt;html&gt;" },
+                { id: 'c', text: "No CSS" },
+                { id: 'd', text: "Não se deve definir" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Exemplo: <code>&lt;html lang='pt-PT'&gt;</code>. Isto ajuda leitores de ecrã e o Google."
+        },
+        {
+            question: "Qual a codificação de caracteres (charset) recomendada para suportar todos os idiomas e emojis?",
+            options: [
+                { id: 'a', text: "ISO-8859-1" },
+                { id: 'b', text: "ASCII" },
+                { id: 'c', text: "UTF-8" },
+                { id: 'd', text: "Windows-1252" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>UTF-8</code> é o padrão universal da web moderna."
+        },
+        {
+            question: "O que significa 'dir=\"rtl\"'?",
+            options: [
+                { id: 'a', text: "O site é apenas para tablets" },
+                { id: 'b', text: "O texto corre da direita para a esquerda (como no Árabe)" },
+                { id: 'c', text: "O site carrega em tempo real" },
+                { id: 'd', text: "O texto está no centro" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! <code>rtl</code> significa 'Right to Left'."
+        }
     ]
 };
 

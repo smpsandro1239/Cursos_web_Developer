@@ -3,399 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 11: Multilinguagem & Charset - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 11 do Curso HTML5 - Internacionalizacção e suporte multilíngue">
+    <title>Módulo 11: Internacionalização - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 11 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 11</span>
-                    <h1 class="module-title">Multilinguagem & Charset</h1>
-                    <p class="module-subtitle">Internacionalizacção e suporte global</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 1 aula</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 11 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Multilinguagem & Charset</h2>
-                        <p>A internacionalizacção (i18n) permite que seu site funcione em múltiplos idiomas e suporte caracteres especiais de diferentes regiões.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>🌍 O que vamos aprender:</h3>
-                            <ul>
-                                <li>Configuracção de idioma correta</li>
-                                <li>Links alternativos para idiomas</li>
-                                <li>Direção do texto (RTL/LTR)</li>
-                                <li>Charset e codificacção</li>
-                                <li>Sites bilingues</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "A web é global! Seu site deve funcionar perfeitamente em qualquer idioma e região do mundo."
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="i18n-concept">
-                                <div class="language-flags">
-                                    <div class="flag">🇵🇹</div>
-                                    <div class="flag">🇬🇧</div>
-                                    <div class="flag">🇪🇸</div>
-                                    <div class="flag">🇫🇷</div>
-                                    <div class="flag">🇩🇪</div>
-                                    <div class="flag">🇯🇵</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Lang Attribute -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Atributo Lang</h2>
-                        <p>O atributo <code>lang</code> indica o idioma principal do documento, importante para acessibilidade e SEO.</p>
-
-                        <div class="code-example">
-                            <h4>🌐 Exemplos de lang:</h4>
-                            <pre><code><html lang="pt-PT">     ← Português Portugal
-<html lang="pt-BR">     ← Português Brasil
-<html lang="en">         ← Inglês
-<html lang="es">         ← Espanhol
-<html lang="fr">         ← Francês
-<html lang="ar" dir="rtl"> ← Árabe (RTL)</code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🎯 Benefícios:</h3>
-                            <ul>
-                                <li>Screen readers pronunciam corretamente</li>
-                                <li>Mecanismos de busca entendem o idioma</li>
-                                <li>Ferramentas de tradução funcionam melhor</li>
-                                <li>Melhora experiência internacional</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="lang-demo">
-                                <div class="lang-examples">
-                                    <div class="lang-item">
-                                        <span class="lang-code">pt-PT</span>
-                                        <span class="lang-text">Olá Mundo!</span>
-                                    </div>
-                                    <div class="lang-item">
-                                        <span class="lang-code">en</span>
-                                        <span class="lang-text">Hello World!</span>
-                                    </div>
-                                    <div class="lang-item">
-                                        <span class="lang-code">es</span>
-                                        <span class="lang-text">¡Hola Mundo!</span>
-                                    </div>
-                                    <div class="lang-item">
-                                        <span class="lang-code">ar</span>
-                                        <span class="lang-text" dir="rtl">مرحبا بالعالم!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: Hreflang -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Links Hreflang</h2>
-                        <p><code>hreflang</code> indica versões alternativas da página em diferentes idiomas, essencial para SEO internacional.</p>
-
-                        <div class="code-example">
-                            <h4>🔗 Para cada idioma:</h4>
-                            <pre><code><link rel="alternate" hreflang="pt-PT" href="https://site.pt/pagina">
-<link rel="alternate" hreflang="en" href="https://site.com/page">
-<link rel="alternate" hreflang="es" href="https://site.es/pagina">
-<link rel="alternate" hreflang="x-default" href="https://site.com/page"></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Dica:</strong> Use <code>x-default</code> para a versão padrão quando o idioma não é identificado.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="hreflang-demo">
-                                <div class="site-structure">
-                                    <div class="site-root">🌐 site.com</div>
-                                    <div class="site-branches">
-                                        <div class="branch">
-                                            <span class="branch-lang">🇵🇹 PT</span>
-                                            <span class="branch-url">site.pt</span>
-                                        </div>
-                                        <div class="branch">
-                                            <span class="branch-lang">🇺🇸 EN</span>
-                                            <span class="branch-url">site.com</span>
-                                        </div>
-                                        <div class="branch">
-                                            <span class="branch-lang">🇪🇸 ES</span>
-                                            <span class="branch-url">site.es</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Direção do Texto -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Direção do Texto (RTL/LTR)</h2>
-                        <p>Alguns idiomas como árabe e hebraico são escritos da direita para esquerda (RTL).</p>
-
-                        <div class="code-example">
-                            <h4>📝 Configuracção RTL:</h4>
-                            <pre><code><html lang="ar" dir="rtl">
-<html lang="he" dir="rtl">
-
-<!-- Seção específica RTL -->
-<div dir="rtl">نص عربي</div></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🌍 Idiomas RTL comuns:</h3>
-                            <ul>
-                                <li><strong>Árabe:</strong> ar</li>
-                                <li><strong>Hebraico:</strong> he</li>
-                                <li><strong>Persa:</strong> fa</li>
-                                <li><strong>Urdu:</strong> ur</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="direction-demo">
-                                <div class="text-directions">
-                                    <div class="direction-item">
-                                        <div class="direction-label">🇺🇸 LTR (Left to Right)</div>
-                                        <div class="direction-text">Hello World!</div>
-                                    </div>
-                                    <div class="direction-item">
-                                        <div class="direction-label">🇸🇦 RTL (Right to Left)</div>
-                                        <div class="direction-text" dir="rtl">مرحبا بالعالم!</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: Charset UTF-8 -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Charset UTF-8</h2>
-                        <p>UTF-8 é a codificacção universal que suporta todos os idiomas e caracteres especiais do mundo.</p>
-
-                        <div class="code-example">
-                            <h4>🔤 Declaracção obrigatória:</h4>
-                            <pre><code><meta charset="UTF-8"></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🌍 Suporte universal:</h3>
-                            <ul>
-                                <li>✅ Todos os idiomas</li>
-                                <li>✅ Emojis 😊🚀</li>
-                                <li>✅ Caracteres especiais çãõ</li>
-                                <li>✅ Símbolos matemáticos ∑∞</li>
-                                <li>✅ Padrão web moderno</li>
-                            </ul>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>⚠️ Importante:</strong> Esta deve ser a primeira meta tag no head.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="charset-demo">
-                                <div class="charset-comparison">
-                                    <div class="charset-item">
-                                        <span class="charset-icon">✅</span>
-                                        <span class="charset-text">UTF-8: Olá 世界! 🚀</span>
-                                    </div>
-                                    <div class="charset-item">
-                                        <span class="charset-icon">❌</span>
-                                        <span class="charset-text">ISO-8859-1: OlÃ¡ ½â!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Exercício Prático -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Vamos criar um mini-site bilingue (PT/EN) com links alternativos!</p>
-
-                        <div class="exercise-box">
-                            <h3>🌐 Site Bilingue</h3>
-                            <p>Crie páginas em português e inglês com navegacção entre idiomas.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Estrutura:</h4>
-                                <ol>
-                                    <li>Página principal em português</li>
-                                    <li>Versão em inglês</li>
-                                    <li>Links hreflang</li>
-                                    <li>Seletor de idioma</li>
-                                    <li>Charset UTF-8</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎯 Funcionalidades:</h4>
-                            <ul>
-                                <li>✅ Alternância PT/EN</li>
-                                <li>✅ Meta tags hreflang</li>
-                                <li>✅ Charset UTF-8</li>
-                                <li>✅ Conteúdo traduzido</li>
-                                <li>✅ SEO otimizado</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <div class="bilingual-site">
-                                    <div class="language-selector">
-                                        <a href="index-pt.html" class="lang-link active">🇵🇹 PT</a>
-                                        <a href="index-en.html" class="lang-link">🇬🇧 EN</a>
-                                    </div>
-                                    <div class="site-preview">
-                                        <div class="page-content">
-                                            <h1>Olá Mundo!</h1>
-                                            <p>Bem-vindo ao nosso site multilíngue.</p>
-                                        </div>
-                                    </div>
-                                    <div class="head-tags">
-                                        <pre><code><html lang="pt-PT">
-<meta charset="UTF-8">
-<link rel="alternate" hreflang="pt-PT" href="index-pt.html">
-<link rel="alternate" hreflang="en" href="index-en.html"></code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 6</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🌍</span>
+            </div>
+            <h1>Módulo 11: Falar para o Mundo</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-10.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-12.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 11:</strong> Multilinguagem & Charset | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a tornar o teu site <strong>rápido como um relâmpago</strong>. Agora que é rápido, vamos garantir que ele pode ser lido em qualquer parte do planeta, suportando diferentes línguas e caracteres especiais.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Como declarar o idioma correto do site.</li>
+                <li>✅ O segredo do <strong>UTF-8</strong> (Charset).</li>
+                <li>✅ Texto da direita para a esquerda (Idiomas Árabes).</li>
+                <li>✅ Boas práticas para sites bilingues.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Intérprete Web</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Internacionalização (i18n) é preparar o teu site para que ele faça sentido em diferentes culturas e regiões.</p>
+                <div class="analogy">
+                    <h3>🗺️ Analogia: O Guia Turístico</h3>
+                    <p>Imagina que és um guia turístico num museu:</p>
+                    <ul>
+                        <li><strong>Lang Attribute</strong>: É o crachá que usas a dizer "Falo Português" ou "I speak English".</li>
+                        <li><strong>Charset (UTF-8)</strong>: É o dicionário universal que tem todos os símbolos do mundo (acentos, emojis, kanjis). Sem ele, o teu texto vira "sopa de letras".</li>
+                        <li><strong>RTL/LTR</strong>: É saber se no país de origem se lê um livro da esquerda para a direita ou da direita para a esquerda.</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Idioma e Codificação</h3>
+                <p>A base de qualquer site moderno.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+&lt;head&gt;
+  &lt;!-- OBRIGATÓRIO: Suporta acentos e emojis 🚀 --&gt;
+  &lt;meta charset="UTF-8"&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+                <p class="explanation">Se não usares UTF-8, caracteres como 'ç' ou 'ã' podem aparecer como símbolos estranhos ().</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Direção do Texto (RTL)</h3>
+                <p>Para idiomas como Árabe ou Hebraico.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- 'rtl' significa Right-to-Left (Direita para Esquerda) --&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;body&gt;
+  &lt;h1&gt;مرحبا بالعالم&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">O browser muda automaticamente a posição das barras laterais e do texto para condizer com a cultura.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Mudança de Idioma</h3>
+                <p>Indicar partes do texto noutro idioma.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;p&gt;O lema da França é &lt;span lang="fr"&gt;Liberté, Égalité, Fraternité&lt;/span&gt;.&lt;/p&gt;</code></pre>
+                </div>
+                <p class="explanation">Isto ajuda os leitores de ecrã a pronunciarem as palavras estrangeiras com o sotaque correto!</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma página sobre "Viagens":</p>
+                <ol class="steps-list">
+                    <li>Configura o HTML para Português (Portugal) e usa charset UTF-8.</li>
+                    <li>Cria um título <code>&lt;h1&gt;</code> com emojis de bandeiras.</li>
+                    <li>Escreve um parágrafo que contenha uma frase em Inglês e outra em Francês (usando a tag <code>span</code> com o <code>lang</code> correto).</li>
+                    <li>Cria uma pequena secção que simule uma frase em Árabe (usa <code>dir="rtl"</code>).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-11">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Define sempre o <strong>lang</strong> na tag <code>&lt;html&gt;</code>.</li>
+                <li>📌 <strong>UTF-8</strong> é a única codificação que deves usar hoje em dia.</li>
+                <li>📌 O atributo <strong>dir</strong> controla a direção da leitura.</li>
+                <li>📌 Usa o <strong>lang</strong> em spans para ajudar a acessibilidade em textos multilingues.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Enigma dos Acentos</h3>
+                <p>Abres um site e vês "Olá Mundo" escrito como "OlÃ¡ Mundo". Qual é o problema?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Falta a tag <code>&lt;meta charset="UTF-8"&gt;</code> ou o ficheiro foi guardado com a codificação errada no editor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Mapa Global</h3>
+                <p>Como diferenciavas o Português de Portugal do Português do Brasil no atributo <code>lang</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Portugal: <code>pt-PT</code>. Brasil: <code>pt-BR</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Ponto de Interrogação</h3>
+                <p>Se visses <code>dir="ltr"</code>, o que é que isso significa?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Significa <strong>Left-to-Right</strong> (Esquerda para a Direita), que é o padrão da nossa língua e da maioria das línguas ocidentais.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-10.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-12.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
