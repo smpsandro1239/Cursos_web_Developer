@@ -665,6 +665,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! SEO é o conjunto de técnicas para fazer o teu site aparecer nos primeiros lugares do Google."
         }
+    ],
+    'module-20': [
+        {
+            question: "Qual o objetivo principal do Projeto Final?",
+            options: [
+                { id: 'a', text: "Apenas passar o tempo" },
+                { id: 'b', text: "Consolidar todos os conhecimentos (HTML, CSS, JS, SEO, Deploy) num site real e profissional para o teu portfólio" },
+                { id: 'c', text: "Aprender a cozinhar" },
+                { id: 'd', text: "Hackear o Facebook" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O projeto final é a tua prova de conceito como desenvolvedor web."
+        },
+        {
+            question: "Ao terminar este curso, qual deve ser o teu próximo passo?",
+            options: [
+                { id: 'a', text: "Parar de estudar para sempre" },
+                { id: 'b', text: "Continuar a praticar, criar novos projetos e explorar frameworks como React ou Vue" },
+                { id: 'c', text: "Apagar todo o código que fizeste" },
+                { id: 'd', text: "Vender o computador" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A tecnologia evolui depressa, e a prática constante é o segredo do sucesso."
+        },
+        {
+            question: "O que significa ter um site 'Responsivo, Acessível e Otimizado'?",
+            options: [
+                { id: 'a', text: "Que o site funciona em qualquer ecrã, para qualquer pessoa e carrega instantaneamente" },
+                { id: 'b', text: "Que o site tem muitas cores" },
+                { id: 'c', text: "Que o site é caro" },
+                { id: 'd', text: "Que o site está em inglês" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! Estes são os 3 pilares da qualidade na web moderna."
+        }
     ]
 };
 
