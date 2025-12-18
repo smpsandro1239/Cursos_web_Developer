@@ -315,6 +315,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! As tags Open Graph garantem que, quando alguém cola o teu link numa rede social, apareça uma imagem bonita e um título chamativo."
         }
+    ],
+    'module-10': [
+        {
+            question: "Qual o benefício principal de um site carregar rápido?",
+            options: [
+                { id: 'a', text: "O site gasta menos eletricidade" },
+                { id: 'b', text: "Melhor experiência para o utilizador e melhor ranking no Google" },
+                { id: 'c', text: "As cores do site ficam mais brilhantes" },
+                { id: 'd', text: "O computador do utilizador não aquece" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Sites lentos fazem com que as pessoas desistam de esperar e saiam da página."
+        },
+        {
+            question: "Para que serve o atributo 'loading=\"lazy\"' numa imagem?",
+            options: [
+                { id: 'a', text: "Para a imagem carregar apenas quando o utilizador faz scroll até ela" },
+                { id: 'b', text: "Para carregar a imagem em baixa qualidade" },
+                { id: 'c', text: "Para esconder a imagem de menores" },
+                { id: 'd', text: "Para a imagem nunca carregar" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! O <code>lazy loading</code> poupa dados e memória, carregando apenas o que é necessário no momento."
+        },
+        {
+            question: "Qual a diferença entre 'async' e 'defer' ao carregar um script?",
+            options: [
+                { id: 'a', text: "Não há diferença" },
+                { id: 'b', text: "Async é para CSS e Defer para JS" },
+                { id: 'c', text: "Defer executa o script apenas depois de o HTML estar todo lido; Async executa assim que o download termina" },
+                { id: 'd', text: "Async é mais lento que o Defer" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>defer</code> garante que o script não bloqueia a leitura do corpo do site (HTML)."
+        }
     ]
 };
 
