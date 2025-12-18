@@ -3,463 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 1: O Esqueleto - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 1 do Curso HTML5 - Estrutura básica do HTML5">
+    <title>Módulo 1: O Esqueleto - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 1 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 1</span>
-                    <h1 class="module-title">O Esqueleto</h1>
-                    <p class="module-subtitle">Entendendo a estrutura básica do HTML5</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 1 aula</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 1 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução ao HTML -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>O que é HTML?</h2>
-                        <p><strong>HTML (HyperText Markup Language)</strong> é a linguagem de marcacção padrão usada para criar páginas web. Pense nele como o esqueleto de um site.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>📖 Definição oficial:</h3>
-                            <p>O HTML é uma linguagem de marcacção utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores.</p>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "HTML é como o alfabeto da web. Sem ele, não conseguimos 'falar' com os navegadores e criar conteúdo estruturado."
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="html-concept">
-                                <div class="html-logo">
-                                    <span class="html-icon">🌐</span>
-                                    <span class="html-text">HTML</span>
-                                </div>
-                                <div class="concept-description">
-                                    <p><strong>HyperText Markup Language</strong></p>
-                                    <p>Linguagem de marcacção para criar páginas web</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Estrutura Mínima -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Estrutura Mínima do HTML5</h2>
-                        <p>Toda página HTML5 precisa de uma estrutura básica. Vamos conhecer os elementos essenciais que formam o "esqueleto" de qualquer documento HTML.</p>
-
-                        <div class="steps-list">
-                            <h3>🏗️ Elementos obrigatórios:</h3>
-                            <ol>
-                                <li><code><!DOCTYPE html></code> - Declaracção do tipo de documento</li>
-                                <li><code><html></code> - Elemento raiz</li>
-                                <li><code><head></code> - Metadados da página</li>
-                                <li><code><body></code> - Conteúdo visível</li>
-                            </ol>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Curiosidade:</strong> O HTML5 é muito mais simples que versões anteriores. Não precisamos mais de declarações complexas!
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="html-structure">
-                                <div class="structure-diagram">
-                                    <div class="structure-item doctype">
-                                        <span class="item-title"><!DOCTYPE html></span>
-                                        <span class="item-desc">Tipo do documento</span>
-                                    </div>
-                                    <div class="structure-item html">
-                                        <span class="item-title"><html></span>
-                                        <span class="item-desc">Raiz do documento</span>
-                                    </div>
-                                    <div class="structure-item head">
-                                        <span class="item-title"><head></span>
-                                        <span class="item-desc">Cabeça (metadados)</span>
-                                    </div>
-                                    <div class="structure-item body">
-                                        <span class="item-title"><body></span>
-                                        <span class="item-desc">Corpo (conteúdo)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: DOCTYPE e HTML -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2><!DOCTYPE> e <html></h2>
-                        <p>Vamos examinar mais detalhadamente os primeiros elementos da estrutura HTML5.</p>
-
-                        <div class="code-example">
-                            <h4>📝 Estrutura básica:</h4>
-                            <pre><code><!DOCTYPE html>
-<html lang="pt-PT">
-</html></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🔍 Detalhes importantes:</h3>
-                            <ul>
-                                <li><strong><!DOCTYPE html></strong> - Deve ser a primeira linha, sem espaços antes</li>
-                                <li><strong>lang="pt-PT"</strong> - Define o idioma como português brasileiro</li>
-                                <li><strong>Sempre minúsculo</strong> - HTML5 não diferencia maiúsculo de minúsculo</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="code-annotation">
-                                <div class="annotated-code">
-                                    <div class="line">
-                                        <span class="line-number">1</span>
-                                        <code class="code-line">
-                                            <span class="doctype"><!DOCTYPE html></span>
-                                            <span class="comment">← Declara HTML5</span>
-                                        </code>
-                                    </div>
-                                    <div class="line">
-                                        <span class="line-number">2</span>
-                                        <code class="code-line">
-                                            <span class="html-tag"><html</span>
-                                            <span class="attribute"> lang="pt-PT"</span>
-                                            <span class="html-tag">></span>
-                                            <span class="comment">← Idioma português</span>
-                                        </code>
-                                    </div>
-                                    <div class="line">
-                                        <span class="line-number">3</span>
-                                        <code class="code-line">
-                                            <span class="html-tag"></html></span>
-                                            <span class="comment">← Fecha o documento</span>
-                                        </code>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Elemento Head -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>O Elemento <head></h2>
-                        <p>O <code><head></code> contém informações importantes sobre o documento que não são visíveis para o usuário, mas são cruciais para o navegador e mecanismos de busca.</p>
-
-                        <div class="steps-list">
-                            <h3>🧠 O que vai no <head>:</h3>
-                            <ol>
-                                <li><code><title></code> - Título da aba do navegador</li>
-                                <li><code><meta charset="UTF-8"></code> - Codificacção de caracteres</li>
-                                <li><code><meta name="viewport"></code> - Responsividade</li>
-                                <li><code><link></code> - CSS, favicon, fontes</li>
-                            </ol>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>⚠️ Importante:</h3>
-                            <p>O conteúdo do <code><head></code> não aparece na página, mas afeta como ela funciona e aparece nos mecanismos de busca.</p>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="head-diagram">
-                                <div class="head-container">
-                                    <div class="head-title"><head></div>
-                                    <div class="head-contents">
-                                        <div class="head-item">
-                                            <span class="item-icon">📄</span>
-                                            <span class="item-name">title</span>
-                                        </div>
-                                        <div class="head-item">
-                                            <span class="item-icon">🔤</span>
-                                            <span class="item-name">charset</span>
-                                        </div>
-                                        <div class="head-item">
-                                            <span class="item-icon">📱</span>
-                                            <span class="item-name">viewport</span>
-                                        </div>
-                                        <div class="head-item">
-                                            <span class="item-icon">🎨</span>
-                                            <span class="item-name">CSS</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: Elemento Body -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>O Elemento <body></h2>
-                        <p>O <code><body></code> é onde colocamos todo o conteúdo visível da página: textos, imagens, links, formulários, etc.</p>
-
-                        <div class="code-example">
-                            <h4>📝 Exemplo básico:</h4>
-                            <pre><code><!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <title>Minha Primeira Página</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Olá Mundo!</h1>
-    <p>Esta é minha primeira página HTML.</p>
-</body>
-</html></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>🎯 Dica:</strong> Tudo que você vê em um site está dentro do <code><body></code>. É aqui que a mágica acontece!
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="browser-preview">
-                                <div class="browser-mock">
-                                    <div class="browser-toolbar">
-                                        <span class="browser-url">Minha Primeira Página</span>
-                                    </div>
-                                    <div class="browser-content">
-                                        <h1>Olá Mundo! 🚀</h1>
-                                        <p>Esta é minha primeira página HTML.</p>
-                                        <p>Professor: Sandro Pereira - 2025</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Meta Charset UTF-8 -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Meta Charset UTF-8</h2>
-                        <p>O <code>charset="UTF-8"</code> define a codificacção de caracteres, permitindo que acentos, ç, ã e outros caracteres especiais sejam exibidos corretamente.</p>
-
-                        <div class="highlight-box">
-                            <h3>🌍 Por que UTF-8?</h3>
-                            <ul>
-                                <li>Suporta todos os idiomas do mundo</li>
-                                <li>Compatível com emojis 😊</li>
-                                <li>Padrão da web moderna</li>
-                                <li>Funciona com português brasileiro</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>📝 Como usar:</h4>
-                            <pre><code><meta charset="UTF-8"></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>⚠️ Importante:</strong> Esta deve ser a primeira meta tag no head, logo após a abertura.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="charset-demo">
-                                <div class="charset-comparison">
-                                    <div class="comparison-item correct">
-                                        <div class="item-title">✅ Com UTF-8</div>
-                                        <div class="item-text">Olá! Café ç ão é bom! 🚀</div>
-                                    </div>
-                                    <div class="comparison-item incorrect">
-                                        <div class="item-title">❌ Sem UTF-8</div>
-                                        <div class="item-text">OlÃ¡! CafÃ© ç ão Ã© bom! âœˆ</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 7</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 7: Exercício Prático -->
-            <section class="slide" id="slide-7" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Vamos criar nossa primeira página HTML completa usando a estrutura que acabamos de aprender!</p>
-
-                        <div class="exercise-box">
-                            <h3>🎯 Tarefa:</h3>
-                            <p>Crie uma página "Olá Mundo" com título personalizado e favicon do Porto.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Requisitos:</h4>
-                                <ol>
-                                    <li>Estrutura HTML5 completa</li>
-                                    <li>Título personalizado na aba</li>
-                                    <li>Meta charset UTF-8</li>
-                                    <li>Conteúdo com caracteres portugueses</li>
-                                    <li>Pelo menos 3 elementos diferentes</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎉 Resultado esperado:</h4>
-                            <div class="result-preview">
-                                <div class="file-editor">
-                                    <div class="editor-header">
-                                        <span class="file-name">index.html</span>
-                                    </div>
-                                    <div class="editor-content">
-                                        <pre><code><!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá Mundo - HTML5 Expert</title>
-</head>
-<body>
-    <h1>Olá Mundo!</h1>
-    <p>Meu primeiro projeto HTML5!</p>
-    <p>Professor: Sandro Pereira - 2025</p>
-</body>
-</html></code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <div class="browser-mock">
-                                    <div class="browser-toolbar">
-                                        <span class="browser-url">Olá Mundo - HTML5 Expert</span>
-                                    </div>
-                                    <div class="browser-content">
-                                        <h1>Olá Mundo! 🚀</h1>
-                                        <p>Meu primeiro projeto HTML5!</p>
-                                        <p>Professor: Sandro Pereira - 2025</p>
-                                        <p>Caracteres especiais: ç ã ê í ó ú</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">7 / 7</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🦴</span> <!-- Placeholder for Skeleton Img -->
+            </div>
+            <h1>Módulo 1: O Esqueleto HTML</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-0.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-2.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 1:</strong> O Esqueleto | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>Na aula anterior (Preparacção), <strong>preparámos o nosso ambiente</strong>. Instalaste o VS Code, o Live Server e criaste a tua primeira pasta de projeto. Agora tens tudo pronto para começar a escrever código!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula, vais aprender a criar a <strong>estrutura fundamental</strong> de qualquer página web. Vamos explorar:</p>
+            <ul class="learning-goals">
+                <li>✅ A estrutura mínima obrigatória de um ficheiro HTML.</li>
+                <li>✅ Para que serve o <code>&lt;head&gt;</code> e o <code>&lt;body&gt;</code>.</li>
+                <li>✅ A importância do <code>&lt;!DOCTYPE html&gt;</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Casa Digital</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O HTML (HyperText Markup Language) é a linguagem que define a <strong>estrutura</strong> e o <strong>significado</strong> do conteúdo na web.</p>
+                <div class="analogy">
+                    <h3>🏠 Analogia: A Construção de uma Casa</h3>
+                    <p>Imagina que estás a construir uma casa:</p>
+                    <ul>
+                        <li>O <strong>HTML</strong> é o betão, os tijolos e as vigas (a estrutura).</li>
+                        <li>O <strong>&lt;head&gt;</strong> são as plantas da casa e as licenças (informação essencial que ninguém vê de fora).</li>
+                        <li>O <strong>&lt;body&gt;</strong> são as divisões, mobília e decoração (tudo o que as visitas veem).</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Mínimo Absoluto</h3>
+                <p>Todo o ficheiro HTML começa assim:</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">O <code>!DOCTYPE html</code> diz ao navegador: "Isto é um site moderno (HTML5)".</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Cabeça e Corpo</h3>
+                <p>A divisão principal da página:</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+     &lt;!-- Metadados aqui --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+     &lt;!-- Conteúdo visível aqui --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">Nunca mistures! Conteúdo no body, configurações no head.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: A Estrutura Completa</h3>
+                <p>O teu ponto de partida padrão:</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;A Minha Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">Adicionámos <code>lang="pt-PT"</code> para acessibilidade e <code>charset="UTF-8"</code> para aceitar acentos (ç, ã, é).</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Abre o teu VS Code e segue estes passos:</p>
+                <ol class="steps-list">
+                    <li>Cria um novo ficheiro chamado <code>index.html</code>.</li>
+                    <li>Digita <code>!</code> e pressiona <strong>Enter</strong> (O Emmet vai criar a estrutura base).</li>
+                    <li>Altera o texto dentro de <code>&lt;title&gt;</code> para "O Meu Primeiro Site".</li>
+                    <li>Dentro do <code>&lt;body&gt;</code>, escreve <code>&lt;h1&gt;Olá Mundo!&lt;/h1&gt;</code>.</li>
+                    <li>Clica com o botão direito e escolhe <strong>"Open with Live Server"</strong>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-1">
+                <!-- Quiz will be loaded here by JS -->
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>HTML</strong> é a estrutura, como o esqueleto de uma casa.</li>
+                <li>📌 <strong>&lt;head&gt;</strong> contém configurações invisíveis (metadados).</li>
+                <li>📌 <strong>&lt;body&gt;</strong> contém tudo o que o utilizador vê.</li>
+                <li>📌 <strong>UTF-8</strong> é essencial para mostrar acentos corretamente.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Título Secreto</h3>
+                <p>Altera o título da aba do navegador para "Experiência Secreta".</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;head&gt;
+  &lt;title&gt;Experiência Secreta&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Parágrafo Perdido</h3>
+                <p>Adiciona um parágrafo (<code>&lt;p&gt;</code>) abaixo do título com o texto "Estou a aprender HTML!".</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;Olá Mundo&lt;/h1&gt;
+  &lt;p&gt;Estou a aprender HTML!&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Estrutura Corrompida</h3>
+                <p>O código abaixo tem um erro grave. Consegues descobrir qual é?</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Erro!&lt;/h1&gt;
+  &lt;/body&gt;
+  &lt;head&gt;
+    &lt;title&gt;Site&lt;/title&gt;
+  &lt;/head&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A ordem está errada! O <code>&lt;head&gt;</code> deve vir SEMPRE antes do <code>&lt;body&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="../index.html" class="btn btn-secondary">« Início</a>
+            <a href="modulo-2.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
