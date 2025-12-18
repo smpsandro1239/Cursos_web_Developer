@@ -280,6 +280,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! O <code>aria-label</code> fornece um rótulo de texto que o leitor de ecrã vai ler, mesmo que o botão seja apenas visual."
         }
+    ],
+    'module-9': [
+        {
+            question: "O que significa a sigla SEO?",
+            options: [
+                { id: 'a', text: "Search Engine Optimization" },
+                { id: 'b', text: "System Engine Order" },
+                { id: 'c', text: "Software Expert Online" },
+                { id: 'd', text: "Service Entry Office" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! SEO é o conjunto de técnicas para otimizar o teu site e fazer com que ele apareça no topo do Google."
+        },
+        {
+            question: "Qual tag é usada no &lt;head&gt; para descrever o conteúdo da página nos resultados do Google?",
+            options: [
+                { id: 'a', text: "&lt;meta name='title'&gt;" },
+                { id: 'b', text: "&lt;meta name='description'&gt;" },
+                { id: 'c', text: "&lt;meta name='about'&gt;" },
+                { id: 'd', text: "&lt;meta name='seo'&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A <code>meta description</code> é aquele pequeno texto que aparece debaixo do título no Google."
+        },
+        {
+            question: "Para que servem as tags Open Graph (og:title, og:image)?",
+            options: [
+                { id: 'a', text: "Para acelerar o site" },
+                { id: 'b', text: "Para acessibilidade de cegos" },
+                { id: 'c', text: "Para controlar como o site aparece ao ser partilhado nas redes sociais (ex: Facebook, WhatsApp)" },
+                { id: 'd', text: "Para mudar a cor do navegador" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! As tags Open Graph garantem que, quando alguém cola o teu link numa rede social, apareça uma imagem bonita e um título chamativo."
+        }
     ]
 };
 
