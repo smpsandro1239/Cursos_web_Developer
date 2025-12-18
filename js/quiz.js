@@ -420,6 +420,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! No Schema.org encontras as 'etiquetas' para tudo: receitas, filmes, livros, empresas, etc."
         }
+    ],
+    'module-13': [
+        {
+            question: "Qual tag é usada para definir uma estrutura HTML que não é renderizada logo ao carregar a página?",
+            options: [
+                { id: 'a', text: "&lt;invisible&gt;" },
+                { id: 'b', text: "&lt;template&gt;" },
+                { id: 'c', text: "&lt;ghost&gt;" },
+                { id: 'd', text: "&lt;hidden&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A tag <code>&lt;template&gt;</code> guarda HTML que podes 'clonar' e usar mais tarde via JavaScript."
+        },
+        {
+            question: "Qual é a regra obrigatória para dar o nome a um Custom Element (ex: &lt;meu-botao&gt;)?",
+            options: [
+                { id: 'a', text: "Tem de começar com letra maiúscula" },
+                { id: 'b', text: "Tem de ter sempre um hífen (ex: nome-composto)" },
+                { id: 'c', text: "Não pode ter mais de 5 letras" },
+                { id: 'd', text: "Tem de terminar em .exe" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O hífen é obrigatório para que o browser saiba que é um elemento customizado e não uma tag padrão do HTML."
+        },
+        {
+            question: "O que é o Shadow DOM?",
+            options: [
+                { id: 'a', text: "Uma versão obscura da internet" },
+                { id: 'b', text: "Um modo noturno automático" },
+                { id: 'c', text: "É uma forma de encapsular o CSS e o HTML de um componente, para que os estilos não 'vazem' para fora" },
+                { id: 'd', text: "Um bug no navegador" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>Shadow DOM</code> garante que o estilo do teu componente não estrague o resto do site."
+        }
     ]
 };
 
