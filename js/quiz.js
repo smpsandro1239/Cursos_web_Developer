@@ -245,6 +245,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! Um <code>&lt;article&gt;</code> deve fazer sentido por si só, se for removido e colocado noutro site (como uma notícia)."
         }
+    ],
+    'module-8': [
+        {
+            question: "O que representa o símbolo ♿ na web?",
+            options: [
+                { id: 'a', text: "Velocidade de carregamento" },
+                { id: 'b', text: "Acessibilidade (Web para todos)" },
+                { id: 'c', text: "Chat de suporte" },
+                { id: 'd', text: "Configurações de conta" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Acessibilidade garante que pessoas com deficiências (visuais, motoras, etc.) consigam usar o teu site."
+        },
+        {
+            question: "Se uma imagem for puramente decorativa (ex: um risco ou sombra), o que deves colocar no 'alt'?",
+            options: [
+                { id: 'a', text: "alt='decoracao'" },
+                { id: 'b', text: "Não colocar a tag alt" },
+                { id: 'c', text: "alt='' (vazio)" },
+                { id: 'd', text: "alt='imagem'" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! <code>alt=''</code> diz aos leitores de ecrã para ignorarem a imagem, evitando ruído desnecessário para o utilizador cego."
+        },
+        {
+            question: "Qual atributo ARIA deves usar para dar um nome a um botão que só tem um ícone (sem texto)?",
+            options: [
+                { id: 'a', text: "aria-name" },
+                { id: 'b', text: "aria-label" },
+                { id: 'c', text: "aria-hidden" },
+                { id: 'd', text: "aria-text" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O <code>aria-label</code> fornece um rótulo de texto que o leitor de ecrã vai ler, mesmo que o botão seja apenas visual."
+        }
     ]
 };
 
