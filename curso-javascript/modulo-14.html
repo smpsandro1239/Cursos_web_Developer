@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 14: Assincronia I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 14 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🤝</span>
+            </div>
+            <h1>Módulo 14: Assincronia I (Promessas)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 13</strong>, aprendemos a usar timers para agendar código. Mas e se tivermos de esperar por algo que não sabemos quanto tempo demora, como carregar dados da internet? Hoje, entramos no mundo das <strong>Promises</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O conceito de <strong>Assincronia</strong> (várias coisas ao mesmo tempo).</li>
+                <li>✅ O que é uma <strong>Promise</strong>.</li>
+                <li>✅ Estados da Promise: Pending, Resolved e Rejected.</li>
+                <li>✅ Tratar resultados com <strong>.then()</strong> e erros com <strong>.catch()</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Não Travar o Browser</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O JavaScript é "Single Thread", o que significa que só faz uma coisa de cada vez. Se pedires um ficheiro gigante da internet, o site parava todo enquanto esperava. A assincronia permite pedir o ficheiro e continuar a mexer no site. Quando o ficheiro chegar, a Promise "avisa-nos".</p>
+                <div class="analogy">
+                    <h3>🍔 Analogia: O Restaurante de Fast Food</h3>
+                    <p>Imagina que pedes um hambúrguer:</p>
+                    <ul>
+                        <li><strong>A Promise (O Pager/Senha)</strong>: O funcionário não te dá o hambúrguer logo. Dá-te um aparelho que vibra quando estiver pronto. Esse aparelho é a tua **Promise**.</li>
+                        <li><strong>O Estado Pending</strong>: Estás sentado à espera. A comida ainda não está pronta nem queimou.</li>
+                        <li><strong>O Estado Resolved (.then)</strong>: O aparelho vibra! Vais buscar a comida. Tudo correu bem.</li>
+                        <li><strong>O Estado Rejected (.catch)</strong>: O funcionário diz que o ingrediente acabou. O pedido falhou.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Criar uma Promise</h3>
+                <p>O compromisso de um resultado futuro.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const minhaPromessa = new Promise((resolve, reject) => {
+  let sucesso = true;
+
+  if (sucesso) {
+    resolve("Pedido Concluído! ✅");
+  } else {
+    reject("Erro no servidor... ❌");
+  }
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Usar a Promise</h3>
+                <p>O encadeamento de resultados.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">minhaPromessa
+  .then((dados) => {
+    console.log(dados); // Imprime "Pedido Concluído!"
+  })
+  .catch((erro) => {
+    console.log(erro);
+  });</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Promise com Tempo</h3>
+                <p>Simular o carregamento de um utilizador.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function carregarUser() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 1, nome: "Sandro" });
+    }, 2000);
+  });
+}
+
+carregarUser().then(user => console.log(user.nome));</code></pre>
+                </div>
+                <p class="explanation">Aqui simulamos um atraso de 2 segundos de rede usando a Promise + setTimeout.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Simulador de Sorteio":</p>
+                <ol class="steps-list">
+                    <li>Cria uma função que devolve uma <code>new Promise</code>.</li>
+                    <li>Lá dentro, gera um número aleatório (0 a 10).</li>
+                    <li>Usa o <code>setTimeout</code> de 3 segundos para simular "tensão".</li>
+                    <li>Se o número for maior que 5, faz <code>resolve("Ganhaste!")</code>.</li>
+                    <li>Se for menor ou igual, faz <code>reject("Perdeste...")</code>.</li>
+                    <li>Chama a função e usa o <code>.then()</code> e o <code>.catch()</code> para mostrar o resultado num <code>alert</code>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-14">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Assincronia** permite que o site não congele enquanto espera.</li>
+                <li>📌 Uma **Promise** é um objeto que diz: "Já te respondo!".</li>
+                <li>📌 **.then()** é para o cenário de sucesso.</li>
+                <li>📌 **.catch()** é vital para evitar erros fatais na consola.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Carregamento Infinito?</h3>
+                <p>O que acontece se criares uma Promise mas nunca chamares nem o <code>resolve</code> nem o <code>reject</code>? Qual o estado em que ela fica?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Ela fica para sempre no estado **Pending** (Pendente). O código do <code>.then</code> ou <code>.catch</code> nunca será executado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Múltiplos Then</h3>
+                <p>Podes colocar vários <code>.then()</code> em baixo uns dos outros (encadeados)? Qual a vantagem disso?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! Chama-se **Promise Chaining**. Permite tratar os dados por passos (ex: extrair o nome -> transformar em maiúsculas -> mostrar no ecrã).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Finalmente</h3>
+                <p>Existe um terceiro método chamado <code>.finally()</code>. Pesquisa para que serve e quando o devemos usar.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O <code>.finally()</code> corre **sempre**, quer a Promise tenha dado certo ou errado. É ideal para esconder um ícone de "Loading", por exemplo.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-13.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-15.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

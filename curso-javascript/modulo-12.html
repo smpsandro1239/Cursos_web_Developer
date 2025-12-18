@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: Eventos II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 12 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📝</span>
+            </div>
+            <h1>Módulo 12: Eventos II (Formulários)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 11</strong>, aprendemos a reagir a cliques e teclas. Hoje, vamos focar-nos na parte mais importante de qualquer site: a captura de dados através de <strong>Formulários</strong> e como impedir que a página recarregue sozinha.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O evento <strong>submit</strong>.</li>
+                <li>✅ O superpoder do <strong>event.preventDefault()</strong>.</li>
+                <li>✅ Capturar valores de Inputs e Textareas.</li>
+                <li>✅ Validação básica de campos via JavaScript.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Controlar o Fluxo</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Por defeito, quando clicas num botão de "Enviar" num formulário, o browser tenta enviar os dados para um servidor e recarrega a página. No JavaScript moderno, nós queremos "travar" esse comportamento para processar os dados nós mesmos.</p>
+                <div class="analogy">
+                    <h3>🛑 Analogia: O Semáforo</h3>
+                    <p>Imagina que o teu formulário é um carro a aproximar-se de um cruzamento:</p>
+                    <ul>
+                        <li><strong>Comportamento Padrão</strong>: O carro passa direto e vai para outra rua (a página recarrega).</li>
+                        <li><strong>event.preventDefault()</strong>: É como meteres um sinal de **STOP** vermelho. Tu obrigas o carro a parar para que possas revistar o que está lá dentro (os dados) antes de o deixares ir (ou não).</li>
+                    </ul>
+                    <p>Sem este comando, o teu código JavaScript "morre" assim que a página faz refresh.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Capturar o Submit</h3>
+                <p>O ritual sagrado do formulário.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const formulario = document.querySelector("#meu-form");
+
+formulario.addEventListener("submit", function(event) {
+  // ⛔ Parar o refresh da página!
+  event.preventDefault();
+
+  console.log("Formulário capturado com sucesso!");
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Ler os Dados</h3>
+                <p>Usar a propriedade `.value`.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const inputNome = document.querySelector("#nome");
+
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nomeUtilizador = inputNome.value;
+  alert("Olá, " + nomeUtilizador);
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Validação Simples</h3>
+                <p>Impedir o envio se algo estiver errado.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (inputNome.value === "") {
+    alert("Por favor, escreve o teu nome!");
+    return; // Para aqui e não faz mais nada
+  }
+
+  console.log("Enviando dados...");
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma "Lista de Tarefas" (v1):</p>
+                <ol class="steps-list">
+                    <li>Cria um formulário simples com um <code>&lt;input&gt;</code> e um botão.</li>
+                    <li>No JS, adiciona o <code>submit</code> e usa o <code>preventDefault()</code>.</li>
+                    <li>Guarda o valor do que foi escrito numa variável.</li>
+                    <li>Cria um <code>&lt;ul id="lista"&gt;&lt;/ul&gt;</code> no HTML.</li>
+                    <li>Usa o <code>innerHTML</code> ou <code>createElement</code> para adicionar o texto como um novo item <code>&lt;li&gt;</code> na lista.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-12">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O evento **submit** dispara no formulário, não no botão.</li>
+                <li>📌 **preventDefault()** evita que o browser recarregue a página.</li>
+                <li>📌 Usamos **.value** para extrair o que o utilizador escreveu.</li>
+                <li>📌 Podemos usar a lógica de IF para validar os campos antes de os aceitar.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Verificador de Password</h3>
+                <p>Cria um formulário com duas caixas de password. Ao submeter, verifica se elas são iguais. Se não forem, mostra uma mensagem de erro em vermelho.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>if (pass1.value !== pass2.value) { msg.style.color = 'red'; msg.textContent = 'Passwords diferentes!'; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Limpeza Automática</h3>
+                <p>Após o utilizador submeter o formulário com sucesso (e depois do preventDefault), como podes limpar a caixa de texto para que ela fique vazia novamente?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>input.value = "";</code> ou <code>formulario.reset();</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Checkbox Check</h3>
+                <p>Imagina que tens uma checkbox de "Aceito os termos". Como verificas se ela está marcada (checked) no JavaScript?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando a propriedade <code>.checked</code>. Ex: <code>if (checkbox.checked) { ... }</code>. Devolve true ou false.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-11.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-13.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

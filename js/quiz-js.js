@@ -383,6 +383,181 @@ const QUIZ_DATA_JS = {
             correct: 'a',
             explanation: "✅ Correto! A propriedade textContent (ou innerText) permite injetar novo texto dentro das tags HTML."
         }
+    ],
+    'modulo-11': [
+        {
+            question: "Como o JavaScript 'ouve' quando um utilizador clica num botão?",
+            options: [
+                { id: 'a', text: "elemento.listen('click')" },
+                { id: 'b', text: "elemento.addEventListener('click', funcao)" },
+                { id: 'c', text: "elemento.onclick()" },
+                { id: 'd', text: "document.wait('click')" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! addEventListener é a forma moderna e profissional de reagir a eventos sem 'sujar' o HTML."
+        },
+        {
+            question: "Qual evento é disparado quando o utilizador escreve algo no teclado?",
+            options: [
+                { id: 'a', text: "keydown ou input" },
+                { id: 'b', text: "press" },
+                { id: 'c', text: "write" },
+                { id: 'd', text: "type" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! keydown deteta a tecla premida, enquanto input deteta qualquer alteração no valor de um campo."
+        },
+        {
+            question: "O que é o objeto 'event' (ou 'e') que costumamos passar para a função?",
+            options: [
+                { id: 'a', text: "É uma variável vazia" },
+                { id: 'b', text: "É um objeto que contém detalhes sobre o evento (como que tecla foi premida)" },
+                { id: 'c', text: "É o nome do botão" },
+                { id: 'd', text: "É um comando para fechar o browser" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O objeto event dá-nos superpoderes para saber exatamente o que aconteceu durante a interação."
+        }
+    ],
+    'modulo-12': [
+        {
+            question: "Qual o evento usado para detetar quando um formulário é enviado?",
+            options: [
+                { id: 'a', text: "click" },
+                { id: 'b', text: "send" },
+                { id: 'c', text: "submit" },
+                { id: 'd', text: "post" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O evento 'submit' é o padrão para capturar o envio de dados de um formulário."
+        },
+        {
+            question: "Para que serve o comando event.preventDefault()?",
+            options: [
+                { id: 'a', text: "Para apagar o formulário" },
+                { id: 'b', text: "Para impedir o comportamento padrão do browser (como recarregar a página)" },
+                { id: 'c', text: "Para validar o email automaticamente" },
+                { id: 'd', text: "Para enviar os dados mais rápido" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Sem isto, o browser recarrega a página ao submeter, perdendo todo o estado do JavaScript."
+        },
+        {
+            question: "Qual a melhor forma de obter o valor de um campo de texto num formulário?",
+            options: [
+                { id: 'a', text: "campo.textContent" },
+                { id: 'b', text: "campo.value" },
+                { id: 'c', text: "campo.innerHTML" },
+                { id: 'd', text: "campo.innerText" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A propriedade .value é a que guarda o que o utilizador escreveu em inputs e textareas."
+        }
+    ],
+    'modulo-13': [
+        {
+            question: "Qual função usamos para executar um código APENAS UMA VEZ após um certo tempo?",
+            options: [
+                { id: 'a', text: "setInterval()" },
+                { id: 'b', text: "wait()" },
+                { id: 'c', text: "setTimeout()" },
+                { id: 'd', text: "delay()" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! setTimeout agenda uma execução única após o tempo definido em milissegundos."
+        },
+        {
+            question: "Como paramos um intervalo criado com setInterval?",
+            options: [
+                { id: 'a', text: "stopInterval()" },
+                { id: 'b', text: "clearInterval()" },
+                { id: 'c', text: "breakInterval()" },
+                { id: 'd', text: "interval.end()" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Precisamos de guardar o ID do intervalo e passá-lo para clearInterval() para o travar."
+        },
+        {
+            question: "Se quisermos um timer de 2 segundos, que valor devemos passar para o JavaScript?",
+            options: [
+                { id: 'a', text: "2" },
+                { id: 'b', text: "20" },
+                { id: 'c', text: "200" },
+                { id: 'd', text: "2000" }
+            ],
+            correct: 'd',
+            explanation: "✅ Correto! O JavaScript conta o tempo em milissegundos. 1 segundo = 1000ms."
+        }
+    ],
+    'modulo-14': [
+        {
+            question: "O que é uma 'Promise' em JavaScript?",
+            options: [
+                { id: 'a', text: "Um comando que nunca falha" },
+                { id: 'b', text: "Um objeto que representa o sucesso ou falha eventual de uma operação assíncrona" },
+                { id: 'c', text: "Uma variável que guarda o nome do utilizador" },
+                { id: 'd', text: "Uma função que apaga o código" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Uma promessa (Promise) é um compromisso de que algo vai acontecer (bem ou mal) daqui a algum tempo."
+        },
+        {
+            question: "Como tratamos o resultado de uma Promise que correu BEM?",
+            options: [
+                { id: 'a', text: ".catch()" },
+                { id: 'b', text: ".finally()" },
+                { id: 'c', text: ".then()" },
+                { id: 'd', text: ".success()" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O método .then() é executado quando a promessa é cumprida (Resolved)."
+        },
+        {
+            question: "Como tratamos um ERRO numa Promise?",
+            options: [
+                { id: 'a', text: ".catch()" },
+                { id: 'b', text: ".error()" },
+                { id: 'c', text: ".then()" },
+                { id: 'd', text: ".stop()" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! O .catch() 'agarra' o erro para evitar que o site trave totalmente."
+        }
+    ],
+    'modulo-15': [
+        {
+            question: "Qual a vantagem de usar async/await em vez de .then()?",
+            options: [
+                { id: 'a', text: "É mais rápido para o computador" },
+                { id: 'b', text: "O código fica mais limpo e parece síncrono (linear)" },
+                { id: 'c', text: "Não precisa de tratar erros" },
+                { id: 'd', text: "Funciona em browsers antigos" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O async/await evita o chamado 'Callback Hell' e torna a leitura muito mais natural."
+        },
+        {
+            question: "Para que serve a função fetch()?",
+            options: [
+                { id: 'a', text: "Para apagar ficheiros do computador" },
+                { id: 'b', text: "Para ir buscar dados a uma URL ou API externa" },
+                { id: 'c', text: "Para mudar a cor do site" },
+                { id: 'd', text: "Para criar um novo objeto" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O fetch é a porta de entrada para consumir dados de qualquer lugar da internet."
+        },
+        {
+            question: "O que devemos fazer SEMPRE depois do primeiro fetch() para ler os dados?",
+            options: [
+                { id: 'a', text: "esperar 5 segundos" },
+                { id: 'b', text: "converter a resposta para JSON com .json()" },
+                { id: 'c', text: "fechar o browser" },
+                { id: 'd', text: "imprimir o objeto Response diretamente" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O fetch devolve uma resposta bruta. Precisamos de a converter para um formato que o JS entenda (JSON)."
+        }
     ]
 };
 
