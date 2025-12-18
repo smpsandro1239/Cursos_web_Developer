@@ -455,6 +455,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! O <code>Shadow DOM</code> garante que o estilo do teu componente não estrague o resto do site."
         }
+    ],
+    'module-14': [
+        {
+            question: "O que é uma PWA (Progressive Web App)?",
+            options: [
+                { id: 'a', text: "Um site que só funciona em computadores potentes" },
+                { id: 'b', text: "Um site que pode ser instalado no telemóvel e funcionar offline, como se fosse uma aplicação real" },
+                { id: 'c', text: "Uma nova linguagem de programação" },
+                { id: 'd', text: "Um tipo de publicidade" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! As PWAs usam tecnologias modernas para dar uma experiência de 'app nativa' no browser."
+        },
+        {
+            question: "Para que serve o ficheiro 'manifest.json'?",
+            options: [
+                { id: 'a', text: "Para guardar a password do utilizador" },
+                { id: 'b', text: "Para definir o ícone, o nome e as cores do site ao ser instalado" },
+                { id: 'c', text: "Para acelerar o Google" },
+                { id: 'd', text: "Não serve para nada" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O <code>manifest.json</code> é como o bilhete de identidade da tua aplicação web."
+        },
+        {
+            question: "O que é um Service Worker?",
+            options: [
+                { id: 'a', text: "Um robô que limpa o código" },
+                { id: 'b', text: "Um empregado da Google" },
+                { id: 'c', text: "Um script que corre em segundo plano e permite interceptar pedidos de rede e guardar ficheiros em cache" },
+                { id: 'd', text: "Um erro de conexão" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O <code>Service Worker</code> é o coração das funcionalidades offline de uma PWA."
+        }
     ]
 };
 
