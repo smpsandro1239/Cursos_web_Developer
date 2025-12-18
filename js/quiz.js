@@ -630,6 +630,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! O <code>index.html</code> é a porta de entrada automática do teu site."
         }
+    ],
+    'module-19': [
+        {
+            question: "O que é o Google Lighthouse?",
+            options: [
+                { id: 'a', text: "Um motor de busca novo" },
+                { id: 'b', text: "Uma ferramenta que audita o teu site e dá uma pontuação de 0 a 100 em Performance, SEO e Acessibilidade" },
+                { id: 'c', text: "Um editor de imagem" },
+                { id: 'd', text: "Uma linguagem de programação" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Lighthouse é o 'juiz' que te diz o que precisas de melhorar no teu site."
+        },
+        {
+            question: "Para que serve o atributo loading='lazy' numa tag &lt;img&gt;?",
+            options: [
+                { id: 'a', text: "Para a imagem carregar mais devagar de propósito" },
+                { id: 'b', text: "Para a imagem só ser carregada quando o utilizador fizer scroll até ela, poupando dados e tempo" },
+                { id: 'c', text: "Para esticar a imagem" },
+                { id: 'd', text: "Para esconder a imagem de hackers" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Lazy Loading é fundamental para a performance em sites com muitas imagens."
+        },
+        {
+            question: "O que significa SEO?",
+            options: [
+                { id: 'a', text: "Secure Electronic Office" },
+                { id: 'b', text: "Search Engine Optimization (Otimização para Motores de Busca)" },
+                { id: 'c', text: "System Entry Organizer" },
+                { id: 'd', text: "Super Easy Operation" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! SEO é o conjunto de técnicas para fazer o teu site aparecer nos primeiros lugares do Google."
+        }
     ]
 };
 

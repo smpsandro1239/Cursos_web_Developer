@@ -3,396 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 19: Security Headers - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 19 do Curso HTML5 - Headers de segurança web">
+    <title>Módulo 19: Auditoria e Performance - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 19 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 19</span>
-                    <h1 class="module-title">Security Headers</h1>
-                    <p class="module-subtitle">Segurança web</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 1 aula</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 19 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Security Headers</h2>
-                        <p>Headers de segurança protegem seu site contra ataques comuns como XSS, clickjacking e code injection.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>🛡️ O que vamos aprender:</h3>
-                            <ul>
-                                <li>Content-Security-Policy (CSP)</li>
-                                <li>X-Frame-Options</li>
-                                <li>Meta tag CSP</li>
-                                <li>Melhores práticas de segurança</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "Segurança não é opcional. Proteja seu site e seus usuários!"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="security-concept">
-                                <div class="security-layers">
-                                    <div class="layer-item">
-                                        <span class="layer-icon">🔒</span>
-                                        <span class="layer-name">CSP</span>
-                                    </div>
-                                    <div class="layer-item">
-                                        <span class="layer-icon">🚫</span>
-                                        <span class="layer-name">X-Frame</span>
-                                    </div>
-                                    <div class="layer-item">
-                                        <span class="layer-icon">📋</span>
-                                        <span class="layer-name">Meta CSP</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Content-Security-Policy -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Content-Security-Policy</h2>
-                        <p>CSP define quais recursos podem ser carregados, prevenindo XSS e code injection.</p>
-
-                        <div class="code-example">
-                            <h4>📝 No servidor (.htaccess):</h4>
-                            <pre><code>Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com"</code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>🔧 No HTML (meta tag):</h4>
-                            <pre><code><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🎯 Diretivas comuns:</h3>
-                            <ul>
-                                <li><code>default-src</code>: Recursos padrão</li>
-                                <li><code>script-src</code>: JavaScript</li>
-                                <li><code>style-src</code>: CSS</li>
-                                <li><code>img-src</code>: Imagens</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="csp-demo">
-                                <div class="policy-visual">
-                                    <div class="policy-rule">
-                                        <span class="rule-type">script-src</span>
-                                        <span class="rule-value">'self' only</span>
-                                    </div>
-                                    <div class="policy-rule">
-                                        <span class="rule-type">img-src</span>
-                                        <span class="rule-value">https: allowed</span>
-                                    </div>
-                                    <div class="policy-rule blocked">
-                                        <span class="rule-type">script-src</span>
-                                        <span class="rule-value">external blocked</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: X-Frame-Options -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>X-Frame-Options</h2>
-                        <p>Previne clickjacking bloqueando seu site de ser embedado em frames de outros sites.</p>
-
-                        <div class="code-example">
-                            <h4>🚫 No servidor:</h4>
-                            <pre><code># Apache
-Header always set X-Frame-Options "SAMEORIGIN"
-
-# Nginx
-add_header X-Frame-Options "SAMEORIGIN";</code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>📝 Opções:</h4>
-                            <pre><code>X-Frame-Options: DENY        # Bloqueia todos os frames
-X-Frame-Options: SAMEORIGIN  # Permite frames do mesmo domínio
-X-Frame-Options: ALLOW-FROM https://exemplo.com  # Permite domínio específico</code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Dica:</strong> Use DENY para máxima segurança ou SAMEORIGIN para funcionalidade.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="frame-demo">
-                                <div class="frame-protection">
-                                    <div class="frame-attempt">
-                                        <span class="attempt-text">Site malicioso tentando embedar</span>
-                                        <span class="protection">🛡️ X-Frame-Options: DENY</span>
-                                    </div>
-                                    <div class="result">🚫 Bloqueado!</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Meta Tag CSP -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Meta Tag CSP</h2>
-                        <p>Para sites sem acesso ao servidor, use meta tags CSP no HTML.</p>
-
-                        <div class="code-example">
-                            <h4>📋 Meta tag no head:</h4>
-                            <pre><code><meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://trusted.cdn.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' data: https:;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://api.exemplo.com;
-"></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>⚠️ Limitações:</h3>
-                            <ul>
-                                <li>Não funciona para recursos externos</li>
-                                <li>Menos flexível que headers HTTP</li>
-                                <li>Útil para protótipos e sites estáticos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="meta-csp-demo">
-                                <div class="html-head">
-                                    <span class="head-title"><head></span>
-                                    <div class="meta-tag">
-                                        <span class="tag-content">Content-Security-Policy</span>
-                                    </div>
-                                    <span class="head-title"></head></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: Melhores Práticas -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Melhores Práticas de Segurança</h2>
-                        <p>Implemente uma estratégia de segurança em camadas para máxima proteção.</p>
-
-                        <div class="highlight-box">
-                            <h3>✅ Checklist de segurança:</h3>
-                            <ul>
-                                <li>HTTPS obrigatório (HSTS)</li>
-                                <li>CSP restritiva</li>
-                                <li>X-Frame-Options</li>
-                                <li>X-Content-Type-Options: nosniff</li>
-                                <li>Referrer-Policy</li>
-                                <li>Permissions-Policy</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>🔒 Headers completos:</h4>
-                            <pre><code>Strict-Transport-Security: max-age=31536000; includeSubDomains
-Content-Security-Policy: default-src 'self'
-X-Frame-Options: DENY
-X-Content-Type-Options: nosniff
-Referrer-Policy: strict-origin-when-cross-origin</code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="security-checklist">
-                                <div class="checklist-items">
-                                    <div class="check-item completed">
-                                        <span class="check-icon">✅</span>
-                                        <span class="check-text">HTTPS</span>
-                                    </div>
-                                    <div class="check-item completed">
-                                        <span class="check-icon">✅</span>
-                                        <span class="check-text">CSP</span>
-                                    </div>
-                                    <div class="check-item completed">
-                                        <span class="check-icon">✅</span>
-                                        <span class="check-text">X-Frame</span>
-                                    </div>
-                                    <div class="check-item completed">
-                                        <span class="check-icon">✅</span>
-                                        <span class="check-text">No Sniff</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 6</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Exercício Prático -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Implemente headers de segurança em uma página HTML!</p>
-
-                        <div class="exercise-box">
-                            <h3>🛡️ Site Seguro</h3>
-                            <p>Adicione todos os headers de segurança necessários.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Tarefas:</h4>
-                                <ol>
-                                    <li>Adicionar meta CSP</li>
-                                    <li>Configurar X-Frame-Options</li>
-                                    <li>Implementar outras meta tags de segurança</li>
-                                    <li>Testar com ferramentas online</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎉 Resultado:</h4>
-                            <div class="result-preview">
-                                <div class="secure-site">
-                                    <pre><code><!-- Headers de segurança -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-
-<!-- Site seguro! 🛡️ --></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <div class="security-implementation">
-                                    <div class="security-badge">🔒 Seguro</div>
-                                    <div class="threat-blocked">🚫 XSS Bloqueado</div>
-                                    <div class="threat-blocked">🚫 Clickjacking Bloqueado</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 6</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⚡</span>
+            </div>
+            <h1>Módulo 19: Auditoria e Performance</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-18.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-20.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 19:</strong> Security Headers | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, colocaste o teu site online! Agora que ele é público, precisas de garantir que é rápido, acessível a pessoas com deficiência e que o Google o consegue encontrar facilmente.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Como usar o <strong>Google Lighthouse</strong> para auditar o site.</li>
+                <li>✅ Otimização de Imagens e <strong>Lazy Loading</strong>.</li>
+                <li>✅ SEO Básico: Meta tags que fazem a diferença.</li>
+                <li>✅ Acessibilidade (a11y): Fazer um site para todos.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Nota de Final de Curso</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um site de sucesso é medido por quatro pilares: Performance (Velocidade), Acessibilidade (Uso por todos), Boas Práticas (Código limpo) e SEO (Ranking no Google). O Lighthouse é a ferramenta que nos dá estas notas.</p>
+                <div class="analogy">
+                    <h3>🏎️ Analogia: O Carro de Corrida</h3>
+                    <p>Pensa no teu site como um carro de Fórmula 1:</p>
+                    <ul>
+                        <li><strong>Performance</strong>: É a potência do motor. Se demorar 10 segundos a arrancar (carregar), perdes a corrida (o utilizador vai embora).</li>
+                        <li><strong>Acessibilidade</strong>: É garantir que o carro tem controlos para qualquer tipo de piloto.</li>
+                        <li><strong>SEO</strong>: São os patrocínios e a fama. Se ninguém souber que o teu carro existe, não ganhas prémios.</li>
+                        <li><strong>Auditoria (Lighthouse)</strong>: É a inspeção técnica antes da corrida. Se tiveres luz verde em tudo, estás pronto para o topo!</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Lazy Loading de Imagens</h3>
+                <p>Não carregues o que o utilizador ainda não vê.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- A carregar normalmente --&gt;
+&lt;img src="foto-pesada.jpg" alt="Descrição"&gt;
+
+&lt;!-- ✅ Com Otimização: Só carrega quando chega ao scroll --&gt;
+&lt;img src="foto-pesada.jpg" alt="Descrição" loading="lazy"&gt;</code></pre>
+                </div>
+                <p class="explanation">O atributo <code>loading="lazy"</code> é a forma mais fácil e eficaz de acelerar um site com muitas fotos.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: SEO Meta Tags</h3>
+                <p>O que o Google lê para o seu índice.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;head&gt;
+  &lt;title&gt;O Meu Portfólio de Developer&lt;/title&gt;
+  &lt;meta name="description" content="Especialista em HTML5 e CSS3. Vê os meus projetos mais recentes aqui."&gt;
+  &lt;link rel="canonical" href="https://omeusite.pt"&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+                <p class="explanation">Sem uma boa <code>description</code>, o Google inventa um texto qualquer que pode não ser atraente para quem pesquisa.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Acessibilidade com ARIA</h3>
+                <p>Ajudar os leitores de ecrã.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;button aria-label="Fechar Menu" class="btn-x"&gt;X&lt;/button&gt;</code></pre>
+                </div>
+                <p class="explanation">Para um utilizador cego, um botão que diz apenas "X" não faz sentido. O <code>aria-label</code> diz-lhe exatamente o que o botão faz.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos auditar o teu site:</p>
+                <ol class="steps-list">
+                    <li>Abre o teu site no Chrome.</li>
+                    <li>Prime <strong>F12</strong> e vai à aba <strong>Lighthouse</strong>.</li>
+                    <li>Clica em "Analyze page load".</li>
+                    <li>Observa as 4 bolinhas de pontuação.</li>
+                    <li>Se alguma estiver abaixo de 90 (laranja ou vermelho), segue as sugestões que o Chrome te dá para corrigir!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-19">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O <strong>Lighthouse</strong> é o melhor amigo do developer para medir qualidade.</li>
+                <li>📌 Mais de 40% dos utilizadores desistem de sites que demoram mais de 3 segundos a carregar.</li>
+                <li>📌 <strong>Imagens</strong> são quase sempre o principal motivo de lentidão.</li>
+                <li>📌 Um site profissional tem de ser <strong>Acessível</strong> (inclusivo) e <strong>Otimizado para SEO</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Formato do Futuro</h3>
+                <p>Qual é o formato de imagem recomendado pelo Lighthouse para substituir o .JPG e o .PNG por ser mais leve?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O formato <strong>WebP</strong> (ou AVIF). São formatos modernos criados pela Google que mantêm a qualidade mas ocupam muito menos espaço.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Contraste</h3>
+                <p>Porque é que o Lighthouse te pode dar uma nota baixa em Acessibilidade se usares texto cinzento claro sobre um fundo branco?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Por causa do <strong>contraste insuficiente</strong>. Pessoas com dificuldades visuais ou que estejam a usar o telemóvel ao sol não conseguirão ler o teu conteúdo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Tag de Ouro</h3>
+                <p>Qual é a tag HTML que NUNCA pode faltar num projeto para que o título apareça corretamente nos separadores do browser e no Google?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A tag <code>&lt;title&gt;</code> dentro do <code>&lt;head&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-18.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-20.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
