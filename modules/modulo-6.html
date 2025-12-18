@@ -3,816 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 6: Formulários - HTML5 do Zero ao Expert</title>
-    <meta name="description" content="Módulo 6 do Curso HTML5 - Formulários interativos">
+    <title>Módulo 6: Formulários - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="module-header">
+    <header class="header">
         <div class="container">
-            <div class="module-navigation">
-                <a href="../index.html" class="nav-back">
-                    <span class="nav-icon">←</span>
-                    Voltar ao Curso
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress">
-                    <span class="progress-text">Módulo 6 de 20</span>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="module-header-content">
-                <div class="module-info">
-                    <span class="module-number">MÓDULO 6</span>
-                    <h1 class="module-title">Formulários</h1>
-                    <p class="module-subtitle">Interatividade e coleta de dados</p>
-                </div>
-                <div class="module-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">👨‍🏫</span>
-                        <span>Professor: Sandro Pereira</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">⏱️</span>
-                        <span>Duracção: 3 aulas</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Ano: 2025</span>
-                    </div>
+                <div class="module-progress-header">
+                    <span>Módulo 6 de 20</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="module-content">
-        <div class="container">
-            <!-- Slide 1: Introdução -->
-            <section class="slide" id="slide-1">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Formulários em HTML5</h2>
-                        <p>Formulários permitem interacção com usuários, coleta de dados e envio de informações. São elementos essenciais para qualquer aplicacção web.</p>
+    <main class="container section">
 
-                        <div class="highlight-box">
-                            <h3>📝 O que vamos aprender:</h3>
-                            <ul>
-                                <li>Estrutura básica de formulários</li>
-                                <li>Diferentes tipos de inputs</li>
-                                <li>Validacção nativa</li>
-                                <li>Acessibilidade em formulários</li>
-                                <li>Formatacção avançada</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructor-card">
-                            <div class="instructor-avatar">👨‍🏫</div>
-                            <div class="instructor-info">
-                                <h4>Sandro Pereira</h4>
-                                <p>Professor e Desenvolvedor Web</p>
-                                <p class="instructor-message">
-                                    "Formulários bem construídos são a ponte entre usuários e sistemas. Acessibilidade e validacção são fundamentais!"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="form-concept">
-                                <div class="form-elements">
-                                    <div class="form-item">
-                                        <span class="form-icon">📝</span>
-                                        <span class="form-name">Inputs</span>
-                                    </div>
-                                    <div class="form-item">
-                                        <span class="form-icon">✅</span>
-                                        <span class="form-name">Validacção</span>
-                                    </div>
-                                    <div class="form-item">
-                                        <span class="form-icon">📤</span>
-                                        <span class="form-name">Envio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" disabled>Anterior</button>
-                    <span class="slide-counter">1 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 2: Estrutura Básica -->
-            <section class="slide" id="slide-2" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Estrutura Básica</h2>
-                        <p>Todo formulário precisa de um elemento <code><form></code> com os atributos <code>action</code> e <code>method</code>.</p>
-
-                        <div class="code-example">
-                            <h4>🏗️ Formulário básico:</h4>
-                            <pre><code><form action="/enviar" method="post">
-    <!-- Campos do formulário -->
-    <input type="text" name="nome">
-    <input type="email" name="email">
-    <button type="submit">Enviar</button>
-</form></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>🔧 Atributos importantes:</h3>
-                            <ul>
-                                <li><code>action</code> - URL para onde enviar dados</li>
-                                <li><code>method</code> - Método HTTP (GET ou POST)</li>
-                                <li><code>name</code> - Identificador do campo</li>
-                                <li><code>id</code> - Identificador único</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="form-structure">
-                                <form class="demo-form">
-                                    <div class="form-group">
-                                        <label for="demo-nome">Nome:</label>
-                                        <input type="text" id="demo-nome" name="nome" placeholder="Seu nome completo">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="demo-email">Email:</label>
-                                        <input type="email" id="demo-email" name="email" placeholder="seu@email.com">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Enviar Dados</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">2 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 3: Tipos de Input -->
-            <section class="slide" id="slide-3" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Tipos de Input</h2>
-                        <p>HTML5 oferece diversos tipos de inputs especializados, cada um com validacção e interface adequadas.</p>
-
-                        <div class="steps-list">
-                            <h3>📝 Principais tipos:</h3>
-                            <ol>
-                                <li><code>text</code> - Texto genérico</li>
-                                <li><code>email</code> - Validacção de email</li>
-                                <li><code>password</code> - Texto oculto</li>
-                                <li><code>number</code> - Apenas números</li>
-                                <li><code>tel</code> - Telefone</li>
-                                <li><code>url</code> - Endereços web</li>
-                                <li><code>search</code> - Campos de busca</li>
-                            </ol>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>💡 Exemplos:</h4>
-                            <pre><code><input type="email" name="email" required>
-<input type="number" name="idade" min="0" max="150">
-<input type="url" name="site" placeholder="https://..."></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="input-types-demo">
-                                <div class="input-grid">
-                                    <div class="input-item">
-                                        <label>Email:</label>
-                                        <input type="email" placeholder="usuario@exemplo.com" class="demo-input">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Idade:</label>
-                                        <input type="number" placeholder="25" min="0" max="150" class="demo-input">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Website:</label>
-                                        <input type="url" placeholder="https://exemplo.com" class="demo-input">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Busca:</label>
-                                        <input type="search" placeholder="Pesquisar..." class="demo-input">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">3 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 4: Labels e Acessibilidade -->
-            <section class="slide" id="slide-4" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Labels e Acessibilidade</h2>
-                        <p>Labels associam textos descritivos aos campos, melhorando drasticamente a acessibilidade e usabilidade.</p>
-
-                        <div class="code-example">
-                            <h4>🎯 Associacção correta:</h4>
-                            <pre><code><label for="nome">Nome completo:</label>
-<input type="text" id="nome" name="nome">
-
-<!-- Ou envolvendo o input -->
-<label>
-    Email: <input type="email" name="email">
-</label></code></pre>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h3>♿ Benefícios:</h3>
-                            <ul>
-                                <li>Clicar no label ativa o input</li>
-                                <li>Screen readers anunciam corretamente</li>
-                                <li>Melhora a experiência mobile</li>
-                                <li>Segue padrões de acessibilidade</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="label-demo">
-                                <form class="accessible-form">
-                                    <div class="form-group">
-                                        <label for="nome-acessivel" class="form-label">Nome completo:</label>
-                                        <input type="text" id="nome-acessivel" name="nome" class="form-input" required>
-                                        <small class="form-help">Digite seu nome completo</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email-acessivel" class="form-label">Email:</label>
-                                        <input type="email" id="email-acessivel" name="email" class="form-input" required>
-                                        <small class="form-help">seu@email.com</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">4 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 5: Validacção Nativa -->
-            <section class="slide" id="slide-5" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Validacção Nativa</h2>
-                        <p>HTML5 oferece validacção integrada usando atributos simples, sem necessidade de JavaScript complexo.</p>
-
-                        <div class="steps-list">
-                            <h3>🔍 Atributos de validacção:</h3>
-                            <ol>
-                                <li><code>required</code> - Campo obrigatório</li>
-                                <li><code>minlength/maxlength</code> - Tamanho do texto</li>
-                                <li><code>min/max</code> - Valores numéricos</li>
-                                <li><code>pattern</code> - Expressão regular</li>
-                                <li><code>type="email"</code> - Validacção de email</li>
-                            </ol>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>📝 Exemplos:</h4>
-                            <pre><code><input type="text" required minlength="3" maxlength="50">
-<input type="number" min="0" max="100">
-<input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="validation-demo">
-                                <form class="validation-form">
-                                    <div class="form-group">
-                                        <label>Nome (obrigatório, 3-50 caracteres):</label>
-                                        <input type="text" class="demo-input validation-input"
-                                               required minlength="3" maxlength="50"
-                                               placeholder="Digite seu nome">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Idade (0-150):</label>
-                                        <input type="number" class="demo-input validation-input"
-                                               min="0" max="150" value="25">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email (obrigatório):</label>
-                                        <input type="email" class="demo-input validation-input"
-                                               required placeholder="seu@email.com">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Validar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">5 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 6: Fieldset e Legend -->
-            <section class="slide" id="slide-6" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Fieldset e Legend</h2>
-                        <p><code><fieldset></code> agrupa elementos relacionados e <code><legend></code> fornece título para o grupo.</p>
-
-                        <div class="code-example">
-                            <h4>📋 Agrupamento lógico:</h4>
-                            <pre><code><fieldset>
-    <legend>Informações Pessoais</legend>
-    <label>Nome: <input type="text"></label>
-    <label>Email: <input type="email"></label>
-</fieldset>
-
-<fieldset>
-    <legend>Preferências</legend>
-    <label>Newsletter: <input type="checkbox"></label>
-</fieldset></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Dica:</strong> Use fieldset para agrupar seções lógicas do formulário, melhorando organizacção e acessibilidade.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="fieldset-demo">
-                                <form class="grouped-form">
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">👤 Dados Pessoais</legend>
-                                        <div class="fieldset-content">
-                                            <div class="form-group">
-                                                <label>Nome:</label>
-                                                <input type="text" class="form-input">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Email:</label>
-                                                <input type="email" class="form-input">
-                                            </div>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">⚙️ Configurações</legend>
-                                        <div class="fieldset-content">
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" name="newsletter">
-                                                    Receber newsletter
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" name="notificacoes">
-                                                    Notificações push
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">6 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 7: Select e Textarea -->
-            <section class="slide" id="slide-7" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Select e Textarea</h2>
-                        <p><code><select></code> cria listas dropdown e <code><textarea></code> permite texto multilinha.</p>
-
-                        <div class="code-example">
-                            <h4>📋 Select (dropdown):</h4>
-                            <pre><code><select name="pais">
-    <option value="pt">Portugal</option>
-    <option value="br">Brasil</option>
-    <option value="es">Espanha</option>
-</select></code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>📝 Textarea (texto longo):</h4>
-                            <pre><code><textarea name="mensagem" rows="5" cols="30">
-Texto inicial...
-</textarea></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="select-textarea-demo">
-                                <div class="form-grid">
-                                    <div class="form-item">
-                                        <label for="pais-demo">País:</label>
-                                        <select id="pais-demo" class="demo-select">
-                                            <option value="">Selecione...</option>
-                                            <option value="pt">🇵🇹 Portugal</option>
-                                            <option value="br">🇧🇷 Brasil</option>
-                                            <option value="es">🇪🇸 Espanha</option>
-                                            <option value="fr">🇫🇷 França</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-item">
-                                        <label for="mensagem-demo">Mensagem:</label>
-                                        <textarea id="mensagem-demo" class="demo-textarea" rows="4" cols="30"
-                                                  placeholder="Digite sua mensagem aqui..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">7 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 8: Checkbox e Radio -->
-            <section class="slide" id="slide-8" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Checkbox e Radio Buttons</h2>
-                        <p>Checkboxes permitem múltiplas seleções e radio buttons apenas uma opção dentro de um grupo.</p>
-
-                        <div class="code-example">
-                            <h4>☑️ Checkbox (múltipla escolha):</h4>
-                            <pre><code><label>
-    <input type="checkbox" name="interesses" value="html">
-    HTML5
-</label>
-<label>
-    <input type="checkbox" name="interesses" value="css">
-    CSS3
-</label></code></pre>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>🔘 Radio (escolha única):</h4>
-                            <pre><code><label>
-    <input type="radio" name="genero" value="M">
-    Masculino
-</label>
-<label>
-    <input type="radio" name="genero" value="F">
-    Feminino
-</label></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="checkbox-radio-demo">
-                                <form class="options-form">
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">🎯 Interesses (múltiplos)</legend>
-                                        <div class="fieldset-content">
-                                            <label class="checkbox-label">
-                                                <input type="checkbox" name="tech" value="html" class="checkbox-input">
-                                                <span class="checkbox-custom"></span>
-                                                HTML5
-                                            </label>
-                                            <label class="checkbox-label">
-                                                <input type="checkbox" name="tech" value="css" class="checkbox-input">
-                                                <span class="checkbox-custom"></span>
-                                                CSS3
-                                            </label>
-                                            <label class="checkbox-label">
-                                                <input type="checkbox" name="tech" value="js" class="checkbox-input">
-                                                <span class="checkbox-custom"></span>
-                                                JavaScript
-                                            </label>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">⭐ Nível de experiência</legend>
-                                        <div class="fieldset-content">
-                                            <label class="radio-label">
-                                                <input type="radio" name="nivel" value="iniciante" class="radio-input">
-                                                <span class="radio-custom"></span>
-                                                Iniciante
-                                            </label>
-                                            <label class="radio-label">
-                                                <input type="radio" name="nivel" value="intermediario" class="radio-input">
-                                                <span class="radio-custom"></span>
-                                                Intermediário
-                                            </label>
-                                            <label class="radio-label">
-                                                <input type="radio" name="nivel" value="avancado" class="radio-input">
-                                                <span class="radio-custom"></span>
-                                                Avançado
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">8 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 9: Inputs Modernos -->
-            <section class="slide" id="slide-9" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Inputs Modernos do HTML5</h2>
-                        <p>HTML5 introduziu novos tipos de inputs com interfaces nativas especializadas.</p>
-
-                        <div class="steps-list">
-                            <h3>🚀 Novos tipos:</h3>
-                            <ol>
-                                <li><code>date</code> - Seletor de data</li>
-                                <li><code>time</code> - Seletor de hora</li>
-                                <li><code>color</code> - Seletor de cor</li>
-                                <li><code>range</code> - Slider numérico</li>
-                                <li><code>file</code> - Upload de arquivos</li>
-                            </ol>
-                        </div>
-
-                        <div class="code-example">
-                            <h4>💡 Exemplos modernos:</h4>
-                            <pre><code><input type="date" name="nascimento">
-<input type="color" name="cor-favorita">
-<input type="range" name="volume" min="0" max="100"></code></pre>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="modern-inputs-demo">
-                                <div class="modern-grid">
-                                    <div class="input-item">
-                                        <label>Data de nascimento:</label>
-                                        <input type="date" class="modern-input">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Cor favorita:</label>
-                                        <input type="color" class="modern-input">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Volume (0-100):</label>
-                                        <input type="range" class="modern-input" min="0" max="100" value="50">
-                                    </div>
-                                    <div class="input-item">
-                                        <label>Upload de arquivo:</label>
-                                        <input type="file" class="modern-input" accept="image/*">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">9 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 10: Datalist -->
-            <section class="slide" id="slide-10" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Datalist - Sugestões</h2>
-                        <p><code><datalist></code> fornece sugestões enquanto o usuário digita, combinando input de texto com lista dropdown.</p>
-
-                        <div class="code-example">
-                            <h4>📝 Como usar:</h4>
-                            <pre><code><label>Linguagem favorita:</label>
-<input type="text" list="linguagens" name="linguagem">
-
-<datalist id="linguagens">
-    <option value="HTML5">
-    <option value="CSS3">
-    <option value="JavaScript">
-    <option value="Python">
-    <option value="PHP">
-</datalist></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>💡 Dica:</strong> Datalist é perfeito para campos como países, cidades, cores ou qualquer lista pré-definida.
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="datalist-demo">
-                                <div class="form-item">
-                                    <label for="linguagem-demo">Linguagem de programacção favorita:</label>
-                                    <input type="text" id="linguagem-demo" list="linguagens-list" class="demo-input" placeholder="Digite ou selecione...">
-                                    <datalist id="linguagens-list">
-                                        <option value="HTML5">
-                                        <option value="CSS3">
-                                        <option value="JavaScript">
-                                        <option value="Python">
-                                        <option value="PHP">
-                                        <option value="Java">
-                                        <option value="C#">
-                                        <option value="Ruby">
-                                    </datalist>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">10 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 11: Exercício Prático -->
-            <section class="slide" id="slide-11" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Exercício Prático</h2>
-                        <p>Vamos criar um formulário completo de reserva de hostel!</p>
-
-                        <div class="exercise-box">
-                            <h3>🏨 Formulário de Reserva</h3>
-                            <p>Crie um formulário com todos os elementos aprendidos para reserva de hospedagem.</p>
-
-                            <div class="exercise-steps">
-                                <h4>📋 Requisitos:</h4>
-                                <ol>
-                                    <li>Dados pessoais (nome, email, telefone)</li>
-                                    <li>Datas de check-in e check-out</li>
-                                    <li>Tipo de quarto (radio buttons)</li>
-                                    <li>Serviços extras (checkboxes)</li>
-                                    <li>Observações (textarea)</li>
-                                    <li>Validacção completa</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="expected-result">
-                            <h4>🎯 Funcionalidades esperadas:</h4>
-                            <ul>
-                                <li>✅ Validacção de email obrigatório</li>
-                                <li>✅ Datas válidas (check-out após check-in)</li>
-                                <li>✅ Pelo menos um serviço selecionado</li>
-                                <li>✅ Campos obrigatórios marcados</li>
-                                <li>✅ Acessibilidade completa</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="exercise-demo">
-                                <form class="hostel-form">
-                                    <h3>🏨 Reserva - Hostel Lisboa</h3>
-
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">👤 Dados Pessoais</legend>
-                                        <div class="form-group">
-                                            <label for="nome-hospede">Nome completo *</label>
-                                            <input type="text" id="nome-hospede" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-hospede">Email *</label>
-                                            <input type="email" id="email-hospede" required>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">📅 Período da Estadia</legend>
-                                        <div class="form-group">
-                                            <label for="checkin">Check-in *</label>
-                                            <input type="date" id="checkin" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="checkout">Check-out *</label>
-                                            <input type="date" id="checkout" required>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="form-fieldset">
-                                        <legend class="fieldset-legend">🛏️ Tipo de Quarto</legend>
-                                        <label class="radio-label">
-                                            <input type="radio" name="quarto" value="individual" required>
-                                            Individual - €45/noite
-                                        </label>
-                                        <label class="radio-label">
-                                            <input type="radio" name="quarto" value="duplo">
-                                            Duplo - €65/noite
-                                        </label>
-                                        <label class="radio-label">
-                                            <input type="radio" name="quarto" value="suite">
-                                            Suite - €95/noite
-                                        </label>
-                                    </fieldset>
-
-                                    <button type="submit" class="btn btn-success">Reservar Agora</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">11 / 12</span>
-                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
-                </div>
-            </section>
-
-            <!-- Slide 12: Conclusão -->
-            <section class="slide" id="slide-12" style="display: none;">
-                <div class="slide-content">
-                    <div class="slide-text">
-                        <h2>Conclusão do Módulo</h2>
-                        <p>Parabéns! Você aprendeu a criar formulários completos, acessíveis e validados em HTML5.</p>
-
-                        <div class="highlight-box">
-                            <h3>📚 O que aprendemos:</h3>
-                            <ul>
-                                <li>✅ Estrutura básica de formulários</li>
-                                <li>✅ Todos os tipos de inputs</li>
-                                <li>✅ Validacção nativa HTML5</li>
-                                <li>✅ Acessibilidade com labels</li>
-                                <li>✅ Agrupamento com fieldset</li>
-                                <li>✅ Formulários práticos completos</li>
-                            </ul>
-                        </div>
-
-                        <div class="tip-box">
-                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre semântica HTML5, estruturando documentos de forma profissional!
-                        </div>
-                    </div>
-                    <div class="slide-visual">
-                        <div class="visual-container">
-                            <div class="completion-celebration">
-                                <div class="celebration-icon">🎉</div>
-                                <div class="celebration-text">
-                                    <h3>Módulo 6 Completo!</h3>
-                                    <p>Você domina formulários HTML5!</p>
-                                </div>
-                                <div class="next-module">
-                                    <span class="next-arrow">→</span>
-                                    <span class="next-text">Módulo 7: Semântica HTML5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-navigation">
-                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
-                    <span class="slide-counter">12 / 12</span>
-                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
-                </div>
-            </section>
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📝</span>
+            </div>
+            <h1>Módulo 6: Formulários Interativos</h1>
         </div>
-    </main>
 
-    <footer class="module-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="module-nav">
-                    <a href="modulo-5.html" class="btn btn-secondary">← Módulo Anterior</a>
-                    <a href="modulo-7.html" class="btn btn-primary">Próximo Módulo →</a>
-                </div>
-                <div class="module-info">
-                    <p><strong>Módulo 6:</strong> Formulários | Professor: Sandro Pereira | 2025</p>
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a organizar dados em <strong>Tabelas</strong>. Agora, vamos aprender como permitir que o utilizador envie os seus próprios dados para o site através de <strong>Formulários</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Criar a estrutura base de um formulário com <code>&lt;form&gt;</code>.</li>
+                <li>✅ Usar diferentes tipos de <code>&lt;input&gt;</code> (texto, email, password).</li>
+                <li>✅ Implementar <code>&lt;label&gt;</code> para acessibilidade.</li>
+                <li>✅ Validar campos obrigatoriamente sem usar JavaScript.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Ficha de Inscrição</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um formulário é a principal forma de interatividade na web. Serve para logins, registos, pesquisas e pedidos.</p>
+                <div class="analogy">
+                    <h3>📄 Analogia: A Receção de um Hotel</h3>
+                    <p>Imagina que estás a fazer o check-in num hotel:</p>
+                    <ul>
+                        <li><strong>&lt;form&gt;</strong>: É o balcão da receção onde tudo acontece.</li>
+                        <li><strong>&lt;input&gt;</strong>: São as linhas em branco na ficha que tens de preencher.</li>
+                        <li><strong>&lt;label&gt;</strong>: É o texto ao lado da linha que diz "Nome:" ou "Data de Nascimento:".</li>
+                        <li><strong>type="password"</strong>: É como escreveres o teu código do cofre (ninguém deve ver o que escreves).</li>
+                        <li><strong>button type="submit"</strong>: É o ato de entregares a ficha preenchida ao rececionista.</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Formulário de Contacto Simples</h3>
+                <p>A base de qualquer formulário.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;form action="/enviar" method="POST"&gt;
+  &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+  &lt;input type="text" id="nome" name="usuario_nome" required&gt;
+
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="usuario_email"&gt;
+
+  &lt;button type="submit"&gt;Enviar Mensagem&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+                <p class="explanation">O atributo <code>for</code> no label deve ser igual ao <code>id</code> do input para estarem ligados.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Escolhas e Seleções</h3>
+                <p>Radios, Checkboxes e Selects.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Escolha única --&gt;
+&lt;p&gt;Género:&lt;/p&gt;
+&lt;input type="radio" name="sexo" value="m" id="masc"&gt; &lt;label for="masc"&gt;Masculino&lt;/label&gt;
+&lt;input type="radio" name="sexo" value="f" id="fem"&gt; &lt;label for="fem"&gt;Feminino&lt;/label&gt;
+
+&lt;!-- Menu Suspenso --&gt;
+&lt;label for="pais"&gt;País:&lt;/label&gt;
+&lt;select id="pais"&gt;
+  &lt;option value="pt"&gt;Portugal&lt;/option&gt;
+  &lt;option value="br"&gt;Brasil&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                </div>
+                <p class="explanation">Inputs do tipo <code>radio</code> com o mesmo <code>name</code> permitem apenas uma seleção no grupo.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Elementos Modernos</h3>
+                <p>Aproveita o poder do HTML5.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;label&gt;Data de Nascimento: &lt;input type="date"&gt;&lt;/label&gt;
+&lt;label&gt;Volume: &lt;input type="range" min="0" max="100"&gt;&lt;/label&gt;
+&lt;label&gt;Cor do Site: &lt;input type="color"&gt;&lt;/label&gt;
+&lt;textarea placeholder="Escreve aqui a tua mensagem..."&gt;&lt;/textarea&gt;</code></pre>
+                </div>
+                <p class="explanation">O <code>textarea</code> é usado para blocos grandes de texto, como comentários.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um formulário de "Subscrição de Newsletter":</p>
+                <ol class="steps-list">
+                    <li>Cria uma tag <code>&lt;form&gt;</code>.</li>
+                    <li>Cria um campo de texto para o "Primeiro Nome" e usa um <code>label</code>.</li>
+                    <li>Cria um campo de email e torna-o <strong>obrigatório</strong> (<code>required</code>).</li>
+                    <li>Adiciona uma <code>checkbox</code> que diz "Aceito os termos e condições".</li>
+                    <li>Termina com um botão de "Subscrever".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-6">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Um formulário começa sempre com a tag <strong>&lt;form&gt;</strong>.</li>
+                <li>📌 O atributo <strong>type</strong> define se o input é texto, email, senha, etc.</li>
+                <li>📌 Usa sempre <strong>&lt;label&gt;</strong> para que o teu site seja acessível a todos.</li>
+                <li>📌 O atributo <strong>required</strong> faz a validação automática no navegador.</li>
+                <li>📌 O botão de envio deve ter <code>type="submit"</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Campo Fantasma</h3>
+                <p>Como criarias um campo que já vem com um texto de ajuda (ex: "exemplo@mail.com") que desaparece quando o utilizador clica?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando o atributo <code>placeholder</code>. Exemplo: <code>&lt;input type="email" placeholder="exemplo@mail.com"&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Cria um Inquérito</h3>
+                <p>Cria um código que pergunte "Qual a tua linguagem favorita?" com 3 opções de escolha única (HTML, CSS, JS).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;p&gt;Qual a tua linguagem favorita?&lt;/p&gt;
+&lt;input type="radio" name="fav" value="h" id="h"&gt; &lt;label for="h"&gt;HTML&lt;/label&gt;
+&lt;input type="radio" name="fav" value="c" id="c"&gt; &lt;label for="c"&gt;CSS&lt;/label&gt;
+&lt;input type="radio" name="fav" value="j" id="j"&gt; &lt;label for="j"&gt;JS&lt;/label&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Segredo Absoluto</h3>
+                <p>Qual é o tipo de input que esconde os caracteres trocando-os por pontos ou asteriscos?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O <code>type="password"</code>. Exemplo: <code>&lt;input type="password"&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-5.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-7.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
         </div>
     </footer>
 
-    <script src="../js/module.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

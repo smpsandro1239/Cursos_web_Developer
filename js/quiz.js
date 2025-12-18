@@ -175,6 +175,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! <code>&lt;th&gt;</code> (Table Header) é usado semanticamente para títulos de colunas ou linhas."
         }
+    ],
+    'module-6': [
+        {
+            question: "Qual atributo define o tipo de dado que um &lt;input&gt; vai receber?",
+            options: [
+                { id: 'a', text: "kind" },
+                { id: 'b', text: "type" },
+                { id: 'c', text: "format" },
+                { id: 'd', text: "value" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O atributo <code>type</code> define se o campo é texto, email, senha, etc."
+        },
+        {
+            question: "Qual tag é usada para associar um texto a um campo de formulário, melhorando a acessibilidade?",
+            options: [
+                { id: 'a', text: "&lt;description&gt;" },
+                { id: 'b', text: "&lt;text&gt;" },
+                { id: 'c', text: "&lt;label&gt;" },
+                { id: 'd', text: "&lt;caption&gt;" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A tag <code>&lt;label&gt;</code> conecta o texto ao campo via atributo <code>for</code> ou envolvendo o input."
+        },
+        {
+            question: "Como indicar que um campo é de preenchimento obrigatório apenas com HTML?",
+            options: [
+                { id: 'a', text: "Usando o atributo 'must'" },
+                { id: 'b', text: "Usando o atributo 'validate'" },
+                { id: 'c', text: "Usando o atributo 'mandatory'" },
+                { id: 'd', text: "Usando o atributo 'required'" }
+            ],
+            correct: 'd',
+            explanation: "✅ Correto! O atributo booleano <code>required</code> impede o envio do formulário se o campo estiver vazio."
+        }
     ]
 };
 
