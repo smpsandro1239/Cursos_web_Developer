@@ -558,6 +558,181 @@ const QUIZ_DATA_CSS = {
             correct: 'b',
             explanation: "✅ Correto! Seguindo a regra Bloco__Elemento, .hero__cta (Call to Action) é uma excelente escolha."
         }
+    ],
+    'modulo-16': [
+        {
+            question: "Qual a propriedade principal para criar o efeito de desfoque no fundo (Glassmorphism)?",
+            options: [
+                { id: 'a', text: "filter: blur();" },
+                { id: 'b', text: "backdrop-filter: blur();" },
+                { id: 'c', text: "background-blur: 10px;" },
+                { id: 'd', text: "opacity: 0.5;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O backdrop-filter aplica o efeito ao que está POR TRÁS do elemento, criando o aspeto de vidro."
+        },
+        {
+            question: "Como se chama a técnica de design que imita vidro fosco, sombras suaves e cores vibrantes?",
+            options: [
+                { id: 'a', text: "Neumorphism" },
+                { id: 'b', text: "Glassmorphism" },
+                { id: 'c', text: "Material Design" },
+                { id: 'd', text: "Flat Design 2.0" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Glassmorphism é uma das tendências mais premium do design moderno."
+        },
+        {
+            question: "Para o Glassmorphism funcionar bem, como deve ser a cor de fundo (background-color) do elemento?",
+            options: [
+                { id: 'a', text: "Preto sólido" },
+                { id: 'b', text: "Semi-transparente (usando RGBA ou HSLA)" },
+                { id: 'c', text: "Totalmente transparente" },
+                { id: 'd', text: "Uma imagem de alta resolução" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Uma cor semi-transparente permite que o desfoque do fundo seja visível."
+        }
+    ],
+    'modulo-17': [
+        {
+            question: "Para um elemento ter um efeito 3D real ao ser rodado, qual propriedade deve estar no elemento PAI?",
+            options: [
+                { id: 'a', text: "transform: rotate3d();" },
+                { id: 'b', text: "perspective: 1000px;" },
+                { id: 'c', text: "z-index: 99;" },
+                { id: 'd', text: "display: block;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A propriedade 'perspective' define a distância do observador ao plano 3D, criando a ilusão de profundidade."
+        },
+        {
+            question: "Qual função de transformação permite mover um elemento no eixo da profundidade (aproximar ou afastar do ecrã)?",
+            options: [
+                { id: 'a', text: "transform: translateX();" },
+                { id: 'b', text: "transform: translateY();" },
+                { id: 'c', text: "transform: translateZ();" },
+                { id: 'd', text: "transform: scale();" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O eixo Z representa a profundidade no espaço 3D."
+        },
+        {
+            question: "O que faz a propriedade transform-style: preserve-3d;?",
+            options: [
+                { id: 'a', text: "Garante que os elementos filhos também se comportam no espaço 3D em vez de ficarem 'achatados'" },
+                { id: 'b', text: "Muda a cor do elemento para 3D" },
+                { id: 'c', text: "Guarda o estado da animação" },
+                { id: 'd', text: "Otimiza a performance da placa gráfica" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! Sem esta propriedade, os sub-elementos seriam renderizados de forma plana (2D) dentro do pai."
+        }
+    ],
+    'modulo-18': [
+        {
+            question: "Qual a principal diferença entre o Tailwind CSS e o Bootstrap?",
+            options: [
+                { id: 'a', text: "Bootstrap é para imagens, Tailwind é para texto" },
+                { id: 'b', text: "Bootstrap oferece componentes prontos (ex: botões feitos), Tailwind oferece classes utilitárias (ex: p-4, bg-red) para construíres os teus componentes" },
+                { id: 'c', text: "Tailwind só funciona em telemóveis" },
+                { id: 'd', text: "O Bootstrap é gratuito e o Tailwind é pago" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Bootstrap é focado em velocidade de componentes, enquanto o Tailwind foca em flexibilidade total sem sair do HTML."
+        },
+        {
+            question: "Quando é que deves escolher Vanilla CSS em vez de uma biblioteca?",
+            options: [
+                { id: 'a', text: "Nunca, bibliotecas são sempre melhores" },
+                { id: 'b', text: "Em projetos muito pequenos ou quando precisas de controlo total e performance extrema sem carregar ficheiros extras" },
+                { id: 'c', text: "Apenas se não souberes usar JavaScript" },
+                { id: 'd', text: "Quando o cliente não tem internet" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Vanilla CSS (puro) é a base de tudo e não tem o 'overhead' (peso extra) das bibliotecas."
+        },
+        {
+            question: "O que é um 'Utility-first CSS framework'?",
+            options: [
+                { id: 'a', text: "Uma framework que já vem com JavaScript" },
+                { id: 'b', text: "Uma framework focada em classes pequenas que fazem apenas uma coisa (ex: flex, text-center)" },
+                { id: 'c', text: "Uma framework fácil de hackear" },
+                { id: 'd', text: "Um plugin para o VS Code" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Tailwind é o maior exemplo deste conceito, onde constróis o design combinando estas pequenas utilidades."
+        }
+    ],
+    'modulo-19': [
+        {
+            question: "O que é a 'Minificação' de um ficheiro CSS?",
+            options: [
+                { id: 'a', text: "Diminuir o tamanho das letras" },
+                { id: 'b', text: "Remover todos os espaços, comentários e quebras de linha para reduzir o peso do ficheiro" },
+                { id: 'c', text: "Escrever o código em minúsculas" },
+                { id: 'd', text: "Apagar metade das propriedades" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A minificação reduz o tempo de download do CSS, tornando o site mais rápido."
+        },
+        {
+            question: "Qual ferramenta do Google Chrome permite auditar a performance e o SEO do teu site?",
+            options: [
+                { id: 'a', text: "Lighthouse" },
+                { id: 'b', text: "Shadow DOM" },
+                { id: 'c', text: "CSS Scanner" },
+                { id: 'd', text: "Console.log" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! O Lighthouse é a ferramenta padrão para verificar se o teu site segue as melhores práticas."
+        },
+        {
+            question: "Por que deves evitar seletores muito complexos (ex: body div article section ul li a)?",
+            options: [
+                { id: 'a', text: "Porque ficam mal na consola" },
+                { id: 'b', text: "Porque tornam o processo de renderização do browser mais lento e o código difícil de manter" },
+                { id: 'c', text: "Porque o CSS não suporta mais que 3 níveis" },
+                { id: 'd', text: "Porque as cores param de funcionar" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Seletores curtos e diretos (como classes BEM) são processados muito mais rapidamente pelo browser."
+        }
+    ],
+    'modulo-20': [
+        {
+            question: "Qual o objetivo principal de um 'Projeto Final' de curso?",
+            options: [
+                { id: 'a', text: "Decorar todas as propriedades" },
+                { id: 'b', text: "Aplicar todos os conhecimentos (Layout, Cores, Responsividade, Animações) de forma integrada num produto real" },
+                { id: 'c', text: "Completar o curso o mais rápido possível" },
+                { id: 'd', text: "Aprender uma nova linguagem" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! É no projeto final que juntas todas as peças do puzzle para criares algo de que te possas orgulhar."
+        },
+        {
+            question: "Ao construir uma Landing Page completa, qual deve ser a tua primeira preocupação?",
+            options: [
+                { id: 'a', text: "Escolher as cores" },
+                { id: 'b', text: "Planear a estrutura HTML e os blocos principais (Header, Hero, Secções, Footer)" },
+                { id: 'c', text: "Fazer as animações" },
+                { id: 'd', text: "Otimizar as imagens" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Uma boa estrutura é a base de qualquer design Premium e código fácil de manter."
+        },
+        {
+            question: "Qual destas práticas garante que a tua Landing Page Final é 'Profissional'?",
+            options: [
+                { id: 'a', text: "Usar apenas uma cor" },
+                { id: 'b', text: "Mudar as fontes em cada parágrafo" },
+                { id: 'c', text: "Usar variáveis CSS, metodologia BEM e garantir que o site é responsivo em todos os ecrãs" },
+                { id: 'd', text: "Evitar usar Flexbox" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Estas são as ferramentas que distinguem um amador de um developer profissional."
+        }
     ]
 };
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 18: Bibliotecas CSS (Tailwind vs Vanilla) - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 18 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🛠️</span>
+            </div>
+            <h1>Módulo 18: Bibliotecas e o Futuro do CSS</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 17</strong>, dominámos as transformações 3D e a perspetiva. Agora que és um mestre do CSS puro (Vanilla), vamos olhar para as ferramentas que as grandes empresas usam para acelerar o trabalho.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que são Frameworks e Bibliotecas CSS.</li>
+                <li>✅ <strong>Bootstrap</strong>: Componentes prontos a usar.</li>
+                <li>✅ <strong>Tailwind CSS</strong>: Utilidades e flexibilidade total.</li>
+                <li>✅ Quando usar cada um (e quando não usar nenhum).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria: A Caixa de Ferramentas -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Porquê usar Frameworks?</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Escrever CSS do zero para cada projeto é excelente para aprender, mas em ambiente profissional, o tempo é dinheiro. As frameworks oferecem soluções testadas para problemas comuns (como grelhas responsivas, botões e menus) para que não tenhas de "reinventar a roda".</p>
+                <div class="analogy">
+                    <h3>🛠️ Analogia: Cozinhar em Casa vs. IKEA de Móveis</h3>
+                    <p>Imagina que queres mobilar uma casa:</p>
+                    <ul>
+                        <li><strong>Vanilla CSS (Cozinhar do Zero)</strong>: Tu vais buscar a madeira, cortas, lixas e montas o móvel. Demora muito tempo, mas o móvel é EXATAMENTE como tu queres, único no mundo.</li>
+                        <li><strong>Bootstrap (Packs de Móveis Prontos)</strong>: Compras o sofá, a mesa e as cadeiras já montadas. É super rápido e fica bonito, mas a tua casa vai parecer igual a muitas outras.</li>
+                        <li><strong>Tailwind (LEGO Técnico)</strong>: Recebes centenas de peças pequenas (utilidades). Podes montar o que quiseres muito depressa, mas ainda tens de decidir tu onde cada peça encaixa. É o equilíbrio perfeito entre velocidade e personalização!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Comparação -->
+        <section class="lesson-step">
+            <h2>5. Comparação Real: Criar um Botão Azul</h2>
+
+            <div class="code-example-card">
+                <h3>Opção A: Vanilla CSS</h3>
+                <div class="code-window">
+                    <pre><code class="language-css">/* No CSS */
+.meu-botao {
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+/* No HTML */
+&lt;button class="meu-botao"&gt;Click&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Opção B: Tailwind CSS</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Tudo no HTML, sem ficheiro CSS extra! --&gt;
+&lt;button class="bg-blue-500 px-4 py-2 rounded-md text-white"&gt;
+  Click
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Opção C: Bootstrap</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Componente pré-estilizado --&gt;
+&lt;button class="btn btn-primary"&gt;
+  Click
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez de Decidir!</h2>
+            <div class="practice-guide">
+                <p>Lê os cenários abaixo e decide qual ferramenta usarias:</p>
+                <ol class="steps-list">
+                    <li><strong>Cenário 1</strong>: Precisas de criar um painel de administração interno para uma empresa em apenas 2 dias. (Dica: Bootstrap).</li>
+                    <li><strong>Cenário 2</strong>: Estás a criar o teu portfólio pessoal e queres um design totalmente único e muito leve. (Dica: Vanilla CSS).</li>
+                    <li><strong>Cenário 3</strong>: Estás a trabalhar numa Startup onde o design muda todas as semanas e precisas de ser muito rápido a testar novas ideias. (Dica: Tailwind).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-18">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Ecossistema</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Vanilla CSS</strong>: A base. Controlo total, sem dependências.</li>
+                <li>📌 <strong>Bootstrap</strong>: Ideal para rapidez e componentes standard.</li>
+                <li>📌 <strong>Tailwind</strong>: O favorito atual dos developers pela flexibilidade.</li>
+                <li>📌 Nenhuma biblioteca substitui o conhecimento de CSS puro!</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Reflexão Final</h2>
+
+            <div class="challenge-card">
+                <h3>A Armadilha das Bibliotecas</h3>
+                <p>Se usares uma biblioteca sem saber CSS puro, o que acontece quando precisas de mudar algo que a biblioteca não oferece de origem?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Ficas bloqueado. O verdadeiro poder de um developer é saber usar a biblioteca para ganhar velocidade, mas saber escrever o seu próprio CSS para resolver problemas complexos.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-17.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-19.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
