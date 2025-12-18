@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 13: HttpClient II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 13 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔄</span>
+            </div>
+            <h1>Módulo 13: HttpClient II (CRUD Completo)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 12</strong>, aprendemos a usar o <code>.get()</code> para ler dados da internet. Agora, vamos fechar o ciclo do <strong>CRUD</strong> (Create, Read, Update, Delete). Vais aprender a enviar novos dados, atualizar os existentes e apagar o que já não precisas.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="learning-goals">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul>
+                <li>✅ <strong>POST</strong>: Criar novos recursos.</li>
+                <li>✅ <strong>PUT e PATCH</strong>: Atualizar dados salvos.</li>
+                <li>✅ <strong>DELETE</strong>: Remover dados do servidor.</li>
+                <li>✅ Enviar <strong>Headers</strong> (Cabeçalhos) e lidar com o <strong>Body</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Gestão do Arquivo</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Comunicar com um servidor não é só ler. É uma conversa de ida e volta. Para cada tipo de ação, o protocolo HTTP tem um "verbo" específico. Usar o verbo certo é a base de uma API bem feita (REST).</p>
+                <div class="analogy">
+                    <h3>📁 Analogia: O Arquivista</h3>
+                    <p>Imagina que trabalhas num arquivo de documentos:</p>
+                    <ul>
+                        <li><strong>POST</strong>: Tu chegas com um novo dossiê e entregas ao arquivista para ele guardar (Criar).</li>
+                        <li><strong>PUT</strong>: Tu pedes um dossiê, riscas tudo e escreves informações novas por cima do papel antigo (Substituir).</li>
+                        <li><strong>PATCH</strong>: Tu pedes um dossiê e apenas colas um post-it com um detalhe corrigido (Atualizar parcial).</li>
+                        <li><strong>DELETE</strong>: Tu dizes ao arquivista: "Tritura este dossiê, por favor" (Apagar).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Criar (POST)</h3>
+                <p>Enviar um objeto para ser guardado.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">novoUser = { nome: 'Sandro', job: 'Dev' };
+
+this.http.post('https://api.com/users', this.novoUser)
+  .subscribe(res => {
+    console.log('Utilizador criado com sucesso!', res);
+  });</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Atualizar (PUT)</h3>
+                <p>Mudar os dados de um ID específico.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">userEditado = { id: 5, nome: 'Sandro Editado' };
+
+this.http.put('https://api.com/users/5', this.userEditado)
+  .subscribe(() => alert('Atualizado!'));</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Apagar (DELETE)</h3>
+                <p>Remover um item pelo seu ID.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">this.http.delete('https://api.com/users/5')
+  .subscribe(() => {
+    console.log('O utilizador 5 desapareceu!');
+  });</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Gestor de Tarefas Remoto":</p>
+                <ol class="steps-list">
+                    <li>No teu <code>TodoService</code>, cria uma função <code>addTodo(titulo: string)</code>.</li>
+                    <li>Usa o <code>this.http.post</code> para enviar a tarefa para <code>https://jsonplaceholder.typicode.com/todos</code>.</li>
+                    <li>Cria uma função <code>deleteTodo(id: number)</code> que usa o <code>delete</code> apontando para a URL com o ID no fim.</li>
+                    <li>No componente, cria botões de "Adicionar" e "Remover" que chamam estas funções.</li>
+                    <li>Verifica na consola do browser (separador Network) os pedidos a serem feitos!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-13">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **POST** envia dados novos no corpo (body) do pedido.</li>
+                <li>📌 **PUT** substitui o recurso inteiro; **PATCH** faz atualizações parciais.</li>
+                <li>📌 **DELETE** remove o recurso (normalmente identificado pelo ID na URL).</li>
+                <li>📌 O HttpClient facilita o envio de **Cabeçalhos** (Headers) para autenticação.</li>
+                <li>📌 Deves sempre subscrever os métodos, senão o pedido nunca é enviado!</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Onde está o ID?</h3>
+                <p>Porque é que no método <code>POST</code> não enviamos o ID na URL, mas no <code>PUT</code> e no <code>DELETE</code> enviamos?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> No POST estás a criar algo novo, logo ele ainda não tem ID (quem o cria é normalmente a base de dados). No PUT e DELETE estás a falar de algo que **já existe**, por isso tens de dizer exatamente "qual" é através do ID.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Erros de Resposta</h3>
+                <p>O que acontece se tentares dar <code>DELETE</code> num ID que não existe? O Angular rebenta?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O Angular não rebenta, mas o servidor vai devolver um erro (normalmente **404 Not Found**). Deves usar o bloco <code>error</code> do subscribe para mostrar um aviso ao utilizador.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Headers de Segurança</h3>
+                <p>Se a tua API exigir um "Token de Acesso" para deixares apagar dados, onde é que esse token deve ser colocado no código do HttpClient?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Deve ser colocado nos **HttpHeaders**. Ex: <code>const headers = new HttpHeaders().set('Authorization', 'Bearer token'); this.http.delete(url, { headers });</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-12.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-14.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

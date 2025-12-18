@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 15: Formulários Reativos II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 15 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🛡️</span>
+            </div>
+            <h1>Módulo 15: Formulários Reativos II (Validações Complexas)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 14</strong>, aprendemos a estrutura básica dos Formulários Reativos e usamos validadores padrão como <code>required</code> e <code>email</code>. Agora, vamos subir o nível e aprender a criar as nossas próprias regras de validação personalizadas.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Criar <strong>Custom Validators</strong> (Validadores Personalizados).</li>
+                <li>✅ Validar múltiplos campos ao mesmo tempo (Cross-field Validation).</li>
+                <li>✅ Introdução aos <strong>Validadores Assíncronos</strong>.</li>
+                <li>✅ Usar o <strong>FormBuilder</strong> para um código mais limpo.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Regras por Medida</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Nem tudo no mundo é apenas um email ou um campo obrigatório. Por vezes precisas de validar se uma senha e a sua confirmação são iguais, ou se um nome de utilizador já existe no servidor. Para isso, criamos funções que o Angular corre automaticamente.</p>
+                <div class="analogy">
+                    <h3>🛂 Analogia: O Segurança do Clube</h3>
+                    <p>Imagina que estás a tentar entrar num clube exclusivo:</p>
+                    <ul>
+                        <li><strong>Validadores Padrão</strong>: O segurança vê se tens sapatos (Required) e se tens BI (Email).</li>
+                        <li><strong>Custom Validator</strong>: O segurança tem uma regra especial: "Ninguém que se chame 'Vítor' pode entrar hoje". É uma regra que tu inventaste para aquele caso específico.</li>
+                        <li><strong>Cross-field Validation</strong>: O segurança olha para ti e para o teu amigo e diz: "Só podem entrar se ambos tiverem gravata da mesma cor". Ele não olha só para uma pessoa, olha para o par (Grupo).</li>
+                        <li><strong>Async Validator</strong>: O segurança tira uma foto do teu BI e manda para a central para ver se tens antecedentes. Ele espera pela resposta da central antes de te deixar passar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Validador Personalizado</h3>
+                <p>Uma função simples que proíbe a palavra "admin".</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">function proibidoAdmin(control: FormControl) {
+  if (control.value?.toLowerCase() === 'admin') {
+    return { 'nomeProibido': true }; // Se houver erro, devolve objeto
+  }
+  return null; // Se estiver tudo bem, devolve null
+}
+
+// No componente
+nome = new FormControl('', proibidoAdmin);</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Validar Dois Campos (Passwords)</h3>
+                <p>Aplicamos o validador ao Grupo, não ao Campo.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">const validadorSenhas = (group: FormGroup) => {
+  const senha = group.get('senha')?.value;
+  const confirma = group.get('confirma')?.value;
+  return senha === confirma ? null : { 'senhasDiferentes': true };
+};
+
+meuForm = new FormGroup({
+  senha: new FormControl(''),
+  confirma: new FormControl('')
+}, { validators: validadorSenhas });</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Usando o FormBuilder</h3>
+                <p>Uma forma mais curta e elegante de escrever formulários.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { FormBuilder } from '@angular/forms';
+
+constructor(private fb: FormBuilder) {}
+
+form = this.fb.group({
+  nome: ['', [Validators.required, proibidoAdmin]],
+  contatos: this.fb.group({
+    telefone: [''],
+    morada: ['']
+  })
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Cria o "Sistema de Verificação de Agente Secreto":</p>
+                <ol class="steps-list">
+                    <li>Usa o <strong>FormBuilder</strong> para criar um formulário com <code>codigoAgente</code> e <code>confirmarCodigo</code>.</li>
+                    <li>Cria um **Custom Validator** que obriga o <code>codigoAgente</code> a começar com as letras "00" (ex: 007).</li>
+                    <li>Adiciona um **Cross-field Validator** para garantir que os dois campos de código são rigorosamente iguais.</li>
+                    <li>Mostra uma mensagem de erro vermelha se o código for inválido ou se as confirmações não baterem certo.</li>
+                    <li><strong>Bónus:</strong> Usa o <code>patchValue</code> para preencher automaticamente o código "007" quando o utilizador clica num botão "Sugestão".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-15">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Custom Validators** são funções que devolvem <code>null</code> (sucesso) ou <code>object</code> (erro).</li>
+                <li>📌 Para comparar dois campos, o validador deve ser colocado no **FormGroup**.</li>
+                <li>📌 O **FormBuilder** diminui a repetição de código (boilerplate).</li>
+                <li>📌 Validadores assíncronos são perfeitos para checar dados no servidor em tempo real.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Regresso do Nulo</h3>
+                <p>Num validador personalizado, porque é que devolvemos `null` quando o valor está CORRETO, em vez de `true`?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Devolvemos <code>null</code> porque o Angular interpreta a ausência de um objeto de erro como "validade". Se devolvermos um objeto, esse objeto será guardado na propriedade <code>.errors</code> para podermos mostrar mensagens específicas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Performance Máxima</h3>
+                <p>Imagina um validador assíncrono que verifica se um email existe na BD. Ele deve correr a cada tecla que o utilizador prime?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Seria péssimo para a performance (muitas chamadas à API). O ideal é usar a propriedade <code>updateOn: 'blur'</code> para o validador só correr quando o utilizador sai do campo, ou usar um operador de RxJS chamado <code>debounceTime</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Grupo Dinâmico</h3>
+                <p>Se tiveres uma lista de "Habilidades" que o utilizador pode adicionar ou remover dinamicamente (clicando num botão +), que ferramenta usarias dentro do Formulário Reativo?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usarias o <strong>FormArray</strong>. Ele funciona como um array de FormControls ou FormGroups que pode crescer ou diminuir conforme a interação do utilizador.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-14.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-16.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

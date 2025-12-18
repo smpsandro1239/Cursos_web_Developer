@@ -383,6 +383,391 @@ const QUIZ_DATA_ANGULAR = {
             correct: 'b',
             explanation: "✅ Correto! Se quiseres usar variáveis do serviço diretamente no Template `{{ }}` sem criar variáveis extra no TS, deves usar 'public'."
         }
+    ],
+    'modulo-11': [
+        {
+            question: "O que é um Observable no RxJS?",
+            options: [
+                { id: 'a', text: "Um tipo de array estático" },
+                { id: 'b', text: "Uma corrente (stream) de dados que podem chegar ao longo do tempo" },
+                { id: 'c', text: "Um componente visual" },
+                { id: 'd', text: "Uma função que apaga dados" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Pensa no Observable como uma rádio: tu subscreves-te e vais ouvindo a música à medida que ela toca."
+        },
+        {
+            question: "Qual método é obrigatório chamar para começar a receber dados de um Observable?",
+            options: [
+                { id: 'a', text: ".start()" },
+                { id: 'b', text: ".listen()" },
+                { id: 'c', text: ".subscribe()" },
+                { id: 'd', text: ".get()" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Sem o `.subscribe()`, o Observable está 'frio' e não faz nada."
+        },
+        {
+            question: "Para que serve o operador 'pipe' no RxJS?",
+            options: [
+                { id: 'a', text: "Para aplicar estilos CSS" },
+                { id: 'b', text: "Para combinar operadores (como map, filter) e transformar os dados da corrente" },
+                { id: 'c', text: "Para ligar à base de dados" },
+                { id: 'd', text: "Para criar componentes" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `.pipe()` permite encadear transformações nos dados antes que eles cheguem ao `.subscribe()`."
+        }
+    ],
+    'modulo-12': [
+        {
+            question: "Qual módulo deve ser importado para usar o HttpClient no Angular?",
+            options: [
+                { id: 'a', text: "HttpModule" },
+                { id: 'b', text: "provideHttpClient()" },
+                { id: 'c', text: "WebFetchModule" },
+                { id: 'd', text: "NetModule" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Nas versões modernas do Angular (Standalone), usamos `provideHttpClient()` na configuração da app."
+        },
+        {
+            question: "O método .get() do HttpClient devolve que tipo de objeto?",
+            options: [
+                { id: 'a', text: "Uma Promise" },
+                { id: 'b', text: "Um Array estático" },
+                { id: 'c', text: "Um Observable" },
+                { id: 'd', text: "Um ficheiro JSON" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O HttpClient está totalmente integrado com RxJS, o que permite usar operadores como map e catchError."
+        },
+        {
+            question: "Para que serve o parâmetro genérico <T> no método .get<T>()?",
+            options: [
+                { id: 'a', text: "Para definir a temperatura da chamada" },
+                { id: 'b', text: "Para tipar a resposta (TypeScript) e saber o que vem da API" },
+                { id: 'c', text: "Para contar o tempo" },
+                { id: 'd', text: "Não serve para nada" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Usar `<User[]>` por exemplo, ajuda o VS Code a dar-te o autocompletar correto dos dados da API."
+        }
+    ],
+    'modulo-13': [
+        {
+            question: "Qual método HTTP deves usar para criar um novo registo no servidor?",
+            options: [
+                { id: 'a', text: "GET" },
+                { id: 'b', text: "POST" },
+                { id: 'c', text: "PUT" },
+                { id: 'd', text: "DELETE" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O método POST é usado para enviar novos dados para serem criados no servidor."
+        },
+        {
+            question: "Qual a diferença principal entre os métodos PUT e PATCH?",
+            options: [
+                { id: 'a', text: "PUT apaga tudo; PATCH cria novo" },
+                { id: 'b', text: "PUT substitui o objeto inteiro; PATCH atualiza apenas partes específicas" },
+                { id: 'c', text: "PATCH é mais rápido que PUT" },
+                { id: 'd', text: "O Angular não suporta PATCH" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Embora ambos atualizem, o PUT é 'destrutivo' (envias o objeto todo de novo)."
+        },
+        {
+            question: "Como se passa o ID de um elemento que queremos apagar via DELETE?",
+            options: [
+                { id: 'a', text: "Pela URL: `url/id`" },
+                { id: 'b', text: "Pelo corpo da mensagem (body)" },
+                { id: 'c', text: "Pelo nome do ficheiro" },
+                { id: 'd', text: "Não se passa, o servidor adivinha" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! No padrão REST, o ID do recurso a apagar ou atualizar vai normalmente no final do endereço (URL)."
+        }
+    ],
+    'modulo-14': [
+        {
+            question: "Qual classe do Angular representa um campo individual de um formulário reativo?",
+            options: [
+                { id: 'a', text: "FormGroup" },
+                { id: 'b', text: "FormControl" },
+                { id: 'c', text: "FormArray" },
+                { id: 'd', text: "InputControl" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O FormControl controla o valor, o estado de validação e a interação com um único campo."
+        },
+        {
+            question: "Como agrupamos vários FormControls num único objeto?",
+            options: [
+                { id: 'a', text: "Usando uma lista []" },
+                { id: 'b', text: "Usando o FormGroup" },
+                { id: 'c', text: "Usando o FormManager" },
+                { id: 'd', text: "Através do CSS" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O FormGroup agrega vários controlos e permite saber se o formulário inteiro é válido."
+        },
+        {
+            question: "Onde definimos a lógica e as validações nos Formulários Reativos?",
+            options: [
+                { id: 'a', text: "No ficheiro HTML (Template)" },
+                { id: 'b', text: "No ficheiro TypeScript (Classe)" },
+                { id: 'c', text: "No ficheiro CSS" },
+                { id: 'd', text: "Diretamente na base de dados" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Ao contrário dos 'Template Driven Forms', nos Reativos a inteligência está no código TS."
+        }
+    ],
+    'modulo-15': [
+        {
+            question: "Para que serve um validador personalizado (Custom Validator) no Angular?",
+            options: [
+                { id: 'a', text: "Para mudar a cor do input" },
+                { id: 'b', text: "Para criar regras de validação que o Angular não tem por defeito (ex: validar NIF)" },
+                { id: 'c', text: "Para apagar o formulário" },
+                { id: 'd', text: "Para ligar à internet" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Um Custom Validator é apenas uma função que recebe o controlo e devolve um erro se algo estiver mal."
+        },
+        {
+            question: "Onde deves colocar um validador que precisa de comparar dois campos (ex: Confirmar Password)?",
+            options: [
+                { id: 'a', text: "No FormControl de cada campo" },
+                { id: 'b', text: "No FormGroup que contém ambos os campos" },
+                { id: 'c', text: "No ficheiro CSS" },
+                { id: 'd', text: "Não é possível comparar campos" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Validações que envolvem múltiplos campos devem ser feitas ao nível do grupo (FormGroup)."
+        },
+        {
+            question: "Qual a principal vantagem de usar validadores assíncronos?",
+            options: [
+                { id: 'a', text: "São mais lentos" },
+                { id: 'b', text: "Permitem validar dados consultando um servidor (ex: ver se um Username já existe)" },
+                { id: 'c', text: "Mudam o estilo do texto" },
+                { id: 'd', text: "Só funcionam em telemóveis" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Validadores assíncronos devolvem uma Promise ou Observable, ideal para checkagens em tempo real na base de dados."
+        }
+    ],
+    'modulo-16': [
+        {
+            question: "Para que serve o Router do Angular?",
+            options: [
+                { id: 'a', text: "Para ligar à internet" },
+                { id: 'b', text: "Para navegar entre diferentes vistas (páginas) sem recarregar o browser" },
+                { id: 'c', text: "Para criar animações" },
+                { id: 'd', text: "Para apagar ficheiros no servidor" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Router transforma o Angular numa Single Page Application (SPA), mudando o conteúdo da página instantaneamente."
+        },
+        {
+            question: "Qual diretiva é usada para marcar o local onde os componentes das rotas serão exibidos?",
+            options: [
+                { id: 'a', text: "<router-view>" },
+                { id: 'b', text: "<router-outlet>" },
+                { id: 'c', text: "<page-container>" },
+                { id: 'd', text: "<ng-route>" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `<router-outlet>` funciona como um marcador de posição (placeholder) para o componente que estiver ativo na rota."
+        },
+        {
+            question: "Como se criam links de navegação no Angular para evitar o recarregamento total da página?",
+            options: [
+                { id: 'a', text: "Usando <a href='/...'>" },
+                { id: 'b', text: "Usando a diretiva routerLink='/...'" },
+                { id: 'c', text: "Usando botões com window.location" },
+                { id: 'd', text: "O Angular faz isso sozinho" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `routerLink` avisa o Angular para tratar o clique internamente, mantendo a app rápida e fluida."
+        }
+    ],
+    'modulo-17': [
+        {
+            question: "Para que servem os parâmetros de rota (ex: :id)?",
+            options: [
+                { id: 'a', text: "Para mudar a cor da página" },
+                { id: 'b', text: "Para passar informações dinâmicas na URL, como o ID de um produto" },
+                { id: 'c', text: "Para aumentar a segurança do site" },
+                { id: 'd', text: "Para apagar o histórico do browser" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Os parâmetros permitem que um único componente (ex: DetalheProduto) mostre dados diferentes conforme o ID na URL."
+        },
+        {
+            question: "Qual serviço deves injetar no componente para ler o parâmetro da URL?",
+            options: [
+                { id: 'a', text: "Router" },
+                { id: 'b', text: "ActivatedRoute" },
+                { id: 'c', text: "UrlManager" },
+                { id: 'd', text: "HttpParams" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `ActivatedRoute` contém informações sobre a rota que está 'ativa' naquele momento, incluindo os seus parâmetros."
+        },
+        {
+            question: "O que é o 'Lazy Loading' (Carregamento Preguiçoso) no Routing?",
+            options: [
+                { id: 'a', text: "Um erro que torna o site lento" },
+                { id: 'b', text: "Uma técnica para carregar partes do código apenas quando o utilizador acede àquela rota" },
+                { id: 'c', text: "Uma forma de escrever código sem vontade" },
+                { id: 'd', text: "Um tipo de animação de scroll" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Lazy Loading faz com que a app inicial seja muito mais leve e rápida, carregando o resto 'sob demanda'."
+        }
+    ],
+    'modulo-18': [
+        {
+            question: "Para que serve um Guard do tipo 'canActivate'?",
+            options: [
+                { id: 'a', text: "Para acelerar a internet" },
+                { id: 'b', text: "Para decidir se um utilizador pode ou não aceder a uma determinada rota" },
+                { id: 'c', text: "Para mudar o título da página" },
+                { id: 'd', text: "Para apagar a base de dados" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! É o 'segurança' da porta. Se o utilizador não estiver logado, o guard impede a entrada na página."
+        },
+        {
+            question: "O que faz um HttpInterceptor no Angular?",
+            options: [
+                { id: 'a', text: "Intervém em todos os pedidos HTTP para adicionar algo (ex: Token) ou tratar erros" },
+                { id: 'b', text: "Bloqueia o acesso ao site se não houver Wi-Fi" },
+                { id: 'c', text: "Serve para criar formulários" },
+                { id: 'd', text: "É um tipo de base de dados" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! Em vez de adicionares o Token manualmente em 50 serviços, fazes isso uma única vez no Interceptor."
+        },
+        {
+            question: "Nas versões modernas do Angular, qual a forma recomendada de criar um Guard?",
+            options: [
+                { id: 'a', text: "Usando uma Classe com @Injectable" },
+                { id: 'b', text: "Usando uma Função simples (Functional Guard)" },
+                { id: 'c', text: "Diretamente no HTML" },
+                { id: 'd', text: "Pelo CSS" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Os Functional Guards são mais leves, fáceis de ler e a tendência atual do Angular Standalone."
+        }
+    ],
+    'modulo-19': [
+        {
+            question: "O que é um Signal no Angular?",
+            options: [
+                { id: 'a', text: "Um tipo de aviso sonoro" },
+                { id: 'b', text: "Um contentor que guarda um valor e avisa o Angular quando esse valor muda" },
+                { id: 'c', text: "Um novo componente para tabelas" },
+                { id: 'd', text: "Um serviço de internet" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Signals permitem que o Angular saiba exatamente o que mudou, melhorando muito a performance."
+        },
+        {
+            question: "Como se lê o valor de um Signal no ficheiro HTML?",
+            options: [
+                { id: 'a', text: "{{ nome }}" },
+                { id: 'b', text: "{{ nome() }}" },
+                { id: 'c', text: "{{ getNome }}" },
+                { id: 'd', text: "{{ nome.value }}" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Signals são funções. Deves chamar a função com `()` para ler o seu valor atual."
+        },
+        {
+            question: "Qual método usas para mudar o valor de um Signal ignorando o valor anterior?",
+            options: [
+                { id: 'a', text: ".change()" },
+                { id: 'b', text: ".set()" },
+                { id: 'c', text: ".update()" },
+                { id: 'd', text: ".mutate()" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O método `.set()` substitui o valor atual por um novo valor completamente diferente."
+        }
+    ],
+    'modulo-20': [
+        {
+            question: "Para que serve a função computed() no sistema de Signals?",
+            options: [
+                { id: 'a', text: "Para fazer contas matemáticas complexas" },
+                { id: 'b', text: "Para criar um novo Signal que depende do valor de outros Signals" },
+                { id: 'c', text: "Para apagar dados antigos" },
+                { id: 'd', text: "Para mudar a cor do texto" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `computed` cria um Signal derivado que se atualiza automaticamente sempre que os Signals originais mudam."
+        },
+        {
+            question: "Quando é que a função effect() é executada?",
+            options: [
+                { id: 'a', text: "Apenas uma vez quando o site abre" },
+                { id: 'b', text: "Sempre que um dos Signals lidos dentro dela muda de valor" },
+                { id: 'c', text: "Sempre que o utilizador clica num botão" },
+                { id: 'd', text: "Nunca, é apenas decorativa" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O `effect` é usado para 'efeitos secundários', como guardar dados no localStorage ou fazer logs quando algo muda."
+        },
+        {
+            question: "Qual a principal vantagem de usar computed() em vez de uma função normal para calcular valores no HTML?",
+            options: [
+                { id: 'a', text: "Nenhuma, é a mesma coisa" },
+                { id: 'b', text: "O computed 'lembra-se' do resultado (memoization) e só recalcula se for mesmo necessário" },
+                { id: 'c', text: "O computed permite escrever menos código" },
+                { id: 'd', text: "O computed só funciona em servidores rápidos" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Isto evita cálculos inúteis e torna a aplicação extremamente performante."
+        }
+    ],
+    'modulo-21': [
+        {
+            question: "Num projeto real, onde deves guardar a lógica de busca de dados (HTTP)?",
+            options: [
+                { id: 'a', text: "No componente diretamente" },
+                { id: 'b', text: "Num Serviço (Injectable)" },
+                { id: 'c', text: "No ficheiro HTML" },
+                { id: 'd', text: "No CSS" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Serviços garantem que o teu código é organizado, testável e reutilizável."
+        },
+        {
+            question: "Qual a vantagem de usar Signals num Dashboard com muitos gráficos e dados?",
+            options: [
+                { id: 'a', text: "O site fica mais colorido" },
+                { id: 'b', text: "O Angular só atualiza o gráfico específico que mudou, poupando CPU e Bateria" },
+                { id: 'c', text: "Não tem vantagem nenhuma" },
+                { id: 'd', text: "Signals ocupam menos espaço no disco" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! A reatividade granular dos Signals é perfeita para dashboards complexos."
+        },
+        {
+            question: "Para que serve o Lazy Loading num projeto de grande escala?",
+            options: [
+                { id: 'a', text: "Para o programador trabalhar menos" },
+                { id: 'b', text: "Para baixar apenas o código que o utilizador vai realmente usar" },
+                { id: 'c', text: "Para esconder o código de hackers" },
+                { id: 'd', text: "É uma técnica antiga que já não se usa" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O Lazy Loading é obrigatório em apps profissionais para garantir tempos de carregamento rápidos."
+        }
     ]
 };
 

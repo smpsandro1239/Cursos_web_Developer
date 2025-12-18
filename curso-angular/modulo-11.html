@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 11: RxJS e Observables - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 11 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📻</span>
+            </div>
+            <h1>Módulo 11: RxJS e Observables (O Mundo Assíncrono)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 10</strong>, dominámos a Injeção de Dependências. Aprendemos a pedir ferramentas ao Angular em vez de as criarmos. Agora, vamos aprender a lidar com dados que chegam em "streaming" (correntes de dados), algo fundamental para aplicações modernas.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é a biblioteca <strong>RxJS</strong>.</li>
+                <li>✅ O conceito de <strong>Observable</strong> (Observável).</li>
+                <li>✅ Como fazer um <strong>.subscribe()</strong> para receber dados.</li>
+                <li>✅ Operadores básicos: <strong>map</strong>, <strong>filter</strong> e <strong>tap</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Corrente de Dados</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um Observable é como uma Promise, mas mais poderosa. Enquanto uma Promise acontece apenas uma vez (tipo receber uma carta), um Observable pode emitir vários valores ao longo do tempo (tipo ouvir rádio).</p>
+                <div class="analogy">
+                    <h3>📻 Analogia: A Estação de Rádio</h3>
+                    <p>Imagina o RxJS como uma rádio FM:</p>
+                    <ul>
+                        <li><strong>O Observable (A Antena)</strong>: Está sempre a emitir ondas de música pela cidade fora. Mas tu não ouves nada automaticamente.</li>
+                        <li><strong>O Subscribe (Ligar o Rádio)</strong>: Só quando carregas no botão "ON" (Subscrever) é que o som começa a sair das colunas.</li>
+                        <li><strong>Os Operadores (A Mesa de Mistura)</strong>: Podes mudar o volume, aplicar filtros de voz ou cortar ruído *antes* do som chegar aos teus ouvidos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Criar e Subscrever</h3>
+                <p>O básico de ouvir uma corrente de dados.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { Observable } from 'rxjs';
+
+meuObs = new Observable(subscriber => {
+  subscriber.next('Primeiro Dado');
+  setTimeout(() => subscriber.next('Dado Atrasado'), 2000);
+});
+
+// Começar a ouvir
+this.meuObs.subscribe(valor => {
+  console.log('Recebi:', valor);
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Poder do .pipe()</h3>
+                <p>Transformar os dados no caminho.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { of } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+
+numeros = of(1, 2, 3, 4, 5);
+
+this.numeros.pipe(
+  filter(n => n > 2), // Deixa passar só maiores que 2
+  map(n => n * 10)    // Multiplica por 10
+).subscribe(v => console.log(v));
+// Resultado: 30, 40, 50</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: O Operador Tap</h3>
+                <p>Espreitar os dados sem os alterar (bom para logs).</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { tap } from 'rxjs/operators';
+
+obs.pipe(
+  tap(v => console.log('DEBUG:', v)),
+  map(v => v.toUpperCase())
+).subscribe();</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Relógio Atómico":</p>
+                <ol class="steps-list">
+                    <li>Usa a função <code>interval(1000)</code> do RxJS para criar uma corrente que emite um número a cada segundo.</li>
+                    <li>Usa o <strong>.pipe()</strong> e o operador <strong>map</strong> para transformar esse número numa mensagem tipo <code>"Passaram X segundos"</code>.</li>
+                    <li>No <code>ngOnInit</code>, faz o <strong>.subscribe()</strong> e guarda essa mensagem numa variável do teu componente.</li>
+                    <li>Mostra a variável no HTML com <code>{{ }}</code> e vê o contador a subir!</li>
+                    <li><strong>Desafio Extra:</strong> Usa o <code>filter</code> para mostrar apenas segundos pares.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-11">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **RxJS** é uma biblioteca de programação reativa usada pelo Angular.</li>
+                <li>📌 **Observables** emitem fluxos de dados, não apenas um valor único.</li>
+                <li>📌 Nada acontece sem o **.subscribe()**! É o motor que liga o fluxo.</li>
+                <li>📌 **Operadores** (map, filter, etc.) permitem tratar os dados como se fosse uma linha de montagem.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Correntes Infinitas</h3>
+                <p>O que acontece se subscreveres um <code>interval(1000)</code> mas nunca chamares o <code>unsubscribe()</code> quando mudas de página?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Criarias uma <strong>Memory Leak</strong> (Fuga de Memória). O timer continuaria a correr em segredo mesmo que o componente já não exista, tornando o site lento ou crashando o browser.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Tap vs Map</h3>
+                <p>Qual a diferença fundamental entre usar o <code>tap</code> e o <code>map</code> dentro do pipe?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O <code>map</code> altera o valor que segue na corrente (ex: muda 1 para 10). O <code>tap</code> apenas espreita o valor para fazer algo externo (ex: console.log) mas passa o valor original adiante sem lhe tocar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Rádio Desligada</h3>
+                <p>Se tiveres um Observable que busca dados de um utilizador e fizeres 3 <code>pipe()</code> diferentes mas zero <code>.subscribe()</code>, a chamada à base de dados é feita? Porquê?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não. Os Observables são "Lazy" (preguiçosos). Eles só começam a trabalhar quando alguém demonstra interesse neles através do subscribe.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-10.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-12.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 14: Formulários Reativos I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 14 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📝</span>
+            </div>
+            <h1>Módulo 14: Formulários Reativos I (Estrutura e Validação)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 13</strong>, fechamos o ciclo CRUD com pedidos POST, PUT e DELETE. Agora, precisamos de uma forma profissional de recolher esses dados do utilizador. Entra o mundo dos <strong>Formulários Reativos</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A diferença entre Template-Driven e <strong>Reactive Forms</strong>.</li>
+                <li>✅ Criar controlos individuais com <strong>FormControl</strong>.</li>
+                <li>✅ Agrupar campos com <strong>FormGroup</strong>.</li>
+                <li>✅ Aplicar validações básicas (Obrigatório, Email, Tamanho).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Controlo é Teu</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Nos Formulários Reativos, tu crias a árvore do formulário no código TypeScript. Isto dá-te controlo total sobre o estado do campo (está sujo? está válido? mudou o valor?) sem dependeres apenas do HTML.</p>
+                <div class="analogy">
+                    <h3>✍️ Analogia: O Formulário das Finanças vs O Caderno de Notas</h3>
+                    <p>Imagina dois tipos de formulários:</p>
+                    <ul>
+                        <li><strong>Template Driven (O Caderno)</strong>: Tu escreves no papel e só quando entregas é que alguém vê se está bem. O papel (HTML) manda.</li>
+                        <li><strong>Reactive Forms (As Finanças Online)</strong>: À medida que escreves cada letra, há um sistema informático (TypeScript) a validar em tempo real. O sistema sabe exatamente em que campo estás e pode bloquear o botão "Enviar" no mesmo milissegundo em que cometes um erro.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Setup da Classe</h3>
+                <p>Importar o <code>ReactiveFormsModule</code> e definir a estrutura.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+meuForm = new FormGroup({
+  nome: new FormControl('', Validators.required),
+  email: new FormControl('', [Validators.required, Validators.email])
+});
+
+submit() {
+  console.log(this.meuForm.value);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Ligação ao HTML</h3>
+                <p>Usar a diretiva <code>formGroup</code> e <code>formControlName</code>.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;form [formGroup]="meuForm" (ngSubmit)="submit()"&gt;
+  &lt;input formControlName="nome" placeholder="Nome"&gt;
+  &lt;input formControlName="email" placeholder="Email"&gt;
+
+  &lt;button type="submit" [disabled]="!meuForm.valid"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Mostrar Erros</h3>
+                <p>Avisar o utilizador de forma amigável.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;div *ngIf="meuForm.get('email')?.errors?.['email']"&gt;
+  Este email não é válido!
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Formulário de Registo Heróico":</p>
+                <ol class="steps-list">
+                    <li>Importa o <code>ReactiveFormsModule</code> no teu componente Standalone.</li>
+                    <li>Cria um <code>FormGroup</code> com três campos: <code>nickname</code> (mínimo 4 letras), <code>idade</code> (obrigatório) e <code>poder</code>.</li>
+                    <li>No HTML, liga os inputs aos nomes que definiste no TypeScript.</li>
+                    <li>Cria uma mensagem de erro que só aparece se o <code>nickname</code> tiver menos de 4 letras e já tiver sido tocado (<code>touched</code>).</li>
+                    <li>Desativa o botão de submeter enquanto o formulário for inválido.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-14">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Reactive Forms** oferecem mais controlo, testabilidade e escalabilidade.</li>
+                <li>📌 O **FormGroup** é o contentor; o **FormControl** é o campo individual.</li>
+                <li>📌 Usamos a classe **Validators** para definir regras (required, email, minLength).</li>
+                <li>📌 A propriedade **.valid** diz-nos se está tudo bem com o formulário ou campo.</li>
+                <li>📌 O estado **.touched** ajuda-nos a não mostrar erros antes do utilizador tentar preencher o campo.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Botão Teimoso</h3>
+                <p>Porque é que se recomenda desativar o botão de Submit baseando-se no <code>meuForm.valid</code> em vez de validar apenas no clique?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Melhora a UX (User Experience). O utilizador recebe feedback visual imediato de que algo falta antes de perder tempo a clicar. Evita também que o código de submissão seja executado com dados "lixo".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Valor vs Controlo</h3>
+                <p>Como farias para limpar (ficar vazio) apenas um campo específico do formulário sem mexer nos outros?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usas o método <code>setValue</code> ou <code>patchValue</code> no controlo específico. Ex: <code>this.meuForm.get('nome').setValue('');</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Reatividade Real</h3>
+                <p>É possível ouvir as mudanças de um formulário em tempo real (tipo um Observable) enquanto o utilizador escreve?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! Quase tudo no Angular é reativo. Podes usar <code>this.meuForm.valueChanges.subscribe(val => ...)</code> para reagir a cada tecla premida.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-13.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-15.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
