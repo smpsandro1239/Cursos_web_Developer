@@ -490,6 +490,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! O <code>Service Worker</code> é o coração das funcionalidades offline de uma PWA."
         }
+    ],
+    'module-15': [
+        {
+            question: "Qual o papel do JavaScript na 'trindade' da web (HTML, CSS, JS)?",
+            options: [
+                { id: 'a', text: "Estrutura (o esqueleto)" },
+                { id: 'b', text: "Apresentação (a pele e roupa)" },
+                { id: 'c', text: "Comportamento (o cérebro e movimentos)" },
+                { id: 'd', text: "Nenhuma das anteriores" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O JS dá vida ao site, permitindo cliques, cálculos e animações complexas."
+        },
+        {
+            question: "Como se chama o atributo HTML usado para guardar dados extra que o JavaScript pode ler facilmente?",
+            options: [
+                { id: 'a', text: "class" },
+                { id: 'b', text: "id" },
+                { id: 'c', text: "data-*" },
+                { id: 'd', text: "extra-info" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! Exemplo: <code>data-id='123'</code>. Podes ler isto no JS com <code>element.dataset.id</code>."
+        },
+        {
+            question: "Qual a forma recomendada de reagir a um clique num botão em JavaScript moderno?",
+            options: [
+                { id: 'a', text: "Usar o atributo onclick='...'" },
+                { id: 'b', text: "Usar o método .addEventListener('click', ...)" },
+                { id: 'c', text: "Gritar com o rato" },
+                { id: 'd', text: "Colocar o botão dentro de uma tag &lt;a&gt;" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O <code>addEventListener</code> permite separar a lógica do HTML, mantendo o código limpo."
+        }
     ]
 };
 
