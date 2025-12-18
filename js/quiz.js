@@ -525,6 +525,41 @@ const QUIZ_DATA = {
             correct: 'b',
             explanation: "✅ Correto! O <code>addEventListener</code> permite separar a lógica do HTML, mantendo o código limpo."
         }
+    ],
+    'module-16': [
+        {
+            question: "Para que serve o W3C Markup Validator?",
+            options: [
+                { id: 'a', text: "Para mudar as cores do site" },
+                { id: 'b', text: "Para verificar se o teu código HTML segue as regras oficiais e não tem erros de sintaxe" },
+                { id: 'c', text: "Para hackear sites" },
+                { id: 'd', text: "Para publicar o site na internet" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O validador do W3C é a ferramenta oficial para garantir que o teu HTML está 'saudável'."
+        },
+        {
+            question: "Qual tecla de atalho abre as ferramentas de programador (DevTools) na maioria dos browsers?",
+            options: [
+                { id: 'a', text: "F1" },
+                { id: 'b', text: "F5" },
+                { id: 'c', text: "F12" },
+                { id: 'd', text: "Esc" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O F12 (ou Ctrl+Shift+I) abre o painel onde podes inspecionar o código em tempo real."
+        },
+        {
+            question: "O que acontece se esqueceres de fechar uma tag, como um &lt;div&gt;?",
+            options: [
+                { id: 'a', text: "O computador explode" },
+                { id: 'b', text: "O browser tenta adivinhar onde termina, mas o layout pode ficar todo partido" },
+                { id: 'c', text: "O site não abre de todo" },
+                { id: 'd', text: "O Google apaga o teu site" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Os browsers são 'tolerantes', mas erros de tags abertas são a causa número 1 de layouts estragados."
+        }
     ]
 };
 
