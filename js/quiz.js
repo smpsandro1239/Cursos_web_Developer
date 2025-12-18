@@ -105,6 +105,41 @@ const QUIZ_DATA = {
             correct: 'c',
             explanation: "✅ Correto! <code>target='_blank'</code> instrui o navegador a abrir o link numa nova aba ou janela."
         }
+    ],
+    'module-4': [
+        {
+            question: "O elemento &lt;img&gt; precisa de uma tag de fechamento (&lt;/img&gt;)?",
+            options: [
+                { id: 'a', text: "Sim, sempre" },
+                { id: 'b', text: "Não, é um elemento 'void' (vazio)" },
+                { id: 'c', text: "Só se tiver link" },
+                { id: 'd', text: "Depende do navegador" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O elemento <code>&lt;img&gt;</code> é um elemento 'void', ou seja, não tem conteúdo interno nem tag de fechamento."
+        },
+        {
+            question: "Para que serve o atributo 'alt' numa imagem?",
+            options: [
+                { id: 'a', text: "Para definir a altura da imagem" },
+                { id: 'b', text: "Para mostrar um título quando passa o rato" },
+                { id: 'c', text: "Para acessibilidade e caso a imagem falhe" },
+                { id: 'd', text: "Para linkar a imagem a outro site" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O texto <code>alt</code> é lido por leitores de ecrã para cegos e aparece se a imagem não carregar."
+        },
+        {
+            question: "Qual é a tag correta para adicionar uma legenda a uma imagem?",
+            options: [
+                { id: 'a', text: "&lt;legend&gt;" },
+                { id: 'b', text: "&lt;caption&gt;" },
+                { id: 'c', text: "&lt;figcaption&gt;" },
+                { id: 'd', text: "&lt;subtitle&gt;" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! A tag <code>&lt;figcaption&gt;</code> deve ser usada dentro de um elemento <code>&lt;figure&gt;</code> para legendar a imagem."
+        }
     ]
 };
 
