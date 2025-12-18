@@ -208,6 +208,181 @@ const QUIZ_DATA_ANGULAR = {
             correct: 'b',
             explanation: "✅ Correto! Como é um evento, o pai usa a sintaxe de Event Binding `( )` no seletor do filho."
         }
+    ],
+    'modulo-6': [
+        {
+            question: "Qual diretiva é usada para adicionar ou remover classes CSS dinamicamente?",
+            options: [
+                { id: 'a', text: "[ngClass]" },
+                { id: 'b', text: "[ngStyle]" },
+                { id: 'c', text: "[classSelector]" },
+                { id: 'd', text: "*ngClass" }
+            ],
+            correct: 'a',
+            explanation: "✅ Correto! O [ngClass] permite passar um objeto onde as chaves são as classes e os valores são condições booleanas."
+        },
+        {
+            question: "Como se aplica um estilo inline dinâmico num elemento?",
+            options: [
+                { id: 'a', text: "[class]" },
+                { id: 'b', text: "[ngStyle]" },
+                { id: 'c', text: "[style.all]" },
+                { id: 'd', text: "*ngStyle" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O [ngStyle] é perfeito para quando precisamos de mudar valores específicos (como cores ou tamanhos) diretamente via TS."
+        },
+        {
+            question: "É possível usar classes fixas e dinâmicas (ngClass) ao mesmo tempo no mesmo elemento?",
+            options: [
+                { id: 'a', text: "Não, dá erro" },
+                { id: 'b', text: "Sim, o Angular combina as duas sem problemas" },
+                { id: 'c', text: "Só se usares o atributo 'important'" },
+                { id: 'd', text: "Sim, mas a fixa é apagada" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Podes ter `class='btn'` e `[ngClass]={'btn-active': true}` e o botão terá as duas classes."
+        }
+    ],
+    'modulo-7': [
+        {
+            question: "Qual o hook de ciclo de vida mais usado para inicializar dados, como chamadas a APIs?",
+            options: [
+                { id: 'a', text: "constructor" },
+                { id: 'b', text: "ngOnInit" },
+                { id: 'c', text: "ngOnDestroy" },
+                { id: 'd', text: "ngAfterViewInit" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O ngOnInit é o lugar ideal para carregar dados e configurar o componente após ser criado."
+        },
+        {
+            question: "Qual hook é chamado sempre que uma propriedade @Input muda de valor?",
+            options: [
+                { id: 'a', text: "ngOnInit" },
+                { id: 'b', text: "ngOnChanges" },
+                { id: 'c', text: "ngDoCheck" },
+                { id: 'd', text: "ngOnDestroy" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O ngOnChanges permite reagir a alterações feitas pelo componente pai nas portas de entrada."
+        },
+        {
+            question: "Para que serve o hook ngOnDestroy?",
+            options: [
+                { id: 'a', text: "Para apagar o site" },
+                { id: 'b', text: "Para limpar recursos (como timers ou subscrições) antes do componente ser destruído" },
+                { id: 'c', text: "Para criar um novo elemento" },
+                { id: 'd', text: "Para fazer o build da aplicação" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! É essencial para evitar fugas de memória (memory leaks) e parar processos que já não são necessários."
+        }
+    ],
+    'modulo-8': [
+        {
+            question: "Qual o símbolo usado no HTML para aplicar um Pipe?",
+            options: [
+                { id: 'a', text: "#" },
+                { id: 'b', text: "|" },
+                { id: 'c', text: "/" },
+                { id: 'd', text: ":" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O símbolo 'pipe' `|` (barra vertical) é usado para passar o dado por um transformador."
+        },
+        {
+            question: "Qual Pipe usarias para formatar um valor numérico em Euros (EUR)?",
+            options: [
+                { id: 'a', text: "decimal" },
+                { id: 'b', text: "euroPipe" },
+                { id: 'c', text: "currency" },
+                { id: 'd', text: "money" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O Pipe `currency` formata moedas automaticamente com o símbolo correto."
+        },
+        {
+            question: "Como se passam parâmetros para um Pipe (ex: formatar uma data)?",
+            options: [
+                { id: 'a', text: "{{ data | date('short') }}" },
+                { id: 'b', text: "{{ data | date: 'short' }}" },
+                { id: 'c', text: "{{ data | date = 'short' }}" },
+                { id: 'd', text: "{{ data | date # short }}" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! No Angular, usamos dois pontos `:` para passar parâmetros extra para um Pipe."
+        }
+    ],
+    'modulo-9': [
+        {
+            question: "Qual o principal objetivo de um Serviço (Service) no Angular?",
+            options: [
+                { id: 'a', text: "Criar o design das páginas" },
+                { id: 'b', text: "Partilhar lógica e dados entre múltiplos componentes" },
+                { id: 'c', text: "Substituir os componentes HTML" },
+                { id: 'd', text: "Aumentar o tamanho do projeto" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Os serviços permitem centralizar a lógica (ex: chamadas a APIs) para que vários componentes a possam usar."
+        },
+        {
+            question: "Qual decorador é obrigatório no topo de uma classe de Serviço?",
+            options: [
+                { id: 'a', text: "@Component()" },
+                { id: 'b', text: "@Directive()" },
+                { id: 'c', text: "@Injectable()" },
+                { id: 'd', text: "@Service()" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O `@Injectable()` diz ao Angular que esta classe pode ser 'injetada' noutros lugares."
+        },
+        {
+            question: "Como se gera um novo serviço usando o Angular CLI?",
+            options: [
+                { id: 'a', text: "ng new service nome" },
+                { id: 'b', text: "ng generate service nome" },
+                { id: 'c', text: "ng build service nome" },
+                { id: 'd', text: "ng create logic nome" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! O comando `ng generate service` (ou `ng g s`) cria a base do serviço."
+        }
+    ],
+    'modulo-10': [
+        {
+            question: "O que é a Injeção de Dependências (DI) no Angular?",
+            options: [
+                { id: 'a', text: "Injetar vírus no código" },
+                { id: 'b', text: "Um padrão de design onde o Angular entrega instâncias de classes a quem as solicita" },
+                { id: 'c', text: "Uma forma de estilizar botões" },
+                { id: 'd', text: "Ligar o Angular a uma base de dados SQL" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Em vez de criares o serviço com `new Serviço()`, pedes ao Angular para to entregar (injetar)."
+        },
+        {
+            question: "Onde é que normalmente 'injetamos' os serviços num componente?",
+            options: [
+                { id: 'a', text: "No ficheiro HTML" },
+                { id: 'b', text: "No método ngOnInit" },
+                { id: 'c', text: "No constructor da classe" },
+                { id: 'd', text: "Nas Media Queries do CSS" }
+            ],
+            correct: 'c',
+            explanation: "✅ Correto! O constructor é a porta de entrada para todas as dependências que o componente precisa para funcionar."
+        },
+        {
+            question: "Qual a diferença entre usar 'private' ou 'public' ao injetar um serviço no constructor?",
+            options: [
+                { id: 'a', text: "Nenhuma" },
+                { id: 'b', text: "Public permite usar o serviço diretamente no HTML do componente; Private apenas no código TS." },
+                { id: 'c', text: "Private é mais rápido que Public" },
+                { id: 'd', text: "Public apaga os dados ao fim de 5 minutos" }
+            ],
+            correct: 'b',
+            explanation: "✅ Correto! Se quiseres usar variáveis do serviço diretamente no Template `{{ }}` sem criar variáveis extra no TS, deves usar 'public'."
+        }
     ]
 };
 

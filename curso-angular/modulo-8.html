@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Pipes (Transformação) - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 8 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🚿</span>
+            </div>
+            <h1>Módulo 8: Pipes (Transformação de Dados)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 7</strong>, desvendámos o Ciclo de Vida dos componentes e aprendemos a usar o <code>ngOnInit</code> e o <code>ngOnDestroy</code>. Agora, vamos aprender a apresentar os dados de forma bonita e profissional ao utilizador, sem alterar o valor original das variáveis.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que são <strong>Pipes</strong> e o símbolo <code>|</code>.</li>
+                <li>✅ Pipes integrados: <strong>Date</strong>, <strong>Currency</strong> e <strong>Uppercase</strong>.</li>
+                <li>✅ Como passar parâmetros para os Pipes.</li>
+                <li>✅ O Pipe <strong>Async</strong> (Introdução rápida).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Filtro de Água</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um Pipe (literalmente "Cano") pega num dado bruto (como um número feio) e "passa-o" por um filtro antes de o mostrar no ecrã. O dado original no TypeScript não muda, apenas a forma como ele é visto pelo utilizador.</p>
+                <div class="analogy">
+                    <h3>🎭 Analogia: O Filtro do Instagram</h3>
+                    <p>Imagina que tiras uma foto (o teu dado bruto):</p>
+                    <ul>
+                        <li><strong>O Dado Bruto</strong>: É a foto original guardada no teu telemóvel.</li>
+                        <li><strong>O Pipe | </strong>: É o menu de filtros.</li>
+                        <li><strong>A Transformação</strong>: Tu aplicas o filtro "Preto e Branco". No ecrã a foto parece artística, mas o ficheiro original continua a cores na tua galeria.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Texto e Letras</h3>
+                <p>Transformar maiúsculas e minúsculas.</p>
+                <div class="code-window">
+                    <pre><code class="language-html"><!-- EXIBE: SANDRO -->
+<p>{{ "sandro" | uppercase }}</p>
+
+<!-- EXIBE: aprendendo angular -->
+<p>{{ "APRENDENDO ANGULAR" | lowercase }}</p>
+
+<!-- EXIBE: Aprende Web -->
+<p>{{ "aprende web" | titlecase }}</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Dinheiro e Números</h3>
+                <p>Formatar moedas automaticamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+preco = 59.90;</code></pre>
+                    <pre><code class="language-html"><!-- EXIBE: €59.90 (ou formato local) -->
+<p>Total: {{ preco | currency:'EUR' }}</p>
+
+<!-- Com casas decimais fixas: 1.2 -->
+<p>Nota: {{ 1.234 | number:'1.1-1' }}</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Datas Profissionais</h3>
+                <p>Transformar objetos Date em texto legível.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+hoje = new Date();</code></pre>
+                    <pre><code class="language-html"><!-- EXIBE: 18/12/2025 (depende da localização) -->
+<p>Data: {{ hoje | date:'dd/MM/yyyy' }}</p>
+
+<!-- EXIBE: 15:22 -->
+<p>Hora: {{ hoje | date:'HH:mm' }}</p></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Mostrador de Preços de Viagem":</p>
+                <ol class="steps-list">
+                    <li>Cria uma variável <code>dataPartida = new Date()</code>.</li>
+                    <li>Cria uma variável <code>valorBilhete = 1250.50</code>.</li>
+                    <li>No HTML, mostra o valor do bilhete usando o pipe <code>currency</code> para Dólares ('USD').</li>
+                    <li>Mostra a data de partida no formato "Quinta-feira, 18 de Dezembro" (Usa o pipe <code>date</code> com parâmetros).</li>
+                    <li>Pega no nome do destino (ex: "Paris") e faz com que apareça sempre em <strong>MAIÚSCULAS</strong>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-8">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Pipes** transformam a aparência dos dados no template.</li>
+                <li>📌 O símbolo chave é a barra vertical **|**.</li>
+                <li>📌 Podes passar parâmetros usando os dois pontos **:** (ex: `date:'format'`).</li>
+                <li>📌 Podes encadear vários pipes: <code>{{ data | date | uppercase }}</code>.</li>
+                <li>📌 O dado original na classe TypeScript permanece intocado.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Corrente de Pipes</h3>
+                <p>Consegues aplicar dois pipes ao mesmo tempo? Como farias para mostrar uma data e garantir que o nome do mês aparece todo em maiúsculas?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, basta encadear: <code>{{ hoje | date:'MMMM' | uppercase }}</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Pipe de Json</h3>
+                <p>Descobre para que serve o pipe <code>json</code> integrado no Angular. Em que situação é que ele salva a vida de um programador durante o desenvolvimento?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Serve para mostrar o conteúdo de um Objeto inteiro no ecrã como se fosse um ficheiro JSON. É excelente para fazer **Debug** e ver se o objeto tem os dados certos sem abrir a consola.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Percentagem Express</h3>
+                <p>Se tiveres o valor <code>0.85</code> e quiseres que apareça <code>85%</code> no ecrã, qual é o nome do pipe que devias usar?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Deves usar o pipe <code>percent</code>. Ex: <code>{{ 0.85 | percent }}</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-7.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-9.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

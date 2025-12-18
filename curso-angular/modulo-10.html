@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Services II (Injeção) - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 10 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">💉</span>
+            </div>
+            <h1>Módulo 10: Services II (Injeção de Dependências)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 9</strong>, descobrimos o que são serviços e como eles ajudam a centralizar a lógica. Hoje, vamos perceber a magia negra por trás disso tudo: a <strong>Injeção de Dependências (DI)</strong>. É o segredo que torna o Angular tão modular e fácil de testar.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O conceito de <strong>Dependency Injection</strong>.</li>
+                <li>✅ Como o Angular entrega instâncias de serviços.</li>
+                <li>✅ Usar o <strong>constructor</strong> para receber dependências.</li>
+                <li>✅ A diferença básica entre Singletons e instâncias locais.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Não Cries, Pede!</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Em programação normal, tu usas <code>const s = new MeuServico()</code>. No Angular, tu **nunca** usas o `new` para serviços. Tu simplesmente dizes no constructor: "Eu preciso disto", e o Angular encarrega-se de o entregar pronto a usar.</p>
+                <div class="analogy">
+                    <h3>🍕 Analogia: A Pizzaria e o Estafeta</h3>
+                    <p>Imagina que queres comer uma pizza em casa:</p>
+                    <ul>
+                        <li><strong>Modo Tradicional (Sem DI)</strong>: Tu tens de comprar farinha, tomate, queijo, fazer a massa, ligar o forno e cozinhar. Tu crias a tua própria pizza (Dependência).</li>
+                        <li><strong>Modo Angular (Com DI)</strong>: Tu apenas pedes: "Quero uma pizza de queijo". Tu não sabes como ela é feita ou de onde vem a farinha. Alguém (o estafeta/Angular) toca à campainha e entrega-te a pizza quente nas mãos. Tu só tens de a comer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Pedir o Serviço (Injeção)</h3>
+                <p>A forma correta de receber o serviço na classe.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">@Component({...})
+export class PerfilComponent {
+  // O segredo está aqui nos parênteses do constructor
+  constructor(private authService: AuthService) {
+    // Agora o 'authService' está disponível para uso!
+  }
+
+  logout() {
+    this.authService.fazerLogout();
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Public vs Private</h3>
+                <p>Facilitar a vida no Template (HTML).</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// Se usares 'public', podes usar o serviço direto no HTML
+constructor(public config: ConfigService) {}</code></pre>
+                    <pre><code class="language-html"><!-- No .html -->
+<h1>Versão da App: {{ config.versao }}</h1></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Injetar Múltiplos</h3>
+                <p>Podes pedir quantas ferramentas precisares.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">constructor(
+  private loginSrv: LoginService,
+  private logSrv: LoggerService,
+  private apiSrv: ApiService
+) {
+  this.logSrv.info("Módulo de Perfil iniciado");
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Mensageiro Central":</p>
+                <ol class="steps-list">
+                    <li>Cria um serviço chamado <code>MensagemService</code> com um método <code>enviar(msg: string)</code> que faz um console.log.</li>
+                    <li>No teu <code>AppComponent</code>, injeta esse serviço.</li>
+                    <li>No <code>ngOnInit</code> do <code>AppComponent</code>, usa o serviço para enviar a mensagem: "Aplicação arrancou com sucesso!".</li>
+                    <li>Cria um componente <code>BotaoAlert</code> e injeta o mesmo serviço nele.</li>
+                    <li>Faz com que ao clicar no botão, ele chame o serviço para enviar outra mensagem.</li>
+                    <li>Repara que usaste o mesmo motor (serviço) em dois lugares diferentes sem nunca escreveres <code>new MensagemService()</code>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-10">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Dependency Injection** é o sistema que entrega as peças aos componentes.</li>
+                <li>📌 Ajuda a manter o código desacoplado (as peças não dependem de conhecer a criação uma da outra).</li>
+                <li>📌 O **Constructor** é onde declaramos o que precisamos.</li>
+                <li>📌 Usar <code>private</code> ou <code>public</code> cria automaticamente uma propriedade na classe.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Teste do 'New'</h3>
+                <p>O que aconteceria se tentasses criar o serviço manualmente com <code>const s = new AuthService()</code> dentro de um componente em vez de o injetar?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Funcionaria para métodos simples, mas perderias as funcionalidades do Angular. Se o <code>AuthService</code> precisasse de outros serviços (como o HttpClient), ele não os teria, e o teu "new" daria erro porque não estarias a passar as dependências dele.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Hierarquia de Serviços</h3>
+                <p>É possível injetar um serviço dentro de **outro** serviço? Como se faria?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! Da mesma forma: declaras no constructor do serviço que quer receber a ajuda. O Angular resolve a árvore de dependências sozinho.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Vantagem dos Testes</h3>
+                <p>Porque é que a Injeção de Dependências facilita os Testes Unitários de um componente?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Porque podes "enganar" o componente. Em vez de lhe dares o serviço real que vai à internet, podes injetar um serviço "falso" (Mock) que devolve dados fixos só para testar o visual.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-9.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-11.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
