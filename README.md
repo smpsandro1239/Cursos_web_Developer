@@ -106,4 +106,4 @@ Para correr o projeto localmente:
 - Melhoria no SEO e Acessibilidade (Auditoria Lighthouse).
 
 ---
-**Desenvolvido com ❤️ por Sandro Pereira & Jules.**
+**Desenvolvido com ❤️ por Sandro Pereira.**
