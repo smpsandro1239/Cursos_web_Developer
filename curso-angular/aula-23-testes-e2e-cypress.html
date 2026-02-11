@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 23: Testes E2E com Cypress - Curso de Angular</title>
+    <meta name="description" content="Aula sobre como realizar testes End-to-End (E2E) em aplicações Angular com Cypress.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 23</span>
+                    <h1 class="module-title">Testes End-to-End (E2E) com Cypress</h1>
+                    <p class="module-subtitle">Aprenda a automatizar testes que simulam o comportamento do utilizador final na sua aplicação Angular.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Configurar o Cypress num projeto Angular.</li>
+                        <li>🎯 Escrever testes E2E para simular interações do utilizador, como cliques e preenchimento de formulários.</li>
+                        <li>🎯 Executar os testes e analisar os resultados para garantir a qualidade da aplicação.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que são Testes E2E?</h3>
+                    <p>Os testes End-to-End (E2E) verificam o fluxo completo de uma aplicação, da interface do utilizador à base de dados, simulando o comportamento de um utilizador real. O Cypress é uma ferramenta moderna que facilita a escrita e a depuração destes testes.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense nos testes E2E como um inspetor de qualidade que, em vez de verificar cada peça de um carro separadamente (testes unitários), entra no carro, liga-o, conduz pela cidade e testa todas as funcionalidades em conjunto — dos travões ao rádio — para garantir que a experiência do condutor é perfeita.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos escrever um teste simples para uma página de login.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Instalar e Configurar o Cypress</h4>
+                            <p>Adicione o Cypress ao seu projeto Angular.</p>
+                            <pre><code>ng add @cypress/schematic</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Escrever o Teste</h4>
+                            <p>Crie um ficheiro de teste em `cypress/integration` para visitar a página de login, preencher os campos e submeter o formulário.</p>
+                            <pre><code>describe('Login Page', () => {
+  it('should log in successfully', () => {
+    cy.visit('/login');
+    cy.get('input[name="username"]').type('testuser');
+    cy.get('input[name="password"]').type('password123');
+    cy.get('button[type="submit"]').click();
+    cy.url().should('include', '/dashboard');
+  });
+});</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Executar o Teste</h4>
+                            <p>Execute o Cypress para ver os testes a serem executados em tempo real num browser.</p>
+                            <pre><code>npx cypress open</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> O que o comando `cy.visit('/login')` faz num teste Cypress?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Clica num botão de login.</button>
+                                <button class="option" data-correct="false">Verifica se o URL contém '/login'.</button>
+                                <button class="option" data-correct="true">Navega para a página de login da aplicação.</button>
+                                <button class="option" data-correct="false">Preenche um campo de formulário.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a C. O comando `cy.visit()` é usado para navegar para um URL específico antes de realizar qualquer outra interação ou asserção na página.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ A importância dos testes E2E para garantir a qualidade do software.</li>
+                        <li>✅ Como configurar o Cypress e escrever testes para simular fluxos de utilizador.</li>
+                        <li>✅ Como executar testes e validar o comportamento esperado da aplicação.</li>
+                    </ul>
+                    <p>Com os testes E2E, você pode entregar aplicações mais confiáveis e com menos bugs.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-22-testes-unitarios.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

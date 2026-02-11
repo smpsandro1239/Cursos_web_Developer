@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 22: Testes Unitários - Curso Angular</title>
+    <meta name="description" content="Aprenda a escrever testes unitários para os seus componentes e serviços Angular com Karma e Jasmine.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html#modulos-angular" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 22</span>
+                    <h1 class="module-title">Testes Unitários com Karma e Jasmine</h1>
+                    <p class="module-subtitle">Garanta a qualidade e a robustez do seu código escrevendo testes automatizados.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender a importância dos testes unitários.</li>
+                        <li>🎯 Ler um ficheiro de teste (`.spec.ts`) gerado pelo Angular CLI.</li>
+                        <li>🎯 Executar os testes da sua aplicação com o comando `ng test`.</li>
+                        <li>🎯 Escrever um teste simples para um método de um componente.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Construir com Confiança</h3>
+                    <p>Testes unitários são pequenos testes automatizados que verificam se uma "unidade" isolada de código (como um método ou um componente) funciona como esperado. O Angular utiliza o Karma como executor de testes (test runner) e o Jasmine como framework de testes (para escrever as asserções).</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Imagine que está a construir um carro. Os testes unitários são como testar cada peça individualmente antes de a montar: testar o motor, testar os travões, testar o rádio. Se cada peça passar no seu teste, a probabilidade de o carro final funcionar corretamente é muito maior. Modificar o carro mais tarde também se torna mais seguro, porque pode voltar a correr os testes para garantir que não partiu nada.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos testar um método simples num componente.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: O Componente</h4>
+                            <p>Imagine um componente com um método que soma dois números.</p>
+                            <pre><code>// calculator.component.ts
+@Component({ ... })
+export class CalculatorComponent {
+  add(a: number, b: number): number {
+    return a + b;
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: O Ficheiro de Teste</h4>
+                            <p>No ficheiro `calculator.component.spec.ts`, escrevemos um teste para o método `add`.</p>
+                            <pre><code>describe('CalculatorComponent', () => {
+  let component: CalculatorComponent;
+
+  beforeEach(() => {
+    component = new CalculatorComponent();
+  });
+
+  it('should add two numbers correctly', () => {
+    // Act
+    const result = component.add(2, 3);
+
+    // Assert
+    expect(result).toBe(5);
+  });
+});</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Execute os Testes</h4>
+                            <p>No terminal, na pasta do seu projeto, execute o comando:</p>
+                            <pre><code>ng test</code></pre>
+                            <p>O Karma irá abrir um navegador e mostrar os resultados. O nosso teste deverá passar!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> No Jasmine, qual função é usada para fazer uma asserção (verificar se um valor é o esperado)?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">assert()</button>
+                                <button class="option" data-correct="false">check()</button>
+                                <button class="option" data-correct="true">expect()</button>
+                                <button class="option" data-correct="false">verify()</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A função `expect()` é usada em conjunto com "matchers" (como `.toBe()` ou `.toEqual()`) para verificar se os resultados do código são os esperados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, demos os primeiros passos nos testes unitários em Angular:</p>
+                    <ul>
+                        <li>✅ A importância de testar o seu código.</li>
+                        <li>✅ A estrutura de um ficheiro de teste com `describe`, `it`, e `expect`.</li>
+                        <li>✅ O comando `ng test` para executar a suite de testes.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-21-state-management.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-23-testes-e2e-cypress.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

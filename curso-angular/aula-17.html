@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 17: Roteamento Avançado - Curso de Angular</title>
+    <meta name="description" content="Explore técnicas avançadas de roteamento em Angular, como rotas filhas e lazy loading.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 17</span>
+                    <h1 class="module-title">Roteamento Avançado</h1>
+                    <p class="module-subtitle">Leve as suas habilidades de navegação em Angular para o próximo nível.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Criar rotas filhas (nested routes) para organizar interfaces complexas.</li>
+                        <li>🎯 Implementar Lazy Loading para carregar módulos apenas quando são necessários.</li>
+                        <li>🎯 Passar parâmetros para rotas e lê-los nos seus componentes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Navegação Inteligente</h3>
+                    <p>O roteador do Angular é extremamente poderoso. As técnicas avançadas permitem-lhe criar aplicações grandes e performáticas, onde diferentes partes da aplicação são carregadas sob demanda e as URLs podem conter informações dinâmicas.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num grande armazém. O <strong>roteamento básico</strong> é como ter um mapa que o leva a cada secção principal. As <strong>rotas filhas</strong> são as indicações dentro de uma secção que o levam a um corredor específico. O <strong>Lazy Loading</strong> é como ter um funcionário que só vai buscar os produtos de uma secção ao armazém quando você realmente entra nessa secção, poupando tempo e esforço. E os <strong>parâmetros de rota</strong> são como pedir o produto com o número de série "123".</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos configurar o Lazy Loading para um módulo.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie um Módulo com Roteamento</h4>
+                            <p>Use o CLI para criar um novo módulo com roteamento (ex: `admin`).</p>
+                            <pre><code>ng generate module admin --route admin --module app.module</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Verifique o Roteamento Principal</h4>
+                            <p>No `app-routing.module.ts`, o CLI terá adicionado uma rota `loadChildren`.</p>
+                            <pre><code>const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  }
+];</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Defina as Rotas no Módulo Filho</h4>
+                            <p>No `admin-routing.module.ts`, defina as rotas específicas para a área de administração.</p>
+                            <pre><code>const routes: Routes = [
+  { path: '', component: AdminDashboardComponent }
+];</code></pre>
+                            <p>Agora, o código do módulo `admin` só será carregado quando o utilizador navegar para `/admin`.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual é o principal benefício do Lazy Loading?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Torna o código mais fácil de escrever.</button>
+                                <button class="option" data-correct="true">Melhora o tempo de carregamento inicial da aplicação.</button>
+                                <button class="option" data-correct="false">Permite passar dados entre componentes.</button>
+                                <button class="option" data-correct="false">Simplifica a estrutura dos componentes.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> O Lazy Loading divide a aplicação em pedaços mais pequenos que são carregados apenas quando necessários, o que resulta num carregamento inicial mais rápido.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, explorou o roteamento avançado em Angular:</p>
+                    <ul>
+                        <li>✅ <strong>Rotas Filhas:</strong> Para estruturar interfaces complexas.</li>
+                        <li>✅ <strong>Lazy Loading:</strong> Para otimizar a performance da sua aplicação.</li>
+                        <li>✅ <strong>Parâmetros de Rota:</strong> Para criar páginas dinâmicas.</li>
+                    </ul>
+                    <p>Com estas técnicas, está pronto para construir aplicações Angular grandes e eficientes.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-16.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-18.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

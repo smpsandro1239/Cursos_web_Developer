@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 19: Pipes - Curso de Angular</title>
+    <meta name="description" content="Aprenda a transformar dados diretamente nos seus templates com os Pipes do Angular.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 19</span>
+                    <h1 class="module-title">Pipes</h1>
+                    <p class="module-subtitle">Formate dados diretamente no seu HTML de forma limpa e declarativa.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Usar os Pipes nativos do Angular, como `DatePipe`, `UpperCasePipe` e `CurrencyPipe`.</li>
+                        <li>🎯 Passar parâmetros para Pipes para personalizar a formatação.</li>
+                        <li>🎯 Encaidear (chain) múltiplos Pipes para aplicar várias transformações.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Transformadores no Template</h3>
+                    <p>Pipes são uma forma simples de transformar dados para exibição no seu template. Eles pegam um valor de entrada e devolvem um valor formatado. São ideais para tarefas como formatar datas, converter texto para maiúsculas ou formatar números como moeda.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num Pipe como um filtro de Instagram para os seus dados. Os seus dados brutos são a fotografia original. Você aplica um "filtro" (`| pipeName`) e a imagem que aparece no ecrã (no template) é a versão formatada e mais bonita, sem alterar a fotografia original.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos formatar alguns dados num componente.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Prepare os Dados no Componente</h4>
+                            <p>No seu `app.component.ts`, crie algumas propriedades.</p>
+                            <pre><code>import { Component } from '@angular/core';
+
+@Component({ /* ... */ })
+export class AppComponent {
+  hoje = new Date(); // Data atual
+  preco = 19.99;
+  texto = 'angular é incrível';
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Use Pipes no Template</h4>
+                            <p>No `app.component.html`, use o operador `|` para aplicar os Pipes.</p>
+                            <pre><code>&lt;p&gt;Data: {{ hoje | date:'dd/MM/yyyy' }}&lt;/p&gt;
+&lt;p&gt;Preço: {{ preco | currency:'EUR' }}&lt;/p&gt;
+&lt;p&gt;Texto: {{ texto | uppercase }}&lt;/p&gt;</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Encaidear Pipes</h4>
+                            <p>Pode usar múltiplos pipes. Por exemplo, vamos usar o `SlicePipe` e depois `UpperCasePipe`.</p>
+                            <pre><code>&lt;p&gt;Fatia de Texto: {{ texto | slice:0:7 | uppercase }}&lt;/p&gt;
+&lt;!-- Resultado: ANGULAR --&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual é o símbolo usado para aplicar um Pipe num template?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">@</button>
+                                <button class="option" data-correct="false">#</button>
+                                <button class="option" data-correct="true">|</button>
+                                <button class="option" data-correct="false">:</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> O símbolo `|` (pipe) é usado na sintaxe de interpolação do Angular para aplicar um Pipe a um valor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu a usar Pipes para:</p>
+                    <ul>
+                        <li>✅ Formatar datas, moedas e strings diretamente no HTML.</li>
+                        <li>✅ Passar argumentos para Pipes para personalizar a saída.</li>
+                        <li>✅ Combinar vários Pipes para transformações complexas.</li>
+                    </ul>
+                    <p>Pipes ajudam a manter a lógica de formatação fora dos seus componentes, tornando o seu código mais limpo.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-18.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-20-http-interceptors.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

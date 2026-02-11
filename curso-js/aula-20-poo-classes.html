@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 20: POO e Classes - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda os conceitos da Programação Orientada a Objetos e como usar a sintaxe de classes do ES6.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 20</span>
+                    <h1 class="module-title">POO e Classes</h1>
+                    <p class="module-subtitle">Estruture o seu código de forma mais organizada e reutilizável com o paradigma da Programação Orientada a Objetos.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender os conceitos básicos da Programação Orientada a Objetos (POO).</li>
+                        <li>🎯 Definir uma `class` com um `constructor` e métodos.</li>
+                        <li>🎯 Criar instâncias (objetos) a partir de uma classe.</li>
+                        <li>🎯 Implementar herança entre classes com `extends` e `super`.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Modelar o Mundo Real</h3>
+                    <p>A Programação Orientada a Objetos é um paradigma que nos permite estruturar o nosso software de uma forma que espelha o mundo real, através da criação de "objetos" que têm as suas próprias propriedades e comportamentos. As classes são os "moldes" para criar esses objetos.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense numa planta de uma casa (`class`). A planta define a estrutura: quantos quartos, qual a área, etc. A partir dessa única planta, você pode construir várias casas reais (as instâncias ou objetos). Cada casa terá as mesmas características base, mas pode ter diferentes cores de parede ou mobília (as propriedades de cada instância).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar uma classe `Carro`.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Defina a Classe</h4>
+                            <p>Crie uma classe `Carro` com um `constructor` para definir a marca e o modelo, e um método para exibir a informação.</p>
+                            <pre><code>class Carro {
+  constructor(marca, modelo) {
+    this.marca = marca;
+    this.modelo = modelo;
+  }
+
+  mostrarInfo() {
+    return `${this.marca} ${this.modelo}`;
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Crie Instâncias</h4>
+                            <p>Crie dois objetos `Carro` diferentes.</p>
+                            <pre><code>const meuCarro = new Carro('Tesla', 'Model S');
+const outroCarro = new Carro('Ford', 'Mustang');
+
+console.log(meuCarro.mostrarInfo()); // "Tesla Model S"
+console.log(outroCarro.mostrarInfo()); // "Ford Mustang"</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Crie uma Subclasse (Herança)</h4>
+                            <p>Vamos criar uma classe `CarroEletrico` que herda de `Carro` e adiciona uma propriedade de autonomia.</p>
+                            <pre><code>class CarroEletrico extends Carro {
+  constructor(marca, modelo, autonomia) {
+    super(marca, modelo); // Chama o construtor da classe pai
+    this.autonomia = autonomia;
+  }
+}
+
+const meuTesla = new CarroEletrico('Tesla', 'Model 3', 500);
+console.log(meuTesla.mostrarInfo()); // "Tesla Model 3"
+console.log(meuTesla.autonomia); // 500</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual palavra-chave é usada para criar uma classe que herda de outra?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">implements</button>
+                                <button class="option" data-correct="true">extends</button>
+                                <button class="option" data-correct="false">inherits</button>
+                                <button class="option" data-correct="false">super</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A palavra-chave `extends` é usada para criar uma subclasse (ou classe filha) que herda as propriedades e métodos de uma superclasse (ou classe pai).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, demos os primeiros passos em POO com JavaScript:</p>
+                    <ul>
+                        <li>✅ `class`: O molde para criar objetos.</li>
+                        <li>✅ `constructor`: O método especial para criar e inicializar um objeto.</li>
+                        <li>✅ `new`: A palavra-chave para criar uma instância de uma classe.</li>
+                        <li>✅ `extends`: Para criar uma nova classe baseada noutra.</li>
+                        <li>✅ `super`: Para chamar o construtor da classe pai.</li>
+                    </ul>
+                    <p>A POO é um pilar do desenvolvimento de software moderno e ajudá-lo-á a escrever código mais limpo e escalável.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-19-tratamento-erros.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-21-web-components.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

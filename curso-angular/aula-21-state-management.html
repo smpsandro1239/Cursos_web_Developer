@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 21: Gestão de Estado - Curso Angular</title>
+    <meta name="description" content="Aprenda a gerir o estado da sua aplicação Angular de forma centralizada e previsível.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html#modulos-angular" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 21</span>
+                    <h1 class="module-title">Gestão de Estado (State Management)</h1>
+                    <p class="module-subtitle">Centralize os dados da sua aplicação para um fluxo mais previsível.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Explicar o que é "estado" (state) numa aplicação.</li>
+                        <li>🎯 Entender os benefícios de uma store centralizada.</li>
+                        <li>🎯 Descrever padrões como NgRx ou a utilização de Services com Subjects.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que é Gestão de Estado?</h3>
+                    <p>Gestão de Estado é o ato de gerir os dados que a sua aplicação precisa de saber para funcionar. Em aplicações complexas, vários componentes podem precisar de aceder ou modificar os mesmos dados. Uma gestão de estado eficaz centraliza esses dados (numa "store"), tornando as alterações previsíveis e fáceis de depurar.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Imagine uma cozinha de um restaurante. O "estado" é o quadro de pedidos. Se cada cozinheiro tivesse o seu próprio bloco de notas (estado local), seria o caos. Em vez disso, há um quadro central (a "store") onde todos os pedidos são afixados. Todos olham para a mesma fonte de verdade, e quando um pedido é atualizado, é atualizado para todos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar uma gestão de estado simples usando um Angular Service com um `BehaviorSubject`.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie o State Service</h4>
+                            <p>Crie um serviço que terá o nosso estado. O `BehaviorSubject` guarda o valor atual e emite-o para novos subscritores.</p>
+                            <pre><code>// state.service.ts
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class StateService {
+    private readonly countSource = new BehaviorSubject&lt;number&gt;(0);
+    public readonly count$ = this.countSource.asObservable();
+
+    increment() {
+        this.countSource.next(this.countSource.value + 1);
+    }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Injeta o serviço num componente</h4>
+                            <p>Injete o `StateService` no seu componente para poder aceder ao estado e aos métodos que o modificam.</p>
+                            <pre><code>// counter.component.ts
+import { Component } from '@angular/core';
+import { StateService } from './state.service';
+
+@Component({
+    selector: 'app-counter',
+    template: `
+        &lt;p&gt;Count: {{ state.count$ | async }}&lt;/p&gt;
+        &lt;button (click)="increment()"&gt;Increment&lt;/button&gt;
+    `
+})
+export class CounterComponent {
+    constructor(public state: StateService) {}
+
+    increment() {
+        this.state.increment();
+    }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Use o componente</h4>
+                            <p>Qualquer instância do `app-counter` irá agora partilhar e modificar o mesmo estado centralizado no `StateService`.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual é a principal vantagem de usar uma store centralizada?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Deixar os componentes mais rápidos</button>
+                                <button class="option" data-correct="true">Ter uma única fonte de verdade para os dados</button>
+                                <button class="option" data-correct="false">Reduzir o tamanho final da aplicação</button>
+                                <button class="option" data-correct="false">Eliminar a necessidade de services</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A grande vantagem é ter uma "única fonte de verdade" (Single Source of Truth), o que torna a aplicação mais previsível e fácil de depurar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ O que é o estado de uma aplicação.</li>
+                        <li>✅ Porque é útil centralizar o estado em aplicações complexas.</li>
+                        <li>✅ Um exemplo prático de gestão de estado com um Service e `BehaviorSubject`.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-20-http-interceptors.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-22-testes-unitarios.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

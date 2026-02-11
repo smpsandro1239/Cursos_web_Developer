@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 19: Tratamento de Erros - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a lidar com erros de forma graciosa em JavaScript usando os blocos try...catch.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 19</span>
+                    <h1 class="module-title">Tratamento de Erros com try/catch</h1>
+                    <p class="module-subtitle">Escreva código mais robusto que sabe como reagir quando as coisas correm mal.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que são exceções em programação.</li>
+                        <li>🎯 Usar o bloco `try...catch` para capturar e lidar com erros.</li>
+                        <li>🎯 Lançar os seus próprios erros com a declaração `throw`.</li>
+                        <li>🎯 Usar o bloco `finally` para executar código de limpeza.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>A Rede de Segurança</h3>
+                    <p>Mesmo com o código mais bem escrito, podem ocorrer erros inesperados—uma API pode estar offline, um utilizador pode inserir dados inválidos, etc. O tratamento de erros permite-lhe antecipar esses problemas e fornecer uma resposta controlada, em vez de deixar a sua aplicação "crashar".</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num trapezista a atuar. O `try` é a performance em si—ele tenta (`try`) fazer a acrobacia. O `catch` é a rede de segurança por baixo. Se o trapezista escorregar (um erro ocorrer), a rede apanha-o (`catch`), e o espetáculo pode continuar (a aplicação não quebra). O `finally` é como o trapezista fazer uma vénia no final, algo que acontece quer a acrobacia tenha sido um sucesso ou não.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos ver como o `try...catch` funciona na prática.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Capturar um Erro</h4>
+                            <p>Vamos tentar aceder a uma variável que não existe. Sem `try...catch`, isto quebraria o script.</p>
+                            <pre><code>try {
+  console.log(variavelInexistente);
+} catch (error) {
+  console.error("Oops, algo correu mal!");
+  console.error("Detalhes do erro:", error.message);
+}
+
+console.log("O programa continua a correr.");</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Lançar um Erro</h4>
+                            <p>Podemos criar e lançar os nossos próprios erros.</p>
+                            <pre><code>function dividir(a, b) {
+  if (b === 0) {
+    throw new Error("Divisão por zero não é permitida.");
+  }
+  return a / b;
+}
+
+try {
+  const resultado = dividir(10, 0);
+  console.log(resultado);
+} catch (error) {
+  console.error(error.message);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Em que bloco de um `try...catch...finally` é colocado o código que pode gerar um erro?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">catch</button>
+                                <button class="option" data-correct="false">finally</button>
+                                <button class="option" data-correct="true">try</button>
+                                <button class="option" data-correct="false">throw</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> O código que se espera que possa lançar uma exceção é colocado dentro do bloco `try`.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu a fortalecer o seu código:</p>
+                    <ul>
+                        <li>✅ O bloco `try` para envolver código potencialmente problemático.</li>
+                        <li>✅ O bloco `catch` para capturar e lidar com os erros.</li>
+                        <li>✅ A declaração `throw` para criar os seus próprios erros.</li>
+                        <li>✅ O bloco `finally` para código que deve ser sempre executado.</li>
+                    </ul>
+                    <p>Um bom tratamento de erros é a marca de um desenvolvedor profissional.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-18.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-20-poo-classes.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

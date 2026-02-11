@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 17: Fetch API - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a fazer pedidos HTTP com a Fetch API para interagir com servidores e APIs.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 17</span>
+                    <h1 class="module-title">Fetch API</h1>
+                    <p class="module-subtitle">Aprenda a interface moderna do JavaScript para fazer pedidos de rede.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Fazer um pedido `GET` simples para buscar dados de uma API.</li>
+                        <li>🎯 Lidar com a `Promise` retornada pela `fetch`.</li>
+                        <li>🎯 Enviar dados para um servidor com um pedido `POST`.</li>
+                        <li>🎯 Tratar erros em pedidos de rede.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>A Conversa com o Mundo Exterior</h3>
+                    <p>A Fetch API é uma ferramenta poderosa e flexível que permite ao seu código JavaScript comunicar com servidores através da rede. É a forma padrão de ir buscar (`fetch`) dados a uma API ou enviar informações.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense na `fetch` como encomendar comida por telefone. Você faz o pedido (`fetch('url')`). O restaurante dá-lhe uma previsão de quando estará pronto (a `Promise`). Quando a comida fica pronta (a `Promise` resolve), eles entregam-lhe uma caixa fechada (o objeto `Response`). Você ainda precisa de abrir a caixa e ver o que está dentro (usando `.json()` ou `.text()`).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos usar a API pública JSONPlaceholder para praticar.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Fazer um Pedido GET</h4>
+                            <p>Vamos buscar um post específico.</p>
+                            <pre><code>fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Erro:', error));</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Fazer um Pedido POST</h4>
+                            <p>Agora, vamos enviar um novo post. Precisamos de configurar o método, os cabeçalhos e o corpo do pedido.</p>
+                            <pre><code>fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+  }),
+})
+  .then(response => response.json())
+  .then(data => console.log('Post criado:', data))
+  .catch(error => console.error('Erro:', error));</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> O que o primeiro `.then()` após um `fetch` normalmente faz?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Extrai os dados JSON diretamente.</button>
+                                <button class="option" data-correct="true">Converte o corpo da resposta (ex: para JSON).</button>
+                                <button class="option" data-correct="false">Verifica o status do pedido.</button>
+                                <button class="option" data-correct="false">Envia o pedido.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A `fetch` retorna uma `Promise` que resolve com um objeto `Response`. Este objeto não é os dados em si, mas sim a resposta HTTP completa. Métodos como `.json()` são chamados para extrair e processar o corpo da resposta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, aprendeu a usar a Fetch API para:</p>
+                    <ul>
+                        <li>✅ Fazer pedidos `GET` para buscar recursos.</li>
+                        <li>✅ Lidar com a `Promise` e o objeto `Response`.</li>
+                        <li>✅ Fazer pedidos `POST` para enviar dados, configurando o `method`, `headers` e `body`.</li>
+                    </ul>
+                    <p>A Fetch API é uma das ferramentas mais importantes no arsenal de um desenvolvedor JavaScript moderno.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-16.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-18.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 14: Angular Guards - Curso de Angular</title>
+    <meta name="description" content="Décima quarta aula do curso de Angular, focada em Angular Guards para proteção de rotas.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 14</span>
+                    <h1 class="module-title">Angular Guards</h1>
+                    <p class="module-subtitle">Aprenda a proteger rotas e a controlar o acesso a componentes com Guards.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que são Angular Guards e os seus diferentes tipos.</li>
+                        <li>🎯 Implementar um `CanActivate` Guard para proteger rotas.</li>
+                        <li>🎯 Aplicar Guards a rotas na sua aplicação Angular.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que são Angular Guards?</h3>
+                    <p>Angular Guards são mecanismos que permitem controlar o acesso a rotas. Pode usá-los para verificar se um utilizador tem permissão para aceder a uma determinada página, por exemplo.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense nos Guards como seguranças de uma discoteca. Eles verificam a identidade e a idade de cada pessoa antes de a deixarem entrar. Da mesma forma, os Guards verificam certas condições antes de permitirem o acesso a uma rota.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um Guard para proteger uma rota. Siga os passos abaixo:</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie o Guard</h4>
+                            <p>Use o Angular CLI para gerar um novo Guard.</p>
+                            <pre><code>ng generate guard auth</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Implemente a lógica</h4>
+                            <p>No ficheiro `auth.guard.ts`, implemente a lógica para verificar se o utilizador está autenticado.</p>
+                            <pre><code>import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
+    if (this.authService.isLoggedIn()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Aplique o Guard à rota</h4>
+                            <p>No seu ficheiro de routing, aplique o Guard à rota que quer proteger.</p>
+                            <pre><code>{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual é a principal função de um `CanActivate` Guard?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Impedir que um utilizador saia de uma rota.</button>
+                                <button class="option" data-correct="true">Controlar o acesso a uma rota.</button>
+                                <button class="option" data-correct="false">Carregar dados antes de uma rota ser ativada.</button>
+                                <button class="option" data-correct="false">Renderizar um componente.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B, pois `CanActivate` é usado para decidir se uma rota pode ser ativada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ O que são Angular Guards e como funcionam.</li>
+                        <li>✅ Como implementar um `CanActivate` Guard.</li>
+                        <li>✅ Como proteger rotas na sua aplicação.</li>
+                    </ul>
+                    <p>Agora você está pronto para o próximo desafio!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-13.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="aula-15.html" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
