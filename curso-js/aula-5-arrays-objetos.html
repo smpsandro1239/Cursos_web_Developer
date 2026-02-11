@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5: Arrays e Objetos - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a trabalhar com estruturas de dados fundamentais em JavaScript: arrays para listas de dados e objetos para agrupar dados relacionados.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 3</span>
+                    <h1 class="module-title">Estruturas de Dados: Arrays e Objetos</h1>
+                    <p class="module-subtitle">Como organizar e agrupar informações de forma eficiente.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Criar e manipular arrays para armazenar listas de dados.</li>
+                        <li>🎯 Aceder a elementos de um array pelo seu índice.</li>
+                        <li>🎯 Criar objetos para representar entidades com múltiplas propriedades.</li>
+                        <li>🎯 Aceder a propriedades de um objeto usando a notação de ponto e de parênteses retos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Organizando a Despensa de Dados</h3>
+                    <p>Conforme os seus programas crescem, você precisa de formas mais sofisticadas de organizar os dados do que simples variáveis. <strong>Arrays</strong> são usados para armazenar múltiplos valores numa única variável, como uma lista. <strong>Objetos</strong> são usados para armazenar coleções de pares chave-valor, perfeitos para descrever uma única "coisa" com várias características.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense num <strong>array</strong> como uma <strong>lista de compras</strong> numerada. Você tem uma lista de itens, e cada item tem uma posição (o primeiro, o segundo, o terceiro...). Pense num <strong>objeto</strong> como um <strong>cartão de cidadão</strong>. Ele representa uma única pessoa (o objeto) mas contém várias informações sobre ela, cada uma com um rótulo claro: "Nome", "Data de Nascimento", "Número de Identificação".</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos trabalhar com arrays e objetos na consola do navegador.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie e Aceda a um Array</h4>
+                            <p>Abra a consola do navegador (F12) e digite o seguinte código para criar um array de frutas e aceder ao segundo elemento (lembre-se que os índices começam em 0).</p>
+                            <pre><code>let frutas = ["Maçã", "Banana", "Morango"];
+console.log(frutas[1]); // Irá imprimir "Banana"</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Adicione um Item ao Array</h4>
+                            <p>Podemos adicionar um novo item ao final do array usando o método <code>push()</code>.</p>
+                            <pre><code>frutas.push("Laranja");
+console.log(frutas); // Irá imprimir ["Maçã", "Banana", "Morango", "Laranja"]</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Crie e Aceda a um Objeto</h4>
+                            <p>Agora, vamos criar um objeto para representar um utilizador.</p>
+                            <pre><code>let utilizador = {
+    nome: "Ana Silva",
+    idade: 30,
+    email: "ana.silva@exemplo.com",
+    isAdmin: true
+};
+
+// Acedendo às propriedades
+console.log(utilizador.nome); // Imprime "Ana Silva"
+console.log(utilizador['email']); // Imprime "ana.silva@exemplo.com"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Se tivermos o array <code>let cores = ["vermelho", "verde", "azul"];</code>, como acedemos ao valor "verde"?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">cores[2]</button>
+                                <button class="option" data-correct="true">cores[1]</button>
+                                <button class="option" data-correct="false">cores.verde</button>
+                                <button class="option" data-correct="false">cores(1)</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B. Os índices de um array em JavaScript começam em 0. Portanto, "vermelho" está no índice 0, "verde" no índice 1 e "azul" no índice 2.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Pense nos andares de um prédio. O rés do chão é o andar 0, o primeiro andar é o andar 1, e assim por diante. Para chegar ao segundo nível (o "verde" da nossa lista), você precisa de ir para o índice 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ <strong>Arrays</strong> (<code>[]</code>) são usados para armazenar listas ordenadas de valores, acedidos por um índice numérico (a partir de 0).</li>
+                        <li>✅ <strong>Objetos</strong> (<code>{}</code>) são usados para armazenar coleções não ordenadas de pares chave-valor, representando uma única entidade.</li>
+                        <li>✅ Arrays e objetos são as estruturas de dados mais comuns em JavaScript e a base para construir aplicações complexas.</li>
+                    </ul>
+                    <p>Com estas ferramentas, você pode agora modelar e organizar praticamente qualquer tipo de informação que precisar!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-4-funcoes-escopo.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="../index.html" class="btn btn-primary">Concluir Módulo →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6: Componentes em Angular - Curso de Angular</title>
+    <meta name="description" content="Aprenda sobre a pedra angular das aplicações Angular: os Componentes.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 6</span>
+                    <h1 class="module-title">A Arquitetura de Componentes</h1>
+                    <p class="module-subtitle">Aprenda sobre a pedra angular das aplicações Angular: os Componentes.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que é um Componente e qual o seu papel numa aplicação Angular.</li>
+                        <li>🎯 Conhecer os três principais ficheiros de um componente: HTML, CSS e TypeScript.</li>
+                        <li>🎯 Gerar um novo componente utilizando o Angular CLI.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que são Componentes?</h3>
+                    <p>Em Angular, um componente é a unidade fundamental de construção de uma interface de utilizador (UI). Pense numa página web complexa: o cabeçalho, a barra lateral, o rodapé, o feed de notícias... cada uma dessas partes pode ser um componente. Cada componente encapsula o seu próprio HTML (a estrutura), CSS (o estilo) e TypeScript (a lógica), tornando o código mais organizado, reutilizável e fácil de manter.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense numa aplicação Angular como uma <strong>construção de LEGO</strong>. Cada peça de LEGO é um <strong>componente</strong>. Você tem peças para fazer paredes, janelas, telhados, etc. Cada peça tem a sua própria forma (HTML), cor (CSS) e função (TypeScript). Ao juntar estas peças (componentes), você constrói algo muito maior e mais complexo, como uma casa ou um castelo (a sua aplicação).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos usar o Angular CLI para criar o nosso primeiro componente.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Abra o terminal</h4>
+                            <p>Navegue até à pasta do seu projeto Angular no terminal ou linha de comandos.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Execute o comando para gerar o componente</h4>
+                            <p>Use o comando <code>ng generate component</code> (ou a sua abreviação <code>ng g c</code>) seguido do nome do componente. Vamos criar um componente de cabeçalho (header).</p>
+                            <pre><code>ng generate component header</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Observe os ficheiros criados</h4>
+                            <p>O Angular CLI irá criar uma nova pasta <code>src/app/header</code> com quatro ficheiros:</p>
+                            <ul>
+                                <li><code>header.component.html</code> (para a estrutura)</li>
+                                <li><code>header.component.css</code> (para os estilos)</li>
+                                <li><code>header.component.ts</code> (para a lógica)</li>
+                                <li><code>header.component.spec.ts</code> (para testes)</li>
+                            </ul>
+                            <p>Ele também irá declarar automaticamente o novo componente no seu módulo principal (<code>app.module.ts</code>).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual comando do Angular CLI é usado para criar um novo componente chamado 'footer'?</p>
+                            <div class="options">
+                                <button class="option" data-correct="true">Opção A: ng g c footer</button>
+                                <button class="option" data-correct="false">Opção B: ng new component footer</button>
+                                <button class="option" data-correct="false">Opção C: ng create component footer</button>
+                                <button class="option" data-correct="false">Opção D: ng add component footer</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a A. O comando é <code>ng generate component &lt;nome-do-componente&gt;</code>, que pode ser abreviado para <code>ng g c &lt;nome-do-componente&gt;</code>.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Pense no Angular CLI como o seu <strong>assistente de construção LEGO</strong>. Em vez de procurar manualmente por uma peça de janela, você simplesmente diz "assistente, dê-me uma peça de janela" (<code>ng g c window</code>), e ele entrega-a pronta a usar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ Componentes são os blocos de construção fundamentais de uma aplicação Angular.</li>
+                        <li>✅ Cada componente é composto por um template HTML, estilos CSS e uma classe TypeScript.</li>
+                        <li>✅ O Angular CLI simplifica a criação de componentes com o comando <code>ng generate component</code>.</li>
+                    </ul>
+                    <p>Agora você entende a estrutura base para construir aplicações Angular robustas e modulares!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-5-two-way-data-binding.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

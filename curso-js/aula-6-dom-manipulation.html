@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6: Manipulação do DOM - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a interagir e modificar o conteúdo de uma página web com JavaScript.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 6</span>
+                    <h1 class="module-title">Manipulação do DOM</h1>
+                    <p class="module-subtitle">Aprenda a interagir e modificar o conteúdo de uma página web com JavaScript.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que é o DOM (Document Object Model).</li>
+                        <li>🎯 Selecionar elementos HTML usando JavaScript.</li>
+                        <li>🎯 Modificar o conteúdo, os estilos e os atributos dos elementos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O que é o DOM?</h3>
+                    <p>O DOM (Document Object Model) é uma representação em forma de árvore de todos os elementos de uma página HTML. O JavaScript pode interagir com esta árvore para "manipular" a página: adicionar, remover ou modificar elementos e o seu conteúdo. É através do DOM que o JavaScript torna as páginas web dinâmicas e interativas.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense no DOM como uma <strong>árvore de família</strong> da sua página HTML. A tag <code>&lt;html&gt;</code> é o ancestral mais antigo. As tags <code>&lt;head&gt;</code> e <code>&lt;body&gt;</code> são os seus filhos. O JavaScript age como um <strong>genealogista</strong> que pode navegar nesta árvore: encontrar um parente específico (<code>getElementById</code>), mudar o nome dele (<code>.textContent</code>), adicionar um novo membro à família (<code>createElement</code>) ou até removê-lo (<code>removeChild</code>).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar uma página que muda o texto de um título quando clicamos num botão.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Crie a estrutura HTML</h4>
+                            <p>Crie um título <code>&lt;h1&gt;</code> com um ID e um botão <code>&lt;button&gt;</code> com um ID.</p>
+                            <pre><code>&lt;h1 id="titulo"&gt;Olá, Mundo!&lt;/h1&gt;
+&lt;button id="botaoMudar"&gt;Mudar Texto&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Selecione os elementos com JavaScript</h4>
+                            <p>No seu ficheiro JavaScript, use <code>document.getElementById()</code> para obter uma referência aos dois elementos que criou.</p>
+                            <pre><code>const titulo = document.getElementById('titulo');
+const botao = document.getElementById('botaoMudar');</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Adicione um "ouvinte de evento"</h4>
+                            <p>Agora, diga ao botão para "ouvir" por cliques. Quando um clique acontecer, execute uma função que muda o texto do título usando a propriedade <code>.textContent</code>.</p>
+                            <pre><code>botao.addEventListener('click', function() {
+    titulo.textContent = 'O texto mudou!';
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual método é usado para selecionar um elemento HTML pelo seu ID?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Opção A: document.querySelector('#id')</button>
+                                <button class="option" data-correct="false">Opção C: document.getElementByClass('id')</button>
+                                <button class="option" data-correct="false">Opção D: document.selectById('id')</button>
+                                <button class="option" data-correct="true">Opção B: document.getElementById('id')</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B. <code>document.getElementById('id')</code> é o método mais direto e performático para selecionar um único elemento que possui um ID único.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Na nossa árvore de família (o DOM), cada pessoa tem um número de identificação único (ID). Usar <code>getElementById</code> é como pedir para encontrar a pessoa diretamente pelo seu número de identificação – é a forma mais rápida de encontrar exatamente quem você procura.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ O DOM é uma representação em árvore da sua página HTML, que o JavaScript pode manipular.</li>
+                        <li>✅ Podemos selecionar elementos usando métodos como <code>getElementById</code>, <code>querySelector</code>, entre outros.</li>
+                        <li>✅ Depois de selecionar um elemento, podemos alterar o seu conteúdo (<code>.textContent</code>, <code>.innerHTML</code>), estilos (<code>.style</code>) e atributos.</li>
+                    </ul>
+                    <p>Agora você tem o poder de tornar as suas páginas web verdadeiramente interativas!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-5-arrays-objetos.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

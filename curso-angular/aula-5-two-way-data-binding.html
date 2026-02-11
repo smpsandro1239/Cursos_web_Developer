@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5: Two-Way Data Binding - Curso de Angular</title>
+    <meta name="description" content="Aprenda a criar uma sincronização automática entre o modelo (componente) e a visão (template) com o Two-Way Data Binding em Angular.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 4</span>
+                    <h1 class="module-title">Two-Way Data Binding com ngModel</h1>
+                    <p class="module-subtitle">A sincronização mágica entre os seus dados e a interface do utilizador.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Explicar o que é o Two-Way Data Binding.</li>
+                        <li>🎯 Implementar o Two-Way Data Binding usando a diretiva <code>ngModel</code>.</li>
+                        <li>🎯 Sincronizar o valor de um campo de formulário com uma propriedade do componente em tempo real.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Uma Conversa de Duas Vias</h3>
+                    <p>Até agora, vimos o Property Binding (<code>[]</code>), que envia dados do componente para o template, e o Event Binding (<code>()</code>), que envia dados do template para o componente. O <strong>Two-Way Data Binding</strong> combina os dois. Ele cria um canal de comunicação bidirecional: quando o dado muda no componente, a interface é atualizada; quando o utilizador altera algo na interface (como digitar num campo de texto), o dado no componente é atualizado automaticamente.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Pense numa <strong>conversa por walkie-talkie</strong>. O Property Binding é uma pessoa a falar e a outra a ouvir. O Event Binding é a outra pessoa a falar e a primeira a ouvir. O Two-Way Data Binding é como uma <strong>chamada telefónica</strong>: a comunicação flui nos dois sentidos simultaneamente e de forma contínua. Qualquer coisa que uma pessoa diz, a outra ouve instantaneamente, e vice-versa.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos criar um campo de texto cujo valor estará sempre sincronizado com uma propriedade no nosso componente.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Importe o FormsModule</h4>
+                            <p>Para usar o <code>ngModel</code>, você precisa primeiro de importar o <code>FormsModule</code> no seu módulo principal (geralmente <code>app.module.ts</code>).</p>
+                            <pre><code>// app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // &lt;-- IMPORTE AQUI
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule // &lt;-- E ADICIONE AOS IMPORTS
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Defina a propriedade no componente</h4>
+                            <p>No seu ficheiro de componente (ex: <code>app.component.ts</code>), crie uma propriedade para guardar o nome do utilizador.</p>
+                            <pre><code>// app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  nomeUtilizador: string = 'Visitante'; // Propriedade que vamos sincronizar
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Use o ngModel no template</h4>
+                            <p>No seu template (<code>app.component.html</code>), use a sintaxe "banana in a box" <code>[()]</code> para ligar o <code>ngModel</code> à sua propriedade. Vamos também exibir o valor da propriedade para ver a magia a acontecer.</p>
+                            <pre><code>&lt;!-- app.component.html --&gt;
+&lt;h2&gt;Olá, {{ nomeUtilizador }}!&lt;/h2&gt;
+
+&lt;p&gt;Digite o seu nome:&lt;/p&gt;
+&lt;input type="text" [(ngModel)]="nomeUtilizador"&gt;</code></pre>
+                            <p>Agora, quando você executar a aplicação e digitar no campo de texto, o título <code>&lt;h2&gt;</code> será atualizado em tempo real!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Qual é a sintaxe correta para usar o Two-Way Data Binding com <code>ngModel</code>?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">[ngModel]="propriedade"</button>
+                                <button class="option" data-correct="false">(ngModel)="propriedade"</button>
+                                <button class="option" data-correct="true">[(ngModel)]="propriedade"</button>
+                                <button class="option" data-correct="false">{{ ngModel }}</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a C. A sintaxe <code>[()]</code>, carinhosamente apelidada de "banana in a box", combina a sintaxe do Property Binding (<code>[]</code>) e do Event Binding (<code>()</code>) para criar a ligação de dados bidirecional.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Pense nos parênteses retos <code>[]</code> como um fluxo de dados a "entrar" no elemento, e nos parênteses curvos <code>()</code> como um fluxo de dados a "sair" do elemento. Juntos, <code>[()]</code>, eles formam um ciclo contínuo de comunicação, como uma chamada telefónica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ Two-Way Data Binding sincroniza dados entre o componente e o template em ambas as direções.</li>
+                        <li>✅ É implementado com a diretiva <code>ngModel</code> e a sintaxe <code>[()]</code>.</li>
+                        <li>✅ É necessário importar o <code>FormsModule</code> no seu módulo para poder usar o <code>ngModel</code>.</li>
+                    </ul>
+                    <p>Dominar o Two-Way Data Binding é essencial para criar formulários e interfaces interativas em Angular de forma rápida e eficiente.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-4-event-binding.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="../index.html" class="btn btn-primary">Concluir Módulo →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: HttpClient - Curso de Angular</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Curso de Angular</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="aula-8-servicos.html">Aula Anterior</a></li>
+                <li><a href="#">Próxima Aula</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="objetivo">
+            <h2>Objetivo da Aula</h2>
+            <p>O objetivo desta aula é aprender a fazer requisições HTTP para um servidor usando o HttpClient do Angular.</p>
+        </section>
+        <section id="teoria">
+            <h2>Teoria com Analogia</h2>
+            <p>Pense no HttpClient como um garçom em um restaurante. Seu componente (o cliente) faz um pedido (requisição HTTP) ao garçom. O garçom leva o pedido à cozinha (o servidor) e, depois de um tempo, traz a comida (a resposta do servidor).</p>
+        </section>
+        <section id="pratica">
+            <h2>Prática Apoiada</h2>
+            <p>Vamos criar um serviço em Angular que busca uma lista de usuários de uma API de teste.</p>
+            <pre><code>
+// user.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({ providedIn: 'root' })
+export class UserService {
+    constructor(private http: HttpClient) {}
+
+    getUsers() {
+        return this.http.get('https://jsonplaceholder.typicode.com/users');
+    }
+}
+            </code></pre>
+        </section>
+        <section id="quiz">
+            <h2>Perguntas de Múltipla Escolha</h2>
+            <p>Qual módulo do Angular precisamos importar para usar o HttpClient?</p>
+            <form>
+                <input type="radio" name="q1" value="a"> A. FormsModule<br>
+                <input type="radio" name="q1" value="b"> B. HttpClientModule<br>
+                <input type="radio" name="q1" value="c"> C. RouterModule<br>
+            </form>
+            <p id="explicacao" style="display: none;"><b>Explicação:</b> O `HttpClientModule` é essencial e precisa ser importado no módulo raiz da aplicação para que o serviço `HttpClient` esteja disponível para injeção de dependência.</p>
+        </section>
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <p>Nesta aula, aprendemos a usar o HttpClient do Angular para nos comunicarmos com APIs externas, um passo fundamental para construir aplicações ricas e dinâmicas.</p>
+        </section>
+        <section id="navegacao">
+            <button onclick="window.location.href='#'">Próxima Aula</button>
+        </section>
+    </main>
+</body>
+</html>

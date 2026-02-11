@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8 - Serviços em Angular</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>Curso de Angular</h1>
+        <h2>Aula 8: Serviços e Injeção de Dependência</h2>
+    </header>
+    <main>
+        <section>
+            <h3>1. Objetivo da Aula</h3>
+            <p>Entender o que são Serviços (Services) em Angular e como eles são usados para compartilhar lógica de negócio e dados entre componentes através da Injeção de Dependência.</p>
+        </section>
+        <section>
+            <h3>2. Teoria com Analogia</h3>
+            <p>Imagine que seus componentes são diferentes cômodos de uma casa (sala, quarto, cozinha). Agora, imagine que você precisa de acesso à internet em todos os cômodos. Em vez de cada cômodo ter seu próprio modem e roteador (lógica duplicada), você instala um único roteador potente (um Serviço) em um local central. Qualquer cômodo que precise de internet (dados ou uma função) simplesmente se conecta a este serviço central. Isso é o que um Serviço faz: centraliza uma funcionalidade para que múltiplos componentes possam usá-la sem duplicar código. A "Injeção de Dependência" é o ato de "conectar" o cômodo ao roteador.</p>
+        </section>
+        <section>
+            <h3>3. Prática Apoiada</h3>
+            <p>Vamos ver como criar um serviço para fornecer uma lista de usuários e injetá-lo em um componente.</p>
+            <h4>Passo 1: Criar o Serviço (`user.service.ts`)</h4>
+            <pre><code>
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  getUsers() {
+    return ['Alice', 'Bob', 'Charlie'];
+  }
+}
+            </code></pre>
+            <h4>Passo 2: Injetar e Usar no Componente (`user-list.component.ts`)</h4>
+            <pre><code>
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'app-user-list',
+  template: `
+    &lt;ul&gt;
+      &lt;li *ngFor="let user of users"&gt;{{ user }}&lt;/li&gt;
+    &lt;/ul&gt;
+  `
+})
+export class UserListComponent implements OnInit {
+  users: string[];
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+    this.users = this.userService.getUsers();
+  }
+}
+            </code></pre>
+        </section>
+        <section>
+            <h3>4. Perguntas de Múltipla Escolha</h3>
+            <form id="quiz">
+                <p>Para que serve o decorator `@Injectable()`?</p>
+                <input type="radio" name="q1" value="a"> a) Para criar um componente.<br>
+                <input type="radio" name="q1" value="b"> b) Para marcar uma classe como disponível para ser injetada como uma dependência.<br>
+                <input type="radio" name="q1" value="c"> c) Para definir o template HTML de um serviço.<br>
+                <button type="button" onclick="checkQuiz()">Verificar</button>
+            </form>
+            <p id="explanation"></p>
+        </section>
+        <section>
+            <h3>5. Resumo do que Aprendi</h3>
+            <p>Nesta aula, aprendemos que Serviços em Angular são usados para organizar e compartilhar código. Eles são injetados nos componentes, seguindo o padrão de Injeção de Dependência, o que torna nossa aplicação mais modular e fácil de manter.</p>
+        </section>
+        <section>
+            <h3>6. Próxima Aula</h3>
+            <a href="#">Ir para a próxima aula</a>
+        </section>
+    </main>
+    <script>
+        function checkQuiz() {
+            const answer = document.querySelector('input[name="q1"]:checked').value;
+            if (answer === 'b') {
+                document.getElementById('explanation').innerHTML = "Correto! `@Injectable()` diz ao Angular: 'Ei, esta classe pode ser fornecida e injetada em outros lugares', assim como o técnico de internet diz que o roteador está pronto para ser conectado.";
+            } else {
+                document.getElementById('explanation').innerHTML = "Incorreto. A analogia é que `@Injectable()` é a etiqueta na caixa do roteador que diz 'pronto para instalação', permitindo que ele seja 'injetado' na casa.";
+            }
+        }
+    </script>
+</body>
+</html>

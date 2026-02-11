@@ -1,0 +1,8 @@
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /curso-html5/aula-11.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /js/lesson.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /css/module.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /css/lesson.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:38] "GET /curso-css/aula-11.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:39] "GET /curso-js/aula-11.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2025 18:30:39] "GET /curso-angular/aula-11.html HTTP/1.1" 200 -

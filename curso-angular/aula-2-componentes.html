@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2: A Anatomia de um Componente - Curso de Angular</title>
+    <meta name="description" content="Aprenda como os componentes são a base de uma aplicação Angular, combinando HTML, CSS e lógica.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar aos Cursos
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 2</span>
+                    <h1 class="module-title">A Anatomia de um Componente</h1>
+                    <p class="module-subtitle">Os blocos de construção fundamentais de qualquer aplicação Angular.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Explicar o que é um componente em Angular e qual o seu propósito.</li>
+                        <li>🎯 Identificar as três partes principais de um componente: Template (HTML), Estilos (CSS) e Lógica (TypeScript).</li>
+                        <li>🎯 Entender como o decorador `@Component` conecta estas três partes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Componentes: Tudo é um Componente</h3>
+                    <p>Em Angular, a sua aplicação é uma árvore de componentes. Pense em tudo o que vê no ecrã — o cabeçalho, a barra lateral, o botão — como um componente independente e reutilizável. Cada componente tem o seu próprio HTML, CSS e lógica de funcionamento.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Peças de LEGO</h4>
+                            <p>Construir uma aplicação Angular é como construir com LEGOs. Cada componente é uma peça de LEGO: um tijolo, uma janela, uma roda. Cada peça é autocontida e tem uma função específica.
+                            - <strong>O HTML (`templateUrl`):</strong> É a forma da peça de LEGO (como ela se parece).
+                            - <strong>O CSS (`styleUrls`):</strong> É a cor da peça.
+                            - <strong>O TypeScript (a classe):</strong> É a função da peça (uma roda gira, uma porta abre).
+                            - <strong>O `@Component` (as instruções):</strong> É o manual que diz como a peça se chama (o `selector`), qual a sua forma e cor, e o que ela faz, juntando tudo num só bloco.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos analisar a estrutura de um componente `user-profile` muito simples.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: O Ficheiro TypeScript (`.ts`) com o Decorador</h4>
+                            <p>Este ficheiro define o componente e a sua lógica. O `@Component` é o "manual de instruções".</p>
+                            <pre><code>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-user-profile', // Nome da tag HTML para usar este componente
+  templateUrl: './user-profile.component.html', // Caminho para o HTML
+  styleUrls: ['./user-profile.component.css'] // Caminho para o CSS
+})
+export class UserProfileComponent {
+  nome = 'Utilizador Anónimo'; // Lógica e dados do componente
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: O Ficheiro de Template (`.html`)</h4>
+                            <p>Este é o HTML que será renderizado. Note a sintaxe `{{ nome }}` para exibir dados do ficheiro TypeScript.</p>
+                            <pre><code>&lt;h1&gt;Perfil de Utilizador&lt;/h1&gt;
+&lt;p&gt;Nome: {{ nome }}&lt;/p&gt;</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: O Ficheiro de Estilos (`.css`)</h4>
+                            <p>Este CSS aplica-se apenas a este componente, sem afetar o resto da aplicação.</p>
+                            <pre><code>h1 {
+  color: #3f51b5; /* Um tom de azul */
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Que propriedade do decorador `@Component` define o nome da tag HTML para usar o componente (ex: `&lt;app-user-profile&gt;`)?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">templateUrl</button>
+                                <button class="option" data-correct="true">selector</button>
+                                <button class="option" data-correct="false">styleUrls</button>
+                                <button class="option" data-correct="false">className</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A propriedade `selector` define o nome da tag personalizada que o Angular irá procurar no HTML para renderizar este componente.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> O `selector` é o nome oficial da peça de LEGO no manual de instruções, para que você saiba qual peça procurar na caixa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ <strong>Componentes</strong> são os blocos de construção em Angular, encapsulando a aparência e o comportamento de uma parte da UI.</li>
+                        <li>✅ Cada componente é composto por <strong>HTML (template)</strong>, <strong>CSS (estilos)</strong> e <strong>TypeScript (lógica)</strong>.</li>
+                        <li>✅ O decorador <strong>`@Component`</strong> é o que une estas três partes, usando `selector`, `templateUrl` e `styleUrls`.</li>
+                    </ul>
+                    <p>Compreender esta estrutura é essencial para começar a construir aplicações Angular.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-1-introducao.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary btn-disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

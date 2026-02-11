@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: Features do ES6+ - Curso de JavaScript</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Curso de JavaScript</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="aula-8-assincrono.html">Aula Anterior</a></li>
+                <li><a href="#">Próxima Aula</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="objetivo">
+            <h2>Objetivo da Aula</h2>
+            <p>O objetivo desta aula é conhecer as novas features introduzidas no ECMAScript 6 (ES6) e versões posteriores, como arrow functions, template literals e desestruturação.</p>
+        </section>
+        <section id="teoria">
+            <h2>Teoria com Analogia</h2>
+            <p>Pense no JavaScript como uma caixa de ferramentas. O ES6 é como receber um upgrade nessa caixa, com ferramentas novas e mais eficientes que permitem fazer o mesmo trabalho de antes, mas de forma mais rápida e com menos esforço.</p>
+        </section>
+        <section id="pratica">
+            <h2>Prática Apoiada</h2>
+            <p>Vamos reescrever um código antigo usando as novas features do ES6.</p>
+            <pre><code>
+// Antes do ES6
+var nome = "João";
+console.log("Olá " + nome);
+
+// Com ES6 (template literals)
+const nome = "João";
+console.log(`Olá ${nome}`);
+            </code></pre>
+        </section>
+        <section id="quiz">
+            <h2>Perguntas de Múltipla Escolha</h2>
+            <p>Qual a principal vantagem das arrow functions?</p>
+            <form>
+                <input type="radio" name="q1" value="a"> A. São mais rápidas.<br>
+                <input type="radio" name="q1" value="b"> B. Têm uma sintaxe mais curta e um `this` léxico.<br>
+                <input type="radio" name="q1" value="c"> C. Funcionam em navegadores antigos.<br>
+            </form>
+            <p id="explicacao" style="display: none;"><b>Explicação:</b> Arrow functions oferecem uma sintaxe mais concisa e herdam o `this` do contexto em que foram criadas, evitando confusões comuns com o `this` dinâmico das funções tradicionais.</p>
+        </section>
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <p>Nesta aula, exploramos as poderosas features do ES6+, como template literals e arrow functions, que nos permitem escrever um código JavaScript mais moderno e legível.</p>
+        </section>
+        <section id="navegacao">
+            <button onclick="window.location.href='#'">Próxima Aula</button>
+        </section>
+    </main>
+</body>
+</html>

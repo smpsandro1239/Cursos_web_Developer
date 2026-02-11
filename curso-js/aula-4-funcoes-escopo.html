@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4: Funções e Escopo - Curso JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">CodeMaster Academy</a></h1>
+    </header>
+
+    <main>
+        <article class="lesson-content">
+            <h2 class="lesson-title">Aula 4: Funções e Escopo</h2>
+
+            <section id="o-que-vai-ser-capaz">
+                <h3>O que vai ser capaz de fazer</h3>
+                <p>No final desta aula, irá saber como criar e usar funções para organizar e reutilizar código, e compreenderá o conceito de escopo para evitar conflitos entre variáveis.</p>
+            </section>
+
+            <section id="teoria">
+                <h3>Teoria (Com Analogia)</h3>
+                <p>À medida que os seus programas crescem, não quer repetir o mesmo código várias vezes. As funções permitem-lhe agrupar um bloco de código e dar-lhe um nome para que o possa chamar sempre que precisar.</p>
+                <p><strong>Analogia da Máquina de Café:</strong></p>
+                <ul>
+                    <li>
+                        <strong>Função:</strong> Pense numa função como uma máquina de café. Ela foi desenhada para fazer uma coisa específica: café. Você não precisa de saber todos os detalhes de como ela aquece a água ou mói o grão. Você simplesmente usa-a. Em JavaScript, uma função `fazerCafe()` agruparia todas as instruções para essa tarefa.
+                    </li>
+                    <li>
+                        <strong>Parâmetros:</strong> São as "configurações" que você passa para a máquina. Por exemplo, a quantidade de açúcar (`acucar`) ou se quer leite (`comLeite`). Estes são os dados que a função recebe para trabalhar: `fazerCafe(2, true)`.
+                    </li>
+                    <li>
+                        <strong>Return:</strong> É o resultado que a máquina lhe entrega – a chávena de café pronta. A palavra-chave `return` numa função devolve um valor para quem a chamou.
+                    </li>
+                    <li>
+                        <strong>Escopo:</strong> Imagine que a máquina de café tem um pequeno depósito de água interno. Essa água (uma variável local) só existe e é usada *dentro* da máquina. A água da canalização da sua casa (uma variável global) está disponível para a máquina de café, para o lava-loiça, etc. O escopo define onde as suas "variáveis" (ingredientes) são visíveis e acessíveis.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="pratica">
+                <h3>Prática (Guiada Passo a Passo)</h3>
+                <p>Vamos criar algumas funções na consola do navegador.</p>
+                <ol>
+                    <li>
+                        <strong>Crie uma função simples</strong> que mostra uma mensagem:
+                        <pre><code>function cumprimentar() {
+  console.log('Olá a todos!');
+}
+
+// Para usar a função, você tem de a "chamar":
+cumprimentar();</code></pre>
+                    </li>
+                    <li>
+                        <strong>Crie uma função com parâmetros</strong> que personaliza a mensagem:
+                        <pre><code>function cumprimentarPessoa(nome) {
+  console.log('Olá, ' + nome + '!');
+}
+
+cumprimentarPessoa('Ana'); // Saída: Olá, Ana!
+cumprimentarPessoa('Carlos'); // Saída: Olá, Carlos!</code></pre>
+                    </li>
+                    <li>
+                        <strong>Crie uma função que retorna um valor:</strong>
+                        <pre><code>function somar(a, b) {
+  let resultado = a + b;
+  return resultado;
+}
+
+let total = somar(5, 3);
+console.log('O total é: ' + total); // Saída: O total é: 8</code></pre>
+                    </li>
+                    <li>
+                        <strong>Demonstração de Escopo:</strong>
+                        <pre><code>let variavelGlobal = 'Eu estou fora da função.';
+
+function testarEscopo() {
+  let variavelLocal = 'Eu estou dentro da função.';
+  console.log(variavelGlobal); // Funciona
+  console.log(variavelLocal); // Funciona
+}
+
+testarEscopo();
+console.log(variavelLocal); // ERRO! variavelLocal is not defined</code></pre>
+                        <p>O erro acontece porque `variavelLocal` só existe dentro da função `testarEscopo`.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="perguntas">
+                <h3>Perguntas de Escolha Múltipla</h3>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. Qual é a palavra-chave usada para definir uma função em JavaScript?</p>
+                        <label><input type="radio" name="q1" value="a"> var</label><br>
+                        <label><input type="radio" name="q1" value="b"> func</label><br>
+                        <label><input type="radio" name="q1" value="c"> function</label><br>
+                    </div>
+                    <div class="question">
+                        <p>2. Uma variável declarada DENTRO de uma função é chamada de:</p>
+                        <label><input type="radio" name="q2" value="a"> Variável Global</label><br>
+                        <label><input type="radio" name="q2" value="b"> Variável Local</label><br>
+                        <label><input type="radio" name="q2" value="c"> Variável Universal</label><br>
+                    </div>
+                    <button type="button" onclick="checkAnswers()">Verificar</button>
+                </form>
+                <div id="quiz-feedback"></div>
+            </section>
+
+            <section id="resumo">
+                <h3>Resumo do que aprendeu</h3>
+                <p>Nesta aula, aprendeu os blocos de construção para programas mais complexos e organizados:</p>
+                <ul>
+                    <li><strong>Funções:</strong> Blocos de código nomeados e reutilizáveis, definidos com a palavra-chave `function`.</li>
+                    <li><strong>Parâmetros:</strong> As variáveis de entrada que uma função pode aceitar.</li>
+                    <li><strong>`return`</strong>: A palavra-chave que permite a uma função enviar um valor de volta.</li>
+                    <li><strong>Escopo:</strong> O contexto onde as variáveis são acessíveis. Variáveis dentro de funções (locais) não são acessíveis de fora, o que ajuda a prevenir erros.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CodeMaster Academy. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = { q1: 'c', q2: 'b' };
+            const feedback = document.getElementById('quiz-feedback');
+            const form = document.getElementById('quiz-form');
+            const q1 = form.elements['q1'].value;
+            const q2 = form.elements['q2'].value;
+            let feedbackHTML = '';
+
+            if (q1 === correctAnswers.q1) {
+                feedbackHTML += '<p><strong>Questão 1: Correto!</strong> A palavra-chave `function` é usada para declarar uma nova função.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 1: Incorreto.</strong> A resposta certa é `function`. É o termo reservado para criar funções em JavaScript.</p>';
+            }
+
+            if (q2 === correctAnswers.q2) {
+                feedbackHTML += '<p><strong>Questão 2: Correto!</strong> Uma variável declarada dentro de uma função tem escopo local, o que significa que só pode ser acedida lá dentro.</p>';
+            } else {
+                feedbackHTML += '<p><strong>Questão 2: Incorreto.</strong> A resposta certa é Variável Local. Lembre-se da analogia: a água dentro da máquina de café é "local" para a máquina.</p>';
+            }
+
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11 - JavaScript Assíncrono: Promises e Async/Await</title>
+    <meta name="description" content="Aprenda a lidar com operações assíncronas em JavaScript de forma moderna.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="aula-10-projeto-final.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar à Aula 10
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 11</span>
+                    <h1 class="module-title">JavaScript Assíncrono: Promises e Async/Await</h1>
+                    <p class="module-subtitle">Não espere mais! Domine o fluxo de operações assíncronas.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Entender o que é código assíncrono e por que ele é importante em JavaScript.</li>
+                        <li>🎯 Utilizar Promises para gerir operações que levam tempo a ser concluídas.</li>
+                        <li>🎯 Escrever código assíncrono limpo e legível com a sintaxe `async/await`.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>O Problema da Espera</h3>
+                    <p>JavaScript, por natureza, é "single-threaded", o que significa que só consegue fazer uma coisa de cada vez. Se pedirmos algo que demora (como buscar dados de um servidor), todo o site ficaria bloqueado à espera da resposta. O código assíncrono resolve isso, permitindo que o JavaScript continue a executar outras tarefas enquanto espera.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia</h4>
+                            <p>Imagine que está num restaurante. O método síncrono (bloqueante) seria como o empregado de mesa ficar parado ao seu lado, sem fazer mais nada, até que escolha o seu prato. Ineficiente! O método <strong>assíncrono</strong> é como o empregado de mesa anota o seu pedido (uma <strong>Promise</strong> de que a comida virá) e depois vai atender outras mesas. Quando a comida está pronta, ele traz-lha. O `async/await` é como dizer educadamente "Eu vou esperar (`await`) pela comida", sabendo que pode conversar com os seus amigos enquanto isso.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos simular o pedido de dados a um servidor.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Criar uma Promise</h4>
+                            <p>Vamos criar uma função que retorna uma Promise. A Promise será resolvida com sucesso após 2 segundos.</p>
+                            <pre><code>function buscarDados() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 1, nome: "Utilizador Fantasma" });
+    }, 2000); // Simula um atraso de 2 segundos
+  });
+}</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Consumir a Promise com `.then()`</h4>
+                            <p>A forma clássica de usar uma Promise é com o método `.then()`.</p>
+                            <pre><code>console.log("A pedir dados...");
+buscarDados().then(dados => {
+  console.log("Dados recebidos:", dados);
+});
+console.log("Enquanto isso, posso fazer outra coisa!");</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Usar Async/Await</h4>
+                            <p>Agora, a forma moderna e mais legível. Precisamos de uma função `async` para poder usar `await`.</p>
+                            <pre><code>async function apresentarDados() {
+  console.log("A iniciar a apresentação...");
+  const dados = await buscarDados(); // Pausa a execução AQUI até a Promise ser resolvida
+  console.log("Os dados são:", dados);
+  console.log("Apresentação concluída.");
+}
+
+apresentarDados();</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> O que a palavra-chave `await` faz numa função `async`?</p>
+                            <div class="options">
+                                <button class="option" data-correct="false">Cancela a Promise.</button>
+                                <button class="option" data-correct="true">Pausa a execução da função até que a Promise seja resolvida.</button>
+                                <button class="option" data-correct="false">Executa a Promise imediatamente de forma síncrona.</button>
+                                <button class="option" data-correct="false">Cria uma nova Promise.</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> A resposta correta é a B. `await` é usado para esperar pelo resultado de uma Promise sem bloquear a thread principal, tornando o código assíncrono mais parecido com código síncrono.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Lembre-se do restaurante. `await` é o ato de esperar pacientemente pela sua comida, confiando que o empregado de mesa (o sistema) está a tratar de tudo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ JavaScript é "single-threaded" e usa um modelo assíncrono para operações demoradas.</li>
+                        <li>✅ As Promises são objetos que representam a eventual conclusão (ou falha) de uma operação assíncrona.</li>
+                        <li>✅ A sintaxe `async/await` é "açúcar sintático" sobre as Promises, que nos permite escrever código assíncrono de forma mais clara e concisa.</li>
+                    </ul>
+                    <p>Dominar o código assíncrono é fundamental para o desenvolvimento JavaScript moderno.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-10-projeto-final.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>

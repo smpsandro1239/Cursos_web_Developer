@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2: Variáveis e Tipos de Dados - Curso de JavaScript</title>
+    <meta name="description" content="Aprenda a armazenar e manipular dados em JavaScript com variáveis e conheça os tipos de dados essenciais.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar aos Cursos
+                </a>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 2</span>
+                    <h1 class="module-title">Variáveis e Tipos de Dados</h1>
+                    <p class="module-subtitle">A base para armazenar e trabalhar com informações no seu código.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="lesson-container">
+        <div class="container">
+            <!-- Secção: O que vai ser capaz -->
+            <section id="objetivos" class="lesson-section">
+                <h2 class="section-title">O que vai ser capaz de fazer?</h2>
+                <div class="content-box">
+                    <p>No final desta aula, você será capaz de:</p>
+                    <ul>
+                        <li>🎯 Declarar variáveis usando `let` e `const`.</li>
+                        <li>🎯 Entender a diferença fundamental entre `let` (variável) e `const` (constante).</li>
+                        <li>🎯 Identificar e usar os tipos de dados primários: String, Number e Boolean.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Secção: Teoria com analogia -->
+            <section id="teoria" class="lesson-section">
+                <h2 class="section-title">Teoria (com analogia)</h2>
+                <div class="content-box">
+                    <h3>Guardar Informação em "Caixas"</h3>
+                    <p>Em programação, precisamos de um lugar para guardar dados temporariamente. Para isso, usamos variáveis. Pense nelas como caixas com etiquetas, onde você pode guardar informações para usar mais tarde.</p>
+                    <div class="analogy-box">
+                        <span class="analogy-icon">💡</span>
+                        <div class="analogy-content">
+                            <h4>Analogia: Caixas de Arrumação</h4>
+                            <p>Imagine que está a organizar a sua secretária.
+                            - <strong>`let` (Caixa Reutilizável):</strong> Você tem uma caixa com a etiqueta "Idade". Agora, guarda o número 30. Amanhã, faz anos, e pode abrir a caixa e trocar o 30 por 31. `let` permite alterar o conteúdo.
+                            - <strong>`const` (Caixa Selada):</strong> Você tem uma caixa com a etiqueta "Data de Nascimento". Depois de guardar a sua data lá dentro, você sela a caixa. Esse valor não pode ser alterado. `const` é para valores que não mudam.
+                            - <strong>Tipos de Dados:</strong> O que você guarda na caixa define o seu tipo. Um texto ("Olá Mundo") é uma `String`. Um número (100) é um `Number`. Um valor de sim/não (true/false) é um `Boolean`.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Prática Guiada -->
+            <section id="pratica" class="lesson-section">
+                <h2 class="section-title">Prática (Passo a Passo)</h2>
+                <div class="content-box">
+                    <p>Vamos declarar algumas variáveis e exibi-las na consola do navegador.</p>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <h4>Passo 1: Declare uma variável de idade com `let`</h4>
+                            <p>Use `let` para criar uma variável `idade` e atribuir-lhe um valor numérico.</p>
+                            <pre><code>let idade = 25;
+console.log(idade); // Exibe 25 na consola</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 2: Declare uma constante de nome com `const`</h4>
+                            <p>Use `const` para criar uma variável `nome` com o seu nome (uma string).</p>
+                            <pre><code>const nome = "Maria";
+console.log(nome); // Exibe "Maria" na consola</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Passo 3: Combine as variáveis</h4>
+                            <p>Crie uma frase que combine as duas variáveis.</p>
+                            <pre><code>console.log("Olá, o meu nome é " + nome + " e tenho " + idade + " anos.");
+// Exibe "Olá, o meu nome é Maria e tenho 25 anos."</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Quiz de Múltipla Escolha -->
+            <section id="quiz" class="lesson-section">
+                <h2 class="section-title">Teste o seu conhecimento</h2>
+                <div class="content-box">
+                    <div id="quiz-container">
+                        <div class="question">
+                            <p class="question-text"><strong>1.</strong> Se você precisa de uma variável cujo valor NUNCA deve mudar, qual palavra-chave deve usar?</p>
+                            <div class="options">
+                                <button class="option" data-correct="true">const</button>
+                                <button class="option" data-correct="false">let</button>
+                                <button class="option" data-correct="false">var</button>
+                                <button class="option" data-correct="false">string</button>
+                            </div>
+                            <div class="explanation" style="display: none;">
+                                <p><strong>Explicação:</strong> `const` é usada para declarar constantes, ou seja, variáveis cujo valor não pode ser reatribuído após a sua inicialização.</p>
+                                <div class="analogy-box">
+                                    <span class="analogy-icon">💡</span>
+                                    <p><strong>Analogia:</strong> Lembre-se da caixa selada. Uma vez que o valor (a sua data de nascimento) está lá dentro, não pode ser trocado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção: Resumo -->
+            <section id="resumo" class="lesson-section">
+                <h2 class="section-title">Resumo do que aprendeu</h2>
+                <div class="content-box">
+                    <p>Nesta aula, cobrimos os seguintes pontos-chave:</p>
+                    <ul>
+                        <li>✅ <strong>Variáveis:</strong> São "contentores" para guardar dados.</li>
+                        <li>✅ <strong>`let`:</strong> Para variáveis que podem mudar de valor.</li>
+                        <li>✅ <strong>`const`:</strong> Para constantes, valores que não mudam.</li>
+                        <li>✅ <strong>Tipos de Dados:</strong> `String` (texto), `Number` (números) e `Boolean` (verdadeiro/falso) são os mais básicos.</li>
+                    </ul>
+                    <p>Saber como guardar e gerir dados é fundamental para criar programas dinâmicos.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="aula-1-introducao.html" class="btn btn-secondary">← Aula Anterior</a>
+                    <a href="#" class="btn btn-primary btn-disabled">Próxima Aula →</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/lesson.js"></script>
+</body>
+</html>
