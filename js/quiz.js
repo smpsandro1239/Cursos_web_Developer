@@ -72,6 +72,9 @@ class QuizController {
             feedbackEl.className = 'feedback feedback-success';
             feedbackEl.classList.remove('hidden');
             this.score++;
+            if (typeof progressManager !== "undefined") {
+                progressManager.saveQuizScore(this.quizId, this.score, this.questions.length);
+            }
         } else {
             btn.classList.add('wrong');
             // Highlight correct one

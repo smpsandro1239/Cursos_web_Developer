@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
     <header class="header">
@@ -21,6 +22,7 @@
                 </div>
                 <nav class="nav">
                     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                    <div id="auth-status"></div>
                     <ul class="nav-menu">
                         <li><a href="#cursos">Cursos</a></li>
                         <li><a href="#sobre">Sobre</a></li>
@@ -204,6 +206,16 @@ console.log(evoluir());</code></pre>
         </section>
     </main>
 
+        <!-- Dashboard Section (Visible only when logged in) -->
+        <section id="dashboard" class="section bg-surface" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">O Teu Progresso</h2>
+                <div id="user-stats" class="user-stats-container"></div>
+                <h3 class="subsection-title">Os Teus Certificados</h3>
+                <div id="certificates-grid" class="certificates-grid"></div>
+            </div>
+        </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -223,6 +235,10 @@ console.log(evoluir());</code></pre>
         </div>
     </footer>
 
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/certificado.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

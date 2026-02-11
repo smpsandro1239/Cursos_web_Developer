@@ -270,3 +270,30 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('👨‍🏫 Professor: Sandro Pereira');
     console.log('📅 Ano: 2025');
 });
+
+// Auth-dependent UI updates
+document.addEventListener('DOMContentLoaded', () => {
+    const dashboard = document.getElementById('dashboard');
+    const userStats = document.getElementById('user-stats');
+
+    if (auth && auth.currentUser) {
+        if (dashboard) dashboard.style.display = 'block';
+        if (userStats && typeof progressManager !== 'undefined') {
+            const stats = progressManager.getStats();
+            userStats.innerHTML = `
+                <div class="stats-card">
+                    <span class="stat-value">${stats.totalCompleted}</span>
+                    <span class="stat-label">Módulos Concluídos</span>
+                </div>
+                <div class="stats-card">
+                    <span class="stat-value">${stats.quizAverage}%</span>
+                    <span class="stat-label">Média nos Quizzes</span>
+                </div>
+                <div class="stats-card">
+                    <span class="stat-value">${stats.certificates.length}</span>
+                    <span class="stat-label">Certificados</span>
+                </div>
+            `;
+        }
+    }
+});

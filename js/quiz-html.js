@@ -1,742 +1,80 @@
 const QUIZ_DATA_HTML = {
-    'modulo-0': [
-        {
-            question: "Qual ferramenta é o 'Cérebro' do desenvolvimento web (onde escrevemos código)?",
-            options: [
-                { id: 'a', text: "Google Chrome" },
-                { id: 'b', text: "Visual Studio Code" },
-                { id: 'c', text: "Live Server" },
-                { id: 'd', text: "Windows Explorer" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O VS Code é o editor de código onde toda a magia acontece."
-        },
-        {
-            question: "Para que serve a extensão 'Live Server'?",
-            options: [
-                { id: 'a', text: "Para acelerar a internet" },
-                { id: 'b', text: "Para ver as mudanças no navegador em tempo real ao guardar o ficheiro" },
-                { id: 'c', text: "Para criar imagens automaticamente" },
-                { id: 'd', text: "Para traduzir o site" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O Live Server cria um servidor local que atualiza o browser mal fazes Ctrl+S."
-        },
-        {
-            question: "Qual atalho gera a estrutura base do HTML5 instantaneamente?",
-            options: [
-                { id: 'a', text: "Ctrl + C" },
-                { id: 'b', text: "Alt + F4" },
-                { id: 'c', text: "Ponto de exclamação (!) + TAB" },
-                { id: 'd', text: "Enter + Enter" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O atalho '!' do Emmet é a forma mais rápida de começar qualquer página HTML5."
-        }
-    ],
     'modulo-1': [
-        {
-            question: "Onde deve ser colocado todo o conteúdo visível da página?",
-            options: [
-                { id: 'a', text: "&lt;head&gt;" },
-                { id: 'b', text: "&lt;body&gt;" },
-                { id: 'c', text: "&lt;html&gt;" },
-                { id: 'd', text: "&lt;!DOCTYPE&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O <code>&lt;body&gt;</code> é o contentor de todo o conteúdo visual (textos, imagens, botões). O <code>&lt;head&gt;</code> é apenas para configurações."
-        },
-        {
-            question: "Qual é a função da tag &lt;title&gt;?",
-            options: [
-                { id: 'a', text: "Criar um título grande na página" },
-                { id: 'b', text: "Definir o nome do ficheiro" },
-                { id: 'c', text: "Definir o título da aba do navegador" },
-                { id: 'd', text: "Nenhuma das anteriores" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>&lt;title&gt;</code> (dentro do head) define apenas o texto que aparece na aba do navegador ou nos favoritos."
-        },
-        {
-            question: "Para que serve o &lt;!DOCTYPE html&gt;?",
-            options: [
-                { id: 'a', text: "Para fechar o documento" },
-                { id: 'b', text: "Para criar um estilo CSS" },
-                { id: 'c', text: "Para informar que é HTML5" },
-                { id: 'd', text: "É opcional e não serve para nada" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O DOCTYPE instrui o navegador a interpretar a página como <strong>HTML5 moderno</strong>, evitando o 'quirks mode' (modo de compatibilidade antigo)."
-        }
+        { question: "O que significa HTML?", options: [{id:'a', text:"Hyper Text Markup Language"}, {id:'b', text:"High Tech Modern Language"}, {id:'c', text:"Hyper Transfer Markup Language"}, {id:'d', text:"Home Tool Markup Language"}], correct: 'a', explanation: "✅ HTML é a linguagem de marcação padrão para criar páginas web." },
+        { question: "Qual é a versão atual do HTML?", options: [{id:'a', text:"HTML4"}, {id:'b', text:"HTMLX"}, {id:'c', text:"HTML5"}, {id:'d', text:"HTML2025"}], correct: 'c', explanation: "✅ HTML5 é a versão mais recente e amplamente utilizada." },
+        { question: "Qual tag define a raiz de um documento HTML?", options: [{id:'a', text:"<head>"}, {id:'b', text:"<body>"}, {id:'c', text:"<html>"}, {id:'d', text:"<root>"}], correct: 'c', explanation: "✅ A tag <html> envolve todo o conteúdo da página." },
+        { question: "Onde ficam as metainformações do site?", options: [{id:'a', text:"<body>"}, {id:'b', text:"<footer>"}, {id:'c', text:"<head>"}, {id:'d', text:"<meta>"}], correct: 'c', explanation: "✅ O <head> contém informações que não aparecem diretamente na página." },
+        { question: "Qual tag é usada para o título da aba do navegador?", options: [{id:'a', text:"<h1>"}, {id:'b', text:"<tab>"}, {id:'c', text:"<title>"}, {id:'d', text:"<head>"}], correct: 'c', explanation: "✅ <title> define o nome que aparece na aba do browser." },
+        { question: "Para que serve o <!DOCTYPE html>?", options: [{id:'a', text:"Para estilizar a página"}, {id:'b', text:"Para informar ao browser que o documento é HTML5"}, {id:'c', text:"Para criar um link"}, {id:'d', text:"Para inserir uma imagem"}], correct: 'b', explanation: "✅ É a declaração necessária no topo de cada documento HTML5." },
+        { question: "Qual atributo define o idioma da página na tag <html>?", options: [{id:'a', text:"language"}, {id:'b', text:"src"}, {id:'c', text:"lang"}, {id:'d', text:"href"}], correct: 'c', explanation: "✅ O atributo lang='pt-PT' ajuda motores de busca e leitores de ecrã." },
+        { question: "Qual tag define o corpo visível do documento?", options: [{id:'a', text:"<content>"}, {id:'b', text:"<main>"}, {id:'c', text:"<body>"}, {id:'d', text:"<section>"}], correct: 'c', explanation: "✅ Tudo o que vês no browser está dentro do <body>." },
+        { question: "O que é uma tag 'self-closing'?", options: [{id:'a', text:"Uma tag que se fecha sozinha (ex: <br>)"}, {id:'b', text:"Uma tag que não pode ser usada"}, {id:'c', text:"Uma tag que fecha o browser"}, {id:'d', text:"Uma tag de comentário"}], correct: 'a', explanation: "✅ Tags como <br>, <img> e <hr> não precisam de tag de fecho separada." },
+        { question: "Como se escreve um comentário em HTML?", options: [{id:'a', text:"// comentário"}, {id:'b', text:"/* comentário */"}, {id:'c', text:"<!-- comentário -->"}, {id:'d', text:"# comentário"}], correct: 'c', explanation: "✅ Comentários HTML usam a sintaxe <!-- -->." }
     ],
     'modulo-2': [
-        {
-            question: "Qual é o elemento HTML correto para o título principal da página?",
-            options: [
-                { id: 'a', text: "&lt;head&gt;" },
-                { id: 'b', text: "&lt;title&gt;" },
-                { id: 'c', text: "&lt;h1&gt;" },
-                { id: 'd', text: "&lt;h6&gt;" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>&lt;h1&gt;</code> representa o nível mais alto de título numa página e geralmente é usado uma única vez para o título principal."
-        },
-        {
-            question: "Para que serve o elemento &lt;br&gt;?",
-            options: [
-                { id: 'a', text: "Criar um parágrafo novo" },
-                { id: 'b', text: "Deixar o texto em negrito" },
-                { id: 'c', text: "Inserir uma quebra de linha" },
-                { id: 'd', text: "Criar uma linha horizontal" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! A tag <code>&lt;br&gt;</code> (break) insere uma quebra de linha forçada sem criar um novo parágrafo."
-        },
-        {
-            question: "Qual tag deve ser usada para texto em negrito com importância semântica?",
-            options: [
-                { id: 'a', text: "&lt;b&gt;" },
-                { id: 'b', text: "&lt;strong&gt;" },
-                { id: 'c', text: "&lt;bold&gt;" },
-                { id: 'd', text: "&lt;em&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! <code>&lt;strong&gt;</code> indica que o texto tem grande importância. Use <code>&lt;b&gt;</code> apenas para efeitos visuais sem significado."
-        }
+        { question: "Qual tag representa o cabeçalho de uma secção ou página?", options: [{id:'a', text:"<head>"}, {id:'b', text:"<header>"}, {id:'c', text:"<top>"}, {id:'d', text:"<nav>"}], correct: 'b', explanation: "✅ <header> é um elemento semântico para introduções ou navegação." },
+        { question: "Qual elemento é usado para o menu de navegação?", options: [{id:'a', text:"<ul>"}, {id:'b', text:"<menu>"}, {id:'c', text:"<nav>"}, {id:'d', text:"<links>"}], correct: 'c', explanation: "✅ <nav> define um bloco de links de navegação." },
+        { question: "Para que serve a tag <main>?", options: [{id:'a', text:"Para o conteúdo principal e único da página"}, {id:'b', text:"Para o rodapé"}, {id:'c', text:"Para anúncios laterais"}, {id:'d', text:"Para o menu"}], correct: 'a', explanation: "✅ <main> deve conter o conteúdo central que não se repete no site." },
+        { question: "Qual tag define um conteúdo independente e auto-contido (ex: post de blog)?", options: [{id:'a', text:"<section>"}, {id:'b', text:"<div>"}, {id:'c', text:"<article>"}, {id:'d', text:"<aside>"}], correct: 'c', explanation: "✅ <article> é ideal para conteúdos que fazem sentido sozinhos." },
+        { question: "Para que serve o <aside>?", options: [{id:'a', text:"Para o rodapé"}, {id:'b', text:"Para conteúdo relacionado mas indireto (sidebar)"}, {id:'c', text:"Para o título principal"}, {id:'d', text:"Para links externos"}], correct: 'b', explanation: "✅ <aside> é frequentemente usado para barras laterais." },
+        { question: "Qual tag representa o rodapé?", options: [{id:'a', text:"<bottom>"}, {id:'b', text:"<end>"}, {id:'c', text:"<footer>"}, {id:'d', text:"<base>"}], correct: 'c', explanation: "✅ <footer> contém informações de contacto, copyright, etc." },
+        { question: "Qual a diferença entre <div> e <section>?", options: [{id:'a', text:"Nenhuma"}, {id:'b', text:"<div> é genérico, <section> tem significado temático"}, {id:'c', text:"<section> é mais rápido"}, {id:'d', text:"<div> só serve para texto"}], correct: 'b', explanation: "✅ Devemos preferir <section> para agrupar conteúdo relacionado." },
+        { question: "Quantos <h1> devem existir idealmente por página?", options: [{id:'a', text:"Quantos quiseres"}, {id:'b', text:"Nenhum"}, {id:'c', text:"Apenas um"}, {id:'d', text:"Exatamente seis"}], correct: 'c', explanation: "✅ Para SEO e acessibilidade, usa apenas um <h1> principal." },
+        { question: "Qual tag define um parágrafo?", options: [{id:'a', text:"<text>"}, {id:'b', text:"<para>"}, {id:'c', text:"<p>"}, {id:'d', text:"<span>"}], correct: 'c', explanation: "✅ A tag <p> é a base para blocos de texto." },
+        { question: "Para que serve a tag <figure>?", options: [{id:'a', text:"Para fazer contas"}, {id:'b', text:"Para agrupar uma imagem e a sua legenda (<figcaption>)"}, {id:'c', text:"Para desenhar círculos"}, {id:'d', text:"Para formatar números"}], correct: 'b', explanation: "✅ <figure> é a forma semântica de associar imagens a descrições." }
     ],
     'modulo-3': [
-        {
-            question: "Qual é a tag correta para criar um link?",
-            options: [
-                { id: 'a', text: "&lt;link&gt;" },
-                { id: 'b', text: "&lt;href&gt;" },
-                { id: 'c', text: "&lt;a&gt;" },
-                { id: 'd', text: "&lt;url&gt;" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! A tag <code>&lt;a&gt;</code> (anchor/âncora) é usada para criar hiperligações."
-        },
-        {
-            question: "Como se faz uma lista numerada?",
-            options: [
-                { id: 'a', text: "&lt;ul&gt;" },
-                { id: 'b', text: "&lt;ol&gt;" },
-                { id: 'c', text: "&lt;dl&gt;" },
-                { id: 'd', text: "&lt;list&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! <code>&lt;ol&gt;</code> (ordered list) cria listas numeradas (1, 2, 3...). <code>&lt;ul&gt;</code> cria listas com marcadores."
-        },
-        {
-            question: "Qual atributo abre o link numa nova aba?",
-            options: [
-                { id: 'a', text: "new='tab'" },
-                { id: 'b', text: "target='_new'" },
-                { id: 'c', text: "target='_blank'" },
-                { id: 'd', text: "mode='blank'" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! <code>target='_blank'</code> instrui o navegador a abrir o link numa nova aba ou janela."
-        }
+        { question: "Qual tag inicia um formulário?", options: [{id:'a', text:"<input>"}, {id:'b', text:"<form>"}, {id:'c', text:"<label>"}, {id:'d', text:"<action>"}], correct: 'b', explanation: "✅ <form> envolve todos os campos de entrada." },
+        { question: "Qual atributo do <form> define para onde os dados são enviados?", options: [{id:'a', text:"method"}, {id:'b', text:"target"}, {id:'c', text:"action"}, {id:'d', text:"src"}], correct: 'c', explanation: "✅ O atributo 'action' contém o URL de destino dos dados." },
+        { question: "Qual 'type' de input cria uma caixa de seleção única (várias opções, escolhe uma)?", options: [{id:'a', text:"checkbox"}, {id:'b', text:"text"}, {id:'c', text:"radio"}, {id:'d', text:"select"}], correct: 'c', explanation: "✅ Inputs do tipo 'radio' permitem escolher apenas uma opção de um grupo." },
+        { question: "Para que serve a tag <label>?", options: [{id:'a', text:"Para dar estilo ao botão"}, {id:'b', text:"Para associar um texto a um input"}, {id:'c', text:"Para criar uma tabela"}, {id:'d', text:"Para validar o email"}], correct: 'b', explanation: "✅ <label> melhora a acessibilidade e a área de clique." },
+        { question: "Qual atributo associa um <label> a um <input>?", options: [{id:'a', text:"id"}, {id:'b', text:"name"}, {id:'c', text:"for"}, {id:'d', text:"rel"}], correct: 'c', explanation: "✅ O atributo 'for' do label deve ser igual ao 'id' do input." },
+        { question: "Como crias um campo de texto longo de várias linhas?", options: [{id:'a', text:"<input type='big'>"}, {id:'b', text:"<textarea>"}, {id:'c', text:"<text>"}, {id:'d', text:"<p editable>"}], correct: 'b', explanation: "✅ <textarea> é usado para mensagens, comentários, etc." },
+        { question: "Qual atributo torna um campo de preenchimento obrigatório?", options: [{id:'a', text:"must"}, {id:'b', text:"validate"}, {id:'c', text:"required"}, {id:'d', text:"important"}], correct: 'c', explanation: "✅ O atributo boolean 'required' impede o envio se o campo estiver vazio." },
+        { question: "Qual type de input é usado para senhas (esconde os carateres)?", options: [{id:'a', text:"hidden"}, {id:'b', text:"secret"}, {id:'c', text:"password"}, {id:'d', text:"lock"}], correct: 'c', explanation: "✅ type='password' mostra pontos ou asteriscos em vez do texto." },
+        { question: "Para que serve o elemento <select>?", options: [{id:'a', text:"Para selecionar ficheiros"}, {id:'b', text:"Para criar uma lista pendente (dropdown)"}, {id:'c', text:"Para escolher cores"}, {id:'d', text:"Para marcar texto"}], correct: 'b', explanation: "✅ <select> com elementos <option> cria menus de escolha." },
+        { question: "Qual o valor padrão do atributo 'method' num form?", options: [{id:'a', text:"POST"}, {id:'b', text:"GET"}, {id:'c', text:"SEND"}, {id:'d', text:"PUSH"}], correct: 'b', explanation: "✅ Se não for especificado, o browser usa o método GET." }
     ],
     'modulo-4': [
-        {
-            question: "O elemento &lt;img&gt; precisa de uma tag de fechamento (&lt;/img&gt;)?",
-            options: [
-                { id: 'a', text: "Sim, sempre" },
-                { id: 'b', text: "Não, é um elemento 'void' (vazio)" },
-                { id: 'c', text: "Só se tiver link" },
-                { id: 'd', text: "Depende do navegador" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O elemento <code>&lt;img&gt;</code> é um elemento 'void', ou seja, não tem conteúdo interno nem tag de fechamento."
-        },
-        {
-            question: "Para que serve o atributo 'alt' numa imagem?",
-            options: [
-                { id: 'a', text: "Para definir a altura da imagem" },
-                { id: 'b', text: "Para mostrar um título quando passa o rato" },
-                { id: 'c', text: "Para acessibilidade e caso a imagem falhe" },
-                { id: 'd', text: "Para linkar a imagem a outro site" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O texto <code>alt</code> é lido por leitores de ecrã para cegos e aparece se a imagem não carregar."
-        },
-        {
-            question: "Qual é a tag correta para adicionar uma legenda a uma imagem?",
-            options: [
-                { id: 'a', text: "&lt;legend&gt;" },
-                { id: 'b', text: "&lt;caption&gt;" },
-                { id: 'c', text: "&lt;figcaption&gt;" },
-                { id: 'd', text: "&lt;subtitle&gt;" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! A tag <code>&lt;figcaption&gt;</code> deve ser usada dentro de um elemento <code>&lt;figure&gt;</code> para legendar a imagem."
-        }
+        { question: "Qual tag é usada para inserir uma imagem?", options: [{id:'a', text:"<picture>"}, {id:'b', text:"<src>"}, {id:'c', text:"<img>"}, {id:'d', text:"<image>"}], correct: 'c', explanation: "✅ <img> é a tag básica para imagens." },
+        { question: "Qual atributo define o caminho da imagem?", options: [{id:'a', text:"href"}, {id:'b', text:"link"}, {id:'c', text:"src"}, {id:'d', text:"alt"}], correct: 'c', explanation: "✅ 'src' significa 'source' (origem)." },
+        { question: "Para que serve o atributo 'alt' na imagem?", options: [{id:'a', text:"Para mudar o tamanho"}, {id:'b', text:"Para texto alternativo (acessibilidade e erro de carga)"}, {id:'c', text:"Para alinhar à esquerda"}, {id:'d', text:"Para criar um link"}], correct: 'b', explanation: "✅ O 'alt' é obrigatório para um HTML de qualidade e acessível." },
+        { question: "Qual tag é usada para inserir vídeo?", options: [{id:'a', text:"<movie>"}, {id:'b', text:"<media>"}, {id:'c', text:"<video>"}, {id:'d', text:"<player>"}], correct: 'c', explanation: "✅ <video> permite reproduzir vídeos nativamente." },
+        { question: "Qual atributo do <video> permite ver os botões de Play/Pause?", options: [{id:'a', text:"buttons"}, {id:'b', text:"show"}, {id:'c', text:"controls"}, {id:'d', text:"play"}], correct: 'c', explanation: "✅ Sem o atributo 'controls', o vídeo pode não ser controlável pelo utilizador." },
+        { question: "Para que serve a tag <audio>?", options: [{id:'a', text:"Para ouvir rádio"}, {id:'b', text:"Para inserir ficheiros de som"}, {id:'c', text:"Para comandos de voz"}, {id:'d', text:"Para traduzir texto"}], correct: 'b', explanation: "✅ <audio> funciona de forma similar à tag <video>." },
+        { question: "O que é o elemento <canvas>?", options: [{id:'a', text:"Uma moldura para fotos"}, {id:'b', text:"Uma área para desenhar gráficos via JavaScript"}, {id:'c', text:"Um tipo de botão"}, {id:'d', text:"Um mapa interativo"}], correct: 'b', explanation: "✅ <canvas> é usado para jogos e visualizações de dados dinâmicas." },
+        { question: "Qual tag é usada para incorporar outro site ou mapa?", options: [{id:'a', text:"<frame>"}, {id:'b', text:"<embed>"}, {id:'c', text:"<iframe>"}, {id:'d', text:"<object>"}], correct: 'c', explanation: "✅ <iframe> (inline frame) incorpora documentos externos." },
+        { question: "Qual a diferença entre <img> e <picture>?", options: [{id:'a', text:"Nenhuma"}, {id:'b', text:"<picture> permite várias fontes para diferentes ecrãs (Art Direction)"}, {id:'c', text:"<img> é mais moderno"}, {id:'d', text:"<picture> só funciona com PNG"}], correct: 'b', explanation: "✅ <picture> é excelente para imagens responsivas avançadas." },
+        { question: "O que faz o atributo 'autoplay' num vídeo?", options: [{id:'a', text:"Faz o vídeo parar"}, {id:'b', text:"Inicia o vídeo sozinho (geralmente precisa de 'muted')"}, {id:'c', text:"Muda a cor do vídeo"}, {id:'d', text:"Aumenta a velocidade"}], correct: 'b', explanation: "✅ O autoplay inicia o vídeo mal a página carrega." }
     ],
     'modulo-5': [
-        {
-            question: "Qual tag define uma linha numa tabela?",
-            options: [
-                { id: 'a', text: "&lt;line&gt;" },
-                { id: 'b', text: "&lt;tr&gt;" },
-                { id: 'c', text: "&lt;td&gt;" },
-                { id: 'd', text: "&lt;row&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! <code>&lt;tr&gt;</code> significa 'Table Row' (Linha da Tabela)."
-        },
-        {
-            question: "Para que serve o atributo 'colspan'?",
-            options: [
-                { id: 'a', text: "Para mudar a cor da coluna" },
-                { id: 'b', text: "Para mesclar células verticalmente" },
-                { id: 'c', text: "Para mesclar células horizontalmente" },
-                { id: 'd', text: "Para definir a largura da coluna" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! <code>colspan</code> (Column Span) faz uma célula ocupar o espaço de várias colunas (horizontalmente)."
-        },
-        {
-            question: "Qual é a diferença entre &lt;td&gt; e &lt;th&gt;?",
-            options: [
-                { id: 'a', text: "Não há diferença" },
-                { id: 'b', text: "TH é para dados, TD para títulos" },
-                { id: 'c', text: "TH é para cabeçalhos (negrito/centrado), TD para dados normais" },
-                { id: 'd', text: "TD só funciona no rodapé" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! <code>&lt;th&gt;</code> (Table Header) é usado semanticamente para títulos de colunas ou linhas."
-        }
+        { question: "O que significa 'Acessibilidade Web' (A11y)?", options: [{id:'a', text:"Ter internet rápida"}, {id:'b', text:"Garantir que todos, incluindo pessoas com deficiências, podem usar o site"}, {id:'c', text:"Ter um site gratuito"}, {id:'d', text:"Usar muitas cores"}], correct: 'b', explanation: "✅ Acessibilidade é sobre inclusão digital." },
+        { question: "O que são atributos ARIA?", options: [{id:'a', text:"Tags de estilo"}, {id:'b', text:"Accessible Rich Internet Applications - ajudam leitores de ecrã"}, {id:'c', text:"Comandos de som"}, {id:'d', text:"Filtros de imagem"}], correct: 'b', explanation: "✅ ARIA fornece contexto extra quando o HTML semântico não chega." },
+        { question: "Qual o principal benefício do HTML Semântico para SEO?", options: [{id:'a', text:"O site fica mais bonito"}, {id:'b', text:"Ajuda o Google a entender a hierarquia e importância do conteúdo"}, {id:'c', text:"O site carrega mais rápido"}, {id:'d', text:"Evita vírus"}], correct: 'b', explanation: "✅ O Google 'lê' melhor o teu site se usares as tags corretas." },
+        { question: "Para que serve a meta tag 'description'?", options: [{id:'a', text:"Para descrever imagens"}, {id:'b', text:"Para o resumo que aparece nos resultados do Google"}, {id:'c', text:"Para o título da página"}, {id:'d', text:"Para o nome do autor"}], correct: 'b', explanation: "✅ É o pequeno texto que convence o utilizador a clicar no teu site no Google." },
+        { question: "O que é o atributo 'tabindex'?", options: [{id:'a', text:"Uma lista de abas"}, {id:'b', text:"Controla a ordem de navegação via teclado (tecla TAB)"}, {id:'c', text:"Um índice de cores"}, {id:'d', text:"Um comando para fechar abas"}], correct: 'b', explanation: "✅ Importante para quem navega sem rato." },
+        { question: "Qual a importância do contraste de cores?", options: [{id:'a', text:"Apenas estética"}, {id:'b', text:"Garantir que o texto é legível para pessoas com baixa visão"}, {id:'c', text:"Poupar bateria"}, {id:'d', text:"Seguir a moda"}], correct: 'b', explanation: "✅ Um bom contraste é um pilar da acessibilidade." },
+        { question: "Por que não devemos usar 'Clique Aqui' como texto de link?", options: [{id:'a', text:"É proibido"}, {id:'b', text:"Não é descritivo para leitores de ecrã nem para SEO"}, {id:'c', text:"É muito curto"}, {id:'d', text:"Fica feio"}], correct: 'b', explanation: "✅ Links devem descrever para onde levam (ex: 'Ver Preços')." },
+        { question: "O que faz a tag <meta charset='UTF-8'>?", options: [{id:'a', text:"Define o tamanho do site"}, {id:'b', text:"Define a codificação de carateres (suporte a acentos)"}, {id:'c', text:"Muda a cor da fonte"}, {id:'d', text:"Acelera o site"}], correct: 'b', explanation: "✅ Garante que os carateres especiais aparecem corretamente." },
+        { question: "Para que serve o atributo 'role'?", options: [{id:'a', text:"Para definir papéis de utilizador"}, {id:'b', text:"Para dizer ao leitor de ecrã que tipo de elemento é aquele (ex: role='button')"}, {id:'c', text:"Para criar animações"}, {id:'d', text:"Para rodar elementos"}], correct: 'b', explanation: "✅ Reforça o significado de elementos não semânticos." },
+        { question: "O que é um Sitemap?", options: [{id:'a', text:"Um mapa para GPS"}, {id:'b', text:"Um ficheiro XML que lista todas as páginas do site para o Google"}, {id:'c', text:"Um design do site"}, {id:'d', text:"Uma pasta de imagens"}], correct: 'b', explanation: "✅ Facilita a indexação do site pelos motores de busca." }
     ],
     'modulo-6': [
-        {
-            question: "Qual atributo define o tipo de dado que um &lt;input&gt; vai receber?",
-            options: [
-                { id: 'a', text: "kind" },
-                { id: 'b', text: "type" },
-                { id: 'c', text: "format" },
-                { id: 'd', text: "value" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O atributo <code>type</code> define se o campo é texto, email, senha, etc."
-        },
-        {
-            question: "Qual tag é usada para associar um texto a um campo de formulário, melhorando a acessibilidade?",
-            options: [
-                { id: 'a', text: "&lt;description&gt;" },
-                { id: 'b', text: "&lt;text&gt;" },
-                { id: 'c', text: "&lt;label&gt;" },
-                { id: 'd', text: "&lt;caption&gt;" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! A tag <code>&lt;label&gt;</code> conecta o texto ao campo via atributo <code>for</code> ou envolvendo o input."
-        },
-        {
-            question: "Como indicar que um campo é de preenchimento obrigatório apenas com HTML?",
-            options: [
-                { id: 'a', text: "Usando o atributo 'must'" },
-                { id: 'b', text: "Usando o atributo 'validate'" },
-                { id: 'c', text: "Usando o atributo 'mandatory'" },
-                { id: 'd', text: "Usando o atributo 'required'" }
-            ],
-            correct: 'd',
-            explanation: "✅ Correto! O atributo booleano <code>required</code> impede o envio do formulário se o campo estiver vazio."
-        }
-    ],
-    'modulo-7': [
-        {
-            question: "Para que serve a semântica em HTML?",
-            options: [
-                { id: 'a', text: "Para dar cores ao site sem CSS" },
-                { id: 'b', text: "Para dar significado e estrutura ao conteúdo" },
-                { id: 'c', text: "Para acelerar a internet" },
-                { id: 'd', text: "Para criar animações" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! A semântica diz ao navegador e aos motores de busca (como o Google) o que cada parte do site representa (ex: isto é um cabeçalho, isto é a navegação)."
-        },
-        {
-            question: "Qual tag deve ser usada apenas UMA VEZ por página para envolver o conteúdo principal?",
-            options: [
-                { id: 'a', text: "&lt;section&gt;" },
-                { id: 'b', text: "&lt;article&gt;" },
-                { id: 'c', text: "&lt;main&gt;" },
-                { id: 'd', text: "&lt;body&gt;" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! A tag <code>&lt;main&gt;</code> deve ser única e conter o conteúdo exclusivo daquela página."
-        },
-        {
-            question: "Qual a diferença principal entre &lt;article&gt; e &lt;section&gt;?",
-            options: [
-                { id: 'a', text: "Não há diferença" },
-                { id: 'b', text: "Article é para texto e Section para imagens" },
-                { id: 'c', text: "Article é conteúdo independente (ex: post de blog), Section é um grupo temático" },
-                { id: 'd', text: "Section é obrigatório, Article é opcional" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! Um <code>&lt;article&gt;</code> deve fazer sentido por si só, se for removido e colocado noutro site (como uma notícia)."
-        }
-    ],
-    'modulo-8': [
-        {
-            question: "O que representa o símbolo ♿ na web?",
-            options: [
-                { id: 'a', text: "Velocidade de carregamento" },
-                { id: 'b', text: "Acessibilidade (Web para todos)" },
-                { id: 'c', text: "Chat de suporte" },
-                { id: 'd', text: "Configurações de conta" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Acessibilidade garante que pessoas com deficiências (visuais, motoras, etc.) consigam usar o teu site."
-        },
-        {
-            question: "Se uma imagem for puramente decorativa (ex: um risco ou sombra), o que deves colocar no 'alt'?",
-            options: [
-                { id: 'a', text: "alt='decoracao'" },
-                { id: 'b', text: "Não colocar a tag alt" },
-                { id: 'c', text: "alt='' (vazio)" },
-                { id: 'd', text: "alt='imagem'" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! <code>alt=''</code> diz aos leitores de ecrã para ignorarem a imagem, evitando ruído desnecessário para o utilizador cego."
-        },
-        {
-            question: "Qual atributo ARIA deves usar para dar um nome a um botão que só tem um ícone (sem texto)?",
-            options: [
-                { id: 'a', text: "aria-name" },
-                { id: 'b', text: "aria-label" },
-                { id: 'c', text: "aria-hidden" },
-                { id: 'd', text: "aria-text" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O <code>aria-label</code> fornece um rótulo de texto que o leitor de ecrã vai ler, mesmo que o botão seja apenas visual."
-        }
-    ],
-    'modulo-9': [
-        {
-            question: "O que significa a sigla SEO?",
-            options: [
-                { id: 'a', text: "Search Engine Optimization" },
-                { id: 'b', text: "Search Engine Optimization" },
-                { id: 'c', text: "Software Expert Online" },
-                { id: 'd', text: "Service Entry Office" }
-            ],
-            correct: 'a',
-            explanation: "✅ Correto! SEO é o conjunto de técnicas para otimizar o teu site e fazer com que ele apareça no topo do Google."
-        },
-        {
-            question: "Qual tag é usada no &lt;head&gt; para descrever o conteúdo da página nos resultados do Google?",
-            options: [
-                { id: 'a', text: "&lt;meta name='title'&gt;" },
-                { id: 'b', text: "&lt;meta name='description'&gt;" },
-                { id: 'c', text: "&lt;meta name='about'&gt;" },
-                { id: 'd', text: "&lt;meta name='seo'&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! A <code>meta description</code> é aquele pequeno texto que aparece debaixo do título no Google."
-        },
-        {
-            question: "Para que servem as tags Open Graph (og:title, og:image)?",
-            options: [
-                { id: 'a', text: "Para acelerar o site" },
-                { id: 'b', text: "Para acessibilidade de cegos" },
-                { id: 'c', text: "Para controlar como o site aparece ao ser partilhado nas redes sociais (ex: Facebook, WhatsApp)" },
-                { id: 'd', text: "Para mudar a cor do navegador" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! As tags Open Graph garantem que, quando alguém cola o teu link numa rede social, apareça uma imagem bonita e um título chamativo."
-        }
-    ],
-    'modulo-10': [
-        {
-            question: "Qual o benefício principal de um site carregar rápido?",
-            options: [
-                { id: 'a', text: "O site gasta menos eletricidade" },
-                { id: 'b', text: "Melhor experiência para o utilizador e melhor ranking no Google" },
-                { id: 'c', text: "As cores do site ficam mais brilhantes" },
-                { id: 'd', text: "O computador do utilizador não aquece" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Sites lentos fazem com que as pessoas desistam de esperar e saiam da página."
-        },
-        {
-            question: "Para que serve o atributo 'loading=\"lazy\"' numa imagem?",
-            options: [
-                { id: 'a', text: "Para a imagem carregar apenas quando o utilizador faz scroll até ela" },
-                { id: 'b', text: "Para carregar a imagem em baixa qualidade" },
-                { id: 'c', text: "Para esconder a imagem de menores" },
-                { id: 'd', text: "Para a imagem nunca carregar" }
-            ],
-            correct: 'a',
-            explanation: "✅ Correto! O <code>lazy loading</code> poupa dados e memória, carregando apenas o que é necessário no momento."
-        },
-        {
-            question: "Qual a diferença entre 'async' e 'defer' ao carregar um script?",
-            options: [
-                { id: 'a', text: "Não há diferença" },
-                { id: 'b', text: "Async é para CSS e Defer para JS" },
-                { id: 'c', text: "Defer executa o script apenas depois de o HTML estar todo lido; Async executa assim que o download termina" },
-                { id: 'd', text: "Async é mais lento que o Defer" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>defer</code> garante que o script não bloqueia a leitura do corpo do site (HTML)."
-        }
-    ],
-    'modulo-11': [
-        {
-            question: "Onde deves definir o idioma principal do teu site?",
-            options: [
-                { id: 'a', text: "Na tag &lt;body&gt;" },
-                { id: 'b', text: "Na tag &lt;html&gt;" },
-                { id: 'c', text: "No CSS" },
-                { id: 'd', text: "Não se deve definir" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Exemplo: <code>&lt;html lang='pt-PT'&gt;</code>. Isto ajuda leitores de ecrã e o Google."
-        },
-        {
-            question: "Qual a codificação de caracteres (charset) recomendada para suportar todos os idiomas e emojis?",
-            options: [
-                { id: 'a', text: "ISO-8859-1" },
-                { id: 'b', text: "ASCII" },
-                { id: 'c', text: "UTF-8" },
-                { id: 'd', text: "Windows-1252" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>UTF-8</code> é o padrão universal da web moderna."
-        },
-        {
-            question: "O que significa 'dir=\"rtl\"'?",
-            options: [
-                { id: 'a', text: "O site é apenas para tablets" },
-                { id: 'b', text: "O texto corre da direita para a esquerda (como no Árabe)" },
-                { id: 'c', text: "O site carrega em tempo real" },
-                { id: 'd', text: "O texto está no centro" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! <code>rtl</code> significa 'Right to Left'."
-        }
-    ],
-    'modulo-12': [
-        {
-            question: "O que são Microdados ou Dados Estruturados?",
-            options: [
-                { id: 'a', text: "Imagens muito pequenas" },
-                { id: 'b', text: "Código que ajuda o Google a entender exatamente o que é um conteúdo (ex: um preço, uma data de evento ou uma nota de 5 estrelas)" },
-                { id: 'c', text: "Vírus informáticos" },
-                { id: 'd', text: "Um novo tipo de letra" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Os dados estruturados permitem que o Google mostre 'Rich Snippets' (resultados ricos com estrelas, preços, etc)."
-        },
-        {
-            question: "Qual o formato de dados estruturados mais recomendado pela Google atualmente?",
-            options: [
-                { id: 'a', text: "Microformatos" },
-                { id: 'b', text: "RDFa" },
-                { id: 'c', text: "JSON-LD" },
-                { id: 'd', text: "XML" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O JSON-LD é um script que se coloca no HTML e é o mais fácil de manter e o preferido do Google."
-        },
-        {
-            question: "Para que serve o site Schema.org?",
-            options: [
-                { id: 'a', text: "Para descarregar templates" },
-                { id: 'b', text: "É o vocabulário padrão universal para definir as propriedades dos dados estruturados" },
-                { id: 'c', text: "É uma rede social para programadores" },
-                { id: 'd', text: "Serve para testar a velocidade do site" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! No Schema.org encontras as 'etiquetas' para tudo: receitas, filmes, livros, empresas, etc."
-        }
-    ],
-    'modulo-13': [
-        {
-            question: "Qual tag é usada para definir uma estrutura HTML que não é renderizada logo ao carregar a página?",
-            options: [
-                { id: 'a', text: "&lt;invisible&gt;" },
-                { id: 'b', text: "&lt;template&gt;" },
-                { id: 'c', text: "&lt;ghost&gt;" },
-                { id: 'd', text: "&lt;hidden&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! A tag <code>&lt;template&gt;</code> guarda HTML que podes 'clonar' e usar mais tarde via JavaScript."
-        },
-        {
-            question: "Qual é a regra obrigatória para dar o nome a um Custom Element (ex: &lt;meu-botao&gt;)?",
-            options: [
-                { id: 'a', text: "Tem de começar com letra maiúscula" },
-                { id: 'b', text: "Tem de ter sempre um hífen (ex: nome-composto)" },
-                { id: 'c', text: "Não pode ter mais de 5 letras" },
-                { id: 'd', text: "Tem de terminar em .exe" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O hífen é obrigatório para que o browser saiba que é um elemento customizado e não uma tag padrão do HTML."
-        },
-        {
-            question: "O que é o Shadow DOM?",
-            options: [
-                { id: 'a', text: "Uma versão obscura da internet" },
-                { id: 'b', text: "Um modo noturno automático" },
-                { id: 'c', text: "É uma forma de encapsular o CSS e o HTML de um componente, para que os estilos não 'vazem' para fora" },
-                { id: 'd', text: "Um bug no navegador" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>Shadow DOM</code> garante que o estilo do teu componente não estrague o resto do site."
-        }
-    ],
-    'modulo-14': [
-        {
-            question: "O que é uma PWA (Progressive Web App)?",
-            options: [
-                { id: 'a', text: "Um site que só funciona em computadores potentes" },
-                { id: 'b', text: "Um site que pode ser instalado no telemóvel e funcionar offline, como se fosse uma aplicação real" },
-                { id: 'c', text: "Uma nova linguagem de programação" },
-                { id: 'd', text: "Um tipo de publicidade" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! As PWAs usam tecnologias modernas para dar uma experiência de 'app nativa' no browser."
-        },
-        {
-            question: "Para que serve o ficheiro 'manifest.json'?",
-            options: [
-                { id: 'a', text: "Para guardar a password do utilizador" },
-                { id: 'b', text: "Para definir o ícone, o nome e as cores do site ao ser instalado" },
-                { id: 'c', text: "Para acelerar o Google" },
-                { id: 'd', text: "Não serve para nada" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O <code>manifest.json</code> é como o bilhete de identidade da tua aplicação web."
-        },
-        {
-            question: "O que é um Service Worker?",
-            options: [
-                { id: 'a', text: "Um robô que limpa o código" },
-                { id: 'b', text: "Um empregado da Google" },
-                { id: 'c', text: "Um script que corre em segundo plano e permite interceptar pedidos de rede e guardar ficheiros em cache" },
-                { id: 'd', text: "Um erro de conexão" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>Service Worker</code> é o coração das funcionalidades offline de uma PWA."
-        }
-    ],
-    'modulo-15': [
-        {
-            question: "Qual o papel do JavaScript na 'trindade' da web (HTML, CSS, JS)?",
-            options: [
-                { id: 'a', text: "Estrutura (o esqueleto)" },
-                { id: 'b', text: "Apresentação (a pele e roupa)" },
-                { id: 'c', text: "Comportamento (o cérebro e movimentos)" },
-                { id: 'd', text: "Nenhuma das anteriores" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O JS dá vida ao site, permitindo cliques, cálculos e animações complexas."
-        },
-        {
-            question: "Como se chama o atributo HTML usado para guardar dados extra que o JavaScript pode ler facilmente?",
-            options: [
-                { id: 'a', text: "class" },
-                { id: 'b', text: "id" },
-                { id: 'c', text: "data-*" },
-                { id: 'd', text: "extra-info" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! Exemplo: <code>data-id='123'</code>. Podes ler isto no JS com <code>element.dataset.id</code>."
-        },
-        {
-            question: "Qual a forma recomendada de reagir a um clique num botão em JavaScript moderno?",
-            options: [
-                { id: 'a', text: "Usar o atributo onclick='...'" },
-                { id: 'b', text: "Usar o método .addEventListener('click', ...)" },
-                { id: 'c', text: "Gritar com o rato" },
-                { id: 'd', text: "Colocar o botão dentro de uma tag &lt;a&gt;" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O <code>addEventListener</code> permite separar a lógica do HTML, mantendo o código limpo."
-        }
-    ],
-    'modulo-16': [
-        {
-            question: "Para que serve o W3C Markup Validator?",
-            options: [
-                { id: 'a', text: "Para mudar as cores do site" },
-                { id: 'b', text: "Para verificar se o teu código HTML segue as regras oficiais e não tem erros de sintaxe" },
-                { id: 'c', text: "Para hackear sites" },
-                { id: 'd', text: "Para publicar o site na internet" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O validador do W3C é a ferramenta oficial para garantir que o teu HTML está 'saudável'."
-        },
-        {
-            question: "Qual tecla de atalho abre as ferramentas de programador (DevTools) na maioria dos browsers?",
-            options: [
-                { id: 'a', text: "F1" },
-                { id: 'b', text: "F5" },
-                { id: 'c', text: "F12" },
-                { id: 'd', text: "Esc" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O F12 (ou Ctrl+Shift+I) abre o painel onde podes inspecionar o código em tempo real."
-        },
-        {
-            question: "O que acontece se esqueceres de fechar uma tag, como um &lt;div&gt;?",
-            options: [
-                { id: 'a', text: "O computador explode" },
-                { id: 'b', text: "O browser tenta adivinhar onde termina, mas o layout pode ficar todo partido" },
-                { id: 'c', text: "O site não abre de todo" },
-                { id: 'd', text: "O Google apaga o teu site" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Os browsers são 'tolerantes', mas erros de tags abertas são a causa número 1 de layouts estragados."
-        }
-    ],
-    'modulo-17': [
-        {
-            question: "Qual é o padrão recomendado para dar nomes a ficheiros HTML (ex: a minha página)?",
-            options: [
-                { id: 'a', text: "A Minha Pagina.html (com espaços)" },
-                { id: 'b', text: "a_minha_pagina.html (snake_case)" },
-                { id: 'c', text: "a-minha-pagina.html (kebab-case)" },
-                { id: 'd', text: "aminhapagina.html (tudo junto)" }
-            ],
-            correct: 'c',
-            explanation: "✅ Correto! O <code>kebab-case</code> (minúsculas e hífens) é o padrão da web para URLs limpas e seguras."
-        },
-        {
-            question: "Para que servem os comentários no código?",
-            options: [
-                { id: 'a', text: "Para o Google ler o conteúdo do site" },
-                { id: 'b', text: "Para explicar o 'porquê' de uma decisão complexa a outros programadores (ou a ti próprio no futuro)" },
-                { id: 'c', text: "Para esconder código que não funciona" },
-                { id: 'd', text: "Para ocupar espaço" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Comentários devem ser úteis e não apenas repetir o que a tag já diz."
-        },
-        {
-            question: "No versionamento semântico (Ex: 1.2.3), o que representa o primeiro número?",
-            options: [
-                { id: 'a', text: "O número de erros corrigidos" },
-                { id: 'b', text: "A versão 'MAJOR', usada para mudanças grandes que podem quebrar o código antigo" },
-                { id: 'c', text: "O número de páginas do site" },
-                { id: 'd', text: "O ano de lançamento" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Se mudares de 1.x para 2.x, estás a avisar que houve uma mudança radical no sistema."
-        }
-    ],
-    'modulo-18': [
-        {
-            question: "O que é 'Hospedagem' (Hosting)?",
-            options: [
-                { id: 'a', text: "Um hotel para programadores" },
-                { id: 'b', text: "O processo de colocar os teus ficheiros num computador ligado 24h à internet para que todos os possam ver" },
-                { id: 'c', text: "Um tipo de vírus" },
-                { id: 'd', text: "A bateria do portátil" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! Hospedar um site é como alugar um espaço na 'grande biblioteca' que é a internet."
-        },
-        {
-            question: "Qual destas ferramentas é famosa por permitir hospedar sites estáticos gratuitamente a partir do GitHub?",
-            options: [
-                { id: 'a', text: "Netflix" },
-                { id: 'b', text: "GitHub Pages" },
-                { id: 'c', text: "Spotify" },
-                { id: 'd', text: "Photoshop" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O GitHub Pages é uma das formas mais simples e gratuitas de colocar o teu portfólio online."
-        },
-        {
-            question: "Porque é que o ficheiro principal do site se deve chamar obrigatoriamente 'index.html'?",
-            options: [
-                { id: 'a', text: "Porque soa melhor" },
-                { id: 'b', text: "Porque os servidores estão configurados para procurar esse nome por defeito quando alguém acede ao domínio" },
-                { id: 'c', text: "Porque foi o nome dado pelo inventor da internet" },
-                { id: 'd', text: "Não se deve chamar index.html" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O <code>index.html</code> é a porta de entrada automática do teu site."
-        }
-    ],
-    'modulo-19': [
-        {
-            question: "O que é o Google Lighthouse?",
-            options: [
-                { id: 'a', text: "Um motor de busca novo" },
-                { id: 'b', text: "Uma ferramenta que audita o teu site e dá uma pontuação de 0 a 100 em Performance, SEO e Acessibilidade" },
-                { id: 'c', text: "Um editor de imagem" },
-                { id: 'd', text: "Uma linguagem de programação" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O Lighthouse é o 'juiz' que te diz o que precisas de melhorar no teu site."
-        },
-        {
-            question: "Para que serve o atributo loading='lazy' numa tag &lt;img&gt;?",
-            options: [
-                { id: 'a', text: "Para a imagem carregar mais devagar de propósito" },
-                { id: 'b', text: "Para a imagem só ser carregada quando o utilizador fizer scroll até ela, poupando dados e tempo" },
-                { id: 'c', text: "Para esticar a imagem" },
-                { id: 'd', text: "Para esconder a imagem de hackers" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O Lazy Loading é fundamental para a performance em sites com muitas imagens."
-        },
-        {
-            question: "O que significa SEO?",
-            options: [
-                { id: 'a', text: "Search Engine Optimization" },
-                { id: 'b', text: "Search Engine Optimization" },
-                { id: 'c', text: "System Entry Organizer" },
-                { id: 'd', text: "Super Easy Operation" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! SEO é o conjunto de técnicas para fazer o teu site aparecer nos primeiros lugares do Google."
-        }
-    ],
-    'modulo-20': [
-        {
-            question: "Qual o objetivo principal do Projeto Final?",
-            options: [
-                { id: 'a', text: "Apenas passar o tempo" },
-                { id: 'b', text: "Consolidar todos os conhecimentos (HTML, CSS, JS, SEO, Deploy) num site real e profissional para o teu portfólio" },
-                { id: 'c', text: "Aprender a cozinhar" },
-                { id: 'd', text: "Hackear o Facebook" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! O projeto final é a tua prova de conceito como desenvolvedor web."
-        },
-        {
-            question: "Ao terminar este curso, qual deve ser o teu próximo passo?",
-            options: [
-                { id: 'a', text: "Parar de estudar para sempre" },
-                { id: 'b', text: "Continuar a praticar, criar novos projetos e explorar frameworks como React ou Vue" },
-                { id: 'c', text: "Apagar todo o código que fizeste" },
-                { id: 'd', text: "Vender o computador" }
-            ],
-            correct: 'b',
-            explanation: "✅ Correto! A tecnologia evolui depressa, e a prática constante é o segredo do sucesso."
-        },
-        {
-            question: "O que significa ter um site 'Responsivo, Acessível e Otimizado'?",
-            options: [
-                { id: 'a', text: "Que o site funciona em qualquer ecrã, para qualquer pessoa e carrega instantaneamente" },
-                { id: 'b', text: "Que o site tem muitas cores" },
-                { id: 'c', text: "Que o site é caro" },
-                { id: 'd', text: "Que o site está em inglês" }
-            ],
-            correct: 'a',
-            explanation: "✅ Correto! Estes são os 3 pilares da qualidade na web moderna."
-        }
+        { question: "Qual a primeira fase na criação de um projeto web?", options: [{id:'a', text:"Escrever CSS"}, {id:'b', text:"Planear a estrutura e o conteúdo"}, {id:'c', text:"Comprar o domínio"}, {id:'d', text:"Fazer o upload"}], correct: 'b', explanation: "✅ Um bom planeamento poupa horas de código." },
+        { question: "O que significa 'Mobile-First'?", options: [{id:'a', text:"Criar apps para telemóvel primeiro"}, {id:'b', text:"Desenhar para ecrãs pequenos e depois expandir para desktop"}, {id:'c', text:"Usar apenas telemóveis"}, {id:'d', text:"O site só funciona em mobile"}], correct: 'b', explanation: "✅ É a estratégia padrão da indústria moderna." },
+        { question: "Qual ficheiro é considerado a porta de entrada de qualquer site?", options: [{id:'a', text:"main.html"}, {id:'b', text:"home.html"}, {id:'c', text:"index.html"}, {id:'d', text:"start.html"}], correct: 'c', explanation: "✅ Os servidores procuram por index.html por defeito." },
+        { question: "O que deves validar antes de entregar um projeto?", options: [{id:'a', text:"Apenas se abre"}, {id:'b', text:"Links, formulários, responsividade e erros de consola"}, {id:'c', text:"Se o Google gosta"}, {id:'d', text:"Se as cores combinam"}], correct: 'b', explanation: "✅ Testes rigorosos garantem a qualidade profissional." },
+        { question: "Como podes hospedar o teu projeto final gratuitamente?", options: [{id:'a', text:"Não é possível"}, {id:'b', text:"GitHub Pages ou Vercel"}, {id:'c', text:"No Google Drive"}, {id:'d', text:"Por email"}], correct: 'b', explanation: "✅ Existem várias plataformas excelentes para sites estáticos." },
+        { question: "O que é o 'DOM' (Document Object Model)?", options: [{id:'a', text:"Um tipo de computador"}, {id:'b', text:"A representação do HTML que o browser usa para interagir com JS"}, {id:'c', text:"Uma marca de sapatos"}, {id:'d', text:"Um motor de busca"}], correct: 'b', explanation: "✅ O DOM permite que o JavaScript mude o HTML em tempo real." },
+        { question: "Qual a importância de usar nomes de classes claros?", options: [{id:'a', text:"Para o CSS ser mais rápido"}, {id:'b', text:"Para o código ser legível e fácil de manter"}, {id:'c', text:"Para o Google indexar"}, {id:'d', text:"Para evitar hackers"}], correct: 'b', explanation: "✅ Código limpo é código profissional." },
+        { question: "O que deves fazer se o teu HTML não estiver a funcionar como esperado?", options: [{id:'a', text:"Desistir"}, {id:'b', text:"Usar as DevTools (F12) para inspecionar os elementos"}, {id:'c', text:"Apagar tudo"}, {id:'d', text:"Mudar de browser"}], correct: 'b', explanation: "✅ Inspecionar é a melhor forma de encontrar erros." },
+        { question: "Por que deves separar HTML, CSS e JS?", options: [{id:'a', text:"Para ter mais ficheiros"}, {id:'b', text:"Organização e facilidade de manutenção (Separação de Preocupações)"}, {id:'c', text:"O browser obriga"}, {id:'d', text:"Para carregar mais rápido"}], correct: 'b', explanation: "✅ Mantém o projeto escalável e limpo." },
+        { question: "Qual o sentimento após terminar o teu primeiro projeto HTML5?", options: [{id:'a', text:"Cansaço"}, {id:'b', text:"Orgulho de ser um Web Developer Elite 🚀"}, {id:'c', text:"Dúvida"}, {id:'d', text:"Fome"}], correct: 'b', explanation: "✅ Parabéns! Deste o primeiro passo real no mundo do desenvolvimento web." }
     ]
 };
 
-// Merge with global data if needed
 if (typeof QUIZ_DATA !== 'undefined') {
     Object.assign(QUIZ_DATA, QUIZ_DATA_HTML);
+} else {
+    var QUIZ_DATA = QUIZ_DATA_HTML;
 }

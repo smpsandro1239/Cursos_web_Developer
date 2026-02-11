@@ -1,6 +1,6 @@
 # 🚀 Aprende Web: Do Zero ao Heroi
 
-[![Estado do Projeto](https://img.shields.io/badge/Estado-Em_Desenvolvimento-yellow)](https://github.com/teu-repo)
+[![Estado do Projeto](https://img.shields.io/badge/Estado-Concluído_100%25-brightgreen)](https://github.com/teu-repo)
 [![Licença](https://img.shields.io/badge/Licença-MIT-green)](LICENSE)
 
 Plataforma de e-learning moderna e interativa para aspirantes a Web Developers. Aprende HTML5, CSS3, JavaScript e Angular através de uma metodologia prática e visual.
@@ -21,11 +21,11 @@ Plataforma de e-learning moderna e interativa para aspirantes a Web Developers. 
 - **Roadmap Completo**: Cobertura de CSS, JS e Angular.
 
 ### Em Falta (Roadmap)
-- [ ] Conteúdo completo do curso de HTML5.
-- [ ] Sistema de autenticação de utilizadores.
-- [ ] Persistência de progresso via LocalStorage/Database.
-- [ ] Geração automática de certificados de conclusão.
-- [ ] Modo Escuro (Dark Mode) global.
+- [x] Conteúdo completo do curso de HTML5.
+- [x] Sistema de autenticação de utilizadores.
+- [x] Persistência de progresso via LocalStorage/Database.
+- [x] Geração automática de certificados de conclusão.
+- [x] Modo Escuro (Dark Mode) global.
 
 ## 🛠️ Explicação Técnica
 
