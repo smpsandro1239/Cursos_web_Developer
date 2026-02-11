@@ -2,23 +2,23 @@
 Última atualização: 11 de Fevereiro de 2025
 
 ## 100% concluído (ou muito próximo)
-• **Autenticação**: Login/Registo com localStorage, avatares dinâmicos e perfis persistentes.
-• **Progresso**: Sistema de tracking global e por módulo com visualização em tempo real.
-• **Dark Mode**: Implementação global com toggle e persistência de preferência.
-• **Certificados**: Geração de certificados em PNG via Canvas.
-• **UX/UI**: Botão scroll-to-top, meta tags SEO/OG, e interface modernizada.
-• **Infraestrutura**: Estrutura de pastas e assets base corrigida.
+• **Curso HTML5**: 12 módulos completos com teoria, prática, quiz e resumo.
+• **Autenticação**: Sistema de login/registo com avatares dinâmicos e persistência.
+• **Progresso**: Tracking global e por curso guardado no LocalStorage.
+• **Certificado**: Página `certificate.html` pronta para impressão.
+• **Dark Mode**: Implementação global funcional e persistente.
+• **SEO & UX**: Meta tags configuradas, scroll-to-top e links corrigidos.
 
 ## Em andamento / parcialmente feito
-• **HTML5**: Expandido para 12 módulos com conteúdo real e quizzes. (~90%)
-• **Assets**: Favicon e logos básicos criados (placeholders técnicos). (~70%)
+• **Cursos Avançados**: CSS, JS e Angular têm a estrutura de 20 módulos mas precisam de refinamento de conteúdo (Slides > 10). (~50%)
+• **Assets Visuais**: Pasta `images/` preenchida com placeholders técnicos; logos reais pendentes. (~80%)
 
 ## Ainda por fazer (prioridade alta → média → baixa)
-1. Conteúdo avançado para os cursos de CSS, JS e Angular (atualmente com 20 módulos base).
-2. Refinamento de acessibilidade (ARIA labels em todos os componentes interativos).
-3. Sistema de "Live Preview" para os desafios de código.
+1. Conteúdo interativo para desafios avançados de Angular.
+2. Implementação de um glossário técnico.
+3. Tradução para Inglês (i18n).
 
 ## Dívida técnica / nice-to-have
-• Sandbox de código ao vivo integrado.
-• Integração com Firebase ou Supabase para persistência na nuvem.
-• PWA (Progressive Web App) + Offline support via Service Workers.
+• Sandbox de código ao vivo integrado nos módulos.
+• Sistema de notificações de conquistas.
+• PWA para uso offline.

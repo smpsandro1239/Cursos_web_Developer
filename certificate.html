@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teu Certificado - Aprende Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .cert-container {
+            background: white;
+            width: 1000px;
+            max-width: 100%;
+            padding: 60px;
+            border: 20px solid var(--primary-color);
+            position: relative;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .cert-header {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .cert-text {
+            font-size: 1.5rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .student-name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 30px 0;
+            border-bottom: 2px solid #e2e8f0;
+            display: inline-block;
+            padding: 0 40px;
+        }
+        .course-name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 20px 0;
+        }
+        .cert-footer {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .signature {
+            border-top: 1px solid #94a3b8;
+            padding-top: 10px;
+            width: 200px;
+        }
+        .signature-text {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .cert-date {
+            color: #64748b;
+        }
+        .no-print {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        @media print {
+            .no-print { display: none; }
+            body { background: white; padding: 0; }
+            .cert-container { box-shadow: none; border-width: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cert-container">
+        <div class="cert-header">Certificado</div>
+        <p class="cert-text">Certificamos com distinção que</p>
+        <div class="student-name" id="cert-student-name">...</div>
+        <p class="cert-text">completou com sucesso o curso de</p>
+        <div class="course-name" id="cert-course-name">...</div>
+        <p class="cert-text">na plataforma Aprende Web, demonstrando domínio das competências técnicas exigidas.</p>
+
+        <div class="cert-footer">
+            <div class="cert-info">
+                <p class="cert-date" id="cert-date">Data: ...</p>
+                <p class="cert-id" id="cert-id">ID: #AW-...</p>
+            </div>
+            <div class="signature">
+                <div class="signature-text">Sandro Pereira</div>
+                <p>Instrutor Chefe</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-print">
+        <button onclick="window.print()" class="btn btn-primary">Imprimir Certificado</button>
+        <a href="index.html" class="btn btn-secondary">Voltar ao Site</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const course = params.get('course') || 'Web Development';
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+
+            document.getElementById('cert-student-name').textContent = user ? user.name : 'Estudante Elite';
+            document.getElementById('cert-course-name').textContent = `Curso de ${course.toUpperCase()}`;
+            document.getElementById('cert-date').textContent = `Data: ${new Date().toLocaleDateString('pt-PT')}`;
+            document.getElementById('cert-id').textContent = `ID: #AW-${Math.floor(Math.random() * 1000000).toString().padStart(6, '0')}`;
+        });
+    </script>
+</body>
+</html>
