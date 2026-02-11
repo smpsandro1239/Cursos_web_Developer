@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Curso HTML5 do Zero ao Expert - Sandro Pereira (2025)</title>
-    <meta name="description" content="Curso completo de HTML5 ministrado pelo Professor Sandro Pereira em 2025">
+    <title>Aprende Web – Do Zero ao Heroi</title>
+    <meta name="description" content="Curso completo de desenvolvimento web: HTML, CSS, JavaScript e Angular. Do zero ao heroi da programação.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aprendeweb.pt/">
+    <meta property="og:title" content="Aprende Web – Do Zero ao Heroi">
+    <meta property="og:description" content="Domina as tecnologias que constroem a web.">
+    <meta property="og:image" content="https://aprendeweb.pt/images/og-image.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Aprende Web – Do Zero ao Heroi">
+    <meta property="twitter:description" content="Domina as tecnologias que constroem a web.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
     <header class="header">
@@ -17,15 +29,16 @@
             <div class="header-content">
                 <div class="logo">
                     <span class="logo-icon">🚀</span>
-                    <h1>HTML5 Expert</h1>
+                    <h1>Aprende Web</h1>
                 </div>
                 <nav class="nav">
                     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                    <div id="auth-status"></div>
                     <ul class="nav-menu">
+                        <li><a href="#cursos">Cursos</a></li>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#modulos">Módulos</a></li>
-                        <li><a href="#instrutor">Instrutor</a></li>
-                        <li><a href="#contacto">Contato</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -38,30 +51,17 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
+                        <span class="hero-badge">✨ Currículo Atualizado 2025</span>
                         <h1 class="hero-title">
-                            <span class="highlight">📚 Plano de Estudos Completo:</span>
-                            <br>HTML5 do Zero ao Expert
+                            O Teu Futuro como <br>
+                            <span class="highlight">Web Developer Elite</span>
                         </h1>
                         <p class="hero-subtitle">
-                            De 5ª classe ao Jedi do markup — duracção sugerida 3-6 meses (1 h/semana)
+                            Aprende as tecnologias mais procuradas pelo mercado: HTML, CSS, JavaScript e <strong>Angular</strong>. Do zero absoluto ao nível profissional.
                         </p>
-                        <div class="hero-meta">
-                            <div class="meta-item">
-                                <span class="meta-icon">👨‍🏫</span>
-                                <span>Professor: Sandro Pereira</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-icon">📅</span>
-                                <span>Ano: 2025</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-icon">🌟</span>
-                                <span>20 Módulos Completos</span>
-                            </div>
-                        </div>
                         <div class="hero-buttons">
-                            <a href="#modulos" class="btn btn-primary">Começar Curso</a>
-                            <a href="modules/modulo-0.html" class="btn btn-secondary">Módulo 0</a>
+                            <a href="#cursos" class="btn btn-primary">Começar Jornada</a>
+                            <a href="#sobre" class="btn btn-secondary">Ver Mentoria</a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -73,19 +73,21 @@
                                         <span class="control yellow"></span>
                                         <span class="control green"></span>
                                     </span>
-                                    <span class="window-title">index.html</span>
+                                    <span class="window-title">heroi.js</span>
                                 </div>
                                 <div class="window-content">
-                                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="pt-PT"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Olá Mundo!&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Olá Mundo!&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                                    <pre><code>const tu = {
+    nivel: 'Iniciante',
+    vontade: 100
+};
+
+function evoluir() {
+    tu.nivel = 'Heroi';
+    tu.skills = ['HTML', 'CSS', 'JS'];
+    return '🚀 Sucesso!';
+}
+
+console.log(evoluir());</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -94,497 +96,99 @@
             </div>
         </section>
 
-        <!-- Sobre Section -->
-        <section id="sobre" class="section">
+        <!-- Motivation Section -->
+        <section class="motivation-section">
             <div class="container">
-                <h2 class="section-title">Sobre o Curso</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <div class="card-icon">🎯</div>
-                        <h3>Objetivo</h3>
-                        <p>Dominar HTML5 desde os conceitos básicos até técnicas avançadas, preparando para o mercado de trabalho.</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-icon">⏱️</div>
-                        <h3>Duracção</h3>
-                        <p>3-6 meses de estudo com 1 hora por semana de dedicacção.</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-icon">📈</div>
-                        <h3>Nível</h3>
-                        <p>Do absoluto iniciante ao desenvolvedor HTML5 expert.</p>
-                    </div>
+                <div class="quote-card">
+                    <span class="quote-icon">❝</span>
+                    <p class="quote-text">Cada linha de código é um passo rumo à criação do teu próprio mundo digital.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Módulos Section -->
-        <section id="modulos" class="section">
+        <!-- Cursos Section -->
+        <section id="cursos" class="section">
             <div class="container">
-                <h2 class="section-title">Curso de HTML</h2>
-                <div class="modulos-grid">
-                    <!-- Módulo 0 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">0</span>
-                            <h3>Preparacção</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Instalar VS Code + Live Server</li>
-                                <li>Criar projeto HTML</li>
-                                <li>Atalhos essenciais</li>
-                                <li>Git básico</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="modules/modulo-0.html" class="btn-modulo">Acessar</a>
-                        </div>
+                <h2 class="section-title">Escolhe o teu Caminho</h2>
+                <div class="courses-grid">
+                    <!-- HTML Course -->
+                    <div class="course-card">
+                        <div class="course-icon html-icon">🌐</div>
+                        <h3>Curso de HTML5</h3>
+                        <p>O esqueleto da web. Aprende a estruturar conteúdo de forma semântica e acessível.</p>
+                        <ul class="course-features">
+                            <li>✅ Semântica Moderna</li>
+                            <li>✅ Acessibilidade</li>
+                            <li>✅ SEO Básico</li>
+                        </ul>
+                        <a href="curso-html5/modulo-1.html" class="btn-course">Começar Agora</a>
                     </div>
 
-                    <!-- Módulo 1 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">1</span>
-                            <h3>O Esqueleto</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que é HTML?</li>
-                                <li>Estrutura básica</li>
-                                <li>Meta tags essenciais</li>
-                                <li>Comentários</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-html5/aula-1-introducao.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- CSS Course -->
+                    <div class="course-card">
+                        <div class="course-icon css-icon">🎨</div>
+                        <h3>Curso de CSS3</h3>
+                        <p>A arte da web. Domina layouts, cores, tipografia e animações.</p>
+                        <ul class="course-features">
+                            <li>✅ Flexbox & Grid</li>
+                            <li>✅ Responsividade</li>
+                            <li>✅ Animações</li>
+                        </ul>
+                        <a href="curso-css/modulo-0.html" class="btn-course">Começar Agora</a>
                     </div>
 
-                    <!-- Módulo 2 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">2</span>
-                            <h3>Tags Essenciais</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Títulos e Parágrafos</li>
-                                <li>Links</li>
-                                <li>Imagens</li>
-                                <li>Estrutura de Conteúdo</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-html5/aula-2-tags-essenciais.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- JS Course -->
+                    <div class="course-card">
+                        <div class="course-icon js-icon">⚡</div>
+                        <h3>JavaScript</h3>
+                        <p>O cérebro da web moderna. Domina a lógica, o DOM e as novas normas ES6+.</p>
+                        <ul class="course-features">
+                            <li>Lógica de Programação</li>
+                            <li>DOM & Eventos</li>
+                            <li>Async/Await & APIs</li>
+                        </ul>
+                        <a href="curso-javascript/modulo-0.html" class="btn-course">Explorar Módulos</a>
                     </div>
 
-                    <!-- Módulo 3 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">3</span>
-                            <h3>Listas e Tabelas</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Listas Ordenadas e Não Ordenadas</li>
-                                <li>Tabelas</li>
-                                <li>Estrutura de Dados</li>
-                                <li>Boas Práticas</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-html5/aula-3-listas-tabelas.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 4 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">4</span>
-                            <h3>Formulários</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Inputs e Labels</li>
-                                <li>Tipos de Input</li>
-                                <li>Textarea e Button</li>
-                                <li>Recolha de Dados</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-html5/aula-4-formularios.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 5 -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">5</span>
-                            <h3>HTML Semântico</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Header, Footer, Nav</li>
-                                <li>Main, Section, Article</li>
-                                <li>Acessibilidade</li>
-                                <li>Boas Práticas</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-html5/aula-5-semantica.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CSS Course Section -->
-        <section id="modulos-css" class="section">
-            <div class="container">
-                <h2 class="section-title">Curso de CSS</h2>
-                <div class="modulos-grid">
-                    <!-- Módulo 1 - CSS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">1</span>
-                            <h3>Introdução ao CSS</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que é CSS?</li>
-                                <li>Sintaxe básica</li>
-                                <li>Seletores iniciais</li>
-                                <li>Como adicionar CSS ao HTML</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-css/aula-1-introducao.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 2 - CSS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">2</span>
-                            <h3>Seletores Essenciais</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Seletores de Tag</li>
-                                <li>Seletores de Classe</li>
-                                <li>Seletores de ID</li>
-                                <li>Combinando seletores</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-css/aula-2-seletores.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 3 - CSS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">3</span>
-                            <h3>O Modelo de Caixa</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Content, Padding</li>
-                                <li>Border, Margin</li>
-                                <li>Propriedades de Dimensão</li>
-                                <li>Box Sizing</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-css/aula-3-box-model.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 4 - CSS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">4</span>
-                            <h3>Flexbox</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Display Flex</li>
-                                <li>Justify Content</li>
-                                <li>Align Items</li>
-                                <li>Layouts Flexíveis</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-css/aula-4-flexbox.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 5 - CSS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">5</span>
-                            <h3>CSS Grid</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Display Grid</li>
-                                <li>Grid Template</li>
-                                <li>Posicionamento</li>
-                                <li>Layouts Bidimensionais</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-css/aula-5-grid.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- JavaScript Course Section -->
-        <section id="modulos-js" class="section">
-            <div class="container">
-                <h2 class="section-title">Curso de JavaScript</h2>
-                <div class="modulos-grid">
-                    <!-- Módulo 1 - JS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">1</span>
-                            <h3>Introdução ao JavaScript</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que é JavaScript?</li>
-                                <li>Como funciona o JS no browser</li>
-                                <li>A tag &lt;script&gt;</li>
-                                <li>Consola do navegador</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-js/aula-1-introducao.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                     <!-- Módulo 2 - JS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">2</span>
-                            <h3>Variáveis e Dados</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Variáveis com `let` e `const`</li>
-                                <li>Strings</li>
-                                <li>Numbers</li>
-                                <li>Booleans</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-js/aula-2-variaveis-tipos-dados.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 3 - JS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">3</span>
-                            <h3>Lógica e Controlo</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Operadores Aritméticos</li>
-                                <li>Estruturas `if/else`</li>
-                                <li>Loops com `for`</li>
-                                <li>Operadores Lógicos</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-js/aula-3-operadores-estruturas-controlo.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 4 - JS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">4</span>
-                            <h3>Funções e Escopo</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Declarar Funções</li>
-                                <li>Parâmetros e Return</li>
-                                <li>Escopo Local vs Global</li>
-                                <li>Código Reutilizável</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-js/aula-4-funcoes-escopo.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 5 - JS -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">5</span>
-                            <h3>DOM Manipulation</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Selecionar Elementos</li>
-                                <li>Modificar Conteúdo</li>
-                                <li>Eventos</li>
-                                <li>Criar Elementos</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-js/aula-13.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Angular Course Section -->
-        <section id="modulos-angular" class="section">
-            <div class="container">
-                <h2 class="section-title">Curso de Angular</h2>
-                <div class="modulos-grid">
-                    <!-- Módulo 1 - Angular -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">1</span>
-                            <h3>O que é Angular?</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que é uma framework?</li>
-                                <li>Angular vs. AngularJS</li>
-                                <li>Ecossistema Angular</li>
-                                <li>Configuração do ambiente</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-angular/aula-1-introducao.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                     <!-- Módulo 2 - Angular -->
-                     <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">2</span>
-                            <h3>Anatomia de um Componente</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que são Componentes?</li>
-                                <li>HTML, CSS e TypeScript</li>
-                                <li>O Decorador @Component</li>
-                                <li>Selector e Template</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-angular/aula-2-componentes.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 3 - Angular -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">3</span>
-                            <h3>Data Binding</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Interpolação `{{ }}`</li>
-                                <li>Property Binding `[ ]`</li>
-                                <li>Dados Dinâmicos</li>
-                                <li>Componente para o Template</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-angular/aula-3-data-binding-interpolacao.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 4 - Angular -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">4</span>
-                            <h3>Eventos e Two-Way Binding</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>Event Binding `( )`</li>
-                                <li>Two-Way Binding `[(ngModel)]`</li>
-                                <li>Interação com o Utilizador</li>
-                                <li>Sincronização de Dados</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-angular/aula-4-event-binding.html" class="btn-modulo">Acessar</a>
-                        </div>
-                    </div>
-                    <!-- Módulo 5 - Angular -->
-                    <div class="modulo-card">
-                        <div class="modulo-header">
-                            <span class="modulo-number">5</span>
-                            <h3>Services & DI</h3>
-                        </div>
-                        <div class="modulo-content">
-                            <ul>
-                                <li>O que são Serviços?</li>
-                                <li>Injeção de Dependências</li>
-                                <li>Partilha de Lógica</li>
-                                <li>Estado da Aplicação</li>
-                            </ul>
-                        </div>
-                        <div class="modulo-footer">
-                            <span class="modulo-aulas">1 aula</span>
-                            <a href="curso-angular/aula-13.html" class="btn-modulo">Acessar</a>
-                        </div>
+                    <!-- Angular Course (Highlight) -->
+                    <div class="course-card highlight-card">
+                        <div class="course-badge">Nível Elite</div>
+                        <div class="course-icon full-icon">🅰️</div>
+                        <h3>Angular Pro</h3>
+                        <p>A framework predileta das grandes empresas. Constrói apps escaláveis e de alta performance.</p>
+                        <ul class="course-features">
+                            <li>Arquitetura Enterprise</li>
+                            <li>RxJS & State Management</li>
+                            <li>HttpClient & Services</li>
+                        </ul>
+                        <a href="curso-angular/modulo-0.html" class="btn-course">Tornar-me Elite</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Instrutor Section -->
-        <section id="instrutor" class="section">
+        <section id="sobre" class="section bg-surface">
             <div class="container">
-                <h2 class="section-title">Sobre o Instrutor</h2>
                 <div class="instrutor-card">
                     <div class="instrutor-avatar">
-                        <div class="avatar-placeholder">👨‍🏫</div>
+                        👨‍🏫
                     </div>
                     <div class="instrutor-info">
-                        <h3>Sandro Pereira</h3>
+                        <h2>Sandro Pereira</h2>
                         <p class="instrutor-title">Professor e Desenvolvedor Web</p>
                         <p class="instrutor-description">
-                            Especialista em desenvolvimento web com anos de experiência no ensino de tecnologias frontend.
-                            Apaixonado por compartilhar conhecimento e ajudar estudantes a alcançarem seus objetivos na programacção.
+                            "A minha missão é transformar curiosidade em competência. Com uma abordagem prática e direta,
+                            ajudo-te a dominar as tecnologias que constroem a web moderna."
                         </p>
                         <div class="instrutor-stats">
                             <div class="stat">
-                                <span class="stat-number">2025</span>
-                                <span class="stat-label">Ano</span>
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Anos de XP</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">20+</span>
-                                <span class="stat-label">Módulos</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Prático</span>
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Alunos</span>
                             </div>
                         </div>
                     </div>
@@ -592,24 +196,20 @@
             </div>
         </section>
 
-        <!-- Contato Section -->
+        <!-- Contact Section -->
         <section id="contacto" class="section">
             <div class="container">
-                <h2 class="section-title">Contato</h2>
-                <div class="contacto-content">
-                    <p>Entre em contacto para mais informações sobre o curso ou esclarecimentos de dúvidas.</p>
-                    <div class="contacto-info">
-                        <div class="contacto-item">
-                            <span class="contacto-icon">📧</span>
-                            <span>Email: smpsandro1239@gmail.com</span>
-                        </div>
-                        <div class="contacto-item">
-                            <span class="contacto-icon">📱</span>
-                            <span>Telefone: +351 XXX XXX XXX</span>
-                        </div>
-                        <div class="contacto-item">
-                            <span class="contacto-icon">🌐</span>
-                            <span>Website: www.html5expert.com</span>
+                <h2 class="section-title">Tens Dúvidas?</h2>
+                <div class="contato-content">
+                    <p>Estamos aqui para ajudar na tua jornada de aprendizagem.</p>
+                    <div class="contato-info">
+                        <a href="mailto:ajuda@aprendeweb.pt" class="contato-item">
+                            <span class="contato-icon">📧</span>
+                            <span>ajuda@aprendeweb.pt</span>
+                        </a>
+                        <div class="contato-item">
+                            <span class="contato-icon">🌐</span>
+                            <span>www.aprendeweb.pt</span>
                         </div>
                     </div>
                 </div>
@@ -617,26 +217,39 @@
         </section>
     </main>
 
+        <!-- Dashboard Section (Visible only when logged in) -->
+        <section id="dashboard" class="section bg-surface" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">O Teu Progresso</h2>
+                <div id="user-stats" class="user-stats-container"></div>
+                <h3 class="subsection-title">Os Teus Certificados</h3>
+                <div id="certificates-grid" class="certificates-grid"></div>
+            </div>
+        </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h4>📚 HTML5 do Zero ao Expert</h4>
-                    <p>Curso ministrado pelo Professor Sandro Pereira em 2025</p>
+                <div class="footer-brand">
+                    <h4>🚀 Aprende Web</h4>
+                    <p>Do Zero ao Heroi no mundo digital.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#modulos">Módulos</a>
-                    <a href="#instrutor">Instrutor</a>
-                    <a href="#contacto">Contato</a>
+                    <a href="#cursos">Cursos</a>
+                    <a href="#sobre">Instrutor</a>
+                    <a href="#contacto">Contacto</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sandro Pereira - HTML5 Expert. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Sandro Pereira. Feito com ❤️ em Portugal.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/certificado.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 16: Routing I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 16 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🛤️</span>
+            </div>
+            <h1>Módulo 16: Routing I (Navegação Básica)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Lote Anterior (Módulos 14-15)</strong>, dominámos os Formulários Reativos e as validações complexas. Agora, a nossa aplicação precisa de crescer: vamos aprender a criar múltiplas "páginas" e caminhos sem nunca recarregar o browser, transformando o site numa **SPA (Single Page Application)**.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o <strong>Angular Router</strong> e como funciona.</li>
+                <li>✅ Configurar a tabela de rotas básica.</li>
+                <li>✅ Usar o <strong>&lt;router-outlet&gt;</strong> para injetar vistas.</li>
+                <li>✅ Criar links inteligentes com a diretiva <strong>routerLink</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Ilusão das Páginas</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Num site tradicional, cada clique num link faz o browser pedir um novo ficheiro HTML ao servidor. No Angular, o index.html nunca muda. O Router apenas troca o componente que está a ser mostrado no ecrã de acordo com o endereço (URL).</p>
+                <div class="analogy">
+                    <h3>🎭 Analogia: O Palco de Teatro</h3>
+                    <p>Imagina que o Angular é um teatro moderno:</p>
+                    <ul>
+                        <li><strong>O Index.html (O Palco)</strong>: É a estrutura fixa. As cortinas, as luzes e as cadeiras não mudam.</li>
+                        <li><strong>O Router (O Encenador)</strong>: Quando o público pede a "Cena 2" (Muda a URL), o encenador manda os atores da Cena 1 saírem e entrarem os da Cena 2.</li>
+                        <li><strong>O Router-Outlet (O Espaço de Cena)</strong>: É o retângulo exato no palco onde a magia acontece. É ali que os cenários (Componentes) são trocados.</li>
+                        <li><strong>O RouterLink (O Bilhete)</strong>: É a indicação de qual cena o público quer ver a seguir, sem nunca sair do teatro para ir a outro edifício.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Configurar a Tabela de Rotas</h3>
+                <p>Definir os caminhos no ficheiro <code>app.routes.ts</code>.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { Routes } from '@angular/router';
+import { HomeComp } from './home.component';
+import { SobreComp } from './sobre.component';
+
+export const routes: Routes = [
+  { path: 'home', component: HomeComp },
+  { path: 'sobre', component: SobreComp },
+  { path: '', redirectTo: '/home', pathMatch: 'full' } // Rota inicial
+];</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Marcador de Posição</h3>
+                <p>No <code>app.component.html</code>, dizemos onde os componentes devem aparecer.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;nav&gt;
+  &lt;!-- Menu Fixo --&gt;
+&lt;/nav&gt;
+
+&lt;!-- Aqui é onde a página muda! --&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+&lt;footer&gt;Rodapé Fixo&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Navegar com Segurança</h3>
+                <p>Não uses `href`! Usa `routerLink` para manter a app reativa.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Errado (Recarrega a app) --&gt;
+&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;
+
+&lt;!-- Correto (Navegação Angular instantânea) --&gt;
+&lt;a routerLink="/sobre" routerLinkActive="active-class"&gt;Sobre&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Navegador Interestelar":</p>
+                <ol class="steps-list">
+                    <li>Cria dois componentes novos: <code>PlanetaComponent</code> e <code>NaveComponent</code>.</li>
+                    <li>No teu ficheiro de rotas, cria os caminhos <code>/planeta</code> e <code>/nave</code> para ligar a estes componentes.</li>
+                    <li>No <code>app.component.html</code>, adiciona o <code>&lt;router-outlet&gt;</code> abaixo da barra de navegação.</li>
+                    <li>Cria uma barra de navegação com dois botões que usam o <code>routerLink</code>.</li>
+                    <li>Usa o <strong>routerLinkActive</strong> para mudar a cor do botão quando estás na página correspondente.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-16">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O **Router** permite criar várias vistas numa Single Page Application.</li>
+                <li>📌 A tabela de **Routes** mapeia uma URL (caminho) para um componente.</li>
+                <li>📌 O **&lt;router-outlet&gt;** é o local onde o Angular "projeta" o componente da rota ativa.</li>
+                <li>📌 A diretiva **routerLink** é a forma correta de navegar sem recarregar o browser.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Ecrã em Branco</h3>
+                <p>Se criares uma rota <code>{ path: 'loja', component: LojaComp }</code> e tentares aceder a <code>/loja-online</code> (que não existe), o que acontece por defeito?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Por defeito, terias um erro na consola do browser dizendo que o Router não encontrou a rota. O ecrã ficaria apenas com o cabeçalho/rodapé e o <code>router-outlet</code> vazio. O ideal é criar uma rota "Coringa" <code>**</code> para mostrar uma página 404.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Navegar via Código</h3>
+                <p>Imagina que o utilizador termina um formulário e tu queres mandá-lo para a página de "Sucesso" automaticamente. Podes usar o <code>routerLink</code> dentro do ficheiro TypeScript?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não. O <code>routerLink</code> é apenas para o HTML. No TypeScript, deves injetar o serviço <code>Router</code> e usar o método <code>this.router.navigate(['/sucesso'])</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Rota Vazia</h3>
+                <p>Para que serve o <code>pathMatch: 'full'</code> quando definimos a rota para o caminho vazio <code>''</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Garante que o Angular só redireciona se a URL estiver 100% vazia. Sem isso, o Angular podia entrar em "loop" de redirecionamento porque a string vazia é tecnicamente o início de qualquer rota.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-15.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-17.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

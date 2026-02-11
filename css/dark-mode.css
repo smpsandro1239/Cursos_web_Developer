@@ -1,0 +1,55 @@
+/* Dark Mode Overrides - Aprende Web */
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+body.dark-mode .header {
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-mode .course-card,
+body.dark-mode .instrutor-card,
+body.dark-mode .theory-box,
+body.dark-mode .question-card,
+body.dark-mode .practice-guide {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .hero-title {
+    color: white;
+}
+
+body.dark-mode .footer {
+    background: #020617;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Toggle Switch Styles */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+}

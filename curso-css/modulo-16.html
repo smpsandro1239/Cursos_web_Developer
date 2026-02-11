@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 16: Efeitos de Vidro e Filtros - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 16 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🍷</span>
+            </div>
+            <h1>Módulo 16: Glassmorphism e Filtros</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 15</strong>, construímos o nosso primeiro projeto prático: um Hero de Elite. Agora, vamos elevar ainda mais a estética do site aprendendo a criar o famoso efeito de "vidro fosco" (Glassmorphism).</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A propriedade <strong>backdrop-filter</strong>.</li>
+                <li>✅ Como criar o efeito de <strong>Glassmorphism</strong> premium.</li>
+                <li>✅ Filtros de imagem do CSS (grayscale, blur, brightness).</li>
+                <li>✅ Contraste e acessibilidade em interfaces transparentes.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Camada de Vidro</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O Glassmorphism foca-se na transparência e no desfoque do fundo para criar uma sensação de profundidade e hierarquia. A "mágica" acontece quando usamos o <code>backdrop-filter</code>, que não desfoca o elemento em si, mas sim o que está atrás dele.</p>
+                <div class="analogy">
+                    <h3>🍷 Analogia: O Copo de Vinho Fosco</h3>
+                    <p>Imagina que estás num restaurante:</p>
+                    <ul>
+                        <li><strong>Sem Filtro (Vidro Comum)</strong>: Consegues ver tudo o que está do outro lado do copo com nitidez.</li>
+                        <li><strong>Com Backdrop-filter (Vidro Fosco)</strong>: O copo é semi-transparente, mas a luz do restaurante que passa através dele fica difusa e suave. Tu sabes que há algo lá atrás, mas não vês os detalhes. É elegante e foca a atenção no que está escrito no copo!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Cartão de Vidro</h3>
+                <p>A fórmula exata para o efeito Glassmorphism.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.glass-card {
+  background: rgba(255, 255, 255, 0.2); /* Branco semi-transparente */
+  backdrop-filter: blur(10px);         /* Desfoca o fundo */
+  -webkit-backdrop-filter: blur(10px);  /* Recomendado para Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda subtil */
+  border-radius: 20px;
+  padding: 30px;
+}</code></pre>
+                </div>
+                <p class="explanation">A borda semi-transparente é o segredo para dar aquele aspeto de "corte de vidro" nas extremidades.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Filtros de Imagem</h3>
+                <p>Mudar o aspeto das tuas fotos sem usar o Photoshop.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.foto-antiga {
+  filter: grayscale(100%) sepia(50%);
+}
+
+.foto-focada:hover {
+  filter: blur(0);
+}
+
+.foto-desfocada {
+  filter: blur(5px);
+  transition: filter 0.3s;
+}</code></pre>
+                </div>
+                <p class="explanation">O <code>filter</code> atua no conteúdo do elemento, enquanto o <code>backdrop-filter</code> atua no que está por trás dele.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma "Barra de Navegação Flutuante":</p>
+                <ol class="steps-list">
+                    <li>Cria uma <code>&lt;nav&gt;</code> e coloca-a por cima de uma imagem de fundo bonita.</li>
+                    <li>No CSS, dá-lhe um <code>background</code> com <code>rgba(0, 0, 0, 0.4)</code> (preto transparente).</li>
+                    <li>Aplica o <code>backdrop-filter: blur(15px)</code>.</li>
+                    <li>Dá-lhe um <code>border-bottom</code> branco muito clarinho.</li>
+                    <li>Faz scroll na página e observa como a barra "derrete" as cores da imagem que passa por baixo.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-16">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>backdrop-filter</strong> cria efeitos no fundo atrás do elemento.</li>
+                <li>📌 <strong>filter</strong> cria efeitos no próprio elemento/imagem.</li>
+                <li>📌 O <strong>Glassmorphism</strong> precisa de transparência e desfoque combinados.</li>
+                <li>📌 Usa sempre <code>rgba</code> ou <code>hsla</code> para o fundo de elementos "vidro".</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Brilho Extra</h3>
+                <p>Como farias para aumentar o brilho de uma imagem em 50% quando o utilizador passa o rato?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>filter: brightness(1.5);</code> no seletor <code>:hover</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Contraste Perdido</h3>
+                <p>Se o teu texto branco não se lê bem no "vidro", qual a propriedade (que já aprendemos) que podes adicionar ao texto para criar uma sombra subtil e melhorar a leitura?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>text-shadow</code> (ex: 1px 1px 3px rgba(0,0,0,0.5)).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Safari Compatibility</h3>
+                <p>Por que é que muitas vezes vemos a propriedade <code>-webkit-backdrop-filter</code> repetida no código de sites profissionais?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Para garantir compatibilidade com o browser Safari (iPhone/Mac), que ainda exige o prefixo <code>-webkit-</code> para esta funcionalidade específica.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-15.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-17.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

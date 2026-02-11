@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 20: Projeto Final - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 20 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🏆</span>
+            </div>
+            <h1>Módulo 20: O Grande Projeto Final</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>Passámos por 19 módulos de pura lógica, DOM, eventos e assincronia. No <strong>Módulo 19</strong>, aprendemos como organizar o código. Chegou a hora de provares a ti mesmo que és um programador de JavaScript.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Construir -->
+        <section class="lesson-step">
+            <h2>3. O Desafio: Weather Dashboard Pro</h2>
+            <p>Vais construir uma aplicação que permite ao utilizador pesquisar o clima de qualquer cidade do mundo. A aplicação deve:</p>
+            <ul class="learning-goals">
+                <li>✅ Consumir dados de uma API real de clima.</li>
+                <li>✅ Mostrar temperatura, humidade e ícone do clima.</li>
+                <li>✅ **LocalStorage**: Memorizar a última cidade pesquisada para a mostrar ao abrir o site.</li>
+                <li>✅ Validação de erros: Se a cidade não existir, avisar o utilizador.</li>
+                <li>✅ Interface Moderna: Usar o DOM para criar um visual premium.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria: A Arquitetura do Projeto -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Passo a Passo da Vitória</h2>
+            <div class="theory-box">
+                <p>Um bom projeto não nasce do código, nasce da estratégia. Aqui está o roteiro sugerido:</p>
+                <div class="analogy">
+                    <h3>🛠️ Roteiro de Construção</h3>
+                    <ol>
+                        <li><strong>A Fundação (HTML/CSS)</strong>: Cria uma caixa de pesquisa, um botão e uma área vazia onde os resultados vão aparecer.</li>
+                        <li><strong>A Seleção (JS)</strong>: Seleciona todos os elementos no teu script.</li>
+                        <li><strong>A Comunicação (Fetch)</strong>: Cria a função <code>async</code> que chama a API (podes usar a OpenWeather ou uma API de teste).</li>
+                        <li><strong>A Exibição (DOM)</strong>: Pega nos dados do JSON e injeta-os no HTML usando <code>textContent</code> e <code>innerHTML</code>.</li>
+                        <li><strong>A Memória (LocalStorage)</strong>: Assim que a pesquisa tiver sucesso, guarda o nome da cidade.</li>
+                        <li><strong>O Polimento (Error Handling)</strong>: Adiciona o <code>try...catch</code> para o caso de a internet falhar.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplo de Estrutura -->
+        <section class="lesson-step">
+            <h2>5. Estrutura do Código</h2>
+
+            <div class="code-example-card">
+                <h3>A Lógica Central</h3>
+                <p>Exemplo de como organizar as tuas funções.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const API_KEY = "tua_chave_aqui";
+
+async function buscarClima(cidade) {
+  try {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${API_KEY}`;
+    const res = await fetch(url);
+    const dados = await res.json();
+
+    if (dados.cod === "404") throw new Error("Cidade não encontrada");
+
+    mostrarNoEcrã(dados);
+    localStorage.setItem("ultimaCidade", cidade);
+
+  } catch (e) {
+    alert(e.message);
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada (O Guião) -->
+        <section class="lesson-step">
+            <h2>6. Agora é Contigo!</h2>
+            <div class="practice-guide">
+                <p>Dicas para o teu sucesso:</p>
+                <ul class="steps-list">
+                    <li>Usa o <code>event.preventDefault()</code> no formulário de pesquisa.</li>
+                    <li>Cria uma função separada só para atualizar o HTML (Mantém o código limpo!).</li>
+                    <li>No início do script, verifica se existe algo no <code>localStorage.getItem("ultimaCidade")</code>. Se sim, chama a função de busca logo ao entrar.</li>
+                    <li>Transforma os números da temperatura em graus Arredondados com <code>Math.round()</code>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Última!) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento Final</h2>
+            <div id="quiz-container" data-quiz-id="modulo-20">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo do Curso -->
+        <section class="lesson-step">
+            <h2>8. Parabéns, Programador!</h2>
+            <p>Concluíste todos os módulos de JavaScript. Agora tens as bases para:</p>
+            <ul class="summary-list">
+                <li>🌟 Criar lógica complexa e resolver problemas.</li>
+                <li>🌟 Manipular qualquer elemento de um site.</li>
+                <li>🌟 Ligar sites a bases de dados e APIs externas.</li>
+                <li>🌟 Escrever código moderno e profissional.</li>
+            </ul>
+        </section>
+
+        <!-- 9. O Próximo Nível -->
+        <section class="lesson-step">
+            <h2>9. E Agora?</h2>
+
+            <div class="challenge-card">
+                <h3>🚀 Próxima Paragem: Angular</h3>
+                <p>O JavaScript puro (Vanilla) é fantástico, mas para projetos gigantes, as empresas usam Frameworks. Estás pronto para entrar no <strong>Curso de Angular</strong> e aprender a criar aplicações profissionais de alto desempenho.</p>
+            </div>
+
+            <div class="challenge-card">
+                <h3>📜 Certificado</h3>
+                <p>Termina o teu projeto final, coloca-o no GitHub e partilha com o mundo. O teu portfólio acaba de ganhar uma estrela!</p>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation text-center">
+            <a href="modulo-19.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="../index.html" class="btn btn-primary">Voltar ao Início 🏠</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

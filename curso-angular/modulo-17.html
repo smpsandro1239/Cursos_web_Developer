@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 17: Routing II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 17 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⚡</span>
+            </div>
+            <h1>Módulo 17: Routing II (Parâmetros e Lazy Loading)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 16</strong>, aprendemos a configurar rotas básicas e a navegar entre componentes. No entanto, sites reais precisam de rotas dinâmicas (ex: exibir o perfil de um utilizador específico) e de ser rápidos. É isso que vamos resolver hoje.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Criar <strong>Rotas Dinâmicas</strong> com parâmetros (<code>:id</code>).</li>
+                <li>✅ Ler parâmetros usando o serviço <strong>ActivatedRoute</strong>.</li>
+                <li>✅ Otimizar a performance com <strong>Lazy Loading</strong>.</li>
+                <li>✅ Diferença entre carregar tudo ou carregar "sob demanda".</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Flexibilidade e Rapidez</h2>
+            <div class="theory-box">
+                <p><strong>Parâmetros:</strong> Permitem que um único componente sirva para milhares de páginas diferentes. Em vez de criares <code>perfil-joao.html</code> e <code>perfil-maria.html</code>, crias apenas um componente <code>Perfil</code> que lê o ID na URL.</p>
+                <p><strong>Lazy Loading:</strong> É a técnica de dividir o código do site em pequenos pedaços ("chunks"). O browser só descarrega o código de uma funcionalidade se o utilizador clicar nela.</p>
+                <div class="analogy">
+                    <h3>📦 Analogia: A IKEA e os Corredores</h3>
+                    <p>Imagina que o teu site é uma loja IKEA:</p>
+                    <ul>
+                        <li><strong>Parâmetros (A Etiqueta)</strong>: Tu vais ao corredor de prateleiras. Todas as prateleiras são o mesmo "Componente", o que muda é a etiqueta (Parâmetro) que diz se aquela é a Billy ou a Kallax.</li>
+                        <li><strong>Lazy Loading (O Armazém Fechado)</strong>: Ninguém carrega a loja inteira às costas. Quando entras na IKEA, só vês a entrada. Se quiseres ver cozinhas, vais até lá e eles abrem essa secção específica para ti. Se nunca fores às casas de banho, não perdes tempo a "carregá-las" visualmente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Rota com Parâmetro</h3>
+                <p>O dois pontos <code>:</code> indica que o valor é variável.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">{ path: 'produto/:id', component: DetalheProdComp }</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Ler o Parâmetro no Componente</h3>
+                <p>Injetar o <code>ActivatedRoute</code> para aceder aos dados.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">constructor(private route: ActivatedRoute) {}
+
+ngOnInit() {
+  const id = this.route.snapshot.paramMap.get('id');
+  console.log('Estou a ver o produto numero:', id);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Lazy Loading (Angular Moderno)</h3>
+                <p>Usar <code>loadComponent</code> em vez de <code>component</code>.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">{
+  path: 'admin',
+  loadComponent: () => import('./admin/admin.component')
+    .then(m => m.AdminComponent)
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Explorador de Galáxias Pro":</p>
+                <ol class="steps-list">
+                    <li>Cria uma rota dinâmica <code>galaxia/:nome</code> que aponte para o <code>GalaxiaComponent</code>.</li>
+                    <li>No <code>GalaxiaComponent</code>, mostra o nome da galáxia que vem na URL usando <code>ActivatedRoute</code>.</li>
+                    <li>Cria uma lista de links: <code>/galaxia/ViaLactea</code> e <code>/galaxia/Andromeda</code>.</li>
+                    <li>Transforma um dos teus componentes pesados (ex: uma Dashboard) em <strong>Lazy Loaded</strong> usando o <code>loadComponent</code>.</li>
+                    <li>Abre o separador "Network" do browser e repara como um novo ficheiro JS é descarregue apenas quando clicas no link da Dashboard!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-17">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Parâmetros (<code>:id</code>) tornam as rotas dinâmicas e reutilizáveis.</li>
+                <li>📌 O **snapshot** do `ActivatedRoute` serve para ler o valor inicial da URL.</li>
+                <li>📌 **Lazy Loading** reduz o tamanho inicial da App, tornando o carregamento instantâneo.</li>
+                <li>📌 Usamos a sintaxe **import()** para carregar componentes apenas quando necessário.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Parâmetro Teimoso</h3>
+                <p>Se mudares de <code>/user/1</code> para <code>/user/2</code> estando dentro do mesmo componente, o <code>ngOnInit</code> corre de novo? O <code>snapshot</code> atualiza?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não! Como o componente é o mesmo, o Angular não o destrói nem o recria (performance). O <code>ngOnInit</code> não corre e o <code>snapshot</code> fica com o valor antigo. Para estes casos, deves subscrever ao <code>params</code> (Observable) em vez de usar o snapshot.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Performance Extra</h3>
+                <p>Qual o benefício real do Lazy Loading para um utilizador móvel com internet 3G lenta?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O utilizador não tem de esperar pelo download de 50 páginas se ele só quer ver a Home. A descarga inicial pode passar de 2MB para 200KB, o que significa a diferença entre o site abrir em 1 segundo ou em 10 segundos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: IDs vs Slugs</h3>
+                <p>É melhor passar IDs numéricos (<code>/blog/42</code>) ou "slugs" de texto (<code>/blog/aprender-angular</code>) na URL? Porquê?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Em termos técnicos é indiferente. No entanto, usar "slugs" é muito melhor para **SEO** (Google) e para o utilizador, que consegue perceber o conteúdo da página apenas a olhar para o link.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-16.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-18.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

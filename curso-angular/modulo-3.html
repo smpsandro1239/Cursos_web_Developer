@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Property e Event Binding - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 3 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔌</span>
+            </div>
+            <h1>Módulo 3: Property e Event Binding</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 2</strong>, aprendemos a fazer o TypeScript "falar" com o HTML através da Interpolação. Hoje, vamos aprender como controlar propriedades do HTML (como desativar botões) e como fazer o TypeScript "ouvir" o utilizador.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ <strong>Property Binding</strong> <code>[propriedade]</code>: Controlar o HTML.</li>
+                <li>✅ <strong>Event Binding</strong> <code>(evento)</code>: Reagir a cliques e teclas.</li>
+                <li>✅ <strong>Two-Way Binding</strong> <code>[(ngModel)]</code>: Sincronia total.</li>
+                <li>✅ A lógica da "Banana in a Box".</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Estrada de Dois Sentidos</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> No Angular, a informação viaja em canais específicos. Se queres mudar algo no HTML a partir do código, usas parênteses retos <code>[ ]</code>. Se queres que o código saiba que o utilizador clicou em algo, usas parênteses curvos <code>( )</code>.</p>
+                <div class="analogy">
+                    <h3>🎮 Analogia: O Comando da Consola</h3>
+                    <p>Imagina que estás a jogar um videojogo:</p>
+                    <ul>
+                        <li><strong>Property Binding [Instrução]</strong>: É a consola a dizer ao comando: "Vibra agora!" ou "Acende a luz vermelha!". (Do Cérebro para o Objeto).</li>
+                        <li><strong>Event Binding (Botão)</strong>: É tu a clicares no botão "X" e o comando a dizer à consola: "O jogador quer saltar!". (Do Objeto para o Cérebro).</li>
+                        <li><strong>Two-Way Binding [(ngModel)]</strong>: É quando o comando e a consola estão perfeitamente sincronizados em tempo real.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Property Binding [ ]</h3>
+                <p>Desativar um botão via código.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+botaoDesativado = true;
+corAviso = "red";</code></pre>
+                    <pre><code class="language-html"><!-- No .html -->
+<button [disabled]="botaoDesativado">Enviar</button>
+<p [style.color]="corAviso">Atenção!</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Event Binding ( )</h3>
+                <p>Reagir a um clique de rato.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+aoClicar() {
+  alert("Clicaste no botão!");
+  this.botaoDesativado = !this.botaoDesativado;
+}</code></pre>
+                    <pre><code class="language-html"><!-- No .html -->
+<button (click)="aoClicar()">Clica em Mim</button></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Two-Way Data Binding [( )]</h3>
+                <p>O valor muda no TS e no HTML ao mesmo tempo.</p>
+                <div class="code-window">
+                    <pre><code class="language-html"><!-- Para isto funcionar, precisas do FormsModule! -->
+<input [(ngModel)]="nomeUsuario">
+<p>Olá, {{ nomeUsuario }}!</p></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Controlador de Luz":</p>
+                <ol class="steps-list">
+                    <li>Cria uma variável <code>luzAcesa = false</code> no teu TypeScript.</li>
+                    <li>No HTML, cria um botão que diz "Ligar/Desligar".</li>
+                    <li>Usa o <strong>Event Binding</strong> <code>(click)</code> para inverter o valor da variável (<code>luzAcesa = !luzAcesa</code>).</li>
+                    <li>Cria um parágrafo que mostra o texto "A luz está LIGADA" ou "A luz está DESLIGADA" (Bónus: usa interpolação com um IF ternário <code>{{ luzAcesa ? 'LIGADA' : 'DESLIGADA' }}</code>).</li>
+                    <li>Usa o <strong>Property Binding</strong> <code>[style.background]</code> para mudar a cor de fundo de uma `&lt;div&gt;` para 'yellow' quando a luz estiver acesa.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-3">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Property Binding `[ ]`** controla propriedades HTML (src, disabled, style).</li>
+                <li>📌 **Event Binding `( )`** escuta ações do utilizador (click, input, mouseover).</li>
+                <li>📌 **Two-Way Binding `[( )]`** mantém o HTML e o TS em sincronia perfeita.</li>
+                <li>📌 Lembra-te: **Retos** entram dados, **Curvos** capturam eventos.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Botão Tímido</h3>
+                <p>Como farias para que um botão desaparecesse visualmente (ou fosse filtrado) quando passas o rato por cima dele, usando apenas Event Binding?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando o evento <code>(mouseover)</code> para mudar uma variável de `escondido = false` para `true` e ligar essa variável a um estilo opacity ou display.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: A Banana in a Box</h3>
+                <p>Porque é que o Two-Way Binding <code>[(ngModel)]</code> é chamado de "Banana in a box"?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> É um mnemónico visual: os parênteses curvos `( )` parecem uma banana, e os retos `[ ]` parecem uma caixa. A banana está dentro da caixa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Captura de Teclado</h3>
+                <p>Se quiseres que uma função seja chamada apenas quando o utilizador clica na tecla **Enter** num input, como escreverias esse evento no Angular?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O Angular tem filtros de teclas integrados! Basta escrever <code>(keyup.enter)="minhaFuncao()"</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-2.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-4.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

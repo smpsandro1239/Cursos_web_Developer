@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 11: Pseudo-classes e Pseudo-elementos - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 11 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🎭</span>
+            </div>
+            <h1>Módulo 11: Interatividade Avançada</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 10</strong>, dominámos o CSS Grid e aprendemos a construir layouts complexos e bidimensionais. Agora, vamos aprender a injetar estilo e conteúdo "invisível" usando seletores especiais.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Estados dinâmicos com <strong>Pseudo-classes</strong> (:hover, :active, :focus).</li>
+                <li>✅ Seleção por posição (:first-child, :nth-child).</li>
+                <li>✅ Injetar conteúdo extra com <strong>Pseudo-elementos</strong> (::before, ::after).</li>
+                <li>✅ Criar efeitos criativos sem mudar o HTML.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Os Elementos Fantasma</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> As Pseudo-classes capturam estados (como quando o utilizador clica num botão). Os Pseudo-elementos são como "sub-elementos" que não existem no código HTML, mas que o CSS pode criar para adicionar detalhes visuais ou ícones.</p>
+                <div class="analogy">
+                    <h3>🎭 Analogia: O Ator e o Disfarce</h3>
+                    <p>Imagina um ator em palco:</p>
+                    <ul>
+                        <li><strong>O Ator (Elemento HTML)</strong>: É a estrutura real que está lá (ex: um botão).</li>
+                        <li><strong>Pseudo-classe (:hover)</strong>: É a cor que o ator ganha quando alguém o aplaude. Ele muda de estado.</li>
+                        <li><strong>Pseudo-elemento (::after)</strong>: É uma bengala ou um chapéu que o ator "invoca" do nada para completar a sua cena. Não faz parte do corpo dele, mas está lá a ajudar!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Seletores de Posição</h3>
+                <p>Estilizar o primeiro e o último item de forma diferente.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">li:first-child { font-weight: bold; }
+li:last-child { color: red; }
+
+/* Zebrar uma tabela (apenas os pares) */
+tr:nth-child(even) { background-color: #f9f9f9; }</code></pre>
+                </div>
+                <p class="explanation">O <code>nth-child</code> é incrivelmente poderoso para listas dinâmicas.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Poder do ::before</h3>
+                <p>Adicionar um "extra" antes do texto.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">.link-externo::after {
+  content: " ↗"; /* Obrigatório! */
+  font-size: 0.8em;
+  color: blue;
+}</code></pre>
+                </div>
+                <p class="explanation">Isto adiciona uma setinha a todos os links com esta classe, sem teres de a escrever manualmente em cada um no HTML.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Menu de Lista Zeta":</p>
+                <ol class="steps-list">
+                    <li>Cria uma lista <code>&lt;ul&gt;</code> com 5 itens.</li>
+                    <li>No CSS, usa <code>:nth-child(2)</code> para pintar o segundo item de azul.</li>
+                    <li>Usa <code>::before</code> nos itens da lista para colocar um emoji de um ponto (•) ou uma estrela (⭐).</li>
+                    <li>Lembra-te: o pseudo-elemento precisa da propriedade <code>content: ""</code>!</li>
+                    <li>Adiciona um efeito <code>:hover</code> que muda o tamanho do emoji.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-11">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Pseudo-classes</strong> (1 ponto `:`) indicam estados ou posições.</li>
+                <li>📌 <strong>Pseudo-elementos</strong> (2 pontos `::`) criam partes novas do elemento.</li>
+                <li>📌 <strong>::before</strong> e <strong>::after</strong> são os mais usados para ícones e decorações.</li>
+                <li>📌 A propriedade <strong>content</strong> é o motor dos pseudo-elementos.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Foco</h3>
+                <p>Qual pseudo-classe se ativa quando clicas dentro de um campo de formulário (input)?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A pseudo-classe <code>:focus</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Pintar a Seleção</h3>
+                <p>Sabias que podes mudar a cor de fundo que aparece quando um utilizador seleciona texto com o rato? Qual é o pseudo-elemento para isso?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>::selection</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Lista Inteligente</h3>
+                <p>Como selecionas todos os itens de uma lista EXCETO o primeiro?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>li:not(:first-child)</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-10.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-12.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

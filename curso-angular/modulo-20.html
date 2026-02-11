@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 20: Signals II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 20 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🧠</span>
+            </div>
+            <h1>Módulo 20: Signals II (Gestão de Estado Moderna)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 19</strong>, aprendemos os básicos dos Signals: <code>signal()</code>, <code>.set()</code> e <code>.update()</code>. Agora, vamos descobrir como fazer com que estes Signals falem uns com os outros e como reagir a mudanças de forma inteligente usando <strong>Computed</strong> e <strong>Effect</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Criar Signals derivados com o <strong>computed()</strong>.</li>
+                <li>✅ Executar lógica automática com o <strong>effect()</strong>.</li>
+                <li>✅ Entender o conceito de <strong>Memoization</strong> (Eficiência Máxima).</li>
+                <li>✅ Gerir o estado da App sem precisar de bibliotecas pesadas.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Inteligência Artificial da App</h2>
+            <div class="theory-box">
+                <p><strong>Computed:</strong> É um Signal que depende de outros. Ele é "preguiçoso": só faz o cálculo se alguém pedir o valor E se os Signals de origem tiverem mudado. Se o valor for o mesmo, ele devolve o resultado guardado (Cache).</p>
+                <p><strong>Effect:</strong> É um vigilante. Ele corre código sempre que um Signal muda, mas não deve ser usado para mudar o estado (HTML), apenas para coisas externas como guardar no Banco de Dados ou fazer animações.</p>
+                <div class="analogy">
+                    <h3>📊 Analogia: A Folha de Excel</h3>
+                    <p>Imagina uma folha de cálculo profissional:</p>
+                    <ul>
+                        <li><strong>Signal (Célula A1)</strong>: Tu escreves o preço de um produto (10€).</li>
+                        <li><strong>Computed (Célula B1)</strong>: Tu escreves a fórmula <code>=A1 * 1.23</code> (IVA). Tu não precisas de atualizar a B1 à mão. Sempre que mudas a A1, a B1 "acorda", faz a conta por ti e mostra o novo valor.</li>
+                        <li><strong>Effect (O Alarme)</strong>: Imagina que tens uma regra: "Se o total passar dos 100€, toca uma sirene". A sirene não muda as células, apenas reage ao valor final para fazer algo no mundo real.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Valores Derivados (Computed)</h3>
+                <p>O <code>computed</code> rastreia as dependências automaticamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">preco = signal(100);
+quantidade = signal(2);
+
+// Este signal atualiza-se sozinho!
+total = computed(() => this.preco() * this.quantidade());
+
+console.log(this.total()); // 200 </code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Reagir a Mudanças (Effect)</h3>
+                <p>Ideal para persistência de dados ou logs.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">constructor() {
+  effect(() => {
+    // Sempre que o total mudar, guardamos no log
+    console.log(`Log: O novo total é ${this.total()}`);
+    localStorage.setItem('total_vendas', this.total().toString());
+  });
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: No HTML (Limpeza Total)</h3>
+                <p>O HTML fica limpo e sem lógica complexa.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;div&gt;Preço: {{ preco() }}€&lt;/div&gt;
+&lt;div&gt;Qt: {{ quantidade() }}&lt;/div&gt;
+&lt;hr&gt;
+&lt;strong&gt;Total a pagar: {{ total() }}€&lt;/strong&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Calculador de Impostos Pro":</p>
+                <ol class="steps-list">
+                    <li>Cria um Signal <code>salarioBruto</code> (ex: 2000).</li>
+                    <li>Cria um **Computed** <code>imposto</code> que calcula 20% do salário.</li>
+                    <li>Cria um **Computed** <code>salarioLiquido</code> que subtrai o imposto ao bruto.</li>
+                    <li>No HTML, mostra os três valores.</li>
+                    <li>Cria um **Effect** que faz as contas e guarda o <code>salarioBruto</code> no <code>localStorage</code> sempre que ele mudar.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-20">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **computed()** cria valores que dependem de outros Signals e são calculados apenas quando necessário.</li>
+                <li>📌 **effect()** serve para correr código secundário (não visual) em resposta a mudanças.</li>
+                <li>📌 Signals evitam renderizações desnecessárias, tornando a App ultra-performante.</li>
+                <li>📌 Esta é a base para gerires o estado global da tua aplicação de forma simples.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: A Armadilha do Effect</h3>
+                <p>Podes usar o <code>effect()</code> para mudar o valor de um Signal (usando <code>.set()</code>)? É uma boa ideia?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Por defeito, o Angular bloqueia isto para evitar "loops infinitos". Tu mudas o Signal -> o Effect corre -> o Effect muda o Signal -> o Effect corre de novo... Para mudar valores baseados em outros, deves usar SEMPRE o **computed**.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Herança de Inteligência</h3>
+                <p>Um <code>computed</code> pode depender de outro <code>computed</code>? Existe algum limite para estas "correntes"?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, podes encadear quantos quiseres! O Angular é inteligente o suficiente para atualizar a corrente inteira na ordem correta se o primeiro Signal mudar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Adeus RxJS?</h3>
+                <p>Agora que temos Signals, ainda precisamos de usar Observables do RxJS para tudo no Angular?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Para o estado da UI (textos, botões, formulários), os Signals são muito melhores. Mas para eventos assíncronos complexos (como pedidos HTTP, WebSockets ou temporizadores), o RxJS continua a ser o rei. O Angular permite converter um para o outro facilmente com <code>toSignal()</code> e <code>toObservable()</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-19.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="projeto-final.html" class="btn btn-primary">Projeto Final »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Seletores e Cores - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 1 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🎯</span>
+            </div>
+            <h1>Módulo 1: Seletores e Cores</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 0</strong>, preparamos o ambiente e vimos que o CSS serve para dar estilo ao HTML. Descobrimos a sintaxe básica: Seletor + Propriedade + Valor.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Seletores de <strong>Tag</strong>, <strong>Classe</strong> e <strong>ID</strong>.</li>
+                <li>✅ A hierarquia e a <strong>Especificidade</strong>.</li>
+                <li>✅ Formatos de cor: Hexadecimal, RGB e Nomes.</li>
+                <li>✅ Como pintar o fundo e o texto.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Hierarquia de Comando</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> No CSS, nem todos os seletores têm o mesmo poder. Se dois seletores tentarem mudar a mesma cor, o mais "específico" ganha. Isso chama-se Especificidade.</p>
+                <div class="analogy">
+                    <h3>🎖️ Analogia: O Exército do Design</h3>
+                    <p>Imagina uma hierarquia militar:</p>
+                    <ul>
+                        <li><strong>A Tag (ex: h1)</strong>: É o Soldado. Comanda toda a gente do seu grupo, mas tem pouco poder individual.</li>
+                        <li><strong>A Classe (ex: .destaque)</strong>: É o Capitão. Comanda um grupo específico de elite e ganha ao soldado.</li>
+                        <li><strong>O ID (ex: #titulo-unico)</strong>: É o General. É único, poderoso e manda em todos os outros.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Seletores de Identidade</h3>
+                <p>Diferentes formas de "apontar" para os elementos.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">/* Seletor de Tag: Afecta todos os p */
+p { color: gray; }
+
+/* Seletor de Classe: Afecta quem tiver class="azul" */
+.azul { color: blue; }
+
+/* Seletor de ID: Afecta apenas o id="especial" */
+#especial { color: gold; }</code></pre>
+                </div>
+                <p class="explanation">Classes usam ponto (<code>.</code>), IDs usam cardinal (<code>#</code>).</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Formatos de Cor</h3>
+                <p>Como definir cores além das palavras simples.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">h1 {
+  color: #FF5733;          /* Hexadecimal (RRGGBB) */
+  background-color: rgb(255, 87, 51); /* RGB (Red, Green, Blue) */
+}</code></pre>
+                </div>
+                <p class="explanation">O Hexadecimal é o mais usado por ser curto e fácil de copiar de ferramentas de design.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Cria um ficheiro HTML com três parágrafos:</p>
+                <ol class="steps-list">
+                    <li>Dá a classe <code>texto-importante</code> ao primeiro parágrafo.</li>
+                    <li>Dá o id <code>paragrafo-unico</code> ao segundo parágrafo.</li>
+                    <li>No teu CSS, pinta a classe de verde e o ID de laranja.</li>
+                    <li>Pinta a tag <code>p</code> de cinzento. Que cor ficou o primeiro parágrafo? (Spoiler: Verde, porque a classe ganha à tag!).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-1">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Tag</strong> é geral, <strong>Classe</strong> é reutilizável, <strong>ID</strong> é único.</li>
+                <li>📌 A ordem de poder é: <strong>ID > Classe > Tag</strong>.</li>
+                <li>📌 Hexadecimal (#) e RGB são as formas profissionais de definir cor.</li>
+                <li>📌 Podes usar várias classes no mesmo elemento separadas por espaços.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Camaleão</h3>
+                <p>Como aplicas duas classes ao mesmo elemento? (ex: as classes <code>grande</code> e <code>vermelho</code>).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Separas por espaço no HTML:<br><code>&lt;div class="grande vermelho"&gt;</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Mistério do Hex</h3>
+                <p>Qual é a cor resultante de <code>#000000</code> e de <code>#FFFFFF</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> #000000 é <strong>Preto</strong> (ausência de luz) e #FFFFFF é <strong>Branco</strong> (máximo de todas as cores).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: A Luta de Poder</h3>
+                <p>Se tiveres <code>body { color: blue; }</code> e <code>p { color: red; }</code>, de que cor será o texto dentro dos parágrafos?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <strong>Vermelho</strong>. O seletor <code>p</code> é mais específico para o parágrafo do que o seletor <code>body</code> que é herdado.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-0.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-2.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

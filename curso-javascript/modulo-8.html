@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Funções I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 8 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⚙️</span>
+            </div>
+            <h1>Módulo 8: Funções I (O Essencial)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 7</strong>, aprendemos a usar Objetos para organizar dados complexos. Hoje, vamos aprender a organizar **ações**. Em vez de escreveres o mesmo código 10 vezes, vais criar uma "receita" e chamá-la sempre que precisares.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é uma função e porquê usá-la.</li>
+                <li>✅ Como declarar uma função com <code>function</code>.</li>
+                <li>✅ Como "chamar" ou executar o código.</li>
+                <li>✅ O Princípio DRY (Don't Repeat Yourself).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Fábrica de Código</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Uma função é um bloco de código desenhado para executar uma tarefa específica. Podes pensar nela como um pequeno programa dentro do teu programa principal.</p>
+                <div class="analogy">
+                    <h3>☕ Analogia: A Máquina de Café</h3>
+                    <p>Imagina que tens uma máquina de café no escritório:</p>
+                    <ul>
+                        <li><strong>O Botão (Nome da Função)</strong>: O botão diz "Fazer Café".</li>
+                        <li><strong>O Mecanismo (Corpo da Função)</strong>: Dentro da máquina, há instruções complexas (moer grão, aquecer água, deitar chávena). Tu não precisas de ver isso acontecer.</li>
+                        <li><strong>O Ato de Carregar (Chamada)</strong>: Sempre que queres café, carregas no botão. Não tens de construir a máquina do zero em cada chávena!</li>
+                    </ul>
+                    <p>No código, as funções permitem-te "carregar no botão" de ações que criaste anteriormente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Declarar e Chamar</h3>
+                <p>A estrutura base indispensável.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// 1. Declarar a função
+function dizerOla() {
+  console.log("Olá! Bem-vindo à fábrica de código! 👋");
+}
+
+// 2. Chamar a função (executar)
+dizerOla();
+dizerOla(); // Podes repetir quantas vezes quiseres!</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Funções com Ação Real</h3>
+                <p>Agrupar várias linhas de código.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function limparConsola() {
+  console.log("A limpar...");
+  console.clear();
+  console.log("Sistema pronto! ✨");
+}
+
+limparConsola();</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: O Princípio DRY</h3>
+                <p>Evitar a repetição chata.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Errado ❌ (Repetição)
+console.log("--- RELATÓRIO ---");
+console.log("Data: 2025");
+console.log("-----------------");
+
+// Certo ✅ (Usando Funções)
+function imprimirSeparador() {
+  console.log("-----------------");
+}
+
+console.log("--- RELATÓRIO ---");
+imprimirSeparador();</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o teu "Grito de Guerra":</p>
+                <ol class="steps-list">
+                    <li>Cria uma função chamada <code>logotipo</code>.</li>
+                    <li>Lá dentro, usa três <code>console.log</code> para "desenhar" algo simples (ex: traços ou o nome do teu projeto).</li>
+                    <li>Chama a função no final do teu ficheiro <code>app.js</code>.</li>
+                    <li>Tenta chamar a função dentro de um loop <code>for</code> de 3 voltas. O que acontece?</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-8">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Funções** são blocos de lógica reutilizáveis.</li>
+                <li>📌 Usamos a palavra reservada **function** para criá-las.</li>
+                <li>📌 Uma função só funciona quando é **chamada** pelo seu nome acompanhado de `()`.</li>
+                <li>📌 Ajudam a manter o código limpo, organizado e fácil de manter.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Alarme</h3>
+                <p>Cria uma função chamada <code>dispararAlarme</code> que faz um <code>alert("PERIGO!")</code> e usa o <code>console.error</code> para deixar uma mensagem vermelha na consola.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>function dispararAlarme() { alert("PERIGO!"); console.error("Alarme Ativado!"); }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: A Chamada Silenciosa</h3>
+                <p>Se escreveres <code>function teste() { console.log("Oi"); }</code> mas NÃO escreveres <code>teste();</code>, o que vai aparecer no ecrã?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> **Nada.** A função foi apenas definida (guardada na memória), mas nunca recebeu a ordem para ser executada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Ordem de Factores</h3>
+                <p>Podes chamar uma função ANTES de a declarares no ficheiro? O JavaScript permite isso?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! Graças a um conceito chamado **Hoisting**, o JavaScript "puxa" as declarações de funções para o topo antes de rodar o código.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-7.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-9.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

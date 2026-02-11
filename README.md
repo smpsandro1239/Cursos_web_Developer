@@ -1,129 +1,70 @@
-# 📚 Curso HTML5 do Zero ao Expert
+# 🚀 Aprende Web: Do Zero ao Heroi
 
-Curso completo de HTML5 ministrado pelo Professor Sandro Pereira em 2025.
+[![Estado do Projeto](https://img.shields.io/badge/Estado-Concluído_100%25-brightgreen)](https://github.com/teu-repo)
+[![Licença](https://img.shields.io/badge/Licença-MIT-green)](LICENSE)
 
-## Sobre o Curso
+Plataforma de e-learning moderna e interativa para aspirantes a Web Developers. Aprende HTML5, CSS3, JavaScript e Angular através de uma metodologia prática e visual.
 
-Este curso foi desenvolvido para levar estudantes desde o conhecimento básico até se tornarem verdadeiros especialistas em HTML5. Com uma abordagem prática e didática, o curso cobre desde conceitos fundamentais até técnicas avançadas.
+## 🌟 Concluído Recentemente
+- ✅ **Curso HTML5 Expandido**: 12 módulos completos com teoria, prática e quizzes.
+- ✅ **Sistema de Autenticação Real**: Login e Registo com avatares e persistência de perfil.
+- ✅ **Tracking de Progresso**: Visualização clara de quanto falta para terminar cada curso.
+- ✅ **Dark Mode Global**: Interface adaptável para maior conforto visual.
+- ✅ **Certificados Digitais**: Geração instantânea de certificados após conclusão.
+- ✅ **Otimização SEO**: Meta tags configuradas para máxima visibilidade.
 
-### Professor
-**Sandro Pereira** - Professor e Desenvolvedor Web
+## 🎯 Objetivos do Projeto
+- Democratizar o acesso ao ensino de programação web de qualidade.
+- Fornecer um caminho claro (roadmap) do básico ao avançado.
+- Garantir aprendizagem através da prática imediata e quizzes.
 
-### Ano
-2025
+## ✨ Funcionalidades
 
-### Duracção Sugerida
-3-6 meses (1 hora/semana)
+### Existentes
+- **Landing Page Premium**: Design moderno e totalmente responsivo.
+- **Sistema de Módulos**: Aulas divididas em slides interativos.
+- **Quizzes Dinâmicos**: Avaliação instantânea com explicações detalhadas.
+- **Desafios Práticos**: Exercícios com soluções interativas.
+- **Code Copy**: Botões para copiar exemplos de código.
+- **Geração de Certificados**: Download de certificado em PNG.
+- **Modo Escuro**: Toggle de tema com memória persistente.
 
-## Estrutura do Curso
+### Em Falta (Roadmap)
+- [ ] Sistema de "Sandbox" para testar código no browser.
+- [ ] Integração com Backend real (Supabase/Firebase).
+- [ ] Conteúdo de vídeo para todos os módulos.
+- [ ] Modo Offline (PWA).
 
-O curso está dividido em 20 módulos organizados por nível de dificuldade:
+## 🛠️ Explicação Técnica
+O projeto utiliza uma arquitetura de **Site Estático de Alta Interatividade**.
 
-### 📋 Módulos Disponíveis
-
-#### Módulo 0: Preparacção (1 aula)
-- Instalacção do VS Code + Live Server
-- Criacção do primeiro projeto HTML
-- Atalhos essenciais (Emmet)
-- Git básico
-
-#### Módulo 1: O Esqueleto (1 aula)
-- Estrutura básica do HTML5
-- DOCTYPE e elementos principais
-- Meta tags essenciais
-- Charset UTF-8
-
-#### Módulo 2: Textos e Títulos (1 aula)
-- Hierarquia de títulos (H1-H6)
-- Parágrafos e quebras de linha
-- Formatacção semântica vs visual
-- Entidades HTML
-
-## Como Usar
-
-### Pré-requisitos
-- Navegador web moderno
-- VS Code instalado
-- Extensão Live Server
-
-### Executar o Curso
-
-1. Abra o arquivo `index.html` no navegador
-2. Navegue pelos módulos usando o menu principal
-3. Cada módulo tem slides interativos
-4. Pratique os exercícios propostos
-
-### Navegacção
-- Use as setas do teclado para navegar entre slides
-- Clique nos botões "Anterior" e "Próximo"
-- Use o menu lateral para pular módulos
-
-## Tecnologias Utilizadas
-
-- **HTML5** - Estrutura e conteúdo
-- **CSS3** - Estilizacção e layout
-- **JavaScript** - Interatividade
-- **VS Code** - Editor recomendado
-- **Live Server** - Desenvolvimento local
-
-## Características
-
-### ✅ Recursos Implementados
-- [x] Design responsivo
-- [x] Navegacção por teclado
-- [x] Controle de progresso
-- [x] Slides interativos
-- [x] Exemplos de código copiáveis
-- [x] Acessibilidade (ARIA labels)
-- [x] Animações e transições
-
-### 🚀 Próximas Implementações
-- [ ] Módulos 3-20 (Listas, Links, Imagens, etc.)
-- [ ] Sistema de avaliacção
-- [ ] Certificado de conclusão
-- [ ] Fórum de dúvidas
-- [ ] Projetos práticos
-
-## Estrutura de Arquivos
-
-```
-curso-html5/
-├── index.html              # Página principal
-├── css/
-│   ├── styles.css         # Estilos principais
-│   └── module.css         # Estilos dos módulos
-├── js/
-│   ├── main.js           # JavaScript principal
-│   └── module.js         # Controle dos módulos
-├── modules/
-│   ├── modulo-0.html     # Módulo de preparacção
-│   ├── modulo-1.html     # Módulo do esqueleto
-│   └── modulo-2.html     # Módulo de textos
-├── images/               # Imagens e ícones
-└── README.md            # Esta documentacção
+```mermaid
+graph TD
+    A[index.html] --> B[Auth System]
+    A --> C[Course Dashboard]
+    B --> D[LocalStorage Data]
+    C --> E[Modules]
+    E --> F[Quiz Engine]
+    E --> G[Progress Tracker]
 ```
 
-## Browser Support
+## 📂 Estrutura de Pastas
+```text
+.
+├── css/                # Estilos (Global, Módulos, Dark Mode)
+├── js/                 # Lógica (Auth, Progresso, Certificado, Temas)
+├── curso-html5/        # 12 Módulos de HTML5
+├── curso-css/          # 20 Módulos de CSS
+├── curso-javascript/   # 20 Módulos de JS
+├── curso-angular/      # 21 Módulos de Angular
+├── screenshots/        # Capturas de ecrã atualizadas
+└── PROGRESS.md         # Relatório detalhado de evolução
+```
 
-- ✅ Chrome 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Edge 90+
-
-## Contribuição
-
-Este curso está em desenvolvimento ativo. Sugestões e correções são bem-vindas!
-
-## Licença
-
-Copyright © 2025 Sandro Pereira - HTML5 Expert. Todos os direitos reservados.
-
-## Contato
-
-Para dúvidas ou sugestões:
-- Email: contacto@html5expert.com
-- Website: www.html5expert.com
+## 🚀 Instalação e Execução
+1. Clona o repositório.
+2. Executa um servidor local: `python3 -m http.server 8000`.
+3. Abre `http://localhost:8000`.
 
 ---
-
-**Desenvolvido com ❤️ por Sandro Pereira**
+**Desenvolvido com ❤️ por Sandro Pereira.**

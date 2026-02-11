@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 0: Preparação CSS - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 0 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🎨</span>
+            </div>
+            <h1>Módulo 0: Preparação e Conceitos</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo do Curso de HTML5</h2>
+            <p>Se chegaste aqui, já sabes como criar a estrutura de um site usando <strong>HTML5</strong>. Aprendeste que o HTML é o esqueleto. Agora, vamos aprender a dar-lhe pele, cor e estilo!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o CSS e por que o usamos.</li>
+                <li>✅ As 3 formas de aplicar CSS (Inline, Internal, External).</li>
+                <li>✅ Como configurar o teu ambiente para CSS.</li>
+                <li>✅ A sintaxe básica: Seletor, Propriedade e Valor.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Maquilhagem da Web</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> CSS (Cascading Style Sheets) é a linguagem usada para descrever a apresentação de um documento escrito em HTML. Se o HTML é a estrutura, o CSS é o design.</p>
+                <div class="analogy">
+                    <h3>🎭 Analogia: O Ator no Palco</h3>
+                    <p>Imagina uma peça de teatro:</p>
+                    <ul>
+                        <li><strong>O Ator (HTML)</strong>: É a pessoa que está lá. Sem ele, não há peça.</li>
+                        <li><strong>O Figurino e Maquilhagem (CSS)</strong>: É o que transforma a pessoa num Rei, num Vilão ou num Herói.</li>
+                        <li><strong>O Roteiro</strong>: As instruções de como o ator deve aparecer (ex: "Entra com uma capa vermelha").</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Sintaxe Básica</h3>
+                <p>Como "falamos" com o CSS.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">/* Seletor { Propriedade: Valor; } */
+h1 {
+  color: blue;
+  font-size: 24px;
+}</code></pre>
+                </div>
+                <p class="explanation">Aqui estamos a dizer ao browser: "Procura todos os <code>h1</code> e pinta-os de azul".</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: CSS Externo (O Recomendado)</h3>
+                <p>Ligar o ficheiro CSS no HTML.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+                <p class="explanation">Esta é a forma mais limpa, pois separa o conteúdo (HTML) do design (CSS).</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: CSS Inline (Evitar!)</h3>
+                <p>Aplicar estilo diretamente na tag.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;p style="color: red;"&gt;Este texto é vermelho.&lt;/p&gt;</code></pre>
+                </div>
+                <p class="explanation">Embora funcione, torna o código difícil de manter. Usa apenas em casos muito específicos.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos preparar o teu primeiro ficheiro CSS:</p>
+                <ol class="steps-list">
+                    <li>Cria uma pasta chamada <code>projeto-css</code>.</li>
+                    <li>Cria um ficheiro <code>index.html</code> com um <code>&lt;h1&gt;</code>.</li>
+                    <li>Cria um ficheiro chamado <code>style.css</code> na mesma pasta.</li>
+                    <li>No CSS, escreve: <code>body { background-color: lightblue; }</code>.</li>
+                    <li>Liga os dois usando a tag <code>&lt;link&gt;</code>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-0">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>CSS</strong> serve para dar estilo e layout ao HTML.</li>
+                <li>📌 A forma <strong>Externa</strong> é a melhor prática da indústria.</li>
+                <li>📌 A estrutura é sempre: <strong>Seletor { Propriedade: Valor; }</strong>.</li>
+                <li>📌 O <strong>VS Code</strong> ajuda-te com sugestões de cores e propriedades.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Seletor Universal</h3>
+                <p>Como podes aplicar uma fonte específica a TODOS os elementos da página de uma só vez?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando o seletor asterisco (<code>*</code>):<br><code>* { font-family: Arial; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Ordem de Prioridade</h3>
+                <p>Se tiveres o mesmo estilo no <code>inline</code> e no <code>external</code>, qual é que o browser escolhe?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O <strong>Inline</strong>. Tem a maior prioridade por estar "mais perto" do elemento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Comentários CSS</h3>
+                <p>Como escreves um comentário no CSS (um texto que o browser ignora)?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>/* comentário */</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="../index.html" class="btn btn-secondary">« Sair do Curso</a>
+            <a href="modulo-1.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script> <!-- Link para o quiz específico de CSS -->
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

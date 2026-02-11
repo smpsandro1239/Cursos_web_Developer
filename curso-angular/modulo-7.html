@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Ciclo de Vida do Componente - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 7 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⏳</span>
+            </div>
+            <h1>Módulo 7: Ciclo de Vida (LifeCycle Hooks)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 6</strong>, aprendemos a usar <code>[ngClass]</code> e <code>[ngStyle]</code> para mudar o visual dos componentes dinamicamente. Agora, vamos descobrir que os componentes têm uma "vida" própria e que podemos intervir em momentos específicos, desde que nascem até que morrem.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que é o <strong>LifeCycle</strong> de um componente.</li>
+                <li>✅ <strong>ngOnInit</strong>: O momento do nascimento e inicialização.</li>
+                <li>✅ <strong>ngOnChanges</strong>: Detetar mudanças nas portas de entrada.</li>
+                <li>✅ <strong>ngOnDestroy</strong>: A limpeza final antes da despedida.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Linha do Tempo</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Um componente não aparece apenas no ecrã. Ele passa por uma série de etapas: é criado, recebe dados, o seu visual é montado e, finalmente, ele é removido. O Angular permite-nos "pendurar" código (Hooks) nestas etapas.</p>
+                <div class="analogy">
+                    <h3>🎭 Analogia: O Ator de Teatro</h3>
+                    <p>Pensa no componente como um ator numa peça:</p>
+                    <ul>
+                        <li><strong>Constructor</strong>: O ator acorda e sabe quem é (Criação da classe).</li>
+                        <li><strong>ngOnInit (Entrada em Cena)</strong>: O ator entra no palco, vê o cenário e começa a atuar (Ideal para carregar dados de APIs).</li>
+                        <li><strong>ngOnChanges (Mudança de Guião)</strong>: Alguém grita uma nova instrução do bastidor (Um `@Input` mudou).</li>
+                        <li><strong>ngOnDestroy (Saída de Cena)</strong>: A peça acaba, o ator tira a maquilhagem e desliga as luzes (Limpeza de memória).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: ngOnInit (O Mais Comum)</h3>
+                <p>Onde deves colocar a tua lógica inicial.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { Component, OnInit } from '@angular/core';
+
+export class MeuComponente implements OnInit {
+  listaProdutos: any[] = [];
+
+  ngOnInit() {
+    console.log("O componente nasceu!");
+    // Aqui chamarias o teu serviço para buscar dados
+    this.listaProdutos = ["Teclado", "Rato", "Monitor"];
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: ngOnChanges</h3>
+                <p>Reagir a mudanças vindas do Pai.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+export class FilhoComponent implements OnChanges {
+  @Input() valor = 0;
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['valor']) {
+      console.log("O valor mudou de " +
+                  changes['valor'].previousValue + " para " +
+                  changes['valor'].currentValue);
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: ngOnDestroy (Limpeza)</h3>
+                <p>Evitar que processos continuem a correr "fantasma".</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { Component, OnDestroy } from '@angular/core';
+
+export class TimerComponent implements OnDestroy {
+  intervalo = setInterval(() => console.log("Tic Tac..."), 1000);
+
+  ngOnDestroy() {
+    console.log("A destruir... Limpando o timer.");
+    clearInterval(this.intervalo);
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Detetive de Componentes":</p>
+                <ol class="steps-list">
+                    <li>Cria um novo componente chamado <code>LifeCycleTest</code>.</li>
+                    <li>Implementa as interfaces <code>OnInit</code> e <code>OnDestroy</code>.</li>
+                    <li>Dentro do <code>ngOnInit</code>, faz um <code>alert("Olá, acabei de nascer!")</code>.</li>
+                    <li>Dentro do <code>ngOnDestroy</code>, faz um <code>console.log("Adeus, mundo cruel...")</code>.</li>
+                    <li>No componente Pai, usa um <code>*ngIf</code> com um botão para mostrar e esconder este componente.</li>
+                    <li>Observa quando é que as mensagens aparecem.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-7">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O Ciclo de Vida são etapas automáticas pelas quais todos os componentes passam.</li>
+                <li>📌 **ngOnInit**: O melhor lugar para inicializar variáveis e buscar dados externos.</li>
+                <li>📌 **ngOnChanges**: Só corre se houver propriedades `@Input`.</li>
+                <li>📌 **ngOnDestroy**: Crucial para parar contadores, áudios ou subscrições e poupar bateria/memória.</li>
+                <li>📌 Deves sempre declarar `implements NomeDoHook` na tua classe.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: OnInit vs Constructor</h3>
+                <p>Porque é que não devemos carregar dados de uma base de dados dentro do <code>constructor</code> da classe?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O `constructor` serve apenas para injeção de dependências básica. No momento em que o constructor corre, o Angular ainda não terminou de ligar as propriedades `@Input` nem montou o HTML. O <code>ngOnInit</code> é o primeiro momento em que o "terreno está pronto".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Hook Fantasma</h3>
+                <p>Se um componente for escondido com CSS (<code>display: none</code>), o hook <code>ngOnDestroy</code> é chamado? Porquê?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Não. Com CSS o componente continua "vivo" no código da página, apenas não se vê. O <code>ngOnDestroy</code> só corre se usares <code>*ngIf</code> ou mudares de página, pois aí o Angular remove-o mesmo da memória.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Ordem de Chegada</h3>
+                <p>Qual destes hooks corre primeiro: <code>ngOnInit</code> ou <code>ngOnChanges</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O <code>ngOnChanges</code> corre primeiro (se houver inputs), para garantir que quando o <code>ngOnInit</code> arrancar, os dados vindos do pai já estejam disponíveis para uso.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-6.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-8.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

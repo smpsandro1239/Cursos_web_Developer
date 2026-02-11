@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Diretivas Estruturais - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 4 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🛠️</span>
+            </div>
+            <h1>Módulo 4: Diretivas Estruturais (*ngIf, *ngFor)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 3</strong>, aprendemos sobre Property e Event Binding. Já sabemos como mostrar dados e reagir a cliques. Hoje, vamos aprender a controlar a <strong>estrutura</strong> do nosso site: decidir que partes do ecrã aparecem e repetir listas de dados automaticamente.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que são Diretivas Estruturais e o uso do <strong>*</strong>.</li>
+                <li>✅ <strong>*ngIf</strong>: Mostrar ou remover elementos com lógica.</li>
+                <li>✅ <strong>*ngFor</strong>: Criar listas dinâmicas a partir de Arrays.</li>
+                <li>✅ Como o Angular manipula o DOM de forma inteligente.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Diretor de Cena</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> As Diretivas Estruturais são "comandos" que damos ao Angular para que ele mude a estrutura da página. Elas começam sempre com um asterisco <code>*</code> porque fazem algo "mágico": apagam ou criam código HTML em tempo real.</p>
+                <div class="analogy">
+                    <h3>🎬 Analogia: O Diretor de Teatro</h3>
+                    <p>Imagina que estás a dirigir uma peça de teatro:</p>
+                    <ul>
+                        <li><strong>*ngIf (A Entrada)</strong>: Tu dizes: "Se o ator estiver pronto, ele entra em cena. Se não, não existe ninguém naquele lugar do palco".</li>
+                        <li><strong>*ngFor (O Exército)</strong>: Em vez de chamares 50 soldados um a um, tu dizes: "Para cada soldado da minha lista, cria um duplicado no palco".</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: *ngIf (Lógica de Exibição)</h3>
+                <p>Mostrar uma mensagem apenas se o utilizador estiver logado.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+estaLogado = true;</code></pre>
+                    <pre><code class="language-html"><!-- No .html -->
+<div *ngIf="estaLogado">
+  <h3>Bem-vindo de volta!</h3>
+</div>
+
+<p *ngIf="!estaLogado">Por favor, faça login para continuar.</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: *ngFor (Listas)</h3>
+                <p>Gerar uma lista de frutas a partir de um Array.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No .ts
+frutas = ["Maçã", "Laranja", "Banana", "Pêra"];</code></pre>
+                    <pre><code class="language-html"><!-- No .html -->
+<ul>
+  <li *ngFor="let f of frutas">{{ f }}</li>
+</ul></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Misturar as duas!</h3>
+                <p>Mostrar a lista apenas se ela não estiver vazia.</p>
+                <div class="code-window">
+                    <pre><code class="language-html"><div *ngIf="frutas.length > 0">
+  <h2>Lista de Compras:</h2>
+  <ul>
+    <li *ngFor="let f of frutas">{{ f }}</li>
+  </ul>
+</div>
+
+<p *ngIf="frutas.length === 0">O seu carrinho está vazio.</p></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Painel de Notificações":</p>
+                <ol class="steps-list">
+                    <li>No teu TS, cria um array de strings chamado <code>notificacoes</code>.</li>
+                    <li>No HTML, cria um botão que diz "Limpar Notificações" que apaga o array (<code>notificacoes = []</code>).</li>
+                    <li>Usa o <strong>*ngFor</strong> para mostrar cada notificação numa lista <code>&lt;ul&gt;</code>.</li>
+                    <li>Usa o <strong>*ngIf</strong> para mostrar uma mensagem "Sem notificações novas" apenas quando o array estiver vazio.</li>
+                    <li>Bónus: Adiciona um botão "Nova Notificação" que faz <code>push()</code> de uma nova string para o array e vê a lista crescer sozinha!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-4">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Diretivas Estruturais alteram o layout do DOM adicionando ou removendo elementos.</li>
+                <li>📌 **Asterisco (*)**: É obrigatório para diretivas estruturais.</li>
+                <li>📌 **\*ngIf**: Condicional (Booleano).</li>
+                <li>📌 **\*ngFor**: Repetição (Loops).</li>
+                <li>📌 Sintaxe correta: `*ngFor="let item of lista"`.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O *ngIf vs CSS</h3>
+                <p>Qual a diferença entre usar <code>*ngIf="false"</code> e <code>style="display: none"</code> no CSS?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Com CSS, o elemento continua no código e ocupa memória. Com <code>*ngIf</code>, o elemento é **totalmente removido** do DOM, tornando a página mais leve.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Índice da Lista</h3>
+                <p>Ao usar <code>*ngFor</code>, como podes obter o número da posição (índice) de cada item para mostrar algo como "1. Maçã, 2. Banana"?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando o ponto-e-vírgula dentro da diretiva: <code>*ngFor="let item of lista; let i = index"</code>. Depois usas <code>{{ i + 1 }}</code> no HTML.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Lista de Objetos</h3>
+                <p>Se tiveres <code>users = [{nome: "A", idade: 20}, {nome: "B", idade: 30}]</code>, como mostrarias o nome de cada utilizador numa lista?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>*ngFor="let u of users"</code> e dentro da tag usas <code>{{ u.nome }}</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-3.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-5.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

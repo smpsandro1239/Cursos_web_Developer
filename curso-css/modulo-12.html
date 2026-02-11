@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: Variáveis CSS - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🎨</span>
+                    <h1>Aprende Web: CSS</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 12 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🧪</span>
+            </div>
+            <h1>Módulo 12: Variáveis CSS (Custom Properties)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 11</strong>, aprendemos a usar Pseudo-classes e Pseudo-elementos para tornar o site interativo. Agora, vamos aprender a organizar o nosso código como profissionais usando variáveis.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que são <strong>Custom Properties</strong>.</li>
+                <li>✅ Como declarar variáveis globais no <strong>:root</strong>.</li>
+                <li>✅ Como aplicar variáveis com a função <strong>var()</strong>.</li>
+                <li>✅ Criar temas (Dark Mode simples) com variáveis.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Balde Central de Cores</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Variáveis CSS permitem que guardes um valor (como uma cor ou um tamanho) num nome específico. Se precisares de mudar a cor de 50 botões diferentes, basta mudares o valor da variável original no topo do ficheiro.</p>
+                <div class="analogy">
+                    <h3>🧪 Analogia: A Mistura de Tinta</h3>
+                    <p>Imagina que estás a pintar uma casa:</p>
+                    <ul>
+                        <li><strong>Sem Variáveis</strong>: Tens de andar com latas de tinta diferentes para cada quarto. Se decidires mudar o azul por verde, tens de re-pintar cada parede individualmente.</li>
+                        <li><strong>Com Variáveis</strong>: Tens um sistema de tubos central onde misturas a cor uma única vez. Se mudares a cor no Tanque Central, todas as paredes da casa mudam de cor instantaneamente através dos tubos!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Declaração e Uso</h3>
+                <p>O local correto para as tuas variáveis.</p>
+                <div class="code-window">
+                    <pre><code class="language-css">:root {
+  --primary-color: #3498db;
+  --main-padding: 20px;
+}
+
+.card {
+  background-color: var(--primary-color);
+  padding: var(--main-padding);
+}</code></pre>
+                </div>
+                <p class="explanation">O prefixo <code>--</code> é obrigatório para o CSS entender que é uma variável tua.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Valores de Backup (Fallback)</h3>
+                <p>O que acontece se a variável não existir?</p>
+                <div class="code-window">
+                    <pre><code class="language-css">/* Se --bg-color não estiver definida, usa 'white' */
+body {
+  background-color: var(--bg-color, white);
+}</code></pre>
+                </div>
+                <p class="explanation">Podes passar um segundo valor dentro do <code>var()</code> como segurança.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o teu primeiro "Sistema de Design":</p>
+                <ol class="steps-list">
+                    <li>No teu CSS, cria o seletor <code>:root</code>.</li>
+                    <li>Cria uma variável <code>--cor-destaque</code> com um laranja vibrante.</li>
+                    <li>Cria outra <code>--fonte-principal</code> com 'Inter' ou 'Arial'.</li>
+                    <li>Aplica estas variáveis em vários elementos (h1, p, botões).</li>
+                    <li>Agora, muda apenas o valor no <code>:root</code> e observa como todo o site se transforma de uma só vez!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-12">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>:root</strong> é o melhor sítio para variáveis globais.</li>
+                <li>📌 Variáveis começam sempre com <strong>--</strong>.</li>
+                <li>📌 Usamos a função <strong>var()</strong> para ler os valores.</li>
+                <li>📌 Facilitam a manutenção e a consistência visual do projeto.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Herança</h3>
+                <p>Se definires uma variável dentro de uma <code>.div</code>, os elementos dentro dessa div podem usá-la? E os elementos fora?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, os elementos dentro (filhos) podem usá-la porque as variáveis são herdadas. Elementos fora dessa div NÃO podem usá-la (têm âmbito local).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Cálculos com Variáveis</h3>
+                <p>Podes usar variáveis dentro de um <code>calc()</code>? (Ex: calc(var(--base) * 2))</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! É uma das formas mais poderosas de criar layouts flexíveis e matematicamente perfeitos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Dark Mode Express</h3>
+                <p>Como farias para mudar as cores do site para um tema escuro apenas mudando uma classe no <code>body</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Criarias um seletor <code>body.dark { --bg: black; --text: white; }</code> que sobrescreve as mesmas variáveis do :root.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-11.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-13.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-css.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

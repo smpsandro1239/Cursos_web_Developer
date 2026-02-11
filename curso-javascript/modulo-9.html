@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: Funções II - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 9 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📥</span>
+            </div>
+            <h1>Módulo 9: Funções II (Dados e Resultados)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 8</strong>, aprendemos a criar funções básicas para reutilizar código. No entanto, essas funções faziam sempre exatamente a mesma coisa. Hoje, vamos aprender a enviar dados para as funções e a receber resultados de volta.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O que são <strong>Parâmetros</strong> e <strong>Argumentos</strong>.</li>
+                <li>✅ A palavra reservada <strong>return</strong>.</li>
+                <li>✅ Funções que fazem cálculos e devolvem valores.</li>
+                <li>✅ O conceito de funções como caixa-preta.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Encomendas e Entregas</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> As funções podem receber informações (parâmetros) para trabalhar. Depois de processarem esses dados, elas podem "devolver" um resultado para o programa principal usando o comando <code>return</code>.</p>
+                <div class="analogy">
+                    <h3>📦 Analogia: A Pizzaria</h3>
+                    <p>Imagina que ligas para uma pizzaria:</p>
+                    <ul>
+                        <li><strong>A Encomenda (Parâmetros)</strong>: Tu dizes: "Quero uma pizza de **Fiambre** e **Queijo**". Estes são os dados que envias para a função `fazerPizza`.</li>
+                        <li><strong>O Trabalho</strong>: O pizzaiolo recebe os ingredientes e faz a pizza. Tu não precisas de saber como o forno funciona.</li>
+                        <li><strong>A Entrega (Return)</strong>: O estafeta chega à tua porta e entrega a **Pizza Pronta**. No JavaScript, o `return` é esse momento em que a função te entrega o produto final.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Funções com Parâmetros</h3>
+                <p>Enviar dados para dentro da função.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function cumprimentar(nome) {
+  console.log("Olá, " + nome + "! Bem-vindo.");
+}
+
+cumprimentar("Sandro"); // "Olá, Sandro! Bem-vindo."
+cumprimentar("Maria");  // "Olá, Maria! Bem-vindo."</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Comando Return</h3>
+                <p>Receber um valor de volta para guardar numa variável.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function somar(a, b) {
+  return a + b;
+}
+
+const resultado = somar(10, 20);
+console.log(resultado); // 30 ✅</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Lógica com Return</h3>
+                <p>Verificar condições e devolver respostas.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">function eAdulto(idade) {
+  if (idade >= 18) {
+    return "Sim, é adulto";
+  } else {
+    return "Não, é menor";
+  }
+}
+
+console.log(eAdulto(25)); // "Sim, é adulto"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Conversor de Moedas":</p>
+                <ol class="steps-list">
+                    <li>Cria uma função chamada <code>converterEuroParaDolar</code>.</li>
+                    <li>A função deve receber um parâmetro <code>valorEuro</code>.</li>
+                    <li>Lá dentro, faz a conta: <code>return valorEuro * 1.10;</code> (valor aproximado).</li>
+                    <li>Chama a função passando o valor 50 e guarda numa variável <code>valorFinal</code>.</li>
+                    <li>Imprime na consola: "50€ equivalem a [valorFinal]$".</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-9">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Parâmetros** são variáveis que a função espera receber.</li>
+                <li>📌 **Argumentos** são os valores reais que enviamos ao chamar a função.</li>
+                <li>📌 **return** envia um valor para fora da função e encerra a sua execução.</li>
+                <li>📌 O código após um `return` é ignorado pelo JavaScript.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Calculadora de Área</h3>
+                <p>Cria uma função que recebe a <code>base</code> e a <code>altura</code> de um retângulo e devolve a sua área.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>function area(b, h) { return b * h; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Carrinho Inteligente</h3>
+                <p>Cria uma função que recebe um <code>preco</code> e uma <code>quantidade</code>. Se a quantidade for maior que 10, dá um desconto de 10% no total.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>function total(p, q) { let subtotal = p * q; if (q > 10) return subtotal * 0.9; return subtotal; }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Undefined?</h3>
+                <p>O que acontece se chamares uma função que NÃO tem o comando <code>return</code> e tentares guardar o resultado numa variável?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> A variável ficará com o valor **undefined**. Todas as funções em JS devolvem `undefined` por defeito se não usares o `return` explicitamente.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-8.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-10.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

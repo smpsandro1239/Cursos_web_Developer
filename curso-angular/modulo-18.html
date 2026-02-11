@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 18: Guards e Interceptors - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 18 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🛡️</span>
+            </div>
+            <h1>Módulo 18: Guards e Interceptors (Segurança)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 17</strong>, vimos como passar parâmetros pelas rotas e como tornar o site super rápido com o Lazy Loading. Agora, vamos lidar com a segurança: como impedir que utilizadores não autorizados entrem em certas páginas e como gerir tokens de autenticação de forma automática.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Proteger rotas com <strong>Route Guards</strong> (canActivate).</li>
+                <li>✅ Criar Functional Guards (o padrão moderno).</li>
+                <li>✅ Automatizar pedidos HTTP com <strong>Interceptors</strong>.</li>
+                <li>✅ Injetar Headers (Tokens) em todas as chamadas à API de uma vez só.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Os Sentinelas da App</h2>
+            <div class="theory-box">
+                <p><strong>Route Guards:</strong> São funções que o Router executa antes de carregar um componente. Se a função devolver `false`, a navegação é cancelada e o utilizador não entra.</p>
+                <p><strong>Interceptors:</strong> São "filtros" para as tuas chamadas HTTP. Imagina que tens 50 serviços a pedir dados à API. Em vez de escreveres o código do Token (JWT) em todos eles, o Interceptor "agarra" no pedido antes de ele sair do browser e coloca o selo de segurança.</p>
+                <div class="analogy">
+                    <h3>🛂 Analogia: O Prédio de Escritórios</h3>
+                    <p>Imagina um edifício empresarial de alta segurança:</p>
+                    <ul>
+                        <li><strong>Route Guard (O Segurança da Porta)</strong>: Tu tentas carregar o elevador para o 10º andar (Área Admin). O segurança pede-te o cartão. Se não tiveres, ele nem te deixa entrar no elevador.</li>
+                        <li><strong>Interceptor (O Estafeta Interno)</strong>: Tu escreves uma carta (Pedido HTTP) para o armazém. Tu apenas escreves o conteúdo. O estafeta pega na tua carta e, antes de a enviar pelo correio, coloca-lhe o carimbo oficial da empresa e o selo de prioridade (Headers/Tokens) automaticamente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Functional Guard (canActivate)</h3>
+                <p>Uma função simples que verifica o acesso.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">export const authGuard: CanActivateFn = (route, state) => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.isLoggedIn()) {
+    return true; // Pode passar!
+  } else {
+    return router.parseUrl('/login'); // Redireciona para o login
+  }
+};
+
+// Nas rotas:
+{ path: 'admin', component: AdminComp, canActivate: [authGuard] }</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Interceptor de Tokens</h3>
+                <p>Adicionar o Header de autorização a todos os pedidos.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const token = localStorage.getItem('token');
+
+  // Clonamos o pedido para adicionar o cabeçalho
+  const authReq = req.clone({
+    setHeaders: { Authorization: `Bearer ${token}` }
+  });
+
+  return next(authReq); // Deixa o pedido seguir viagem
+};</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Registro no app.config.js</h3>
+                <p>Dizer ao Angular para usar o interceptor.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">providers: [
+  provideHttpClient(
+    withInterceptors([authInterceptor])
+  )
+]</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Cofre Digital":</p>
+                <ol class="steps-list">
+                    <li>Cria uma rota <code>/cofre</code> que aponte para um <code>CofreComponent</code>.</li>
+                    <li>Cria um **Functional Guard** que verifica se existe uma variável no <code>localStorage</code> chamada 'acessoPermitido'.</li>
+                    <li>Aplica o guard à rota do cofre. Se tentares entrar sem o valor no storage, o Angular deve barrar-te!</li>
+                    <li>Cria um **Interceptor** que faz um <code>console.log</code> de toda a URL de cada pedido que o site fizer.</li>
+                    <li>Regista o interceptor no teu <code>app.config.ts</code> e observa a magia na consola enquanto navegas.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-18">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Route Guards** controlam o acesso às vistas da aplicação.</li>
+                <li>📌 **canActivate** é o guard mais comum para autenticação.</li>
+                <li>📌 **Interceptors** permitem manipular pedidos e respostas HTTP globalmente.</li>
+                <li>📌 Usar interceptors evita repetição de código (DRY - Don't Repeat Yourself).</li>
+                <li>📌 Segurança no Frontend é para **UX**; a segurança real deve estar sempre no Servidor (Backend).</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Invasão de URL</h3>
+                <p>Se um "hacker" mudar o código do teu Guard no browser para <code>return true</code>, ele consegue ver os teus dados privados?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Ele consegue ver o **Componente** (o desenho da página), mas NÃO consegue ver os **Dados**. Como o teu Backend também tem segurança, quando o componente tentar pedir dados à API sem um Token válido, o servidor vai bloquear o pedido. A segurança do Angular é para esconder o interface de quem não deve lá estar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Interceptor de Erros</h3>
+                <p>É possível usar um Interceptor para mostrar um <code>alert()</code> automaticamente se o servidor devolver um erro 500?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim! Os interceptors também "ouvem" a resposta. Podes usar o operador <code>catchError</code> do RxJS dentro do interceptor para tratar erros de forma global e centralizada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Guard de Saída</h3>
+                <p>Imagina que o utilizador está a preencher um formulário gigante e clica num link para sair sem sem querer. Que tipo de Guard podes usar para mostrar um aviso "Tens a certeza que queres sair sem guardar?"</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usarias o guard **canDeactivate**. Ele corre quando o utilizador tenta SAIR de uma rota e pode impedir a saída se o formulário estiver "sujo" (preenchido mas não guardado).</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-17.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-19.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

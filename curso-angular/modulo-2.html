@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Templates e Interpolation - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 2 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📝</span>
+            </div>
+            <h1>Módulo 2: Templates e Interpolation (Dados)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 1</strong>, aprendemos a criar componentes usando o Angular CLI. Agora que já temos a nossa "peça de Lego", vamos aprender a fazer com que ela mostre informações dinâmicas que mudam de acordo com a nossa lógica.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ O segredo das chavetas duplas <strong>{{ }}</strong>.</li>
+                <li>✅ Ligar variáveis do TypeScript ao HTML.</li>
+                <li>✅ Expressões e cálculos dentro do Template.</li>
+                <li>✅ Chamar funções diretamente no ecrã.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Janela Mágica</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> A Interpolação é a forma mais simples de comunicação no Angular: ela flui do **Código (TS)** para a **Visão (HTML)**. É como se o HTML tivesse "buracos" onde o TypeScript injeta os dados em tempo real.</p>
+                <div class="analogy">
+                    <h3>🖼️ Analogia: A Moldura de Foto Digital</h3>
+                    <p>Imagina uma moldura digital na tua sala:</p>
+                    <ul>
+                        <li><strong>O TypeScript</strong>: É a pen drive guardada atrás da moldura. Lá estão os ficheiros das fotos (os dados).</li>
+                        <li><strong>O HTML</strong>: É o vidro da moldura onde a luz é projetada.</li>
+                        <li><strong>A Interpolação {{ }}</strong>: É o projetor. Se mudares o ficheiro na pen drive, a imagem no vidro muda automaticamente sem tu teres de tocar na moldura.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Texto e Variáveis</h3>
+                <p>Mostrar um nome no ecrã.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No seu .ts
+export class PerfilComponent {
+  nomeUser = "André Silva";
+  cargo = "Desenvolvedor Backend";
+}</code></pre>
+                    <pre><code class="language-html"><!-- No seu .html -->
+<h1>Perfil de {{ nomeUser }}</h1>
+<p>Trabalha como: {{ cargo }}</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Matemática e Expressões</h3>
+                <p>O Angular resolve contas básicas por ti.</p>
+                <div class="code-window">
+                    <pre><code class="language-html"><!-- Exibe: O resultado é 4 -->
+<p>O resultado é {{ 2 + 2 }}</p>
+
+<!-- Exibe o texto em maiúsculas -->
+<p>Olá {{ nomeUser.toUpperCase() }}</p></code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Chamar Métodos</h3>
+                <p>Executar lógica e mostrar o retorno.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">// No seu .ts
+getSaudacao() {
+  return "Bem-vindo ao sistema de elite!";
+}</code></pre>
+                    <pre><code class="language-html"><!-- No seu .html -->
+<div class="banner">
+  {{ getSaudacao() }}
+</div></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Painel do Aluno":</p>
+                <ol class="steps-list">
+                    <li>No teu TS, cria 3 variáveis: <code>nomeAluno</code>, <code>nota1</code> e <code>nota2</code> (números).</li>
+                    <li>No teu HTML, mostra o nome do aluno dentro de um <code>&lt;h2&gt;</code>.</li>
+                    <li>Cria um parágrafo que mostra a média das duas notas usando a interpolação: <code>{{ (nota1 + nota2) / 2 }}</code>.</li>
+                    <li>Bónus: Cria uma função <code>getStatus()</code> que devolve "Aprovado" ou "Reprovado" e mostra o resultado no fundo do painel.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-2">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Interpolation** usa chavetas duplas `{{ }}`.</li>
+                <li>📌 Serve para levar dados do **TypeScript** para o **HTML**.</li>
+                <li>📌 Podes usar propriedades, expressões matemáticas e métodos.</li>
+                <li>📌 Se o valor da variável no TS mudar, o Angular atualiza o HTML **instantanemente**.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Objeto Misterioso</h3>
+                <p>Se tiveres <code>user = { id: 1, login: "admin" }</code> no seu TS, como mostrarias apenas o login no HTML?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando o ponto (dot notation): <code>{{ user.login }}</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Imagem Dinâmica</h3>
+                <p>Podes usar interpolação dentro do SRC de uma imagem? Por exemplo <code>src="assets/{{ fotoUser }}"</code>? Qual a vantagem disso?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Sim, podes. A vantagem é que a imagem muda automaticamente se mudares o nome do ficheiro no TypeScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Concatenação Express</h3>
+                <p>Sem usar variáveis extra no TS, mostra a frase "O utilizador [nome] tem [idade] anos" inteiramente dentro de uma única tag <code>&lt;p&gt;</code> usando interpolação.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> <code>&lt;p&gt;O utilizador {{ nome }} tem {{ idade }} anos&lt;/p&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-1.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-3.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

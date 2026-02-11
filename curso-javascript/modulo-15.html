@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 15: Async/Await e Fetch - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 15 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🌐</span>
+            </div>
+            <h1>Módulo 15: Async/Await e APIs (Fetch)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 14</strong>, descobrimos as Promises e como usar o <code>.then()</code> e <code>.catch()</code>. Hoje, vamos aprender a forma mais moderna e elegante de escrever esse código e como ligar o nosso site a dados reais do mundo exterior.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Sintaxe <strong>Async</strong> e <strong>Await</strong>.</li>
+                <li>✅ Como consumir APIs com <strong>Fetch</strong>.</li>
+                <li>✅ Tratar erros com <strong>try / catch</strong>.</li>
+                <li>✅ Transformar respostas em JSON.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Conversar com a Internet</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> `Async/Await` é uma "roupa" mais bonita para as Promises. Permite escrever código assíncrono que parece síncrono (lido de cima para baixo). Já o `Fetch` é a ferramenta que o browser nos dá para ir buscar informações a outros sites (APIs).</p>
+                <div class="analogy">
+                    <h3>📞 Analogia: O Intercomunicador Inteligente</h3>
+                    <p>Imagina que estás a trabalhar num escritório:</p>
+                    <ul>
+                        <li><strong>Modo .then() (Antigo)</strong>: Tu mandas um email ao arquivista e dizes "Quando tiveres o documento, avisa-me aqui (no email)". Tu voltas ao trabalho e esperas o sinal.</li>
+                        <li><strong>Modo Async/Await (Moderno)</strong>: Tu falas pelo intercomunicador: "Await (Espera) aí um momento enquanto eu busco o ficheiro". O tempo para para ti naquela tarefa específica, mas o resto do escritório continua a funcionar. O código fica muito mais limpo de ler!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: De Promise para Async/Await</h3>
+                <p>A evolução da sintaxe.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">async function pegarDados() {
+  console.log("Aguardando...");
+
+  // O 'await' faz o código esperar aqui sem travar o site
+  const resultado = await minhaPromessa;
+
+  console.log(resultado);
+}
+
+pegarDados();</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Poder do FETCH</h3>
+                <p>Ir buscar dados reais (ex: lista de utilizadores).</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">async function carregarUtilizadores() {
+  const resposta = await fetch("https://jsonplaceholder.typicode.com/users");
+  const dados = await resposta.json(); // Converte para objeto JS
+
+  console.log(dados[0].name); // Imprime o nome do 1º user
+}
+
+carregarUtilizadores();</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Tratamento com Try/Catch</h3>
+                <p>O substituto do .catch() no modo async.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">async function buscarClima() {
+  try {
+    const res = await fetch("url-errada-api");
+    const data = await res.json();
+  } catch (erro) {
+    console.error("Infelizmente algo falhou: ", erro);
+  }
+}</code></pre>
+                </div>
+                <p class="explanation">O bloco `try` tenta executar o código; se houver qualquer erro, ele "salta" imediatamente para o `catch`.</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Buscador de Conselhos":</p>
+                <ol class="steps-list">
+                    <li>Usa a API gratuita: <code>https://api.adviceslip.com/advice</code>.</li>
+                    <li>Cria uma função <code>async</code> chamada <code>gerarConselho</code>.</li>
+                    <li>Faz o <code>fetch</code> dessa URL e aguarda (await) a resposta.</li>
+                    <li>Converte para JSON e imprime na consola o conselho (está dentro de <code>slip.advice</code>).</li>
+                    <li>Bónus: Cria um botão no HTML que chama esta função e mostra o conselho num parágrafo!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-15">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Async** marca uma função como assíncrona.</li>
+                <li>📌 **Await** pausa a execução DAQUELA função até a Promise ser resolvida.</li>
+                <li>📌 **Fetch** é a forma padrão de trazer dados externos para o seu site.</li>
+                <li>📌 O par **Try/Catch** é essencial para lidar com falhas de rede de forma graciosa.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Perigo do Esquecimento</h3>
+                <p>O que acontece se usares a palavra <code>await</code> dentro de uma função que NÃO tem a palavra <code>async</code> no início?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O JavaScript dará um erro de Sintaxe (Syntax Error). O <code>await</code> só pode ser usado dentro de funções <code>async</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Perfil do GitHub</h3>
+                <p>Usa o fetch para ir buscar os teus dados ao GitHub (ou de um user famoso): <code>https://api.github.com/users/nome-do-user</code>. Como mostrarias a foto de perfil (`avatar_url`) dele no ecrã?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>const user = await res.json(); img.src = user.avatar_url;</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Lista de Posts</h3>
+                <p>Tenta fazer o fetch de <code>https://jsonplaceholder.typicode.com/posts</code> e usa um loop <code>for</code> ou <code>forEach</code> para criar um <code>&lt;h2&gt;</code> para cada título de post recebido.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>posts.forEach(p => { const h2 = document.createElement('h2'); h2.textContent = p.title; document.body.appendChild(h2); });</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-14.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-16.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

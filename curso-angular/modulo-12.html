@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: HttpClient I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Angular</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 12 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🌐</span>
+            </div>
+            <h1>Módulo 12: HttpClient I (GET e APIs Reais)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 11</strong>, entrámos no mundo reativo do RxJS e descobrimos os Observables. Agora, vamos usar esse conhecimento para fazer algo que todo o site profissional faz: buscar dados reais na internet usando o <strong>HttpClient</strong>.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Configurar o <strong>HttpClient</strong> no projeto.</li>
+                <li>✅ Fazer pedidos <strong>GET</strong> para buscar dados JSON.</li>
+                <li>✅ Tipar as respostas com Interfaces do TypeScript.</li>
+                <li>✅ Lidar com erros de rede usando <strong>catchError</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Emissário de Dados</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O HttpClient é um serviço integrado no Angular que lida com pedidos HTTP (web). Ele usa Observables para gerir as respostas, o que permite cancelar pedidos ou transformar os dados facilmente antes de chegarem ao componente.</p>
+                <div class="analogy">
+                    <h3>🍽️ Analogia: O Criado de Mesa Moderno</h3>
+                    <p>Imagina que estás num restaurante tecnológico:</p>
+                    <ul>
+                        <li><strong>O Componente (Tu)</strong>: Queres um menu de hambúrgueres (Dados).</li>
+                        <li><strong>O HttpClient (O Criado)</strong>: Tu chamas o criado e pedes o menu. Ele não traz o menu instantaneamente; ele vai à cozinha (API) ver se há stock.</li>
+                        <li><strong>O Observable (O Pager)</strong>: O criado dá-te um pager. Quando o menu estiver pronto, o pager vibra (emite o dado) e tu podes começar a ler.</li>
+                        <li><strong>HTTP GET</strong>: É o comando "Traz-me aquilo ali, por favor".</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Configuração (app.config.ts)</h3>
+                <p>Habilitar o serviço no Angular moderno.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient() // Essencial para o HttpClient funcionar!
+  ]
+};</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Serviço de API</h3>
+                <p>Sempre centralizamos as chamadas num serviço.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class ClimaService {
+  constructor(private http: HttpClient) {}
+
+  buscarDados() {
+    return this.http.get('https://api.exemplo.com/tempo');
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Tipagem e Consumo</h3>
+                <p>Saber exatamente o que a API nos devolve.</p>
+                <div class="code-window">
+                    <pre><code class="language-typescript">interface Post {
+  id: number;
+  title: string;
+}
+
+// No componente
+this.http.get<Post[]>('https://.../posts').subscribe(posts => {
+    this.lista = posts;
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar o "Buscador de Utilizadores Fantasmas":</p>
+                <ol class="steps-list">
+                    <li>Gera um serviço chamado <code>UserService</code>.</li>
+                    <li>Injeta o <code>HttpClient</code> no constructor do serviço.</li>
+                    <li>Cria uma função <code>getUsers()</code> que faz o <code>get</code> para <code>https://jsonplaceholder.typicode.com/users</code>.</li>
+                    <li>No teu <code>AppComponent</code>, subscreve essa função dentro do <code>ngOnInit</code>.</li>
+                    <li>Usa um <code>*ngFor</code> no HTML para mostrar a lista de nomes dos utilizadores vindos da internet!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-12">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 O **HttpClient** é a ferramenta oficial do Angular para comunicarmos com servidores.</li>
+                <li>📌 Deves usar **provideHttpClient()** na configuração da tua App.</li>
+                <li>📌 O método **.get()** devolve sempre um **Observable**.</li>
+                <li>📌 Usar Interfaces (ex: `<User>`) torna o código mais seguro e evita erros de escrita.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Ciclo de Vida</h3>
+                <p>As chamadas HTTP de um componente devem ser feitas no <code>constructor</code> ou no <code>ngOnInit</code>? Porquê?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Devem ser feitas no <code>ngOnInit</code>. O constructor serve apenas para injeção de dependências rápida. O <code>ngOnInit</code> garante que o componente já está pronto para receber e processar os dados da API.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Segurança (JSON)</h3>
+                <p>O HttpClient do Angular converte o texto que vem da internet em objeto JSON automaticamente? Ou temos de usar o <code>JSON.parse()</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Faz automaticamente! O HttpClient assume que a resposta é JSON (por defeito) e entrega-te logo um objeto ou array de JavaScript pronto a usar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Lidar com Desastres</h3>
+                <p>Como farias para mostrar uma mensagem de erro ao utilizador se a internet for abaixo durante a chamada da API?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> No <code>.subscribe()</code>, podes passar um segundo argumento ou usar um objeto: <code>.subscribe({ next: data => ..., error: err => alert('Erro!') })</code>. Também podes usar o operador <code>catchError</code> no pipe do serviço.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-11.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-13.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

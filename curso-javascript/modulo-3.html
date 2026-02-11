@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Controlo de Fluxo I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 3 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🚥</span>
+            </div>
+            <h1>Módulo 3: Tomar Decisões (If/Else)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 2</strong>, aprendemos a usar operadores para comparar valores (ex: <code>idade >= 18</code>). Agora, vamos usar essas comparações para fazer o nosso código escolher caminhos diferentes.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ A estrutura base: <strong>if</strong> e <strong>else</strong>.</li>
+                <li>✅ Como usar o <strong>else if</strong> para múltiplas escolhas.</li>
+                <li>✅ Blocos de código (chavetas <code>{}</code>).</li>
+                <li>✅ Operador Ternário (o atalho dos profissionais).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Cruzamento do Código</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O controlo de fluxo permite que o programa execute certas instruções apenas se uma condição for verdadeira. Se a condição for falsa, o programa pode ignorar esse código ou seguir por um caminho alternativo.</p>
+                <div class="analogy">
+                    <h3>🚥 Analogia: O GPS do Código</h3>
+                    <p>Imagina que estás a conduzir com um GPS:</p>
+                    <ul>
+                        <li><strong>IF (SE)</strong>: "Se houver trânsito na ponte, vira à direita".</li>
+                        <li><strong>ELSE IF (SENÃO SE)</strong>: "Senão se a estrada estiver cortada, segue em frente".</li>
+                        <li><strong>ELSE (SENÃO)</strong>: "Se nada disso acontecer (caminho normal), atravessa a ponte".</li>
+                    </ul>
+                    <p>O teu código funciona exatamente assim: ele avalia a estrada à frente e toma a decisão mais lógica!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: If / Else Básico</h3>
+                <p>O clássico verificador de idade.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const idade = 20;
+
+if (idade >= 18) {
+  console.log("Podes entrar na discoteca! 🕺");
+} else {
+  console.log("És muito novo, volta para casa. 🏠");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Semáforo (Else If)</h3>
+                <p>Mais do que apenas dois caminhos.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const corSemaforo = "Amarelo";
+
+if (corSemaforo === "Verde") {
+  console.log("Avança!");
+} else if (corSemaforo === "Amarelo") {
+  console.log("Atenção, trava!");
+} else {
+  console.log("Para IMEDIATAMENTE! 🛑");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Operador Ternário</h3>
+                <p>Transformar 5 linhas em apenas 1.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const saldo = 50;
+
+// Forma normal
+// let mensagem;
+// if (saldo > 0) { mensagem = "Tens dinheiro"; } else { mensagem = "Estás liso"; }
+
+// Forma Ternária ✅
+const mensagem = saldo > 0 ? "Tens dinheiro 💰" : "Estás liso 💸";
+console.log(mensagem);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um "Verificador de Notas":</p>
+                <ol class="steps-list">
+                    <li>Cria uma variável <code>const nota = 14;</code> (Escala 0 a 20).</li>
+                    <li>Escreve um <code>if</code>: Se a nota for maior ou igual a 10, imprime "Aprovado!".</li>
+                    <li>Adiciona um <code>else if</code>: Se a nota for entre 8 e 9, imprime "Recurso".</li>
+                    <li>Adiciona um <code>else</code>: Para notas abaixo de 8, imprime "Reprovado".</li>
+                    <li>Muda o valor da nota e vê a mensagem mudar na consola.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-3">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **if** testa uma condição.</li>
+                <li>📌 **else** é o caminho de "rejeição" da condição.</li>
+                <li>📌 **else if** permite testar várias condições em cadeia.</li>
+                <li>📌 O **operador ternário** é perfeito para decisões simples de sim/não.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Número Secreto</h3>
+                <p>Cria um código que verifica se a variável <code>numero</code> é par ou ímpar (Dica: Usa o operador <code>%</code> que aprendeste na aula anterior).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>if (numero % 2 === 0) { console.log("Par"); } else { console.log("Ímpar"); }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Login de Utilizador</h3>
+                <p>Tens uma variável <code>const userRole = "admin";</code>. Cria uma estrutura que imprima "Acesso Total" se for admin, e "Acesso Limitado" se for qualquer outra coisa.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>if (userRole === "admin") { console.log("Acesso Total"); } else { console.log("Acesso Limitado"); }</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Ternário Veloz</h3>
+                <p>Como escreverias "Adulto" se a idade for >= 18, senão "Menor", usando apenas uma linha de código?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>const status = idade >= 18 ? "Adulto" : "Menor";</code></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-2.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-4.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

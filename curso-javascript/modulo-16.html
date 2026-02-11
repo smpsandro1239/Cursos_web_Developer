@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 16: ES6+ Master - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Aprende Web: JavaScript</h1>
+                </a>
+                <div class="module-progress-header">
+                    <span>Módulo 16 de 20</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🚀</span>
+            </div>
+            <h1>Módulo 16: ES6+ Master (O Novo JS)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No <strong>Módulo 15</strong>, aprendemos a usar <code>Async/Await</code> e <code>Fetch</code> para trazer dados da internet. Hoje, vamos aprender as ferramentas de escrita ultra-rápida que os profissionais usam todos os dias: o JavaScript Moderno (ES6+).</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ <strong>Arrow Functions</strong> (mais curtas e limpas).</li>
+                <li>✅ <strong>Template Literals</strong> (strings com superpoderes).</li>
+                <li>✅ <strong>Desestruturação</strong> de Objetos e Arrays.</li>
+                <li>✅ Operadores <strong>Spread</strong> e <strong>Rest</strong> (...).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Evolução e Atalhos</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> O JavaScript evoluiu muito desde 2015 (ES6). As novas ferramentas não mudam o que o código faz, mas sim **como o escrevemos**, tornando-o mais legível, menos repetitivo e mais elegante.</p>
+                <div class="analogy">
+                    <h3>✍️ Analogia: Do Diário à Mensagem de Texto</h3>
+                    <p>Imagina que estás a escrever uma mensagem:</p>
+                    <ul>
+                        <li><strong>JS Antigo (O Diário)</strong>: Escrevias cartas formais: "Excelentíssimo Senhor Sandro, venho por este meio informar que..." (Muito código para pouca ação).</li>
+                        <li><strong>JS Moderno (WhatsApp)</strong>: Usas abreviaturas, emojis e atalhos: "Hey Sandro! Tudo ok? 👍" (Vai direto ao ponto, é mais rápido e toda a gente percebe).</li>
+                    </ul>
+                    <p>O ES6+ é o "WhatsApp" do JavaScript: foca-se na eficiência.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Arrow Functions e Templates</h3>
+                <p>Menos `function`, menos `+` e mais ` => `.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">// Antigo
+function saudar(nome) { return "Olá " + nome; }
+
+// Moderno ✅
+const saudar = (nome) => `Olá ${nome}! Bem-vindo.`;
+
+console.log(saudar("Sandro"));</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Desestruturação</h3>
+                <p>Extrair dados sem repetir o nome do objeto mil vezes.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const user = { nome: "Sandro", idade: 30, pais: "Portugal" };
+
+// Atalho Moderno ✅
+const { nome, idade } = user;
+
+console.log(nome); // "Sandro"
+console.log(idade); // 30</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Operador Spread (...)</h3>
+                <p>"Espalhar" ou copiar dados rapidamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">const frutas = ["Maçã", "Banana"];
+const todasFrutas = [...frutas, "Laranja", "Pêra"];
+
+console.log(todasFrutas); // ["Maçã", "Banana", "Laranja", "Pêra"]
+
+const configPadrao = { tema: "dark" };
+const configUser = { ...configPadrao, cor: "blue" };</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos modernizar o teu código:</p>
+                <ol class="steps-list">
+                    <li>Transforma uma função de soma normal numa <strong>Arrow Function</strong> de uma única linha.</li>
+                    <li>Cria um objeto <code>carro</code> com 3 propriedades e usa a <strong>desestruturação</strong> para criar variáveis para elas.</li>
+                    <li>Cria dois Arrays de números e usa o <strong>Spread</strong> para os juntar num terceiro Array.</li>
+                    <li>Usa <strong>Template Literals</strong> (as crases ``) para imprimir uma frase que use as tuas variáveis de carro.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-16">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 **Arrow Functions** simplificam a escrita de funções.</li>
+                <li>📌 **Template Literals** (crases) permitem injetar variáveis com `${ }`.</li>
+                <li>📌 **Desestruturação** evita repetir `objeto.propriedade` várias vezes.</li>
+                <li>📌 **Spread (...)** é perfeito para clonar e fundir listas ou objetos.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: A Troca de Valores</h3>
+                <p>Como trocarias os valores de duas variáveis (A e B) sem usar uma terceira variável temporária, usando apenas desestruturação de Array?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong><br>
+                        <code>[a, b] = [b, a];</code> (O JavaScript resolve a lista da direita primeiro e depois atribui à esquerda).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Resto da Lista</h3>
+                <p>Se tiveres <code>const [primeiro, ...resto] = [10, 20, 30, 40];</code>, o que estará guardado na variável <code>resto</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Estará o Array <code>[20, 30, 40]</code>. Aqui o operador chama-se **Rest** porque guarda o "resto" dos elementos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Clonagem Segura</h3>
+                <p>Porque é que usamos <code>const novo = [...antigo]</code> em vez de <code>const novo = antigo</code> quando queremos copiar um Array?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Porque os Arrays são referências. Se fizeres <code>novo = antigo</code>, ao mudares um, mudas o outro. Com o Spread, crias uma **cópia real** independente.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-15.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-17.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/quiz-js.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
