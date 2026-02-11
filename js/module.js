@@ -181,6 +181,10 @@ class ModuleController {
     }
 
     completeModule() {
+        if (typeof progressManager !== "undefined") {
+            const moduleId = window.location.pathname.split("/").pop().replace(".html", "");
+            progressManager.markModuleCompleted(moduleId);
+        }
         // Mark module as completed
         const completionKey = `modulo-${this.moduleNumber}-completed`;
         localStorage.setItem(completionKey, 'true');
@@ -303,6 +307,10 @@ function previousSlide() {
 }
 
 function completeModule() {
+        if (typeof progressManager !== "undefined") {
+            const moduleId = window.location.pathname.split("/").pop().replace(".html", "");
+            progressManager.markModuleCompleted(moduleId);
+        }
     if (window.moduleController) {
         window.moduleController.completeModule();
     }

@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprende Web – Do Zero ao Heroi</title>
-    <meta name="description" content="Curso completo de desenvolvimento web: HTML, CSS e JavaScript. Do zero ao heroi.">
+    <meta name="description" content="Curso completo de desenvolvimento web: HTML, CSS, JavaScript e Angular. Do zero ao heroi da programação.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aprendeweb.pt/">
+    <meta property="og:title" content="Aprende Web – Do Zero ao Heroi">
+    <meta property="og:description" content="Domina as tecnologias que constroem a web.">
+    <meta property="og:image" content="https://aprendeweb.pt/images/og-image.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Aprende Web – Do Zero ao Heroi">
+    <meta property="twitter:description" content="Domina as tecnologias que constroem a web.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
     <header class="header">
@@ -21,6 +33,7 @@
                 </div>
                 <nav class="nav">
                     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                    <div id="auth-status"></div>
                     <ul class="nav-menu">
                         <li><a href="#cursos">Cursos</a></li>
                         <li><a href="#sobre">Sobre</a></li>
@@ -204,6 +217,16 @@ console.log(evoluir());</code></pre>
         </section>
     </main>
 
+        <!-- Dashboard Section (Visible only when logged in) -->
+        <section id="dashboard" class="section bg-surface" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">O Teu Progresso</h2>
+                <div id="user-stats" class="user-stats-container"></div>
+                <h3 class="subsection-title">Os Teus Certificados</h3>
+                <div id="certificates-grid" class="certificates-grid"></div>
+            </div>
+        </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -223,6 +246,10 @@ console.log(evoluir());</code></pre>
         </div>
     </footer>
 
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/certificado.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
