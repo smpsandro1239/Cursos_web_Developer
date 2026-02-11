@@ -13,12 +13,24 @@ class AuthSystem {
         this.renderAuthUI();
     }
 
+    getAvatarUrl(name) {
+        return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=2563eb&color=fff&bold=true`;
+    }
+
     register(name, email, password, role = 'Student') {
         if (this.users.find(u => u.email === email)) {
             return { success: false, message: 'Email já registado.' };
         }
 
-        const newUser = { id: Date.now(), name, email, password, role, joinedAt: new Date() };
+        const newUser = {
+            id: Date.now(),
+            name,
+            email,
+            password,
+            role,
+            avatar: this.getAvatarUrl(name),
+            joinedAt: new Date()
+        };
         this.users.push(newUser);
         this.saveUsers();
         return { success: true, message: 'Registo efetuado com sucesso!' };
@@ -30,6 +42,8 @@ class AuthSystem {
             this.currentUser = user;
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.renderAuthUI();
+            // Dispatch event for other scripts to update
+            window.dispatchEvent(new Event('authChange'));
             return { success: true, message: 'Login efetuado!' };
         }
         return { success: false, message: 'Email ou password incorretos.' };
@@ -38,6 +52,7 @@ class AuthSystem {
     logout() {
         this.currentUser = null;
         localStorage.removeItem('currentUser');
+        window.dispatchEvent(new Event('authChange'));
         location.reload();
     }
 
@@ -46,42 +61,52 @@ class AuthSystem {
     }
 
     renderAuthUI() {
-        const authContainer = document.getElementById('auth-status');
-        if (!authContainer) return;
-
-        if (this.currentUser) {
-            authContainer.innerHTML = `
-                <div class="user-profile-nav">
-                    <span>Olá, <strong>${this.currentUser.name}</strong> (${this.currentUser.role})</span>
-                    <button onclick="auth.logout()" class="btn-logout">Sair</button>
-                </div>
-            `;
-        } else {
-            authContainer.innerHTML = `
-                <button onclick="auth.showModal('login')" class="btn-login">Entrar</button>
-                <button onclick="auth.showModal('register')" class="btn-register">Registar</button>
-            `;
-        }
+        const authContainers = document.querySelectorAll('#auth-status');
+        authContainers.forEach(container => {
+            if (this.currentUser) {
+                container.innerHTML = `
+                    <div class="user-profile-nav">
+                        <img src="${this.currentUser.avatar}" alt="Avatar" class="user-avatar-sm">
+                        <span class="user-name-nav">${this.currentUser.name.split(' ')[0]}</span>
+                        <button onclick="auth.logout()" class="btn-logout" title="Sair">🚪</button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="auth-buttons">
+                        <button onclick="auth.showModal('login')" class="btn-login-header">Entrar</button>
+                    </div>
+                `;
+            }
+        });
     }
 
     showModal(type) {
+        this.closeModal(); // Clean up existing
         const modalHtml = `
             <div id="auth-modal" class="modal-overlay">
                 <div class="modal-content">
                     <button class="modal-close" onclick="auth.closeModal()">×</button>
-                    <h2>${type === 'login' ? 'Entrar' : 'Criar Conta'}</h2>
+                    <h2 class="modal-title">${type === 'login' ? 'Bem-vindo de volta' : 'Cria a tua conta'}</h2>
+                    <p class="modal-subtitle">${type === 'login' ? 'Entra para continuar a aprender.' : 'Junta-te à elite dos Web Developers.'}</p>
                     <form id="auth-form" onsubmit="auth.handleFormSubmit(event, '${type}')">
-                        ${type === 'register' ? '<input type="text" id="auth-name" placeholder="Nome Completo" required>' : ''}
-                        <input type="email" id="auth-email" placeholder="Email" required>
-                        <input type="password" id="auth-password" placeholder="Password" required>
+                        ${type === 'register' ? '<div class="form-group"><label>Nome</label><input type="text" id="auth-name" placeholder="Teu nome" required></div>' : ''}
+                        <div class="form-group"><label>Email</label><input type="email" id="auth-email" placeholder="teu@email.com" required></div>
+                        <div class="form-group"><label>Password</label><input type="password" id="auth-password" placeholder="••••••••" required></div>
                         ${type === 'register' ? `
-                            <select id="auth-role">
-                                <option value="Student">Estudante</option>
-                                <option value="Teacher">Professor</option>
-                            </select>
+                            <div class="form-group">
+                                <label>Eu sou...</label>
+                                <select id="auth-role">
+                                    <option value="Student">Estudante</option>
+                                    <option value="Teacher">Professor</option>
+                                </select>
+                            </div>
                         ` : ''}
-                        <button type="submit" class="btn btn-primary">${type === 'login' ? 'Entrar' : 'Registar'}</button>
+                        <button type="submit" class="btn btn-primary btn-full">${type === 'login' ? 'Entrar' : 'Começar Agora'}</button>
                     </form>
+                    <p class="modal-footer-text">
+                        ${type === 'login' ? 'Não tens conta? <a href="#" onclick="auth.showModal(\'register\')">Regista-te</a>' : 'Já tens conta? <a href="#" onclick="auth.showModal(\'login\')">Entra aqui</a>'}
+                    </p>
                 </div>
             </div>
         `;
@@ -102,12 +127,17 @@ class AuthSystem {
             const name = document.getElementById('auth-name').value;
             const role = document.getElementById('auth-role').value;
             const res = this.register(name, email, password, role);
-            alert(res.message);
-            if (res.success) this.login(email, password);
+            if (res.success) {
+                this.login(email, password);
+                this.closeModal();
+            } else {
+                alert(res.message);
+            }
         } else {
             const res = this.login(email, password);
             if (res.success) {
                 this.closeModal();
+                location.reload(); // Refresh to update dashboard etc
             } else {
                 alert(res.message);
             }

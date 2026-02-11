@@ -28,6 +28,20 @@ class ProgressManager {
         const allProgress = JSON.parse(localStorage.getItem('app_progress')) || {};
         allProgress[this.userId] = this.progress;
         localStorage.setItem('app_progress', JSON.stringify(allProgress));
+        window.dispatchEvent(new Event('progressUpdate'));
+    }
+
+    getCourseCompletion(courseId) {
+        const totalModules = {
+            'html5': 12,
+            'css': 20,
+            'js': 20,
+            'angular': 21
+        };
+
+        const completed = this.progress.completedModules.filter(m => m.startsWith(courseId)).length;
+        const total = totalModules[courseId] || 1;
+        return Math.min(Math.round((completed / total) * 100), 100);
     }
 
     markModuleCompleted(moduleId) {
@@ -51,18 +65,12 @@ class ProgressManager {
     }
 
     checkCertificates() {
-        // Logic to check if user deserves a certificate (e.g. 80% completion)
         const courses = ['html5', 'css', 'js', 'angular'];
         courses.forEach(course => {
-            const completedInCourse = this.progress.completedModules.filter(m => m.startsWith(course)).length;
-            // Assuming 6 modules for html5, 20 for others as per audit
-            const totalModules = course === 'html5' ? 6 : 20;
-            const percentage = (completedInCourse / totalModules) * 100;
-
+            const percentage = this.getCourseCompletion(course);
             if (percentage >= 80 && !this.progress.certificates.includes(course)) {
                 this.progress.certificates.push(course);
                 this.saveProgress();
-                console.log(`🚀 Parabéns! Ganhaste o certificado de ${course.toUpperCase()}!`);
             }
         });
     }
@@ -85,11 +93,12 @@ class ProgressManager {
 
 const progressManager = new ProgressManager();
 
-// Track time on module exit
 window.addEventListener('beforeunload', () => {
     const path = window.location.pathname;
     if (path.includes('modulo-')) {
-        const moduleId = path.split('/').pop().replace('.html', '');
+        const filename = path.split('/').pop().replace('.html', '');
+        const folder = path.split('/').slice(-2, -1)[0];
+        const moduleId = `${folder}-${filename}`;
         progressManager.trackTime(moduleId);
     }
 });
