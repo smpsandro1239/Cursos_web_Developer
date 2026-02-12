@@ -6,7 +6,7 @@
 Plataforma de e-learning moderna e interativa para aspirantes a Web Developers.
 
 ## 🌟 Concluído Recentemente
-- ✅ **HTML5 Masterclass**: 12 módulos de conteúdo real seguindo a metodologia de 6 partes.
+- ✅ **HTML5 Masterclass**: 15 módulos de conteúdo real e profundo seguindo a metodologia de 6 partes.
 - ✅ **Auth Pro**: Sistema de login com avatares e persistência de perfil (LocalStorage).
 - ✅ **Dashboard de Progresso**: Visualização clara de progresso nos cursos e aulas.
 - ✅ **Certificação Oficial**: Página de certificado imprimível (`certificate.html`).
@@ -29,7 +29,7 @@ Plataforma de e-learning moderna e interativa para aspirantes a Web Developers.
 .
 ├── css/                # Estilos globais e de temas
 ├── js/                 # Lógica de negócio e interatividade
-├── curso-html5/        # 12 Módulos completos
+├── curso-html5/        # 15 Módulos completos (16 slides cada)
 ├── curso-css/          # 20 Módulos base
 ├── curso-javascript/   # 20 Módulos base
 ├── curso-angular/      # 21 Módulos base

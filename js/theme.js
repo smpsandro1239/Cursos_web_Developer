@@ -10,13 +10,16 @@ class ThemeManager {
 
     init() {
         this.applyTheme();
-        this.addToggleToNav();
+        document.addEventListener('DOMContentLoaded', () => {
+            this.addToggleToNav();
+        });
     }
 
     toggle() {
         this.theme = this.theme === 'light' ? 'dark' : 'light';
         localStorage.setItem('theme', this.theme);
         this.applyTheme();
+        this.updateIcon();
     }
 
     applyTheme() {
@@ -27,9 +30,16 @@ class ThemeManager {
         }
     }
 
+    updateIcon() {
+        const btn = document.querySelector('.dark-mode-toggle');
+        if (btn) {
+            btn.innerHTML = this.theme === 'light' ? '🌙' : '☀️';
+        }
+    }
+
     addToggleToNav() {
         const nav = document.querySelector('.nav-menu');
-        if (!nav) return;
+        if (!nav || document.querySelector('.dark-mode-toggle')) return;
 
         const toggleLi = document.createElement('li');
         toggleLi.innerHTML = `
