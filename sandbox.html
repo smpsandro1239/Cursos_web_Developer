@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Sandbox - Aprende Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .sandbox-main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #0f172a;
+        }
+        .editor-section, .preview-section {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .section-header {
+            background: #1e293b;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .section-header span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        textarea {
+            flex: 1;
+            background: transparent;
+            color: #f8fafc;
+            border: none;
+            padding: 2rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+            line-height: 1.6;
+        }
+        iframe {
+            flex: 1;
+            background: white;
+            border: none;
+            width: 100%;
+        }
+        .sandbox-nav {
+            padding: 0.5rem 2rem;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .sandbox-main {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="sandbox-nav">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🚀</span>
+            <h1 style="font-size: 1.2rem;">Aprende Web Sandbox</h1>
+        </a>
+        <div class="nav-actions">
+            <button class="btn btn-primary btn-sm" onclick="updatePreview()">Executar (Ctrl+Enter) 🚀</button>
+            <button class="btn btn-secondary btn-sm" onclick="resetCode()">Reset</button>
+        </div>
+    </nav>
+
+    <div class="sandbox-main">
+        <div class="editor-section">
+            <div class="section-header">
+                <span>HTML / CSS</span>
+                <span id="char-count">0 chars</span>
+            </div>
+            <textarea id="code-input" spellcheck="false" placeholder="Escreve o teu código aqui..."></textarea>
+        </div>
+        <div class="preview-section">
+            <div class="section-header">
+                <span>Resultado em Tempo Real</span>
+                <button class="btn-logout" onclick="togglePreviewBg()" style="font-size: 0.7rem;">Alternar Fundo</button>
+            </div>
+            <iframe id="preview-frame"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const initialCode = `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    p { font-size: 1.2rem; opacity: 0.9; }
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: white;
+      color: #764ba2;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Olá do Sandbox!</h1>
+    <p>Experimenta mudar as cores ou o texto à esquerda.</p>
+    <button class="btn">Clica em mim</button>
+  </div>
+</body>
+</html>`;
+
+        const editor = document.getElementById('code-input');
+        const preview = document.getElementById('preview-frame');
+        const charCount = document.getElementById('char-count');
+
+        function updatePreview() {
+            const code = editor.value;
+            const blob = new Blob([code], { type: 'text/html' });
+            preview.src = URL.createObjectURL(blob);
+            charCount.textContent = `${code.length} chars`;
+            localStorage.setItem('sandbox_draft', code);
+        }
+
+        function resetCode() {
+            if(confirm('Tens a certeza que queres apagar tudo?')) {
+                editor.value = initialCode;
+                updatePreview();
+            }
+        }
+
+        function togglePreviewBg() {
+            preview.style.background = preview.style.background === 'black' ? 'white' : 'black';
+        }
+
+        // Shortcuts
+        editor.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+                updatePreview();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('sandbox_draft');
+            editor.value = saved || initialCode;
+            updatePreview();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+services:
+  - type: static
+    name: aprende-web
+    env: static
+    buildCommand: ""
+    publishPath: "."
+    headers:
+      - path: "/*"
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: "/*"
+        name: X-Content-Type-Options
+        value: nosniff
