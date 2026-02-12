@@ -6,55 +6,42 @@
     <title>Módulo 13: HttpClient II - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">🅰️</span>
-                    <h1>Aprende Web: Angular</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 13 de 21</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 7</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🔄</span>
-            </div>
-            <h1>Módulo 13: HttpClient II (CRUD Completo)</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>No <strong>Módulo 12</strong>, aprendemos a usar o <code>.get()</code> para ler dados da internet. Agora, vamos fechar o ciclo do <strong>CRUD</strong> (Create, Read, Update, Delete). Vais aprender a enviar novos dados, atualizar os existentes e apagar o que já não precisas.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="learning-goals">
-            <h2>3. O Que Vais Aprender Hoje</h2>
-            <ul>
-                <li>✅ <strong>POST</strong>: Criar novos recursos.</li>
-                <li>✅ <strong>PUT e PATCH</strong>: Atualizar dados salvos.</li>
-                <li>✅ <strong>DELETE</strong>: Remover dados do servidor.</li>
-                <li>✅ Enviar <strong>Headers</strong> (Cabeçalhos) e lidar com o <strong>Body</strong>.</li>
-            </ul>
-        </section>
-
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: A Gestão do Arquivo</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: A Gestão do Arquivo</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> Comunicar com um servidor não é só ler. É uma conversa de ida e volta. Para cada tipo de ação, o protocolo HTTP tem um "verbo" específico. Usar o verbo certo é a base de uma API bem feita (REST).</p>
                 <div class="analogy">
@@ -68,11 +55,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: Criar (POST)</h3>
@@ -108,11 +96,12 @@ this.http.put('https://api.com/users/5', this.userEditado)
   });</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Vamos criar o "Gestor de Tarefas Remoto":</p>
                 <ol class="steps-list">
@@ -123,19 +112,21 @@ this.http.put('https://api.com/users/5', this.userEditado)
                     <li>Verifica na consola do browser (separador Network) os pedidos a serem feitos!</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-13">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-13">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 **POST** envia dados novos no corpo (body) do pedido.</li>
                 <li>📌 **PUT** substitui o recurso inteiro; **PATCH** faz atualizações parciais.</li>
@@ -143,11 +134,12 @@ this.http.put('https://api.com/users/5', this.userEditado)
                 <li>📌 O HttpClient facilita o envio de **Cabeçalhos** (Headers) para autenticação.</li>
                 <li>📌 Deves sempre subscrever os métodos, senão o pedido nunca é enviado!</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: Onde está o ID?</h3>
@@ -181,14 +173,18 @@ this.http.put('https://api.com/users/5', this.userEditado)
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-12.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="modulo-14.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -197,9 +193,12 @@ this.http.put('https://api.com/users/5', this.userEditado)
         </div>
     </footer>
 
-    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

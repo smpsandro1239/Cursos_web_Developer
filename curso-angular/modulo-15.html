@@ -6,55 +6,54 @@
     <title>Módulo 15: Formulários Reativos II - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">🅰️</span>
-                    <h1>Aprende Web: Angular</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 15 de 21</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🛡️</span>
-            </div>
-            <h1>Módulo 15: Formulários Reativos II (Validações Complexas)</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>No <strong>Módulo 14</strong>, aprendemos a estrutura básica dos Formulários Reativos e usamos validadores padrão como <code>required</code> e <code>email</code>. Agora, vamos subir o nível e aprender a criar as nossas próprias regras de validação personalizadas.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ Criar <strong>Custom Validators</strong> (Validadores Personalizados).</li>
                 <li>✅ Validar múltiplos campos ao mesmo tempo (Cross-field Validation).</li>
                 <li>✅ Introdução aos <strong>Validadores Assíncronos</strong>.</li>
                 <li>✅ Usar o <strong>FormBuilder</strong> para um código mais limpo.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: Regras por Medida</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: Regras por Medida</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> Nem tudo no mundo é apenas um email ou um campo obrigatório. Por vezes precisas de validar se uma senha e a sua confirmação são iguais, ou se um nome de utilizador já existe no servidor. Para isso, criamos funções que o Angular corre automaticamente.</p>
                 <div class="analogy">
@@ -68,11 +67,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: Validador Personalizado</h3>
@@ -124,11 +124,12 @@ form = this.fb.group({
 });</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Cria o "Sistema de Verificação de Agente Secreto":</p>
                 <ol class="steps-list">
@@ -139,30 +140,33 @@ form = this.fb.group({
                     <li><strong>Bónus:</strong> Usa o <code>patchValue</code> para preencher automaticamente o código "007" quando o utilizador clica num botão "Sugestão".</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-15">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-15">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 **Custom Validators** são funções que devolvem <code>null</code> (sucesso) ou <code>object</code> (erro).</li>
                 <li>📌 Para comparar dois campos, o validador deve ser colocado no **FormGroup**.</li>
                 <li>📌 O **FormBuilder** diminui a repetição de código (boilerplate).</li>
                 <li>📌 Validadores assíncronos são perfeitos para checar dados no servidor em tempo real.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: O Regresso do Nulo</h3>
@@ -196,14 +200,18 @@ form = this.fb.group({
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-14.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="modulo-16.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -212,9 +220,12 @@ form = this.fb.group({
         </div>
     </footer>
 
-    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

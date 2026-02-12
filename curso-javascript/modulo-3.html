@@ -6,55 +6,54 @@
     <title>Módulo 3: Controlo de Fluxo I - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <h1>Aprende Web: JavaScript</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 3 de 20</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🚥</span>
-            </div>
-            <h1>Módulo 3: Tomar Decisões (If/Else)</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>No <strong>Módulo 2</strong>, aprendemos a usar operadores para comparar valores (ex: <code>idade >= 18</code>). Agora, vamos usar essas comparações para fazer o nosso código escolher caminhos diferentes.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ A estrutura base: <strong>if</strong> e <strong>else</strong>.</li>
                 <li>✅ Como usar o <strong>else if</strong> para múltiplas escolhas.</li>
                 <li>✅ Blocos de código (chavetas <code>{}</code>).</li>
                 <li>✅ Operador Ternário (o atalho dos profissionais).</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: O Cruzamento do Código</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: O Cruzamento do Código</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> O controlo de fluxo permite que o programa execute certas instruções apenas se uma condição for verdadeira. Se a condição for falsa, o programa pode ignorar esse código ou seguir por um caminho alternativo.</p>
                 <div class="analogy">
@@ -68,11 +67,12 @@
                     <p>O teu código funciona exatamente assim: ele avalia a estrada à frente e toma a decisão mais lógica!</p>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: If / Else Básico</h3>
@@ -119,11 +119,12 @@ const mensagem = saldo > 0 ? "Tens dinheiro 💰" : "Estás liso 💸";
 console.log(mensagem);</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Vamos criar um "Verificador de Notas":</p>
                 <ol class="steps-list">
@@ -134,30 +135,33 @@ console.log(mensagem);</code></pre>
                     <li>Muda o valor da nota e vê a mensagem mudar na consola.</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-3">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-3">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 **if** testa uma condição.</li>
                 <li>📌 **else** é o caminho de "rejeição" da condição.</li>
                 <li>📌 **else if** permite testar várias condições em cadeia.</li>
                 <li>📌 O **operador ternário** é perfeito para decisões simples de sim/não.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: O Número Secreto</h3>
@@ -194,14 +198,18 @@ console.log(mensagem);</code></pre>
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-2.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="modulo-4.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -210,9 +218,12 @@ console.log(mensagem);</code></pre>
         </div>
     </footer>
 
-    <script src="../js/quiz-js.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

@@ -6,55 +6,54 @@
     <title>Módulo 0: O Cérebro JS - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <h1>Aprende Web: JavaScript</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 0 de 20</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">⚡</span>
-            </div>
-            <h1>Módulo 0: O Cérebro do Site</h1>
-        </div>
-
-        <!-- 2. Resumo do Percurso -->
-        <section class="lesson-step">
-            <h2>2. Onde Estamos?</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Onde Estamos?</h2>
             <p>Até agora, aprendeste a criar o esqueleto (HTML) e a dar estilo (CSS). Mas um site profissional precisa de lógica, interatividade e "pensamento". É aí que entra o **JavaScript**.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ O que é o JavaScript e o seu papel na Web.</li>
                 <li>✅ A "Consola" - A ferramenta secreta do programador.</li>
                 <li>✅ Como ligar ficheiros JS ao teu HTML.</li>
                 <li>✅ O teu primeiro comando: <code>console.log</code>.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: A Inteligência Web</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: A Inteligência Web</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> JavaScript é uma linguagem de programação que permite criar conteúdo que se move, atualiza e reage ao utilizador sem ter de recarregar a página.</p>
                 <div class="analogy">
@@ -67,11 +66,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: O comando console.log</h3>
@@ -105,11 +105,12 @@ console.log(10 + 20); // O computador vai calcular e mostrar 30</code></pre>
                 </div>
                 <p class="explanation">Colocamos no fim para o browser carregar todo o site primeiro antes de tentar executar a lógica.</p>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Vamos criar o teu primeiro "Log":</p>
                 <ol class="steps-list">
@@ -120,30 +121,33 @@ console.log(10 + 20); // O computador vai calcular e mostrar 30</code></pre>
                     <li>Abre o ficheiro no browser e prime <strong>F12</strong> para veres a magia na Consola.</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-0">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-0">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 <strong>JavaScript</strong> dá vida e interatividade à web.</li>
                 <li>📌 A <strong>Consola</strong> é o teu melhor amigo para encontrar erros.</li>
                 <li>📌 Usa-se <code>console.log()</code> para testar e ver dados.</li>
                 <li>📌 O ficheiro JS liga-se com a tag <code>&lt;script&gt;</code>.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: Matemática Rápida</h3>
@@ -177,14 +181,18 @@ console.log(10 + 20); // O computador vai calcular e mostrar 30</code></pre>
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="../index.html" class="btn btn-secondary">« Sair do Curso</a>
-            <a href="modulo-1.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -193,9 +201,12 @@ console.log(10 + 20); // O computador vai calcular e mostrar 30</code></pre>
         </div>
     </footer>
 
-    <script src="../js/quiz-js.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

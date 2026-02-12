@@ -6,44 +6,42 @@
     <title>Módulo 20: Projeto Final: Landing Page Premium - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">🎨</span>
-                    <h1>Aprende Web: CSS</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 20 de 20</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🚀</span>
-            </div>
-            <h1>Módulo 20: Projeto Final de Curso</h1>
-        </div>
-
-        <!-- 2. Resumo do Percurso -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Tua Jornada</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Tua Jornada</h2>
             <p>De simples seletores a layouts 3D complexos, percorreste um caminho incrível. No <strong>Módulo 19</strong>, aprendeste a otimizar o teu código. Agora, chegou o momento do "Exame Final": construir uma Landing Page completa, funcional e visualmente impressionante.</p>
+            </div>
         </section>
 
-        <!-- 3. O Grande Objetivo -->
-        <section class="lesson-step">
-            <h2>3. O Teu Desafio Final</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Teu Desafio Final</h2>
             <ul class="learning-goals">
                 <li>✅ Criar uma Landing Page completa para uma marca fictícia (ex: "Zeta Tech").</li>
                 <li>✅ Implementar um <strong>Header</strong> responsivo com navegação.</li>
@@ -51,11 +49,12 @@
                 <li>✅ Usar <strong>CSS Grid</strong> para a secção de serviços/produtos.</li>
                 <li>✅ Garantir que o site corre a 100/100 no Lighthouse.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria: A Arquitetura do Sucesso -->
-        <section class="lesson-step">
-            <h2>4. Estruturar antes de Estilizar</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Estruturar antes de Estilizar</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> Um projeto deste tamanho não se começa pela cor do botão. Começa-se pelo HTML sem estilos. Quando a estrutura está sólida, aplicamos as Variáveis CSS globais e depois as regras BEM secção por secção.</p>
                 <div class="analogy">
@@ -68,11 +67,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Checklist do Projeto -->
-        <section class="lesson-step">
-            <h2>5. Requisitos Obrigatórios</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Requisitos Obrigatórios</h2>
             <div class="code-example-card">
                 <h3>Checklist de Qualidade</h3>
                 <ul>
@@ -83,11 +83,12 @@
                     <li>✔️ **Dose de "Wow"**: Pelo menos um efeito 3D ou Animação complexa.</li>
                 </ul>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada (Instruções Finais) -->
-        <section class="lesson-step">
-            <h2>6. Agora é Contigo Developer!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é Contigo Developer!</h2>
             <div class="practice-guide">
                 <p>Segue este roteiro para não te perderes:</p>
                 <ol class="steps-list">
@@ -99,30 +100,33 @@
                     <li>Usa <code>@keyframes</code> para fazer os elementos "saltarem" quando o site carrega.</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Último Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Prova de Fogo Final</h2>
-            <div id="quiz-container" data-quiz-id="modulo-20">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. O que vem a seguir? -->
-        <section class="lesson-step">
-            <h2>8. Parabéns, Mestre do CSS!</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Prova de Fogo Final</h2>
+            <div id="quiz-container" data-quiz-id="modulo-20">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Parabéns, Mestre do CSS!</h2>
             <p>Completaste os 20 módulos do curso de CSS. Agora tens o superpoder de transformar qualquer ideia num interface visual. Mas lembra-te: a web é dinâmica.</p>
             <ul class="summary-list">
                 <li>📌 Próximo Passo Sugerido: **Curso de JavaScript (O Cérebro do Site)**.</li>
                 <li>📌 Sem JS, o teu site é apenas uma estátua bonita. Com JS, ele ganha inteligência.</li>
                 <li>📌 Continua a praticar e a ler a documentação da MDN.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafio Especial -->
-        <section class="lesson-step">
-            <h2>9. O Certificado do Esforço</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. O Certificado do Esforço</h2>
             <div class="challenge-card">
                 <h3>O Desafio Bónus</h3>
                 <p>Consegues fazer o teu site mudar de tema (Light/Dark) usando apenas CSS e Variáveis, sem JavaScript? (Dica: Usa um <code>checkbox</code> escondidinho e o seletor <code>:checked</code>).</p>
@@ -133,13 +137,18 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-19.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="../index.html" class="btn btn-primary">Voltar ao Menu Inicial 🏠</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -148,9 +157,12 @@
         </div>
     </footer>
 
-    <script src="../js/quiz-css.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

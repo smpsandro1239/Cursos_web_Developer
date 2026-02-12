@@ -6,55 +6,54 @@
     <title>Módulo 18: Guards e Interceptors - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">🅰️</span>
-                    <h1>Aprende Web: Angular</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 18 de 21</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🛡️</span>
-            </div>
-            <h1>Módulo 18: Guards e Interceptors (Segurança)</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>No <strong>Módulo 17</strong>, vimos como passar parâmetros pelas rotas e como tornar o site super rápido com o Lazy Loading. Agora, vamos lidar com a segurança: como impedir que utilizadores não autorizados entrem em certas páginas e como gerir tokens de autenticação de forma automática.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ Proteger rotas com <strong>Route Guards</strong> (canActivate).</li>
                 <li>✅ Criar Functional Guards (o padrão moderno).</li>
                 <li>✅ Automatizar pedidos HTTP com <strong>Interceptors</strong>.</li>
                 <li>✅ Injetar Headers (Tokens) em todas as chamadas à API de uma vez só.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: Os Sentinelas da App</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: Os Sentinelas da App</h2>
             <div class="theory-box">
                 <p><strong>Route Guards:</strong> São funções que o Router executa antes de carregar um componente. Se a função devolver `false`, a navegação é cancelada e o utilizador não entra.</p>
                 <p><strong>Interceptors:</strong> São "filtros" para as tuas chamadas HTTP. Imagina que tens 50 serviços a pedir dados à API. Em vez de escreveres o código do Token (JWT) em todos eles, o Interceptor "agarra" no pedido antes de ele sair do browser e coloca o selo de segurança.</p>
@@ -67,11 +66,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: Functional Guard (canActivate)</h3>
@@ -121,11 +121,12 @@
 ]</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Vamos criar o "Cofre Digital":</p>
                 <ol class="steps-list">
@@ -136,19 +137,21 @@
                     <li>Regista o interceptor no teu <code>app.config.ts</code> e observa a magia na consola enquanto navegas.</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-18">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-18">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 **Route Guards** controlam o acesso às vistas da aplicação.</li>
                 <li>📌 **canActivate** é o guard mais comum para autenticação.</li>
@@ -156,11 +159,12 @@
                 <li>📌 Usar interceptors evita repetição de código (DRY - Don't Repeat Yourself).</li>
                 <li>📌 Segurança no Frontend é para **UX**; a segurança real deve estar sempre no Servidor (Backend).</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: Invasão de URL</h3>
@@ -194,14 +198,18 @@
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-17.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="modulo-19.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -210,9 +218,12 @@
         </div>
     </footer>
 
-    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

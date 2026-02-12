@@ -6,55 +6,54 @@
     <title>Módulo 1: Variáveis e Tipos de Dados - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <h1>Aprende Web: JavaScript</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 1 de 20</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">💾</span>
-            </div>
-            <h1>Módulo 1: A Memória do Código</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>No <strong>Módulo 0</strong>, descobrimos que o JavaScript é o cérebro do site e aprendemos a usar a consola para "falar" com o browser. Agora, vamos aprender como o computador guarda informações para usar mais tarde.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ Criar variáveis com <strong>let</strong> e <strong>const</strong>.</li>
                 <li>✅ Tipos de dados: Strings, Numbers e Booleans.</li>
                 <li>✅ Regras para dar nomes a variáveis (Camel Case).</li>
                 <li>✅ Como o JavaScript organiza a informação na memória.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: Caixas Etiquetadas</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: Caixas Etiquetadas</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> Uma variável é um pequeno espaço na memória do computador onde guardamos um valor (um nome, um número, uma cor). Damos-lhe um nome para podermos ir lá buscar esse valor sempre que precisarmos.</p>
                 <div class="analogy">
@@ -68,11 +67,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
-        <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Exemplos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: Declarar Variáveis</h3>
@@ -110,11 +110,12 @@ const nomeDoUtilizador = "Sandro";
 const totalDeProdutosNaLoja = 50;</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é a Tua Vez!</h2>
             <div class="practice-guide">
                 <p>Vamos criar o teu "Perfil de Aluno":</p>
                 <ol class="steps-list">
@@ -125,30 +126,33 @@ const totalDeProdutosNaLoja = 50;</code></pre>
                     <li>Usa o <code>console.log</code> para mostrar tudo: <code>console.log(nome, idade, gostaDeCafé);</code>.</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-1">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-1">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 **const** é para valores que nunca mudam.</li>
                 <li>📌 **let** é para valores que podem ser alterados.</li>
                 <li>📌 **Strings** usam aspas (""), **Numbers** e **Booleans** não.</li>
                 <li>📌 Programadores usam **camelCase** para nomes legíveis.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Práticos -->
-        <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Práticos</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: O Batizado</h3>
@@ -183,14 +187,18 @@ const totalDeProdutosNaLoja = 50;</code></pre>
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-0.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="modulo-2.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -199,9 +207,12 @@ const totalDeProdutosNaLoja = 50;</code></pre>
         </div>
     </footer>
 
-    <script src="../js/quiz-js.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

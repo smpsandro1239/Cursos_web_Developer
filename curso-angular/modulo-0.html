@@ -6,55 +6,54 @@
     <title>Módulo 0: O Universo Angular - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">🅰️</span>
-                    <h1>Aprende Web: Angular</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 0 de 21</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🅰️</span>
-            </div>
-            <h1>Módulo 0: Bem-vindo ao Angular</h1>
-        </div>
-
-        <!-- 2. Resumo da Jornada -->
-        <section class="lesson-step">
-            <h2>2. O Camarote dos Profissionais</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. O Camarote dos Profissionais</h2>
             <p>Se já dominas HTML, CSS e JavaScript, estás pronto para o próximo nível. O Angular não é apenas uma biblioteca; é uma **Framework completa** usada pelas maiores empresas do mundo para criar aplicações gigantescas e rápidas.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
-        <section class="lesson-step">
-            <h2>3. O Que Vais Aprender Hoje</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Que Vais Aprender Hoje</h2>
             <ul class="learning-goals">
                 <li>✅ O que é uma Framework e por que usar Angular.</li>
                 <li>✅ O conceito de SPA (Single Page Application).</li>
                 <li>✅ A arquitetura base: Componentes.</li>
                 <li>✅ O "Ecossistema" da Google.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
-        <section class="lesson-step">
-            <h2>4. Teoria: A Fábrica de Aplicações</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: A Fábrica de Aplicações</h2>
             <div class="theory-box">
                 <p><strong>Conceito:</strong> Angular é uma plataforma de desenvolvimento, construída sobre TypeScript, que ajuda a criar aplicações web escaláveis. Ao contrário do JS puro, o Angular dá-te as ferramentas todas "dentro da caixa".</p>
                 <div class="analogy">
@@ -66,11 +65,12 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplos de Conceitos -->
-        <section class="lesson-step">
-            <h2>5. Conceitos Práticos</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Conceitos Práticos</h2>
 
             <div class="code-example-card">
                 <h3>Exemplo 1: O que é um Componente?</h3>
@@ -97,11 +97,12 @@ export class AppComponent {
                 </div>
                 <p class="explanation">Isso torna a experiência do utilizador muito mais fluida, como se fosse uma aplicação de telemóvel.</p>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
-        <section class="lesson-step">
-            <h2>6. Preparação do Terreno</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Preparação do Terreno</h2>
             <div class="practice-guide">
                 <p>Para o Angular, precisamos de ferramentas especiais:</p>
                 <ol class="steps-list">
@@ -112,30 +113,33 @@ export class AppComponent {
                     <li>Abre o link <code>localhost:4200</code> e vê o teu primeiro site Angular live!</li>
                 </ol>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Quiz) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-0">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
-        <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="modulo-0">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Resumo do Que Aprendemos</h2>
             <ul class="summary-list">
                 <li>📌 O <strong>Angular</strong> é uma framework robusta para aplicações grandes.</li>
                 <li>📌 Uma <strong>SPA</strong> (Single Page Application) não recarrega a página.</li>
                 <li>📌 O Angular usa <strong>TypeScript</strong> (uma versão turbinada do JS).</li>
                 <li>📌 Tudo no Angular gira em torno de <strong>Componentes</strong>.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. Desafios Mentais -->
-        <section class="lesson-step">
-            <h2>9. Desafios Mentais</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. Desafios Mentais</h2>
 
             <div class="challenge-card">
                 <h3>Desafio 1: Framework vs Biblioteca</h3>
@@ -169,14 +173,18 @@ export class AppComponent {
                     </div>
                 </div>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="../index.html" class="btn btn-secondary">« Sair do Curso</a>
-            <a href="modulo-1.html" class="btn btn-primary">Próxima Aula »</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -185,9 +193,12 @@ export class AppComponent {
         </div>
     </footer>
 
-    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

@@ -6,44 +6,42 @@
     <title>Módulo 20: Projeto Final - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <h1>Aprende Web: JavaScript</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo 20 de 20</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 8</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🏆</span>
-            </div>
-            <h1>Módulo 20: O Grande Projeto Final</h1>
-        </div>
-
-        <!-- 2. Resumo da Aula Anterior -->
-        <section class="lesson-step">
-            <h2>2. Resumo da Aula Anterior</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. Resumo da Aula Anterior</h2>
             <p>Passámos por 19 módulos de pura lógica, DOM, eventos e assincronia. No <strong>Módulo 19</strong>, aprendemos como organizar o código. Chegou a hora de provares a ti mesmo que és um programador de JavaScript.</p>
+            </div>
         </section>
 
-        <!-- 3. O Que Vamos Construir -->
-        <section class="lesson-step">
-            <h2>3. O Desafio: Weather Dashboard Pro</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. O Desafio: Weather Dashboard Pro</h2>
             <p>Vais construir uma aplicação que permite ao utilizador pesquisar o clima de qualquer cidade do mundo. A aplicação deve:</p>
             <ul class="learning-goals">
                 <li>✅ Consumir dados de uma API real de clima.</li>
@@ -52,11 +50,12 @@
                 <li>✅ Validação de erros: Se a cidade não existir, avisar o utilizador.</li>
                 <li>✅ Interface Moderna: Usar o DOM para criar um visual premium.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 4. Teoria: A Arquitetura do Projeto -->
-        <section class="lesson-step">
-            <h2>4. Teoria: Passo a Passo da Vitória</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Teoria: Passo a Passo da Vitória</h2>
             <div class="theory-box">
                 <p>Um bom projeto não nasce do código, nasce da estratégia. Aqui está o roteiro sugerido:</p>
                 <div class="analogy">
@@ -71,11 +70,12 @@
                     </ol>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Exemplo de Estrutura -->
-        <section class="lesson-step">
-            <h2>5. Estrutura do Código</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Estrutura do Código</h2>
 
             <div class="code-example-card">
                 <h3>A Lógica Central</h3>
@@ -100,11 +100,12 @@ async function buscarClima(cidade) {
 }</code></pre>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Prática Orientada (O Guião) -->
-        <section class="lesson-step">
-            <h2>6. Agora é Contigo!</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Agora é Contigo!</h2>
             <div class="practice-guide">
                 <p>Dicas para o teu sucesso:</p>
                 <ul class="steps-list">
@@ -114,19 +115,21 @@ async function buscarClima(cidade) {
                     <li>Transforma os números da temperatura em graus Arredondados com <code>Math.round()</code>.</li>
                 </ul>
             </div>
-        </section>
-
-        <!-- 7. Verificação de Conhecimento (Última!) -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>7. Verificação de Conhecimento Final</h2>
-            <div id="quiz-container" data-quiz-id="modulo-20">
-                <div class="loader">Carregando quiz...</div>
             </div>
         </section>
 
-        <!-- 8. Resumo do Curso -->
-        <section class="lesson-step">
-            <h2>8. Parabéns, Programador!</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. Verificação de Conhecimento Final</h2>
+            <div id="quiz-container" data-quiz-id="modulo-20">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7" style="display:none">
+            <div class="container section">
+                <h2>8. Parabéns, Programador!</h2>
             <p>Concluíste todos os módulos de JavaScript. Agora tens as bases para:</p>
             <ul class="summary-list">
                 <li>🌟 Criar lógica complexa e resolver problemas.</li>
@@ -134,11 +137,12 @@ async function buscarClima(cidade) {
                 <li>🌟 Ligar sites a bases de dados e APIs externas.</li>
                 <li>🌟 Escrever código moderno e profissional.</li>
             </ul>
+            </div>
         </section>
 
-        <!-- 9. O Próximo Nível -->
-        <section class="lesson-step">
-            <h2>9. E Agora?</h2>
+        <section class="slide" id="slide-8" style="display:none">
+            <div class="container section">
+                <h2>9. E Agora?</h2>
 
             <div class="challenge-card">
                 <h3>🚀 Próxima Paragem: Angular</h3>
@@ -149,14 +153,18 @@ async function buscarClima(cidade) {
                 <h3>📜 Certificado</h3>
                 <p>Termina o teu projeto final, coloca-o no GitHub e partilha com o mundo. O teu portfólio acaba de ganhar uma estrela!</p>
             </div>
-
+            </div>
         </section>
 
-        <div class="lesson-navigation text-center">
-            <a href="modulo-19.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="../index.html" class="btn btn-primary">Voltar ao Início 🏠</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -165,9 +173,12 @@ async function buscarClima(cidade) {
         </div>
     </footer>
 
-    <script src="../js/quiz-js.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

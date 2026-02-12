@@ -6,77 +6,42 @@
     <title>Módulo 21: Projeto Final - Aprende Web</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        .project-steps { margin-top: 2rem; }
-        .project-step-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-        .project-step-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-        .step-num {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 32px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1rem; }
-        .tech-badge {
-            background: rgba(0, 123, 255, 0.1);
-            color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--primary-color);
-        }
-    </style>
 </head>
-<body>
+<body class="module-view">
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <a href="../index.html" class="logo">
-                    <span class="logo-icon">👑</span>
-                    <h1>Aprende Web: Projeto Final</h1>
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
                 </a>
-                <div class="module-progress-header">
-                    <span>Módulo Final (21 de 21)</span>
+                <div id="auth-status"></div>
+                <div class="module-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="slide-counter">1 / 6</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container section">
+    <main class="container">
 
-        <!-- 1. Imagem Introdutória -->
-        <div class="lesson-intro">
-            <div class="intro-visual">
-                <span class="visual-icon">🏗️</span>
-            </div>
-            <h1>Projeto Final: Dashboard de Gestão Enterprise</h1>
-        </div>
-
-        <!-- 2. Objetivo do Projeto -->
-        <section class="lesson-step">
-            <h2>2. O Grande Desafio</h2>
+        <section class="slide" id="slide-1" style="display:block">
+            <div class="container section">
+                <h2>2. O Grande Desafio</h2>
             <p>Parabéns! Chegaste ao fim da jornada Angular. Agora não vamos apenas ler ou aprender conceitos. Vamos construir uma aplicação profissional completa: um **Dashboard Administrativo** para gestão de uma frota de naves espaciais (ou qualquer inventário que prefiras).</p>
+            </div>
         </section>
 
-        <!-- 3. Funcionalidades do Projeto -->
-        <section class="lesson-step">
-            <h2>3. Requisitos do Projeto</h2>
+        <section class="slide" id="slide-2" style="display:none">
+            <div class="container section">
+                <h2>3. Requisitos do Projeto</h2>
             <div class="theory-box">
                 <ul>
                     <li>✅ **Autenticação**: Página de Login com validação reativa.</li>
@@ -86,11 +51,12 @@
                     <li>✅ **Performance**: Uso de **Signals** para o estado do inventário e carregamento **Lazy Loading**.</li>
                 </ul>
             </div>
+            </div>
         </section>
 
-        <!-- 4. Escutura Sugerida -->
-        <section class="lesson-step">
-            <h2>4. Estrutura do Projeto</h2>
+        <section class="slide" id="slide-3" style="display:none">
+            <div class="container section">
+                <h2>4. Estrutura do Projeto</h2>
             <div class="tech-stack">
                 <span class="tech-badge">Angular 18+</span>
                 <span class="tech-badge">Signals</span>
@@ -117,11 +83,12 @@
                     <p>Constrói o formulário para adicionar novas naves usando <code>ReactiveFormsModule</code> e valida se o nome da nave é válido.</p>
                 </div>
             </div>
+            </div>
         </section>
 
-        <!-- 5. Código de Partida -->
-        <section class="lesson-step">
-            <h2>5. Dica Pro: O Estado Global</h2>
+        <section class="slide" id="slide-4" style="display:none">
+            <div class="container section">
+                <h2>5. Dica Pro: O Estado Global</h2>
             <p>Usa um serviço com Signals para partilhar dados entre ecrãs de forma simples.</p>
             <div class="code-window">
                 <pre><code class="language-typescript">@Injectable({ providedIn: 'root' })
@@ -138,32 +105,39 @@ export class AppStateService {
   }
 }</code></pre>
             </div>
+            </div>
         </section>
 
-        <!-- 6. Avaliação Final -->
-        <section class="lesson-step" id="quiz-section">
-            <h2>6. Exame Final de Certificação</h2>
+        <section class="slide" id="slide-5" style="display:none">
+            <div class="container section">
+                <h2>6. Exame Final de Certificação</h2>
             <p>Antes de terminares, vamos ver se estás pronto para o mercado de trabalho!</p>
             <div id="quiz-container" data-quiz-id="modulo-21">
                 <div class="loader">Carregando quiz final...</div>
             </div>
+            </div>
         </section>
 
-        <!-- 7. Conclusão da Jornada -->
-        <section class="lesson-step">
-            <h2>7. O Início do Teu Futuro</h2>
+        <section class="slide" id="slide-6" style="display:none">
+            <div class="container section">
+                <h2>7. O Início do Teu Futuro</h2>
             <div class="theory-box" style="border-color: #ffd700;">
                 <p>🏆 **Parabéns, Web Developer Elite!**</p>
                 <p>Concluíste toda a trilha: **HTML5**, **CSS3**, **JavaScript** e **Angular**. Tens agora as ferramentas para construir qualquer aplicação moderna e escalar na tua carreira.</p>
                 <p>O próximo passo é meteres as mãos na massa, construíres o teu portfólio e continuares a aprender, pois a Web nunca para!</p>
             </div>
+            </div>
         </section>
 
-        <div class="lesson-navigation">
-            <a href="modulo-20.html" class="btn btn-secondary">« Aula Anterior</a>
-            <a href="../index.html" class="btn btn-primary">Voltar ao Início 🏠</a>
-        </div>
 
+        <div class="slide-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -172,9 +146,12 @@ export class AppStateService {
         </div>
     </footer>
 
-    <script src="../js/quiz-angular.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/challenges.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/module.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
