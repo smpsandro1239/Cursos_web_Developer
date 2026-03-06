@@ -104,4 +104,4 @@ No entanto, a **falta do curso de HTML5** (que deveria ser a base de tudo) é um
 3. Consolidar os PDFs de estudo.
 
 ---
-*Auditoria realizada por Jules, Engenheiro de Software.*
+*Auditoria realizada por Sandro Pereira, Engenheiro de Software.*

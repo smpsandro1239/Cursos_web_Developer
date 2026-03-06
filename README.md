@@ -21,4 +21,4 @@ Plataforma de e-learning profissional para tecnologias frontend.
 - `sw.js`: Garantia de funcionamento offline.
 
 ---
-**Desenvolvido com ❤️ por Sandro Pereira & Jules.**
+**Desenvolvido com ❤️ por Sandro Pereira.**
