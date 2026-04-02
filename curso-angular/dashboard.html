@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Angular - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🅰️</span>
+                    <h1>Aprende Web: Dashboard Angular</h1>
+                </a>
+                <div id="auth-status"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🅰️</span>
+            </div>
+            <h1>Dashboard - Curso de Angular</h1>
+            <p>Visualiza o teu progresso e completa os módulos pendentes.</p>
+        </div>
+
+        <section class="lesson-step">
+            <h2>Progresso Geral</h2>
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="stats-card" style="background: rgba(221, 0, 49, 0.1); border: 1px solid rgba(221, 0, 49, 0.2);">
+                    <span class="stat-value" id="completed-count" style="color: #dd0031;">0</span>
+                    <span class="stat-label">Módulos Concluídos</span>
+                </div>
+                <div class="stats-card" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <span class="stat-value" id="quiz-average" style="color: #10b981;">0%</span>
+                    <span class="stat-label">Média nos Quizzes</span>
+                </div>
+                <div class="stats-card" style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);">
+                    <span class="stat-value" id="time-spent" style="color: #3b82f6;">0h</span>
+                    <span class="stat-label">Tempo de Estudo</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-step">
+            <h2>Módulos do Curso</h2>
+            <div class="modules-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+            </div>
+        </section>
+
+        <section class="lesson-step" id="certificate-section" style="display: none;">
+            <h2>Certificado</h2>
+            <div class="cert-card" style="max-width: 500px; margin: 0 auto; text-align: center; padding: 3rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                <h3 style="color: #10b981;">Parabéns!</h3>
+                <p>Completaste o curso de Angular com sucesso!</p>
+                <p>Já podes fazer download do teu certificado.</p>
+                <button onclick="certificateSystem.generate('angular')" class="btn btn-primary" style="margin-top: 1.5rem;">
+                    📜 Descarregar Certificado
+                </button>
+            </div>
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="../index.html" class="btn btn-secondary">« Voltar ao Início</a>
+            <a href="modulo-0.html" class="btn btn-primary">Começar Primeiro Módulo</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modules = [
+                { id: 0, title: 'Bem-vindo ao Angular', icon: '🅰️' },
+                { id: 1, title: 'Angular CLI', icon: '🛠️' },
+                { id: 2, title: 'Componentes', icon: '🧩' },
+                { id: 3, title: 'Data Binding', icon: '🔗' },
+                { id: 4, title: 'Event Binding', icon: '🎯' },
+                { id: 5, title: 'Two-Way Binding', icon: '↔️' },
+                { id: 6, title: 'Diretivas', icon: '📋' },
+                { id: 7, title: 'ngIf e ngFor', icon: '🔀' },
+                { id: 8, title: 'Pipes', icon: '🔧' },
+                { id: 9, title: 'Services', icon: '⚙️' },
+                { id: 10, title: 'Dependency Injection', icon: '💉' },
+                { id: 11, title: 'HttpClient', icon: '🌐' },
+                { id: 12, title: 'Routing', icon: '🛤️' },
+                { id: 13, title: 'Route Params', icon: '📍' },
+                { id: 14, title: 'Forms - Template Driven', icon: '📝' },
+                { id: 15, title: 'Forms - Reactive', icon: '⚡' },
+                { id: 16, title: 'RxJS Basics', icon: '🔄' },
+                { id: 17, title: 'State Management', icon: '📊' },
+                { id: 18, title: ' Guards', icon: '🛡️' },
+                { id: 19, title: 'Deploy', icon: '🚀' },
+                { id: 20, title: 'Projeto Final', icon: '🎓' }
+            ];
+
+            const grid = document.querySelector('.modules-grid');
+            const completedCount = document.getElementById('completed-count');
+            const quizAverage = document.getElementById('quiz-average');
+            const timeSpent = document.getElementById('time-spent');
+            const certSection = document.getElementById('certificate-section');
+
+            let completed = 0;
+            let totalTime = 0;
+
+            modules.forEach(mod => {
+                const moduleId = `angular-modulo-${mod.id}`;
+                const isCompleted = progressManager.progress.completedModules.includes(moduleId);
+                
+                if (isCompleted) completed++;
+                
+                const time = progressManager.progress.timeSpent[moduleId] || 0;
+                totalTime += time;
+
+                const card = document.createElement('a');
+                card.href = `modulo-${mod.id}.html`;
+                card.className = `course-card ${isCompleted ? 'completed' : ''}`;
+                card.style.cssText = isCompleted ? 'border-color: #10b981;' : '';
+                card.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem;">${mod.icon}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Módulo ${mod.id}</span>
+                        ${isCompleted ? '<span style="margin-left: auto; color: #10b981;">✅</span>' : ''}
+                    </div>
+                    <h4 style="margin: 0; font-size: 1rem;">${mod.title}</h4>
+                `;
+                grid.appendChild(card);
+            });
+
+            completedCount.textContent = completed;
+            
+            const angularScores = Object.entries(progressManager.progress.quizScores)
+                .filter(([key]) => key.startsWith('angular'))
+                .map(([, val]) => val.score / val.total * 100);
+            
+            if (angularScores.length > 0) {
+                const avg = Math.round(angularScores.reduce((a, b) => a + b, 0) / angularScores.length);
+                quizAverage.textContent = avg + '%';
+            }
+
+            const hours = Math.floor(totalTime / 3600);
+            const mins = Math.floor((totalTime % 3600) / 60);
+            timeSpent.textContent = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+
+            if (completed >= 17) {
+                certSection.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

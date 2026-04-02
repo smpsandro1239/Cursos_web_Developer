@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Tabelas e Dados - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 5 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📊</span>
+            </div>
+            <h1>Módulo 5: Tabelas e Organização de Dados</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a dar vida visual ao teu site com <strong>Imagens e Multimédia</strong>. Agora que o teu site já é bonito, ele precisa de ser capaz de mostrar dados complexos de forma organizada. Vamos dominar o poder das tabelas!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Esquece o uso de tabelas para "fazer o desenho" do site (isso era no século passado!). Hoje vais aprender a usá-las para o que elas realmente servem:</p>
+            <ul class="learning-goals">
+                <li>✅ A anatomia completa de uma tabela (<code>thead</code>, <code>tbody</code>, <code>tfoot</code>).</li>
+                <li>✅ Cabeçalhos semânticos (<code>th</code>) e o atributo <code>scope</code>.</li>
+                <li>✅ Como dominar células complexas com <code>colspan</code> e <code>rowspan</code>.</li>
+                <li>✅ Legendas de tabela com <code>caption</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Arquitetura dos Dados</h2>
+            <div class="theory-box">
+                <h3>Porquê Tabelas?</h3>
+                <p>Uma tabela HTML serve apenas para **Dados Tabulares**. Se tens um preço unitário, uma quantidade e um total, isso é uma tabela. Se queres colocar um menu ao lado de um texto, isso NÃO é uma tabela (faremos isso com CSS mais tarde!).</p>
+
+                <h3>A Estrutura "Correta" (Não fiques pelo básico!)</h3>
+                <p>Para o Google e para leitores de ecrã entenderem a tua tabela, deves dividi-la em 3 secções principais:</p>
+                <ul>
+                    <li><strong>&lt;thead&gt;</strong>: O topo da tabela, ode moram os títulos das colunas.</li>
+                    <li><strong>&lt;tbody&gt;</strong>: O "recheio" da tabela, com os dados reais.</li>
+                    <li><strong>&lt;tfoot&gt;</strong>: O rodapé, onde podes colocar totais ou notas finais.</li>
+                </ul>
+
+                <div class="analogy">
+                    <h3>🍱 Analogia: A Caixa de Bento</h3>
+                    <p>Imagina uma caixa de almoço organizada:</p>
+                    <ul>
+                        <li><strong>&lt;table&gt;</strong>: A caixa em si.</li>
+                        <li><strong>&lt;tr&gt;</strong>: As divisórias horizontais.</li>
+                        <li><strong>&lt;th&gt;</strong>: A etiqueta que diz "Salada" ou "Arroz".</li>
+                        <li><strong>&lt;td&gt;</strong>: A comida propriamente dita.</li>
+                        <li><strong>Colspan</strong>: Quando tiras uma divisória para a salada ocupar metade da caixa (horizontal).</li>
+                        <li><strong>Rowspan</strong>: Quando fazes um compartimento fundo para uma garrafa (vertical).</li>
+                    </ul>
+                </div>
+
+                <h3>Dica Elite: th scope</h3>
+                <p>Usa <code>&lt;th scope="col"&gt;</code> para títulos de colunas e <code>&lt;th scope="row"&gt;</code> para títulos de linhas. Isto ajuda imenso um utilizador invisual a não se perder na tabela!</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: A Tabela Profissional</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Horário das Aulas de Surf&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Dia&lt;/th&gt;
+      &lt;th scope="col"&gt;Hora&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Segunda&lt;/td&gt;
+      &lt;td&gt;09:00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Poder do Colspan</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;tr&gt;
+  &lt;td&gt;Total da Fatura&lt;/td&gt;
+  &lt;td colspan="2"&gt;500.00€&lt;/td&gt;
+  &lt;!-- Ocupa o lugar de 2 colunas --&gt;
+&lt;/tr&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Ficha de Personagem)</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma tabela de "Atributos de Herói" de um jogo. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Início:</strong> Cria a tag <code>&lt;table&gt;</code> e adiciona uma <code>&lt;caption&gt;</code> com: "Estatísticas do Guerreiro".</li>
+                    <li><strong>Cabeçalho:</strong> Dentro de <code>&lt;thead&gt;</code>, cria uma linha com "Atributo", "Nível" e "Bónus".</li>
+                    <li><strong>Dados:</strong> No <code>&lt;tbody&gt;</code>, adiciona 3 linhas. Ex: Força | 15 | +2.</li>
+                    <li><strong>Mesclagem (Rowspan):</strong> Imagina que a Força e a Agilidade têm o mesmo bónus. Tenta usar <code>rowspan="2"</code> na célula do bónus para ela ocupar duas linhas de altura.</li>
+                    <li><strong>Rodapé:</strong> No <code>&lt;tfoot&gt;</code>, cria uma linha que diz "Status Total: Lendário" usando <code>colspan="3"</code>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Será que consegues organizar os dados sem te perderes nas tags? Testa-te agora!</p>
+            <div id="quiz-container" data-quiz-id="modulo-5">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Tabelas são construídas POR LINHAS (<code>tr</code>).</li>
+                <li>📌 <strong>thead</strong>, <strong>tbody</strong> e <strong>tfoot</strong> dão hierarquia aos dados.</li>
+                <li>📌 <strong>th</strong> deve ser usado para qualquer cabeçalho, mesmo no meio da tabela.</li>
+                <li>📌 <strong>colspan</strong> (horizontal) e <strong>rowspan</strong> (vertical) criam layout complexos.</li>
+                <li>📌 <strong>caption</strong> é o título acessível da tabela.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Tabela de Preços</h3>
+                <p>Cria uma tabela simples com "Produto" e "Preço". No rodapé, coloca o "Total".</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Maçã&lt;/td&gt;&lt;td&gt;1€&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td&gt;1€&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Calendário</h3>
+                <p>Como farias uma tabela que mostra os dias da semana e 3 horários? Quais tags usarias para os dias?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content">
+                        <p><strong>Solução:</strong> Usaria <code>&lt;thead&gt;</code> para os dias da semana e cada dia seria um <code>&lt;th scope="col"&gt;</code>. As horas seriam no <code>&lt;tbody&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Tabelas Responsivas</h3>
+                <p>Tabelas grandes costumam "partir" no telemóvel. Conheces algum truque rápido para as tornar roláveis?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content">
+                        <p><strong>Solução:</strong> O truque mais comum é envolver a <code>&lt;table&gt;</code> numa <code>&lt;div style="overflow-x: auto;"&gt;</code>. Isto cria uma barra de rolagem horizontal só para a tabela!</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-4.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-6.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

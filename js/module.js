@@ -42,7 +42,7 @@ class ModuleController {
         }
 
         if (progressText) {
-            progressText.textContent = `Módulo ${this.moduleNumber} de 20`;
+            progressText.textContent = `Módulo ${this.moduleNumber} de 21`;
         }
 
         if (slideCounter) {

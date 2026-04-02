@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: SEO e Visibilidade - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 9 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔍</span>
+            </div>
+            <h1>Módulo 9: SEO (Otimização para Motores de Busca)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No módulo passado, aprendeste a tornar o teu site <strong>Acessível</strong> para todos. Agora, vamos aprender a torná-lo <strong>Visível</strong> para o mundo. SEO é o que garante que o teu site não é apenas uma agulha num palheiro, mas sim o primeiro resultado que o utilizador encontra no Google.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>O Google não é um humano; ele é um robô que lê o teu código. Nesta aula, vais aprender a falar a língua dele:</p>
+            <ul class="learning-goals">
+                <li>✅ O que é o SEO "On-Page" e porque é que é vital.</li>
+                <li>✅ Como configurar o <code>&lt;title&gt;</code> e a <code>&lt;meta description&gt;</code> perfeitos.</li>
+                <li>✅ O poder das tags <strong>Open Graph</strong> (como o teu site aparece no WhatsApp/Facebook).</li>
+                <li>✅ Tags Técnicas: <code>robots</code>, <code>canonical</code> e o <code>favicon</code>.</li>
+                <li>✅ A hierarquia de títulos como fator de ranking.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Montra Digital</h2>
+            <div class="theory-box">
+                <h3>O que o Google lê primeiro?</h3>
+                <p>O Google olha primeiro para o <code>&lt;head&gt;</code> do teu HTML. Se o teu título for apenas "Página Inicial", tu perdeste a oportunidade de dizer do que se trata o teu negócio. Um bom título deve ter entre 50 a 60 caracteres.</p>
+
+                <h3>Meta Description: O Teu Pitch de Vendas</h3>
+                <p>A meta descrição não ajuda diretamente no ranking, mas ajuda a convencer o utilizador a CLICAR. É o texto que aparece por baixo do título nos resultados de pesquisa. Mantém-no abaixo dos 160 caracteres!</p>
+
+                <div class="analogy">
+                    <h3>📢 Analogia: O Cartaz da Estrada</h3>
+                    <p>Imagina que o teu site é uma loja perdida numa floresta:</p>
+                    <ul>
+                        <li><strong>SEO</strong>: São as placas de sinalização na estrada principal.</li>
+                        <li><strong>Open Graph</strong>: É o folheto bonito que alguém entrega aos amigos. Sem ele, o folheto é apenas um papel pardo sem fotos.</li>
+                        <li><strong>Canonical</strong>: É a placa que diz "A loja oficial é esta!", para evitar que os clientes vão para uma cópia ou para uma tenda temporária ao lado.</li>
+                    </ul>
+                </div>
+
+                <h3>Redes Sociais e Open Graph (OG)</h3>
+                <p>Já reparaste que quando colas um link no WhatsApp aparece uma imagem e um título bonito? Isso acontece por causa das tags <code>og:title</code>, <code>og:description</code> e <code>og:image</code>. Se não as usares, a rede social tenta "adivinhar" e o resultado costuma ser feio.</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Head Perfeito para SEO</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;head&gt;
+  &lt;title&gt;Curso de HTML5 Grátis | Aprende Web em Portugal&lt;/title&gt;
+  &lt;meta name="description" content="Domina a criação de sites do zero com o nosso curso prático de HTML5. Aulas passo a passo com exemplos reais."&gt;
+
+  &lt;!-- Impedir que o Google indexe uma página de testes --&gt;
+  &lt;meta name="robots" content="index, follow"&gt;
+
+  &lt;link rel="canonical" href="https://aprendeweb.pt/html5"&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Configuração para Redes Sociais</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;meta property="og:type" content="website"&gt;
+&lt;meta property="og:title" content="Aprende Web: HTML5 para Iniciantes"&gt;
+&lt;meta property="og:image" content="https://aprendeweb.pt/img/banner-social.jpg"&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Otimizando o Teu Projeto)</h2>
+            <div class="practice-guide">
+                <p>Vamos preparar o teu site para ser "famoso" no Google e nas redes sociais. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Título Único:</strong> No teu arquivo principal, muda o <code>&lt;title&gt;</code> para algo que inclua o teu nome e a tua profissão (ex: "Artur Silva | Portfolio de Web Design").</li>
+                    <li><strong>A "Chamada":</strong> Adiciona a tag de <code>meta description</code>. Escreve uma frase que faça alguém querer clicar no teu site em vez de outro.</li>
+                    <li><strong>A Imagem de Partilha:</strong> Cria ou procura uma imagem (1200x630 pixels) e coloca o link dela na tag <code>og:image</code>.</li>
+                    <li><strong>O Ícone da Identidade:</strong> Define o teu <code>favicon</code>. É o detalhe que faz o site parecer profissional.</li>
+                    <li><strong>Teste de Robô:</strong> Verifica se os teus títulos (h1, h2, h3) seguem uma ordem lógica. Lembra-te: o Google lê a hierarquia para saber o que é mais importante!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>SEO não é magia, é organização. Prova que sabes falar com os motores de busca!</p>
+            <div id="quiz-container" data-quiz-id="modulo-9">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Title</strong> e <strong>Description</strong> são o teu pitch de vendas no Google.</li>
+                <li>📌 <strong>Open Graph (OG)</strong> controla a aparência em apps como WhatsApp e Facebook.</li>
+                <li>📌 <strong>Hierarquia de Títulos</strong> (h1 -> h2 -> h3) é vital para o ranking.</li>
+                <li>📌 <strong>Canonical</strong> impede confusão com conteúdo duplicado.</li>
+                <li>📌 <strong>Favicon</strong> é essencial para a identidade e confiança do utilizador.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Títulos Duplicados</h3>
+                <p>Se tiveres 3 páginas com o mesmo título "Meu Site", como é que o Google reage? Porque é que isto é mau?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content">
+                        <p><strong>Solução:</strong> O Google penaliza o site porque não sabe qual página mostrar para cada pesquisa. Cada página do teu site deve ter um título **único** e específico.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Imagens Pesadas</h3>
+                <p>Porque é que o Google retira pontos a um site que tem imagens muito grandes (ex: 5MB cada uma), mesmo que o SEO das tags esteja perfeito?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content">
+                        <p><strong>Solução:</strong> Porque a <strong>velocidade de carregamento</strong> (Core Web Vitals) é um fator de ranking. O Google privilegia sites rápidos para não gastar os dados dos utilizadores!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O robots.txt</h3>
+                <p>Pesquisa o que é o ficheiro <code>robots.txt</code> e onde ele deve ser colocado no teu servidor.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content">
+                        <p><strong>Solução:</strong> É um ficheiro de texto na **raiz** do teu site que diz aos robôs quais pastas eles PODEM ou NÃO PODEM ler (ex: podes esconder a pasta de 'admin').</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-8.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-10.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

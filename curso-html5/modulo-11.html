@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 11: Internacionalização - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 11 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🌍</span>
+            </div>
+            <h1>Módulo 11: Falar para o Mundo</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a tornar o teu site <strong>rápido como um relâmpago</strong>. Agora que é rápido, vamos garantir que ele pode ser lido em qualquer parte do planeta, suportando diferentes línguas e caracteres especiais.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Como declarar o idioma correto do site.</li>
+                <li>✅ O segredo do <strong>UTF-8</strong> (Charset).</li>
+                <li>✅ Texto da direita para a esquerda (Idiomas Árabes).</li>
+                <li>✅ Boas práticas para sites bilingues.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Intérprete Web</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Internacionalização (i18n) é preparar o teu site para que ele faça sentido em diferentes culturas e regiões.</p>
+                <div class="analogy">
+                    <h3>🗺️ Analogia: O Guia Turístico</h3>
+                    <p>Imagina que és um guia turístico num museu:</p>
+                    <ul>
+                        <li><strong>Lang Attribute</strong>: É o crachá que usas a dizer "Falo Português" ou "I speak English".</li>
+                        <li><strong>Charset (UTF-8)</strong>: É o dicionário universal que tem todos os símbolos do mundo (acentos, emojis, kanjis). Sem ele, o teu texto vira "sopa de letras".</li>
+                        <li><strong>RTL/LTR</strong>: É saber se no país de origem se lê um livro da esquerda para a direita ou da direita para a esquerda.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Idioma e Codificação</h3>
+                <p>A base de qualquer site moderno.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+&lt;head&gt;
+  &lt;!-- OBRIGATÓRIO: Suporta acentos e emojis 🚀 --&gt;
+  &lt;meta charset="UTF-8"&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+                <p class="explanation">Se não usares UTF-8, caracteres como 'ç' ou 'ã' podem aparecer como símbolos estranhos ().</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Direção do Texto (RTL)</h3>
+                <p>Para idiomas como Árabe ou Hebraico.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- 'rtl' significa Right-to-Left (Direita para Esquerda) --&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;body&gt;
+  &lt;h1&gt;مرحبا بالعالم&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">O browser muda automaticamente a posição das barras laterais e do texto para condizer com a cultura.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: Mudança de Idioma</h3>
+                <p>Indicar partes do texto noutro idioma.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;p&gt;O lema da França é &lt;span lang="fr"&gt;Liberté, Égalité, Fraternité&lt;/span&gt;.&lt;/p&gt;</code></pre>
+                </div>
+                <p class="explanation">Isto ajuda os leitores de ecrã a pronunciarem as palavras estrangeiras com o sotaque correto!</p>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma página sobre "Viagens":</p>
+                <ol class="steps-list">
+                    <li>Configura o HTML para Português (Portugal) e usa charset UTF-8.</li>
+                    <li>Cria um título <code>&lt;h1&gt;</code> com emojis de bandeiras.</li>
+                    <li>Escreve um parágrafo que contenha uma frase em Inglês e outra em Francês (usando a tag <code>span</code> com o <code>lang</code> correto).</li>
+                    <li>Cria uma pequena secção que simule uma frase em Árabe (usa <code>dir="rtl"</code>).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-11">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Define sempre o <strong>lang</strong> na tag <code>&lt;html&gt;</code>.</li>
+                <li>📌 <strong>UTF-8</strong> é a única codificação que deves usar hoje em dia.</li>
+                <li>📌 O atributo <strong>dir</strong> controla a direção da leitura.</li>
+                <li>📌 Usa o <strong>lang</strong> em spans para ajudar a acessibilidade em textos multilingues.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Enigma dos Acentos</h3>
+                <p>Abres um site e vês "Olá Mundo" escrito como "OlÃ¡ Mundo". Qual é o problema?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Falta a tag <code>&lt;meta charset="UTF-8"&gt;</code> ou o ficheiro foi guardado com a codificação errada no editor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Mapa Global</h3>
+                <p>Como diferenciavas o Português de Portugal do Português do Brasil no atributo <code>lang</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Portugal: <code>pt-PT</code>. Brasil: <code>pt-BR</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Ponto de Interrogação</h3>
+                <p>Se visses <code>dir="ltr"</code>, o que é que isso significa?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Significa <strong>Left-to-Right</strong> (Esquerda para a Direita), que é o padrão da nossa língua e da maioria das línguas ocidentais.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-10.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-12.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+
+
+
+
+        <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Imagens e Multimédia - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 4 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🖼️</span>
+            </div>
+            <h1>Módulo 4: Imagens e Multimédia</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a criar a teia de conexões do teu site com <strong>Links</strong> e a organizar dados com <strong>Listas</strong>. Agora, vamos deixar de ver apenas texto azul e preto e vamos dar cor e vida à tua página!</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>A web moderna é visual. Nesta aula, vais dominar as ferramentas visuais:</p>
+            <ul class="learning-goals">
+                <li>✅ Como inserir imagens de forma correta (<code>img</code>).</li>
+                <li>✅ A importância crucial da acessibilidade (<code>alt</code>).</li>
+                <li>✅ Diferenças entre formatos (WebP, SVG, PNG, JPG).</li>
+                <li>✅ Como agrupar imagens e legendas com <code>figure</code>.</li>
+                <li>✅ Introdução ao Áudio e Vídeo nativos.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Ilustração da Informação</h2>
+            <div class="theory-box">
+                <h3>O Elemento &lt;img&gt;</h3>
+                <p>A tag de imagem é especial por dois motivos: ela é <strong>vazia (empty)</strong>, ou seja, não tem tag de fecho, e ela é um elemento de **substituição** (o browser troca a tag pelo ficheiro que tu indicares no <code>src</code>).</p>
+
+                <h3>A Trindade dos Atributos</h3>
+                <ul>
+                    <li><strong>src (Source)</strong>: O caminho para o ficheiro. Pode ser local (<code>imagem.jpg</code>) ou um link externo (URL).</li>
+                    <li><strong>alt (Alternative Text)</strong>: Atributo **obrigatório** por lei e por boas práticas. Se a imagem não carregar, ou se um cego estiver a navegar, este texto descreve o que lá está.</li>
+                    <li><strong>loading="lazy"</strong>: Um truque de performance! Diz ao browser para só carregar a imagem quando o utilizador estiver prestes a vê-la no scroll.</li>
+                </ul>
+
+                <div class="analogy">
+                    <h3>🖼️ Analogia: O Formato Ideal</h3>
+                    <p>Nem todas as imagens são iguais:</p>
+                    <ul>
+                        <li><strong>JPG/JPEG</strong>: Como uma fotografia revelada. Ótima para cores complexas, mas perde qualidade se for muito comprimida.</li>
+                        <li><strong>PNG</strong>: Como um adesivo (sticker). Permite ter fundos transparentes.</li>
+                        <li><strong>SVG</strong>: Como um desenho técnico. Não importa o quanto aumentes o zoom, nunca fica "pixelizado". Perfeito para logótipos e ícones.</li>
+                        <li><strong>WebP</strong>: A estrela atual. É muito leve e mantém uma qualidade excelente. É o que deves tentar usar sempre.</li>
+                    </ul>
+                </div>
+
+                <h3>Semântica Visual: figure e figcaption</h3>
+                <p>Muitas vezes, uma imagem precisa de contexto. Em vez de apenas colocares um parágrafo por baixo, deves usar o par <code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code>. Isto avisa o Google e os leitores de ecrã que aquele texto é especificamente a descrição daquela imagem.</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Imagem com Acessibilidade Plena</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;img
+  src="paisagem-alentejo.webp"
+  alt="Campo de trigo dourado sob um céu azul no Alentejo"
+  width="800"
+  height="450"
+  loading="lazy"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: A Galeria Semântica</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;figure&gt;
+  &lt;img src="codigo.png" alt="Ecrã do VS Code com código HTML"&gt;
+  &lt;figcaption&gt;Figura 1: A estrutura básica de um projeto web.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Construindo a Tua Galeria)</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma secção de "Destaque" com imagem e legenda. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Escolha:</strong> Procura um link de uma imagem qualquer na internet ou usa uma foto que tenhas no teu computador.</li>
+                    <li><strong>Estrutura:</strong> Cria um elemento <code>&lt;section&gt;</code> e dá-lhe um <code>&lt;h2&gt;</code> com o título "Minha Foto de Destaque".</li>
+                    <li><strong>Inserção:</strong> Coloca uma <code>&lt;figure&gt;</code> abaixo do título.</li>
+                    <li><strong>A Imagem:</strong> Insere a <code>&lt;img&gt;</code>. Lembra-te de escrever um <code>alt</code> que realmente descreva o que o utilizador está a ver.</li>
+                    <li><strong>O Texto:</strong> Adiciona uma <code>&lt;figcaption&gt;</code> com a fonte da imagem ou uma breve explicação histórica.</li>
+                    <li><strong>Toque Final:</strong> Adiciona o atributo <code>loading="lazy"</code> para mostrares que já dominas a performance!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Teste os seus conhecimentos sobre multimédia. Lembra-te: o detalhe faz o profissional!</p>
+            <div id="quiz-container" data-quiz-id="modulo-4">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 A tag <strong>&lt;img&gt;</strong> não tem fecho (self-closing).</li>
+                <li>📌 O <strong>alt</strong> é vital para acessibilidade e SEO.</li>
+                <li>📌 <strong>SVG</strong> é para ícones; <strong>WebP/JPG</strong> para fotos.</li>
+                <li>📌 <strong>figure</strong> e <strong>figcaption</strong> agrupam imagem e texto semanticamente.</li>
+                <li>📌 <strong>controls</strong> é o atributo que ativa o player em áudio e vídeo.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Vídeo do YouTube</h3>
+                <p>Como é que se coloca um vídeo do YouTube no site? (Dica: O YouTube dá-te um elemento chamado <code>iframe</code>).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> No YouTube, clica em "Partilhar" > "Incorporar" (Embed). Copia o código <code>&lt;iframe&gt;</code> e cola no teu HTML. O <code>iframe</code> cria uma janela para outro site dentro do teu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Acessibilidade de Ícones</h3>
+                <p>Se tiveres uma imagem de uma lupa que serve de botão de pesquisa, o que deve estar no <code>alt</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Deve estar a funcionalidade, não o objeto. Em vez de <code>alt="lupa"</code>, deves usar <code>alt="Pesquisar"</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Favicon</h3>
+                <p>Descobre como se chama o ícone pequeno que aparece na aba do navegador ao lado do título.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Chama-se <strong>Favicon</strong>. Define-se no <code>&lt;head&gt;</code> com a tag: <code>&lt;link rel="icon" href="favicon.ico"&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-3.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-5.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

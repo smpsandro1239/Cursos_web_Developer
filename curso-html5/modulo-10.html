@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Performance Web - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 10 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">⚡</span>
+            </div>
+            <h1>Módulo 10: Performance e Velocidade Web</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No módulo passado, aprendeste a configurar o <strong>SEO</strong> para que o teu site apareça no Google. Hoje, vamos garantir que o teu site é <strong>super rápido</strong>. A velocidade não é apenas um luxo; é um fator vital para manter os utilizadores e para subir no ranking do Google (Core Web Vitals).</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula, vais aprender as técnicas de elite para otimizar o carregamento do teu HTML:</p>
+            <ul class="learning-goals">
+                <li>✅ A batalha dos scripts: <code>normais</code> vs <code>async</code> vs <code>defer</code>.</li>
+                <li>✅ Otimização de Imagens e Iframes com <code>lazy loading</code>.</li>
+                <li>✅ Antecipar recursos com <code>preload</code> e <code>preconnect</code>.</li>
+                <li>✅ O conceito de <strong>Above the Fold</strong> (Acima da Dobra).</li>
+                <li>✅ Prioridade de carregamento (<code>fetchpriority</code>).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Web Não Espera</h2>
+            <div class="theory-box">
+                <h3>O Bloqueio do Renderizador</h3>
+                <p>Quando o browser lê uma tag <code>&lt;script&gt;</code>, ele para tudo o que está a fazer (como desenhar o texto) para descarregar e ler o ficheiro. Isto chama-se "bloqueio".</p>
+                <ul>
+                    <li><strong>async</strong>: O script descarrega "de lado" e corre assim que terminar, interrompendo o HTML se for preciso. Útil para anúncios ou analytics.</li>
+                    <li><strong>defer</strong>: O script descarrega "de lado" mas só corre DEPOIS de todo o HTML estar desenhado. É a opção ideal para a lógica do teu site.</li>
+                </ul>
+
+                <h3>Lazy Loading 2.0</h3>
+                <p>Não penses apenas em imagens! Podes usar <code>loading="lazy"</code> também em <code>&lt;iframe&gt;</code> (como mapas do Google ou vídeos do YouTube). Isto poupa imensa memória e dados ao utilizador.</p>
+
+                <div class="analogy">
+                    <h3>🏎️ Analogia: O Restaurante Eficiente</h3>
+                    <p>Imagina que és o chefe de sala de um restaurante de luxo:</p>
+                    <ul>
+                        <li><strong>Scripts Normais</strong>: É um empregado que para de servir as mesas para ir ler o menu todo a um cliente (bloqueia o serviço).</li>
+                        <li><strong>Defer</strong>: É preparar o menu enquanto serve as bebidas e só ir ler o menu quando o cliente já tiver a bebida na mão.</li>
+                        <li><strong>Preload</strong>: É tirar a garrafa de vinho da cave antes mesmo de o cliente a pedir, porque sabes que ele a pede sempre.</li>
+                    <li><strong>Above the Fold</strong>: É garantir que as entradas chegam à mesa mal o cliente se senta, mesmo que o prato principal ainda demore 20 minutos.</li>
+                    </ul>
+                </div>
+
+                <h3>Novidade: fetchpriority</h3>
+                <p>Podes dizer ao browser: "Esta imagem é a mais importante de todas!" usando <code>fetchpriority="high"</code>. Isto é perfeito para o banner principal (hero image) para que ele apareça instantaneamente.</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Gestão de Ativos Profissional</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;head&gt;
+  &lt;!-- Preload de fonte crítica --&gt;
+  &lt;link rel="preload" href="fonts/inter.woff2" as="font" crossorigin&gt;
+
+  &lt;!-- Script que não bloqueia o site --&gt;
+  &lt;script defer src="js/main.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Otimização de Media</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Imagem prioritária no topo --&gt;
+&lt;img src="hero.webp" fetchpriority="high" alt="Banner Principal"&gt;
+
+&lt;!-- Mapa que só carrega quando chegamos ao fim da página --&gt;
+&lt;iframe src="google-maps-link" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Limpeza de Performance)</h2>
+            <div class="practice-guide">
+                <p>Vamos aplicar estas correções ao teu arquivo <code>index.html</code>. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Scripts:</strong> Move todos os teus <code>&lt;script&gt;</code> para o <code>&lt;head&gt;</code> e adiciona o atributo <code>defer</code>.</li>
+                    <li><strong>Preconnect:</strong> Adiciona <code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code> no topo do head.</li>
+                    <li><strong>Imagens:</strong> Procura todas as imagens que NÃO aparecem no topo do ecrã mal a página abre. Adiciona-lhes <code>loading="lazy"</code>.</li>
+                    <li><strong>Prioridade:</strong> Na primeira imagem do teu site, adiciona <code>fetchpriority="high"</code> e remove qualquer <code>loading="lazy"</code> que ela possa ter.</li>
+                    <li><strong>Vídeo:</strong> Se tiveres um vídeo ou mapa, certifica-te de que ele tem <code>loading="lazy"</code> para não atrasar o resto do site.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Velocidade é dinheiro na web. Prova que sabes como poupar segundos ao teu utilizador!</p>
+            <div id="quiz-container" data-quiz-id="modulo-10">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Performance</strong> é uma funcionalidade (feature), não um detalhe.</li>
+                <li>📌 Usa <strong>defer</strong> para scripts; <strong>async</strong> para serviços externos independentes.</li>
+                <li>📌 <strong>loading="lazy"</strong> em imagens e iframes "abaixo da dobra".</li>
+                <li>📌 <strong>fetchpriority="high"</strong> para o recurso mais importante do topo.</li>
+                <li>📌 <strong>preload</strong> e <strong>preconnect</strong> eliminam tempo de espera de rede.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Mistério do LCP</h3>
+                <p>Pesquisa o que significa a sigla <strong>LCP</strong> (Largest Contentful Paint) e porque é que o Google a usa para medir a velocidade do teu site.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content">
+                        <p><strong>Solução:</strong> É o tempo que demora a aparecer o maior elemento visual no ecrã (geralmente uma imagem ou título). O Google quer que isto aconteça em menos de 2.5 segundos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Scripts no Fim vs Defer</h3>
+                <p>Antigamente, colocavam-se os scripts no final do <code>&lt;body&gt;</code>. Porque é que usar <code>defer</code> no <code>&lt;head&gt;</code> é melhor hoje em dia?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content">
+                        <p><strong>Solução:</strong> Porque com o <code>defer</code> no head, o browser começa a descarregar o ficheiro ENQUANTO lê o HTML. Se estiver no fim do body, ele só descobre que o ficheiro existe quando chegar lá.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Favicon e Performance</h3>
+                <p>Até o favicon pode afetar a velocidade. Como deves definir o ícone para que ele seja o mais leve possível?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content">
+                        <p><strong>Solução:</strong> Usando o formato <strong>SVG</strong> (que é código vetorial puro) ou um PNG otimizado em vez do antigo formato .ico pesado.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-9.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-11.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

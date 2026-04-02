@@ -1,7 +1,8 @@
 /* Module Styles - Aprende Web 2025 */
 
 /* Header & Progress */
-.module-header {
+.module-header,
+.header {
     background: var(--surface-color);
     padding: 1rem 0;
     position: sticky;
@@ -17,6 +18,26 @@
     border-radius: 1rem;
     font-size: 0.85rem;
     font-weight: 600;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
 }
 
 /* 1. Lesson Intro */
@@ -155,6 +176,37 @@
 }
 
 /* 7. Quiz Styles */
+.loader {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+.loader::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.quiz-error {
+    color: var(--error-color);
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
 .question-card {
     background: var(--surface-color);
     padding: 2rem;
@@ -445,4 +497,199 @@
     padding: 1.5rem;
     border-radius: 1rem;
     text-align: center;
+}
+
+.field-error {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+input.error, select.error {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+input:focus.error {
+    border-color: var(--error-color);
+    outline: none;
+}
+
+/* === Integrado de lesson.css (template legacy) === */
+
+/* Lesson Container (template) */
+.lesson-container {
+    padding: 3rem 0;
+}
+
+/* Lesson Sections (template - paralelo a .lesson-step) */
+.lesson-section {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.lesson-section:last-child {
+    border-bottom: none;
+}
+
+.lesson-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Content Box (template) */
+.content-box {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+}
+
+.content-box ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 1.5rem;
+}
+
+.content-box li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.content-box li::before {
+    content: '\1F3AF';
+    position: absolute;
+    left: -1.5rem;
+    font-size: 1rem;
+}
+
+/* Analogy Box (template - paralelo a .analogy) */
+.analogy-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: rgba(59, 130, 246, 0.08);
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-top: 1.5rem;
+}
+
+.analogy-icon {
+    font-size: 2rem;
+}
+
+.analogy-content h4 {
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Step-by-Step (template - paralelo a .steps-list) */
+.step-by-step .step {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.step-by-step .step:last-child {
+    border-bottom: none;
+}
+
+.step-by-step h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.step-by-step pre {
+    background: #1e293b;
+    color: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+
+/* Quiz container (template - paralelo a .question-card) */
+#quiz-container .question {
+    margin-bottom: 2rem;
+}
+
+#quiz-container .question-text {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+#quiz-container .options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+#quiz-container .option {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--surface-color);
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+}
+
+#quiz-container .option:hover {
+    border-color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+#quiz-container .option.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--success-color);
+    color: white;
+}
+
+#quiz-container .option.incorrect {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--error-color);
+    color: white;
+}
+
+#quiz-container .explanation {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#quiz-container .explanation .analogy-box {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.feedback-icon {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question.answered .option:not(.correct):not(.incorrect) {
+    opacity: 0.6;
+}
+
+/* Tip box */
+.tip {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 3px solid var(--warning-color);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 0.95rem;
 }

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 16: Validação e Debug - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 16 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔍</span>
+            </div>
+            <h1>Módulo 16: Validação e Debug</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a integrar <strong>HTML, CSS e JS</strong>. Agora que sabes construir sistemas completos, precisas de aprender a garantir que eles estão perfeitos e a encontrar erros rapidamente quando algo corre mal.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <ul class="learning-goals">
+                <li>✅ Como usar o <strong>W3C Validator</strong> para limpar erros de HTML.</li>
+                <li>✅ Dominar o <strong>Inspecionador de Elementos</strong> do browser.</li>
+                <li>✅ Ler o Console para encontrar erros de JavaScript.</li>
+                <li>✅ Identificar e corrigir os erros mais comuns de iniciantes.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria (com Analogia) -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Ser um Detetive de Código</h2>
+            <div class="theory-box">
+                <p><strong>Conceito:</strong> Validação é o ato de verificar se o teu código cumpre as regras oficiais (W3C). Debugging (Depuração) é o processo de encontrar e remover "bugs" (erros) que impedem o site de funcionar como esperado.</p>
+                <div class="analogy">
+                    <h3>🩺 Analogia: O Exame Médico</h3>
+                    <p>Desenvolver sem validar é como ignorar a saúde:</p>
+                    <ul>
+                        <li><strong>Código sem Erros</strong>: É uma pessoa saudável que corre uma maratona sem cansar.</li>
+                        <li><strong>Validadores (W3C)</strong>: É o check-up anual. O médico diz-te se tens "colesterol alto" (erros escondidos) antes de teres um ataque cardíaco (o site partir no telemóvel do cliente).</li>
+                        <li><strong>DevTools (Console)</strong>: É o Raio-X. Permite-te ver por dentro do site enquanto ele está a funcionar para perceber exatamente onde está a fratura.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos Práticos</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Erros de Sintaxe Comuns</h3>
+                <p>O que o validador deteta instantaneamente.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- ERRO: Tag não fechada --&gt;
+&lt;div&gt; &lt;p&gt;Texto sem fim...
+&lt;!-- ERRO: Atributos duplicados --&gt;
+&lt;img src="foto.jpg" src="outra.jpg"&gt;
+&lt;!-- ERRO: IDs repetidos --&gt;
+&lt;button id="btn"&gt;A&lt;/button&gt; &lt;button id="btn"&gt;B&lt;/button&gt;</code></pre>
+                </div>
+                <p class="explanation">Estes erros podem fazer com que o Google não indexe bem o teu site ou que o CSS não funcione.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Usar o Console (O teu melhor amigo)</h3>
+                <p>Mandar mensagens para o "detetive".</p>
+                <div class="code-window">
+                    <pre><code class="language-javascript">console.log("O botão foi clicado!");
+console.warn("Cuidado: Esta imagem é muito grande.");
+console.error("ERRO CRÍTICO: Não foi possível carregar os dados.");</code></pre>
+                </div>
+                <p class="explanation">O utilizador normal não vê isto, mas tu vês no painel F12.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: O Inspecionador (F12)</h3>
+                <p>Mudar o site em tempo real (apenas no teu browser).</p>
+                <div class="developer-tip">
+                    <p>💡 <strong>Dica Pro:</strong> Clica com o botão direito em qualquer parte do site e escolhe "Inspecionar". Podes mudar cores, textos e tamanhos para testar ideias antes de escreveres no código real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Prática Orientada -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez!</h2>
+            <div class="practice-guide">
+                <p>Vamos caçar erros:</p>
+                <ol class="steps-list">
+                    <li>Abre o site <strong>validator.w3.org</strong>.</li>
+                    <li>Copia o código do teu projeto atual e cola lá.</li>
+                    <li>Lê os avisos (Warnings) e Erros.</li>
+                    <li>Corrige cada um até veres a mensagem: "Document checking completed. No errors or warnings to show."</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <div id="quiz-container" data-quiz-id="module-16">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 Validar código é essencial para garantir compatibilidade entre browsers.</li>
+                <li>📌 O <strong>W3C Validator</strong> é a bitola de ouro da qualidade HTML.</li>
+                <li>📌 As <strong>DevTools</strong> (F12) permitem ver o interior do site.</li>
+                <li>📌 Erros de tags abertas ou IDs duplicados são os "bugs" mais frequentes.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O ID Fantasma</h3>
+                <p>O que acontece se tiveres dois elementos com o mesmo <code>id="menu"</code> no mesmo ficheiro?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content hidden">
+                        <p><strong>Solução:</strong> O HTML é inválido. No JavaScript, o <code>document.getElementById("menu")</code> só vai encontrar o primeiro, e o segundo ficará "esquecido" ou causará erros inesperados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Erro 404 no Console</h3>
+                <p>Se vires um erro a dizer "GET .... 404 (Not Found)" no console, o que é que isso significa geralmente?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Significa que o caminho de um ficheiro (imagem, CSS ou JS) está errado ou o ficheiro foi apagado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Atalho Mágico</h3>
+                <p>Se o teu teclado não tiver a tecla F12 (como em alguns portáteis), qual é a combinação de teclas alternativa?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Podes usar <code>Ctrl + Shift + I</code> (no Windows/Linux) ou <code>Cmd + Option + I</code> (no Mac).</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-15.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-17.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+
+
+
+
+        <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

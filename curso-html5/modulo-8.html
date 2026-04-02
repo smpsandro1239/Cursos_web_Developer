@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Acessibilidade Digital - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 8 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">♿</span>
+            </div>
+            <h1>Módulo 8: Web para Todos (Acessibilidade)</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, descobriste como a <strong>Semântica</strong> dá significado ao teu site. Hoje vamos usar esse significado para tornar o teu site inclusivo: acessível a pessoas com deficiência e muito mais fácil de usar para todos. Um site que não é acessível é um site que exclui utilizadores.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Acessibilidade (muitas vezes abreviada como <strong>a11y</strong>) não é uma funcionalidade "extra", é a base da web:</p>
+            <ul class="learning-goals">
+                <li>✅ Os 4 princípios do WCAG (POUR).</li>
+                <li>✅ Como escrever <code>alt</code> text descritivo e significativo.</li>
+                <li>✅ Gestão de Foco: navegar apenas com o teclado (Tab).</li>
+                <li>✅ Atributos <strong>ARIA</strong> (Quando usar e quando evitar).</li>
+                <li>✅ Skip Links e Semântica de Landmarks (Marcos).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: Construir Sem Barreiras</h2>
+            <div class="theory-box">
+                <h3>O que é o POUR?</h3>
+                <p>As diretrizes internacionais de acessibilidade baseiam-se em quatro pilares:</p>
+                <ul>
+                    <li><strong>P</strong>ercebível: O utilizador tem de conseguir ver ou ouvir a informação.</li>
+                    <li><strong>O</strong>perável: O utilizador tem de conseguir clicar, escrever ou navegar.</li>
+                    <li><strong>U</strong>ntensível: O conteúdo tem de ser claro e previsível.</li>
+                    <li><strong>R</strong>obusto: O site tem de funcionar em vários navegadores e tecnologias de assistência.</li>
+                </ul>
+
+                <h3>O Texto Alternativo (alt) é a Voz da Imagem</h3>
+                <p>Para um cego, uma imagem sem <code>alt</code> é um silêncio confuso.
+                <strong>Regra de Ouro:</strong> Se a imagem transmite informação (ex: um gráfico), o <code>alt</code> deve descrever essa informação. Se a imagem é apenas decorativa, usa <code>alt=""</code> para o leitor de ecrã a ignorar.</p>
+
+                <div class="analogy">
+                    <h3>🦯 Analogia: O GPS na Escuridão</h3>
+                    <p>Imagina que estás a caminhar num edifício completamente às escuras:</p>
+                    <ul>
+                        <li><strong>Links e Botões</strong>: São as maçanetas das portas. Tens de conseguir senti-las.</li>
+                        <li><strong>Ordem de Foco (TAB)</strong>: É o fio de ariane que te guia pelo caminho certo. Se o fio saltar do início para o fim de repente, ficas perdido.</li>
+                        <li><strong>ARIA-Label</strong>: É uma etiqueta em braille na maçaneta que diz "Porta da Saída" em vez de ser apenas um metal frio.</li>
+                    </ul>
+                </div>
+
+                <h3>ARIA: O Último Recurso</h3>
+                <p>Existe uma regra famosa no mundo da a11y: "Se podes usar uma tag HTML nativa (como <code>&lt;button&gt;</code>), NÃO uses ARIA". Usa ARIA apenas se estiveres a criar algo tão complexo que o HTML básico não consiga explicar.</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Descrições de Imagens Inteligentes</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Informativa --&gt;
+&lt;img src="grafico-vendas.png" alt="Gráfico de barras mostrando aumento de 20% nas vendas de Verão"&gt;
+
+&lt;!-- Decorativa --&gt;
+&lt;img src="linha-azul.png" alt=""&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Botões de Ícones (aria-label)</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;button aria-label="Fechar Janela"&gt;
+  &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+  &lt;!-- O span é escondido para o leitor não ler "XIS" --&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Auditoria de Acessibilidade)</h2>
+            <div class="practice-guide">
+                <p>Vamos testar se o teu site é amigável para todos. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>O Teste do Teclado:</strong> Abre o teu <code>index.html</code> no browser. Larga o rato. Tenta chegar a todos os links e botões usando apenas a tecla <strong>TAB</strong>. Consegues ver em que botão estás (o contorno azul)?</li>
+                    <li><strong>Links Vazios:</strong> Procura no teu código links que sejam apenas ícones (ex: redes sociais). Adiciona-lhes um <code>aria-label</code> descritivo.</li>
+                    <li><strong>Contraste:</strong> Olha para os teus textos. Estão escritos em cinzento claro sobre fundo branco? Tenta usar cores com mais contraste para quem tem visão reduzida.</li>
+                    <li><strong>Ocultação Corajosa:</strong> Se tens ícones decorativos (como estrelas ou setas), adiciona-lhes <code>aria-hidden="true"</code> para não "sujar" a leitura de quem usa áudio.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Um bom programador faz sites que funcionam. Um excelente programador faz sites que todos podem usar.</p>
+            <div id="quiz-container" data-quiz-id="modulo-8">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>a11y</strong> é sobre incluir todos os utilizadores.</li>
+                <li>📌 O <strong>POUR</strong> guia as decisões de design e código.</li>
+                <li>📌 Nunca use imagens sem <strong>alt</strong> (descritivo ou vazio).</li>
+                <li>📌 O <strong>TAB</strong> deve seguir a ordem lógica do conteúdo.</li>
+                <li>📌 <strong>ARIA</strong> serve para explicar o que o HTML nativo não consegue.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: Skip Links</h3>
+                <p>Pesquisa o que é um "Skip Link" e porque é que é a primeira coisa que um utilizador de teclado quer encontrar num site com muitos menus.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content">
+                        <p><strong>Solução:</strong> É um link escondido que só aparece no foco do teclado, permitindo ao utilizador "saltar" os menus e ir direto para o <code>&lt;main&gt;</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: O Formulário Mudo</h3>
+                <p>Se tiveres um campo de texto apenas com um <code>placeholder</code> e sem <code>label</code>, o que ouve um cego ao chegar ao campo?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content">
+                        <p><strong>Solução:</strong> Na maioria das vezes, ouve apenas "Campo de edição". Ele não sabe se deve escrever o nome, a morada ou a senha! O <code>label</code> é vital.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: Título de Página</h3>
+                <p>Porque é que o <code>&lt;title&gt;</code> é considerado o elemento de acessibilidade mais importante de uma página?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content">
+                        <p><strong>Solução:</strong> Porque é a primeira coisa que um leitor de ecrã anuncia mal a página carrega. Diz ao utilizador ONDE ele está antes de ele começar a navegar.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-7.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-9.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

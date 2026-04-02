@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Formulários I - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 6 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">📝</span>
+            </div>
+            <h1>Módulo 6: Formulários e Interatividade</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a organizar dados em <strong>Tabelas</strong>. Agora, vamos aprender a parte mais emocionante: como permitir que o utilizador fale com o teu site! Os formulários são a porta de entrada para dados, logins e compras.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta primeira parte sobre formulários, vais aprender a criar a base da comunicação:</p>
+            <ul class="learning-goals">
+                <li>✅ A estrutura mestre do <code>&lt;form&gt;</code>.</li>
+                <li>✅ Como ligar etiquetas a campos de forma acessível (<code>label</code>).</li>
+                <li>✅ Domínio dos tipos de <code>input</code> (texto, password, email).</li>
+                <li>✅ Organização visual com <code>fieldset</code> e <code>legend</code>.</li>
+                <li>✅ Validação nativa (impedir erros sem JavaScript).</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Ficha de Diálogo</h2>
+            <div class="theory-box">
+                <h3>O Contentor Mestre: &lt;form&gt;</h3>
+                <p>Tudo o que o utilizador escreve deve estar dentro de um <code>&lt;form&gt;</code>. Ele tem dois atributos cruciais:</p>
+                <ul>
+                    <li><strong>action</strong>: Para que página ou servidor os dados são enviados.</li>
+                    <li><strong>method</strong>: Como os dados viajam (<code>GET</code> para buscas, <code>POST</code> para dados sensíveis como senhas).</li>
+                </ul>
+
+                <h3>Acessibilidade: Label e Input</h3>
+                <p>Nunca coloques um input sem um <code>&lt;label&gt;</code>. O atributo <code>id</code> do input deve coincidir exatamente com o <code>for</code> do label. Isto permite que, ao clicar no texto do label, o cursor salte automaticamente para o campo.</p>
+
+                <div class="analogy">
+                    <h3>🏢 Analogia: O Balcão da Repartição</h3>
+                    <p>Imagina que estás a preencher um formulário oficial em papel:</p>
+                    <ul>
+                        <li><strong>&lt;fieldset&gt;</strong>: É uma moldura que agrupa perguntas relacionadas (ex: "Dados Pessoais" ou "Morada").</li>
+                        <li><strong>&lt;legend&gt;</strong>: É o título escrito na borda dessa moldura.</li>
+                        <li><strong>&lt;input type="password"&gt;</strong>: É como escreveres com uma caneta de tinta invisível que só o rececionista consegue ler.</li>
+                    <li><strong>Placeholder</strong>: É aquele texto cinzento "ex: João Silva" que desaparece mal começas a escrever. Não substitui o label!</li>
+                    </ul>
+                </div>
+
+                <h3>Validação Nativa (HTML5)</h3>
+                <p>Podes obrigar o utilizador a preencher um campo apenas adicionando o atributo <code>required</code>. Se usares <code>type="email"</code>, o browser verifica automaticamente se falta o "@" ou o domínio!</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: O Formulário de Registo Perfeito</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;form action="/registo" method="POST"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Dados de Acesso&lt;/legend&gt;
+
+    &lt;label for="user"&gt;Utilizador:&lt;/label&gt;
+    &lt;input type="text" id="user" name="username" required minlength="4"&gt;
+
+    &lt;label for="pass"&gt;Senha:&lt;/label&gt;
+    &lt;input type="password" id="pass" name="senha" required&gt;
+  &lt;/fieldset&gt;
+
+  &lt;button type="submit"&gt;Criar Conta&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: Datalist (Sugestões)</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;label for="cidade"&gt;Cidade:&lt;/label&gt;
+&lt;input list="cidades" id="cidade" name="cidade"&gt;
+
+&lt;datalist id="cidades"&gt;
+  &lt;option value="Lisboa"&gt;
+  &lt;option value="Porto"&gt;
+  &lt;option value="Faro"&gt;
+&lt;/datalist&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Formulário de Feedback)</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um formulário para os utilizadores avaliarem o teu site. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Contentor:</strong> Abre o teu <code>index.html</code> e cria um <code>&lt;form&gt;</code>.</li>
+                    <li><strong>Identificação:</strong> Cria um campo para o nome e outro para o email. Lembra-te de usar os <code>&lt;label&gt;</code> ligados corretamente.</li>
+                    <li><strong>Opinião:</strong> Adiciona um <code>&lt;textarea&gt;</code> com o atributo <code>rows="4"</code> para o utilizador escrever a sua opinião detalhada.</li>
+                    <li><strong>Obrigatório:</strong> Torna o email e o comentário campos obrigatórios (<code>required</code>).</li>
+                    <li><strong>Botão:</strong> Adiciona um <code>&lt;button type="submit"&gt;</code> com o texto "Enviar Feedback".</li>
+                    <li><strong>Teste:</strong> Tenta enviar o formulário sem preencher nada e vê o browser a dar um erro automaticamente!</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Será que o teu formulário está bem estruturado? Vamos testar a tua lógica!</p>
+            <div id="quiz-container" data-quiz-id="modulo-6">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>&lt;form&gt;</strong> define a área interativa.</li>
+                <li>📌 <strong>label + input</strong> é a base da acessibilidade (use <code>for</code> e <code>id</code>).</li>
+                <li>📌 <strong>required</strong>, <strong>minlength</strong> e <strong>type="email"</strong> fazem validação nativa.</li>
+                <li>📌 <strong>fieldset</strong> agrupa campos; <strong>legend</strong> dá o título ao grupo.</li>
+                <li>📌 <strong>textarea</strong> é para mensagens longas, <strong>input</strong> para linhas curtas.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Seletor de Cores</h3>
+                <p>Descobre como criar um input que abre uma palete de cores para o utilizador escolher uma cor favorita.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;label for="cor"&gt;Escolhe a cor:&lt;/label&gt;
+&lt;input type="color" id="cor" name="favcolor"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Limitações Numéricas</h3>
+                <p>Cria um campo para "Idade" que só aceite números entre 18 e 100.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;input type="number" min="18" max="100"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Botão de Limpar</h3>
+                <p>Como criarias um botão que apaga tudo o que o utilizador escreveu no formulário instantaneamente (sem recarregar a página)?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Usando <code>&lt;button type="reset"&gt;Limpar Tudo&lt;/button&gt;</code>. Mas atenção: usa isto com cuidado, pois pode irritar o utilizador se ele clicar por engano!</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-5.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-7.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Listas e Links - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 3 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🔗</span>
+            </div>
+            <h1>Módulo 3: Listas e Links</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No módulo anterior, dominaste a <strong>hierarquia de textos</strong>. Aprendeste que um <code>h1</code> é a manchete e o <code>p</code> é o corpo. Agora que já sabes escrever o conteúdo, vamos aprender a organizá-lo em listas e a criar pontes para outras páginas.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Esta aula é sobre organização e interatividade. Vais aprender a:</p>
+            <ul class="learning-goals">
+                <li>✅ Criar listas de itens (unordenadas <code>ul</code> e ordenadas <code>ol</code>).</li>
+                <li>✅ Dominar o elemento mais importante da web: o Link (<code>a</code>).</li>
+                <li>✅ Criar menus de navegação simples mas profissionais.</li>
+                <li>✅ Usar âncoras para saltar para partes específicas da página.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Organização e a Conectividade</h2>
+            <div class="theory-box">
+                <h3>Listas: A Base da Ordem</h3>
+                <p>O HTML oferece duas formas principais de listar coisas. A escolha depende da **semântica** (do significado):</p>
+                <ul>
+                    <li><strong>Listas Não Ordenadas (<code>&lt;ul&gt;</code>)</strong>: Significa "Unordered List". Usamos quando a ordem não altera o resultado. Exemplo: Uma lista de compras ou um menu de topo. Os itens aparecem com "bolinhas" (bullets).</li>
+                    <li><strong>Listas Ordenadas (<code>&lt;ol&gt;</code>)</strong>: Significa "Ordered List". Usamos quando há uma sequência lógica. Exemplo: Passos de uma receita ou um Top 10. O browser numera automaticamente (1, 2, 3...).</li>
+                </ul>
+                <p><strong>Truque de Especialista:</strong> Podes aninhar listas! Uma lista pode ter outra lista dentro de um dos seus itens (<code>li</code>).</p>
+
+                <div class="analogy">
+                    <h3>⚓ Analogia: O GPS da Web</h3>
+                    <p>Imagina que o teu site é uma biblioteca gigante:</p>
+                    <ul>
+                        <li><strong>O Link (<code>&lt;a&gt;</code>)</strong>: É a placa que diz "Vá para o Corredor 4". Sem ele, o utilizador ficaria preso numa só sala.</li>
+                        <li><strong>O Atributo <code>href</code></strong>: É a morada escrita na placa. Se falhares a morada, a placa não leva a lado nenhum.</li>
+                        <li><strong>O Atributo <code>target="_blank"</code></strong>: É como se a placa te desse um segundo par de olhos. Abres o novo livro sem largar o que estás a ler atualmente.</li>
+                    </ul>
+                </div>
+
+                <h3>Âncoras Internas (IDs)</h3>
+                <p>Sabes quando clicas num link e a página "escorrega" lá para baixo sozinha? Isso faz-se com <strong>IDs</strong>. Tu dás um nome a uma secção (ex: <code>&lt;section id="precos"&gt;</code>) e crias um link para ela usando o cardinal (ex: <code>&lt;a href="#precos"&gt;Ver Preços&lt;/a&gt;</code>).</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Listas Complexas (Aninhadas)</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Frutas
+    &lt;ul&gt;
+      &lt;li&gt;Maçã&lt;/li&gt;
+      &lt;li&gt;Banana&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Legumes&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Link Profissional</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Link Externo --&gt;
+&lt;a href="https://google.com" target="_blank"&gt;Pesquisar&lt;/a&gt;
+
+&lt;!-- Link Interno com ID --&gt;
+&lt;a href="#rodape"&gt;Ir para o fim&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Guia de Execução)</h2>
+            <div class="practice-guide">
+                <p>Vamos criar um índice interativo para uma página. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Preparação:</strong> No teu <code>index.html</code>, cria uma lista ordenada (<code>ol</code>).</li>
+                    <li><strong>Itens do Índice:</strong> Adiciona dois itens: "Minha História" e "Meus Projetos".</li>
+                    <li><strong>Navegação:</strong> Envolve o texto desses itens em links (<code>a</code>) que apontam para <code>#historia</code> e <code>#projetos</code>.</li>
+                    <li><strong>Os Destinos:</strong> Mais abaixo, cria dois títulos <code>h2</code>. Dá ao primeiro o atributo <code>id="historia"</code> e ao segundo <code>id="projetos"</code>.</li>
+                    <li><strong>Preenchimento:</strong> Escreve um pequeno parágrafo por baixo de cada título.</li>
+                    <li><strong>Teste:</strong> Guarda e clica nos itens da lista lá em cima. Vê a página a saltar para as secções certas!</li>
+                </ol>
+                <p class="tip">💡 <strong>Dica:</strong> Se a página for muito curta, o "salto" pode ser pouco visível. Adiciona muito texto ou espaços para testar melhor!</p>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Mostra que és o mestre das listas e dos links. Responde com atenção!</p>
+            <div id="quiz-container" data-quiz-id="modulo-3">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>UL</strong> para menus e listas comuns; <strong>OL</strong> para passos e rankings.</li>
+                <li>📌 Todo o item de lista deve ser envolvido por <strong>LI</strong>.</li>
+                <li>📌 O atributo <strong>href</strong> é o destino secreto do link.</li>
+                <li>📌 <strong>IDs</strong> permitem criar navegação dentro da mesma página.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Ranking Invertido</h3>
+                <p>Descobre como fazer uma lista ordenada que começa do número 10 para baixo (10, 9, 8...).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;ol reversed start="10"&gt;
+  &lt;li&gt;Item 10&lt;/li&gt;
+  &lt;li&gt;Item 9&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Link de Email</h3>
+                <p>Sabias que podes criar um link que abre automaticamente o programa de email do utilizador?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;a href="mailto:exemplo@email.com"&gt;Envia-me um email&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Menu Vertical</h3>
+                <p>Cria um pequeno código HTML que represente a barra lateral de um site com 3 páginas fictícias.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href="dashboard.html"&gt;Painel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="perfil.html"&gt;Perfil&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="logout.html"&gt;Sair&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-2.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-4.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

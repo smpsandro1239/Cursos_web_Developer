@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Textos e Títulos - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 2 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">✒️</span>
+            </div>
+            <h1>Módulo 2: Textos e Títulos</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No módulo anterior, aprendeste a criar o <strong>esqueleto</strong> da página (`html`, `head`, `body`). Hoje vamos começar a "mobilar" a casa, adicionando conteúdo textual estruturado.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula, vais dominar a arte de escrever para a web. Vamos ver:</p>
+            <ul class="learning-goals">
+                <li>✅ A hierarquia de títulos (<code>h1</code> a <code>h6</code>).</li>
+                <li>✅ Como criar parágrafos (<code>p</code>) e quebras de linha (<code>br</code>).</li>
+                <li>✅ A diferença entre <strong>negrito</strong> visual e semântico.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: A Arquitetura do Texto na Web</h2>
+            <div class="theory-box">
+                <p><strong>Hierarquia e Semântica:</strong> No HTML, as tags não servem apenas para mudar o tamanho da letra. Elas dizem ao navegador e ao Google **o que os dados representam**. Um <code>&lt;h1&gt;</code> diz: "Isto é o mais importante desta página".</p>
+
+                <h3>A Árvore de Títulos (h1 a h6)</h3>
+                <p>Imagina um livro: tens o título do livro (H1), os capítulos (H2), as sub-secções dos capítulos (H3) e assim por diante.
+                <strong>Regra de Ouro:</strong> Nunca saltes níveis. Não passes de um H1 para um H3 apenas porque achas que o H2 é "grande demais". Se o tamanho não te agrada, mudaremos isso mais tarde com CSS.</p>
+
+                <div class="analogy">
+                    <h3>📰 Analogia: O Jornal Diário</h3>
+                    <p>Pensa num jornal físico para entender a estrutura:</p>
+                    <ul>
+                        <li><strong>&lt;h1&gt;</strong>: A Manchete Principal da Capa. (Ex: "A Terra foi salva!"). Existe apenas UMA por página.</li>
+                        <li><strong>&lt;h2&gt;</strong>: Títulos de grandes secções (Ex: "Economia", "Mundo", "Desporto").</li>
+                        <li><strong>&lt;h3&gt;</strong>: Títulos de artigos específicos dentro de cada secção.</li>
+                        <li><strong>&lt;p&gt;</strong>: O corpo da notícia, dividido em parágrafos para ser fácil de ler.</li>
+                    </ul>
+                </div>
+
+                <h3>Parágrafos e Quebras Forçadas</h3>
+                <p>O navegador ignora espaços e "enters" no teu código. Se escreveres um texto com 10 linhas no Notepad mas não usares tags, o browser mostrará tudo colado numa linha gigante.
+                - <code>&lt;p&gt;</code>: Define um parágrafo. O browser adiciona automaticamente um espaço (margem) antes e depois.
+                - <code>&lt;br&gt;</code>: Significa "Break". Força o texto a ir para a linha de baixo sem criar um novo parágrafo. Usa isto com moderação (ex: moradas ou poesia).</p>
+
+                <h3>Semântica: O Significado sobre o Estilo</h3>
+                <p>Antigamente usava-se <code>&lt;b&gt;</code> para negrito (bold). Hoje, usamos <code>&lt;strong&gt;</code>. Porquê? Porque <code>&lt;strong&gt;</code> diz ao leitor de ecrã para cegos: "Lê isto com mais ênfase, isto é importante!". O mesmo acontece com <code>&lt;em&gt;</code> (itálico semântico).</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Estrutura de Títulos Correta</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;h1&gt;O Meu Blog de Viagens&lt;/h1&gt;
+&lt;h2&gt;Viagem a Portugal&lt;/h2&gt;
+&lt;h3&gt;Gastronomia em Lisboa&lt;/h3&gt;
+&lt;p&gt;A comida em Lisboa é fantástica...&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: O Uso do &lt;br&gt;</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;p&gt;
+  Rua dos Programadores, 123&lt;br&gt;
+  Lisboa, Portugal&lt;br&gt;
+  1000-001
+&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Passo a Passo)</h2>
+            <div class="practice-guide">
+                <p>Vamos criar uma notícia de última hora estruturada profissionalmente. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Limpeza:</strong> Abre o teu ficheiro `index.html` e apaga tudo o que estiver dentro do <code>&lt;body&gt;</code>.</li>
+                    <li><strong>A Manchete:</strong> Cria um <code>&lt;h1&gt;</code> com o texto "DESCOBERTA HISTÓRICA". Este é o tema central.</li>
+                    <li><strong>O Subtítulo:</strong> Logo abaixo, cria um <code>&lt;h2&gt;</code> com: "Cientistas encontram água líquida em Marte".</li>
+                    <li><strong>O Conteúdo:</strong> Escreve um parágrafo <code>&lt;p&gt;</code> explicando que a descoberta foi feita por um robot da NASA ontem à tarde.</li>
+                    <li><strong>A Ênfase:</strong> Dentro desse parágrafo, envolve a palavra "ontem à tarde" com a tag <code>&lt;strong&gt;</code> para destacares a urgência da notícia.</li>
+                    <li><strong>Informação Extra:</strong> Cria um segundo parágrafo e usa <code>&lt;em&gt;</code> para escrever uma citação: "Isto muda tudo o que sabemos", disse o diretor da missão.</li>
+                </ol>
+                <p class="tip">💡 <strong>Dica:</strong> Guarda o ficheiro e faz "Refresh" no navegador para veres o resultado!</p>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>Testa o que aprendeste na teoria detalhada acima. As explicações ajudam-te a fixar os conceitos!</p>
+            <div id="quiz-container" data-quiz-id="modulo-2">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>&lt;h1&gt;</strong> só deve haver um por página.</li>
+                <li>📌 <strong>&lt;p&gt;</strong> cria blocos de texto (parágrafos).</li>
+                <li>📌 <strong>&lt;br&gt;</strong> força uma quebra de linha simples.</li>
+                <li>📌 Usa <strong>&lt;strong&gt;</strong> para coisas importantes, não apenas para pôr negrito.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Poema</h3>
+                <p>Escreve quatro versos de um poema. Eles devem aparecer em linhas separadas, mas pertencer ao mesmo parágrafo.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;p&gt;
+  Rosas são vermelhas,&lt;br&gt;
+  Violetas são azuis,&lt;br&gt;
+  O HTML é fix,&lt;br&gt;
+  E tu também és!
+&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Receita de Bolo</h3>
+                <p>Cria uma estrutura para uma receita: Título do Bolo (H1), Ingredientes (H2) e Preparacção (H2).</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;h1&gt;Bolo de Chocolate&lt;/h1&gt;
+
+&lt;h2&gt;Ingredientes&lt;/h2&gt;
+&lt;p&gt;Ovos, farinha, chocolate...&lt;/p&gt;
+
+&lt;h2&gt;Preparacção&lt;/h2&gt;
+&lt;p&gt;Bater tudo e levar ao forno.&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Erro de Hierarquia</h3>
+                <p>O que está errado neste código?</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;h1&gt;Meu Blog&lt;/h1&gt;
+&lt;h4&gt;Postagem do dia&lt;/h4&gt;
+&lt;p&gt;Hoje acordei feliz.&lt;/p&gt;</code></pre>
+                </div>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-content hidden">
+                        <p><strong>Solução:</strong> Saltámos do H1 diretamente para o H4! Deveríamos ter usado H2 para o subtítulo "Postagem do dia". Nunca saltes níveis de títulos.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-1.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-3.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

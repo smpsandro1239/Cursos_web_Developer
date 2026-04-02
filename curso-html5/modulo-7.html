@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Semântica Avançada - Aprende Web</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Aprende Web: HTML5</h1>
+                </a>
+                <nav class="nav">
+                    <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+                    <ul id="nav-menu" class="nav-menu">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../achievements.html">🏆 Conquistas</a></li>
+                        <li><a href="../playground.html">🎮 Playground</a></li>
+                    </ul>
+                </nav>
+                <div class="module-progress-header">
+                    <span>Módulo 7 de 21</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+
+        <!-- 1. Imagem Introdutória -->
+        <div class="lesson-intro">
+            <div class="intro-visual">
+                <span class="visual-icon">🏛️</span>
+            </div>
+            <h1>Módulo 7: Semântica e Estrutura Profissional</h1>
+        </div>
+
+        <!-- 2. Resumo da Aula Anterior -->
+        <section class="lesson-step">
+            <h2>2. Resumo da Aula Anterior</h2>
+            <p>No último módulo, aprendeste a criar a porta de comunicação com o utilizador: os <strong>Formulários</strong>. Agora que já sabemos adicionar todo o tipo de conteúdo, precisamos de aprender a dar-lhe <strong>sentido profundo</strong>. Escrever HTML semântico é o que separa um amador de um mestre da web.</p>
+        </section>
+
+        <!-- 3. O Que Vamos Aprender Hoje -->
+        <section class="lesson-step">
+            <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula, vais aprender a construir a "Espinha Dorsal" de um site moderno e acessível:</p>
+            <ul class="learning-goals">
+                <li>✅ Por que a semântica é o segredo do SEO (ficar no topo do Google).</li>
+                <li>✅ O dilema eterno: <code>article</code> vs <code>section</code> (resolvido!).</li>
+                <li>✅ Tags de estrutura: <code>header</code>, <code>nav</code>, <code>main</code>, <code>aside</code> e <code>footer</code>.</li>
+                <li>✅ Usar a tag <code>time</code> para datas que o computador entende.</li>
+                <li>✅ Quando (e quando NÃO) usar a tag <code>div</code>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Teoria Detalhada -->
+        <section class="lesson-step">
+            <h2>4. Teoria: O Código Com Significado</h2>
+            <div class="theory-box">
+                <h3>O Problema do "Divitis"</h3>
+                <p>Antigamente, tudo era feito com <code>&lt;div&gt;</code>. Uma <code>div</code> é uma caixa genérica; para o Google, ela não significa nada. O HTML5 introduziu tags que explicam o que está lá dentro, permitindo que robôs e leitores de ecrã "vejam" a estrutura do teu site.</p>
+
+                <h3>A Espinha Dorsal</h3>
+                <ul>
+                    <li><strong>&lt;header&gt;</strong>: Não é apenas o topo do site. Pode ser o topo de um artigo também! Contém introduções e navegação.</li>
+                    <li><strong>&lt;nav&gt;</strong>: Apenas para os blocos de links de navegação principais.</li>
+                    <li><strong>&lt;main&gt;</strong>: O conteúdo único daquela página. Só deve existir um por página!</li>
+                    <li><strong>&lt;aside&gt;</strong>: Conteúdo relacionado, mas não vital (barras laterais, anúncios, curiosidades).</li>
+                    <li><strong>&lt;footer&gt;</strong>: Informações de autor, copyright e links secundários.</li>
+                </ul>
+
+                <div class="analogy">
+                    <h3>🗞️ Analogia: O Jornal de Papel</h3>
+                    <p>Imagina um jornal clássico:</p>
+                    <ul>
+                        <li><strong>&lt;article&gt;</strong>: Uma notícia completa. Se a recortares do jornal, ela ainda faz sentido sozinha.</li>
+                        <li><strong>&lt;section&gt;</strong>: Uma secção do jornal (Desporto, Economia) ou uma parte da notícia (Entrevistas, Estatísticas).</li>
+                        <li><strong>&lt;time&gt;</strong>: A data da edição impressa de forma que um arquivo digital a consiga classificar.</li>
+                    </ul>
+                </div>
+
+                <h3>Regra de Ouro: Div para Estilo, Tags para Sentido</h3>
+                <p>Só deves usar uma <code>&lt;div&gt;</code> se não houver nenhuma outra tag que descreva o conteúdo e se precisares dela apenas para aplicar cores ou posicionamento com CSS.</p>
+            </div>
+        </section>
+
+        <!-- 5. Exemplos de Código -->
+        <section class="lesson-step">
+            <h2>5. Exemplos de Código</h2>
+
+            <div class="code-example-card">
+                <h3>Exemplo 1: Página de Blog Semântica</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;header&gt;
+  &lt;h1&gt;Blog do Dev&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Aprenda HTML5&lt;/h2&gt;
+      &lt;time datetime="2025-05-20"&gt;20 de Maio&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;Conteúdo do post...&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;Newsletter e Anúncios&lt;/aside&gt;
+&lt;/main&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 2: A Tag Time</h3>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- Para humanos: 15h --&gt;
+&lt;!-- Para máquinas: 2025-12-25T15:00 --&gt;
+&lt;time datetime="2025-12-25T15:00"&gt;Natal às 15:00&lt;/time&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Agora é a Tua Vez! (Passo a Passo) -->
+        <section class="lesson-step">
+            <h2>6. Agora é a Tua Vez! (Estruturando um Artigo)</h2>
+            <div class="practice-guide">
+                <p>Vamos transformar um texto simples numa estrutura profissional. Segue estes passos:</p>
+                <ol class="steps-list">
+                    <li><strong>Raiz:</strong> Cria um elemento <code>&lt;main&gt;</code> para conter a tua página.</li>
+                    <li><strong>Artigo:</strong> Dentro do main, cria um <code>&lt;article&gt;</code> sobre o teu hobby favorito.</li>
+                    <li><strong>Cabeçalho do Artigo:</strong> Dentro do artigo, usa um <code>&lt;header&gt;</code> com o título (<code>h1</code>) e a data (<code>time</code>).</li>
+                    <li><strong>Corpo:</strong> Divide o teu texto em duas <code>&lt;section&gt;</code>: uma para "Origens" e outra para "Como Praticar".</li>
+                    <li><strong>Extra:</strong> Adiciona um <code>&lt;aside&gt;</code> fora do artigo mas dentro do main com um link para "Saber Mais".</li>
+                    <li><strong>Rodapé:</strong> Termina a página (fora do main) com um <code>&lt;footer&gt;</code> contendo os teus contactos.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 7. Verificação de Conhecimento (Quiz) -->
+        <section class="lesson-step" id="quiz-section">
+            <h2>7. Verificação de Conhecimento</h2>
+            <p>O Google está a observar! Mostra que sabes dar sentido ao teu código.</p>
+            <div id="quiz-container" data-quiz-id="modulo-7">
+                <div class="loader">Carregando quiz...</div>
+            </div>
+        </section>
+
+        <!-- 8. Resumo da Aula -->
+        <section class="lesson-step">
+            <h2>8. Resumo do Que Aprendemos</h2>
+            <ul class="summary-list">
+                <li>📌 <strong>Semântica</strong> = usar a tag certa para o significado certo.</li>
+                <li>📌 <strong>Article</strong> é independente; <strong>Section</strong> é temático.</li>
+                <li>📌 <strong>Main</strong> é o rei da página (só pode haver um).</li>
+                <li>📌 <strong>Aside</strong> é para conteúdo secundário ou barras laterais.</li>
+                <li>📌 <strong>Time</strong> ajuda o computador a ordenar eventos e datas.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Desafios Práticos -->
+        <section class="lesson-step">
+            <h2>9. Desafios Práticos</h2>
+
+            <div class="challenge-card">
+                <h3>Desafio 1: O Detetive de Sidebars</h3>
+                <p>Se tiveres de colocar links de "Posts Relacionados" no fim de um artigo, que tag usarias?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <div id="sol-1" class="solution-content">
+                        <p><strong>Solução:</strong> A tag <code>&lt;aside&gt;</code> é perfeita para isso, ou uma <code>&lt;section&gt;</code> dentro do artigo chamada "Conteúdo Relacionado".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 2: Div vs Section</h3>
+                <p>Um designer pede-te para criar uma caixa apenas para colocar uma borda vermelha à volta de 3 parágrafos aleatórios. Usas <code>section</code> ou <code>div</code>?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <div id="sol-2" class="solution-content">
+                        <p><strong>Solução:</strong> Usas <code>&lt;div&gt;</code>! Se a caixa serve apenas para "efeito visual" e não agrupa um tema lógico, a <code>div</code> é a escolha certa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <h3>Desafio 3: O Endereço</h3>
+                <p>Pesquisa qual é a tag semântica específica para indicar informações de contacto de um autor ou empresa.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <div id="sol-3" class="solution-code hidden">
+                        <pre><code class="language-html">&lt;address&gt;
+  Escrito por &lt;a href="mailto:exemplo@site.com"&gt;João&lt;/a&gt;.&lt;br&gt;
+  Lisboa, Portugal
+&lt;/address&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="lesson-navigation">
+            <a href="modulo-6.html" class="btn btn-secondary">« Aula Anterior</a>
+            <a href="modulo-8.html" class="btn btn-primary">Próxima Aula »</a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/quiz-html.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/challenges.js"></script>
+    <script src="../js/certificado.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
