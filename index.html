@@ -19,26 +19,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Aprende Web">
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon">🚀</span>
+                    <span class="logo-icon" aria-hidden="true">🚀</span>
                     <h1>Aprende Web</h1>
                 </div>
-                <nav class="nav">
-                    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-                    <div id="auth-status"></div>
-                    <ul class="nav-menu">
-                        <li><a href="#cursos">Cursos</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                <nav class="nav" role="navigation" aria-label="Navegação principal">
+                    <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">☰</button>
+                    <div id="auth-status" aria-live="polite"></div>
+                    <ul id="nav-menu" class="nav-menu" role="menubar">
+                        <li role="none"><a href="#cursos" role="menuitem">Cursos</a></li>
+                        <li role="none"><a href="playground.html" role="menuitem">Playground</a></li>
+                        <li role="none"><a href="achievements.html" role="menuitem">🏆 Conquistas</a></li>
+                        <li role="none"><a href="leaderboard.html" role="menuitem">📊 Ranking</a></li>
+                        <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
+                        <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -47,12 +54,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" role="region" aria-labelledby="hero-title">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <span class="hero-badge">✨ Currículo Atualizado 2025</span>
-                        <h1 class="hero-title">
+                        <span class="hero-badge" role="status">✨ Currículo Atualizado 2025</span>
+                        <h1 id="hero-title" class="hero-title">
                             O Teu Futuro como <br>
                             <span class="highlight">Web Developer Elite</span>
                         </h1>
@@ -60,8 +67,8 @@
                             Aprende as tecnologias mais procuradas pelo mercado: HTML, CSS, JavaScript e <strong>Angular</strong>. Do zero absoluto ao nível profissional.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#cursos" class="btn btn-primary">Começar Jornada</a>
-                            <a href="#sobre" class="btn btn-secondary">Ver Mentoria</a>
+                            <a href="#cursos" class="btn btn-primary" aria-label="Começar a tua jornada de aprendizaje">Começar Jornada</a>
+                            <a href="#sobre" class="btn btn-secondary" aria-label="Ver informações sobre a mentoria">Ver Mentoria</a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -106,72 +113,94 @@ console.log(evoluir());</code></pre>
             </div>
         </section>
 
-        <!-- Cursos Section -->
-        <section id="cursos" class="section">
+        <!-- Streak Widget -->
+        <section id="streak-widget" class="section" style="padding: 2rem 0;">
             <div class="container">
-                <h2 class="section-title">Escolhe o teu Caminho</h2>
-                <div class="courses-grid">
-                    <!-- HTML Course -->
-                    <div class="course-card">
-                        <div class="course-icon html-icon">🌐</div>
-                        <h3>Curso de HTML5</h3>
-                        <p>O esqueleto da web. Aprende a estruturar conteúdo de forma semântica e acessível.</p>
-                        <ul class="course-features">
-                            <li>✅ Semântica Moderna</li>
-                            <li>✅ Acessibilidade</li>
-                            <li>✅ SEO Básico</li>
-                        </ul>
-                        <a href="curso-html5/modulo-1.html" class="btn-course">Começar Agora</a>
+                <div class="streak-card" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1)); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="font-size: 3rem;">🔥</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Sequência de Estudo</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Não pares! Mantém a tua sequência todos os dias.</p>
+                        <div style="display: flex; gap: 0.5rem;" id="weekly-progress"></div>
                     </div>
-
-                    <!-- CSS Course -->
-                    <div class="course-card">
-                        <div class="course-icon css-icon">🎨</div>
-                        <h3>Curso de CSS3</h3>
-                        <p>A arte da web. Domina layouts, cores, tipografia e animações.</p>
-                        <ul class="course-features">
-                            <li>✅ Flexbox & Grid</li>
-                            <li>✅ Responsividade</li>
-                            <li>✅ Animações</li>
-                        </ul>
-                        <a href="curso-css/modulo-0.html" class="btn-course">Começar Agora</a>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: #ef4444;" id="streak-count">0</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">dias seguidos</div>
                     </div>
-
-                    <!-- JS Course -->
-                    <div class="course-card">
-                        <div class="course-icon js-icon">⚡</div>
-                        <h3>JavaScript</h3>
-                        <p>O cérebro da web moderna. Domina a lógica, o DOM e as novas normas ES6+.</p>
-                        <ul class="course-features">
-                            <li>Lógica de Programação</li>
-                            <li>DOM & Eventos</li>
-                            <li>Async/Await & APIs</li>
-                        </ul>
-                        <a href="curso-javascript/modulo-0.html" class="btn-course">Explorar Módulos</a>
-                    </div>
-
-                    <!-- Angular Course (Highlight) -->
-                    <div class="course-card highlight-card">
-                        <div class="course-badge">Nível Elite</div>
-                        <div class="course-icon full-icon">🅰️</div>
-                        <h3>Angular Pro</h3>
-                        <p>A framework predileta das grandes empresas. Constrói apps escaláveis e de alta performance.</p>
-                        <ul class="course-features">
-                            <li>Arquitetura Enterprise</li>
-                            <li>RxJS & State Management</li>
-                            <li>HttpClient & Services</li>
-                        </ul>
-                        <a href="curso-angular/modulo-0.html" class="btn-course">Tornar-me Elite</a>
+                    <div style="text-align: center;">
+                        <a href="achievements.html" class="btn btn-secondary" style="background: rgba(245, 158, 11, 0.2); border-color: #f59e0b; color: #f59e0b;">Ver Conquistas</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Instrutor Section -->
-        <section id="sobre" class="section bg-surface">
+        <!-- Cursos Section -->
+        <section id="cursos" class="section" role="region" aria-labelledby="cursos-title">
             <div class="container">
+                <h2 id="cursos-title" class="section-title">Escolhe o teu Caminho</h2>
+                <div class="courses-grid" role="list">
+                    <!-- HTML Course -->
+                    <article class="course-card" role="listitem">
+                        <div class="course-icon html-icon" aria-hidden="true">🌐</div>
+                        <h3>Curso de HTML5</h3>
+                        <p>O esqueleto da web. Aprende a estruturar conteúdo de forma semântica e acessível.</p>
+                        <ul class="course-features" aria-label="O que vais aprender">
+                            <li>✅ Semântica Moderna</li>
+                            <li>✅ Acessibilidade</li>
+                            <li>✅ SEO Básico</li>
+                        </ul>
+                        <a href="curso-html5/modulo-0.html" class="btn-course" aria-label="Começar curso de HTML5">Começar Agora</a>
+                    </article>
+
+                    <!-- CSS Course -->
+                    <article class="course-card" role="listitem">
+                        <div class="course-icon css-icon" aria-hidden="true">🎨</div>
+                        <h3>Curso de CSS3</h3>
+                        <p>A arte da web. Domina layouts, cores, tipografia e animações.</p>
+                        <ul class="course-features" aria-label="O que vais aprender">
+                            <li>✅ Flexbox & Grid</li>
+                            <li>✅ Responsividade</li>
+                            <li>✅ Animações</li>
+                        </ul>
+                        <a href="curso-css/modulo-0.html" class="btn-course" aria-label="Começar curso de CSS3">Começar Agora</a>
+                    </article>
+
+                    <!-- JS Course -->
+                    <article class="course-card" role="listitem">
+                        <div class="course-icon js-icon" aria-hidden="true">⚡</div>
+                        <h3>JavaScript</h3>
+                        <p>O cérebro da web moderna. Domina a lógica, o DOM e as novas normas ES6+.</p>
+                        <ul class="course-features" aria-label="O que vais aprender">
+                            <li>✅ Lógica de Programação</li>
+                            <li>✅ DOM & Eventos</li>
+                            <li>✅ Async/Await & APIs</li>
+                        </ul>
+                        <a href="curso-javascript/modulo-0.html" class="btn-course" aria-label="Explorar módulos de JavaScript">Explorar Módulos</a>
+                    </article>
+
+                    <!-- Angular Course (Highlight) -->
+                    <article class="course-card highlight-card" role="listitem">
+                        <span class="course-badge" aria-label="Nível avançado">Nível Elite</span>
+                        <div class="course-icon full-icon" aria-hidden="true">🅰️</div>
+                        <h3>Angular Pro</h3>
+                        <p>A framework predileta das grandes empresas. Constrói apps escaláveis e de alta performance.</p>
+                        <ul class="course-features" aria-label="O que vais aprender">
+                            <li>✅ Arquitetura Enterprise</li>
+                            <li>✅ RxJS & State Management</li>
+                            <li>✅ HttpClient & Services</li>
+                        </ul>
+                        <a href="curso-angular/modulo-0.html" class="btn-course" aria-label="Tornar-se um developer Angular elite">Tornar-me Elite</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instrutor Section -->
+        <section id="sobre" class="section bg-surface" role="region" aria-labelledby="sobre-title">
+            <div class="container">
+                <h2 id="sobre-title" class="sr-only">Sobre o Instrutor</h2>
                 <div class="instrutor-card">
-                    <div class="instrutor-avatar">
+                    <div class="instrutor-avatar" aria-hidden="true">
                         👨‍🏫
                     </div>
                     <div class="instrutor-info">
@@ -181,12 +210,12 @@ console.log(evoluir());</code></pre>
                             "A minha missão é transformar curiosidade em competência. Com uma abordagem prática e direta,
                             ajudo-te a dominar as tecnologias que constroem a web moderna."
                         </p>
-                        <div class="instrutor-stats">
-                            <div class="stat">
+                        <div class="instrutor-stats" role="list" aria-label="Estatísticas do instrutor">
+                            <div class="stat" role="listitem">
                                 <span class="stat-number">10+</span>
                                 <span class="stat-label">Anos de XP</span>
                             </div>
-                            <div class="stat">
+                            <div class="stat" role="listitem">
                                 <span class="stat-number">1000+</span>
                                 <span class="stat-label">Alunos</span>
                             </div>
@@ -197,18 +226,18 @@ console.log(evoluir());</code></pre>
         </section>
 
         <!-- Contact Section -->
-        <section id="contacto" class="section">
+        <section id="contacto" class="section" role="region" aria-labelledby="contacto-title">
             <div class="container">
-                <h2 class="section-title">Tens Dúvidas?</h2>
+                <h2 id="contacto-title" class="section-title">Tens Dúvidas?</h2>
                 <div class="contato-content">
                     <p>Estamos aqui para ajudar na tua jornada de aprendizagem.</p>
                     <div class="contato-info">
-                        <a href="mailto:ajuda@aprendeweb.pt" class="contato-item">
-                            <span class="contato-icon">📧</span>
+                        <a href="mailto:ajuda@aprendeweb.pt" class="contato-item" aria-label="Enviar email para ajuda">
+                            <span class="contato-icon" aria-hidden="true">📧</span>
                             <span>ajuda@aprendeweb.pt</span>
                         </a>
                         <div class="contato-item">
-                            <span class="contato-icon">🌐</span>
+                            <span class="contato-icon" aria-hidden="true">🌐</span>
                             <span>www.aprendeweb.pt</span>
                         </div>
                     </div>
@@ -218,27 +247,27 @@ console.log(evoluir());</code></pre>
     </main>
 
         <!-- Dashboard Section (Visible only when logged in) -->
-        <section id="dashboard" class="section bg-surface" style="display: none;">
+        <section id="dashboard" class="section bg-surface" style="display: none;" role="region" aria-labelledby="dashboard-title">
             <div class="container">
-                <h2 class="section-title">O Teu Progresso</h2>
-                <div id="user-stats" class="user-stats-container"></div>
+                <h2 id="dashboard-title" class="section-title">O Teu Progresso</h2>
+                <div id="user-stats" class="user-stats-container" role="status" aria-live="polite"></div>
                 <h3 class="subsection-title">Os Teus Certificados</h3>
-                <div id="certificates-grid" class="certificates-grid"></div>
+                <div id="certificates-grid" class="certificates-grid" role="list"></div>
             </div>
         </section>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h4>🚀 Aprende Web</h4>
                     <p>Do Zero ao Heroi no mundo digital.</p>
                 </div>
-                <div class="footer-links">
-                    <a href="#cursos">Cursos</a>
-                    <a href="#sobre">Instrutor</a>
-                    <a href="#contacto">Contacto</a>
-                </div>
+                <nav class="footer-links" aria-label="Links do footer">
+                    <a href="#cursos" aria-label="Ir para Cursos">Cursos</a>
+                    <a href="#sobre" aria-label="Ir para Sobre">Instrutor</a>
+                    <a href="#contacto" aria-label="Ir para Contacto">Contacto</a>
+                </nav>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Sandro Pereira. Feito com ❤️ em Portugal.</p>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Aprende Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .leaderboard-container {
+            padding: 2rem 0;
+        }
+        .leaderboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .leaderboard-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .time-filter {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .podium {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+        .podium-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: var(--surface-color);
+            min-width: 150px;
+        }
+        .podium-item.first {
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.2), transparent);
+            border: 2px solid gold;
+            order: 2;
+        }
+        .podium-item.second {
+            background: linear-gradient(180deg, rgba(192, 192, 192, 0.2), transparent);
+            border: 2px solid silver;
+            order: 1;
+        }
+        .podium-item.third {
+            background: linear-gradient(180deg, rgba(205, 127, 50, 0.2), transparent);
+            border: 2px solid #cd7f32;
+            order: 3;
+        }
+        .podium-rank {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .podium-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .podium-name {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .podium-score {
+            font-size: 1.25rem;
+            color: #3b82f6;
+        }
+        .leaderboard-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--surface-color);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            transition: transform 0.2s;
+        }
+        .leaderboard-item:hover {
+            transform: translateX(5px);
+        }
+        .leaderboard-item.current {
+            border: 2px solid #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .rank {
+            font-size: 1.5rem;
+            font-weight: 700;
+            min-width: 40px;
+            text-align: center;
+        }
+        .rank-1 { color: gold; }
+        .rank-2 { color: silver; }
+        .rank-3 { color: #cd7f32; }
+        .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .user-info {
+            flex: 1;
+        }
+        .user-name {
+            font-weight: 600;
+        }
+        .user-course {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .user-score {
+            text-align: right;
+        }
+        .score-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+        .score-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .your-position {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border: 2px solid #3b82f6;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .your-position h3 {
+            margin-bottom: 1rem;
+        }
+        .position-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📊</span>
+                    <h1>Leaderboard</h1>
+                </a>
+                <div id="auth-status"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+        <div class="leaderboard-container">
+            <div class="leaderboard-header">
+                <h1>🏆 Ranking Global</h1>
+                <p class="hero-subtitle">Compete com outros estudantes e sobe no ranking!</p>
+            </div>
+
+            <div class="time-filter">
+                <button class="filter-btn active" data-period="weekly">Esta Semana</button>
+                <button class="filter-btn" data-period="monthly">Este Mês</button>
+                <button class="filter-btn" data-period="all">Todos os Tempos</button>
+            </div>
+
+            <div class="podium" id="podium">
+            </div>
+
+            <div class="leaderboard-list" id="leaderboard-list">
+            </div>
+
+            <div class="your-position" id="your-position" style="display: none;">
+                <h3>A Tua Posição</h3>
+                <div class="position-number" id="position-number">#--</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+    <script>
+        const MOCK_LEADERBOARD = [
+            { id: 1, name: 'Maria Silva', avatar: 'MS', modules: 84, points: 4200, streak: 45, course: 'Full Stack' },
+            { id: 2, name: 'João Santos', avatar: 'JS', modules: 78, points: 3900, streak: 30, course: 'Frontend' },
+            { id: 3, name: 'Ana Costa', avatar: 'AC', modules: 72, points: 3600, streak: 21, course: 'Full Stack' },
+            { id: 4, name: 'Pedro Oliveira', avatar: 'PO', modules: 65, points: 3250, streak: 15, course: 'Frontend' },
+            { id: 5, name: 'Sofia Ferreira', avatar: 'SF', modules: 58, points: 2900, streak: 12, course: 'Backend' },
+            { id: 6, name: 'Lucas Rodrigues', avatar: 'LR', modules: 52, points: 2600, streak: 8, course: 'Full Stack' },
+            { id: 7, name: 'Beatriz Martins', avatar: 'BM', modules: 48, points: 2400, streak: 10, course: 'Frontend' },
+            { id: 8, name: 'Miguel Costa', avatar: 'MC', modules: 45, points: 2250, streak: 7, course: 'Backend' },
+            { id: 9, name: 'Inês Lopes', avatar: 'IL', modules: 42, points: 2100, streak: 5, course: 'Frontend' },
+            { id: 10, name: 'Tiago Almeida', avatar: 'TA', modules: 38, points: 1900, streak: 3, course: 'Full Stack' },
+            { id: 11, name: 'Carolina Sousa', avatar: 'CS', modules: 35, points: 1750, streak: 4, course: 'Frontend' },
+            { id: 12, name: 'Diogo Reis', avatar: 'DR', modules: 32, points: 1600, streak: 2, course: 'Backend' },
+            { id: 13, name: 'Mariana Pereira', avatar: 'MP', modules: 28, points: 1400, streak: 1, course: 'Frontend' },
+            { id: 14, name: 'Rafael Santos', avatar: 'RS', modules: 25, points: 1250, streak: 0, course: 'Full Stack' },
+            { id: 15, name: 'Leonor Gomes', avatar: 'LG', modules: 22, points: 1100, streak: 0, course: 'Frontend' }
+        ];
+
+        class Leaderboard {
+            constructor() {
+                this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                this.period = 'weekly';
+                this.render();
+            }
+
+            getLeaderboard() {
+                if (this.currentUser) {
+                    const userProgress = this.getUserStats();
+                    const mockWithUser = [...MOCK_LEADERBOARD];
+                    
+                    const existingIndex = mockWithUser.findIndex(u => u.name === this.currentUser.name);
+                    if (existingIndex === -1) {
+                        mockWithUser.push({
+                            id: 999,
+                            name: this.currentUser.name,
+                            avatar: this.currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase(),
+                            modules: userProgress.modules,
+                            points: userProgress.points,
+                            streak: parseInt(localStorage.getItem('current_streak') || '0'),
+                            course: 'Estudante',
+                            isCurrentUser: true
+                        });
+                    }
+                    
+                    return mockWithUser.sort((a, b) => b.points - a.points);
+                }
+                return MOCK_LEADERBOARD;
+            }
+
+            getUserStats() {
+                const progress = JSON.parse(localStorage.getItem('app_progress') || '{}');
+                const userId = this.currentUser?.id || 'guest';
+                const userProgress = progress[userId] || { completedModules: [], quizScores: {} };
+                
+                const modules = userProgress.completedModules.length;
+                const quizCount = Object.keys(userProgress.quizScores).length;
+                const points = modules * 50 + quizCount * 25;
+                
+                return { modules, points };
+            }
+
+            renderPodium(leaderboard) {
+                const podiumEl = document.getElementById('podium');
+                const top3 = leaderboard.slice(0, 3);
+
+                const podiumHTML = top3.map((user, index) => {
+                    const rank = index + 1;
+                    const medals = ['🥇', '🥈', '🥉'];
+                    const height = [140, 100, 70][index];
+                    
+                    return `
+                        <div class="podium-item ${['first', 'second', 'third'][index]}">
+                            <div class="podium-rank">${medals[index]}</div>
+                            <div class="podium-avatar">${user.avatar}</div>
+                            <div class="podium-name">${user.name.split(' ')[0]}</div>
+                            <div class="podium-score">${user.points} pts</div>
+                        </div>
+                    `;
+                }).join('');
+
+                podiumEl.innerHTML = podiumHTML;
+            }
+
+            renderList(leaderboard) {
+                const listEl = document.getElementById('leaderboard-list');
+                const rest = leaderboard.slice(3);
+
+                const listHTML = rest.map((user, index) => {
+                    const rank = index + 4;
+                    const isCurrentUser = user.isCurrentUser || (this.currentUser && user.name === this.currentUser.name);
+                    
+                    return `
+                        <div class="leaderboard-item ${isCurrentUser ? 'current' : ''}">
+                            <div class="rank rank-${rank <= 3 ? rank : ''}">${rank}</div>
+                            <div class="avatar">${user.avatar}</div>
+                            <div class="user-info">
+                                <div class="user-name">${user.name} ${isCurrentUser ? '(Tu)' : ''}</div>
+                                <div class="user-course">🔥 ${user.streak} dias • 📚 ${user.modules} módulos</div>
+                            </div>
+                            <div class="user-score">
+                                <div class="score-value">${user.points}</div>
+                                <div class="score-label">pontos</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                listEl.innerHTML = listHTML;
+
+                if (this.currentUser) {
+                    const userRank = leaderboard.findIndex(u => 
+                        u.isCurrentUser || (this.currentUser && u.name === this.currentUser.name)
+                    ) + 1;
+                    
+                    if (userRank > 3) {
+                        document.getElementById('your-position').style.display = 'block';
+                        document.getElementById('position-number').textContent = `#${userRank}`;
+                    }
+                }
+            }
+
+            render() {
+                const leaderboard = this.getLeaderboard();
+                this.renderPodium(leaderboard);
+                this.renderList(leaderboard);
+            }
+        }
+
+        const leaderboard = new Leaderboard();
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

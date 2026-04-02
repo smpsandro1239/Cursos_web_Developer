@@ -1,0 +1,23 @@
+# robots.txt - Aprende Web
+# https://aprendeweb.pt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aprendeweb.pt/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block common bot traps
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/
+
+# Allow search engines to index content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

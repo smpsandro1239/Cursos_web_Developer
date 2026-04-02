@@ -771,8 +771,5 @@ const QUIZ_DATA_ANGULAR = {
     ]
 };
 
-if (typeof QUIZ_DATA !== 'undefined') {
-    Object.assign(QUIZ_DATA, QUIZ_DATA_ANGULAR);
-} else {
-    var QUIZ_DATA = QUIZ_DATA_ANGULAR;
-}
+if (!window.QUIZ_DATA) window.QUIZ_DATA = {};
+Object.assign(window.QUIZ_DATA, QUIZ_DATA_ANGULAR);

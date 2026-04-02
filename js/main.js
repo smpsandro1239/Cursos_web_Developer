@@ -93,3 +93,79 @@ const createScrollTopBtn = () => {
 };
 
 createScrollTopBtn();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            
+            const isExpanded = navToggle.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('✅ SW registered:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('❌ SW registration failed:', error);
+                });
+        });
+    }
+
+    initStreakWidget();
+});
+
+function initStreakWidget() {
+    const streakCount = document.getElementById('streak-count');
+    const weeklyProgress = document.getElementById('weekly-progress');
+    
+    if (!streakCount || !weeklyProgress) return;
+    
+    const streak = parseInt(localStorage.getItem('current_streak') || '0');
+    streakCount.textContent = streak;
+    
+    const studyDates = JSON.parse(localStorage.getItem('study_dates') || '[]');
+    
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toDateString();
+        const studied = studyDates.includes(dateStr);
+        const dayName = date.toLocaleDateString('pt-PT', { weekday: 'short' }).slice(0, 2);
+        
+        const dot = document.createElement('div');
+        dot.style.cssText = `
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: ${studied ? '#10b981' : 'rgba(255,255,255,0.1)'};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: ${studied ? 'white' : 'var(--text-muted)'};
+        `;
+        dot.textContent = dayName;
+        dot.title = date.toLocaleDateString('pt-PT');
+        weeklyProgress.appendChild(dot);
+    }
+    
+    if (typeof streakManager !== 'undefined') {
+        streakManager.recordStudyDate();
+    }
+}

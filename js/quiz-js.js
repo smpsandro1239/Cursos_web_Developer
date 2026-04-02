@@ -736,8 +736,5 @@ const QUIZ_DATA_JS = {
     ]
 };
 
-if (typeof QUIZ_DATA !== 'undefined') {
-    Object.assign(QUIZ_DATA, QUIZ_DATA_JS);
-} else {
-    var QUIZ_DATA = QUIZ_DATA_JS;
-}
+if (!window.QUIZ_DATA) window.QUIZ_DATA = {};
+Object.assign(window.QUIZ_DATA, QUIZ_DATA_JS);

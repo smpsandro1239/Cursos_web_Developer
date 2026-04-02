@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Playground - Aprende Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-color, #020617);
+            color: var(--text-primary, #f8fafc);
+            min-height: 100vh;
+        }
+        
+        .playground-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .playground-header {
+            background: var(--surface-color, #0f172a);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .playground-header h1 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .playground-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover { background: #2563eb; }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+        
+        .editor-area {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .editor-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            min-width: 0;
+        }
+        
+        .editor-panel:last-child { border-right: none; }
+        
+        .editor-tabs {
+            display: flex;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .editor-tab {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            color: #94a3b8;
+        }
+        
+        .editor-tab.active {
+            color: white;
+            border-bottom-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .editor-tab:hover { color: white; }
+        
+        .editor-content {
+            flex: 1;
+            overflow: auto;
+        }
+        
+        .code-editor {
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: none;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+        }
+        
+        .code-editor:focus { background: #1e293b; }
+        
+        .preview-panel {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        
+        .preview-header {
+            padding: 0.75rem 1rem;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        
+        .preview-content {
+            flex: 1;
+            overflow: auto;
+            background: white;
+        }
+        
+        .preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .console-panel {
+            background: #0f172a;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            max-height: 200px;
+            overflow: auto;
+        }
+        
+        .console-header {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .console-output {
+            padding: 0.75rem 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        .console-line {
+            margin-bottom: 0.25rem;
+        }
+        
+        .console-log { color: #e2e8f0; }
+        .console-warn { color: #fbbf24; }
+        .console-error { color: #ef4444; }
+        
+        .hidden { display: none; }
+        
+        @media (max-width: 768px) {
+            .editor-area { flex-direction: column; }
+            .editor-panel { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .preview-panel { flex: none; height: 50vh; }
+        }
+    </style>
+</head>
+<body>
+    <div class="playground-container">
+        <header class="playground-header">
+            <h1>🎮 Code Playground</h1>
+            <div class="playground-actions">
+                <button class="btn btn-secondary" onclick="resetCode()">🔄 Reset</button>
+                <button class="btn btn-secondary" onclick="saveCode()">💾 Guardar</button>
+                <button class="btn btn-primary" onclick="runCode()">▶️ Executar</button>
+            </div>
+        </header>
+        
+        <div class="editor-area">
+            <div class="editor-panel">
+                <div class="editor-tabs">
+                    <div class="editor-tab active" data-tab="html">HTML</div>
+                    <div class="editor-tab" data-tab="css">CSS</div>
+                    <div class="editor-tab" data-tab="js">JavaScript</div>
+                </div>
+                <div class="editor-content">
+                    <textarea id="html-editor" class="code-editor" spellcheck="false" placeholder="Escreve o teu HTML aqui..."></textarea>
+                    <textarea id="css-editor" class="code-editor hidden" spellcheck="false" placeholder="Escreve o teu CSS aqui..."></textarea>
+                    <textarea id="js-editor" class="code-editor hidden" spellcheck="false" placeholder="Escreve o teu JavaScript aqui..."></textarea>
+                </div>
+            </div>
+            
+            <div class="preview-panel">
+                <div class="preview-header">📺 Pré-visualização</div>
+                <div class="preview-content">
+                    <iframe id="preview-iframe" class="preview-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="console-panel">
+            <div class="console-header">
+                <span>🖥️ Console</span>
+                <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.7rem;" onclick="clearConsole()">Limpar</button>
+            </div>
+            <div id="console-output" class="console-output"></div>
+        </div>
+    </div>
+
+    <script>
+        const htmlEditor = document.getElementById('html-editor');
+        const cssEditor = document.getElementById('css-editor');
+        const jsEditor = document.getElementById('js-editor');
+        const previewIframe = document.getElementById('preview-iframe');
+        const consoleOutput = document.getElementById('console-output');
+        
+        const defaultHTML = `<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Projeto</title>
+</head>
+<body>
+    <h1>Olá Mundo! 👋</h1>
+    <p>Escreve o teu código e clica em "Executar"!</p>
+    
+    <button onclick="dizerOla()">Clica-me!</button>
+    
+    <div id="resultado"></div>
+</body>
+</html>`;
+        
+        const defaultCSS = `body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    color: #2563eb;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #1d4ed8;
+}`;
+        
+        const defaultJS = `function dizerOla() {
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = '<p style="color: green; margin-top: 1rem;">🎉 Olá! Bem-vindo ao Code Playground!</p>';
+    console.log('Olá do Code Playground!');
+}`;
+
+        htmlEditor.value = localStorage.getItem('playground-html') || defaultHTML;
+        cssEditor.value = localStorage.getItem('playground-css') || defaultCSS;
+        jsEditor.value = localStorage.getItem('playground-js') || defaultJS;
+
+        document.querySelectorAll('.editor-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                document.querySelectorAll('.code-editor').forEach(e => e.classList.add('hidden'));
+                
+                const tabName = tab.dataset.tab;
+                document.getElementById(`${tabName}-editor`).classList.remove('hidden');
+            });
+        });
+
+        function runCode() {
+            const html = htmlEditor.value;
+            const css = cssEditor.value;
+            const js = jsEditor.value;
+            
+            const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
+            
+            iframeDoc.open();
+            iframeDoc.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>${css}</style>
+                </head>
+                <body>
+                    ${html.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '')}
+                    <script>
+                        window.onerror = function(msg, url, line) {
+                            parent.consoleError(msg + ' (linha ' + line + ')');
+                            return true;
+                        };
+                        ${js}
+                    <\/script>
+                </body>
+                </html>
+            `);
+            iframeDoc.close();
+            
+            consoleLog('▶️ Código executado', 'info');
+        }
+
+        function saveCode() {
+            localStorage.setItem('playground-html', htmlEditor.value);
+            localStorage.setItem('playground-css', cssEditor.value);
+            localStorage.setItem('playground-js', jsEditor.value);
+            consoleLog('💾 Código guardado!', 'info');
+        }
+
+        function resetCode() {
+            if (confirm('Queres resetar todo o código? Esta ação não pode ser revertida.')) {
+                htmlEditor.value = defaultHTML;
+                cssEditor.value = defaultCSS;
+                jsEditor.value = defaultJS;
+                localStorage.removeItem('playground-html');
+                localStorage.removeItem('playground-css');
+                localStorage.removeItem('playground-js');
+                runCode();
+                consoleLog('🔄 Código resetado!', 'info');
+            }
+        }
+
+        function consoleLog(message, type = 'log') {
+            const line = document.createElement('div');
+            line.className = `console-line console-${type}`;
+            line.textContent = `> ${message}`;
+            consoleOutput.appendChild(line);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        window.consoleError = function(message) {
+            consoleLog(message, 'error');
+        };
+
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'console') {
+                consoleLog(event.data.message, event.data.level);
+            }
+        });
+
+        function clearConsole() {
+            consoleOutput.innerHTML = '';
+        }
+
+        runCode();
+    </script>
+</body>
+</html>

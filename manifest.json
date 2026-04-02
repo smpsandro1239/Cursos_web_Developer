@@ -1,0 +1,67 @@
+{
+    "name": "Aprende Web - Do Zero ao Herói",
+    "short_name": "Aprende Web",
+    "description": "Curso completo de desenvolvimento web: HTML, CSS, JavaScript e Angular.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#3b82f6",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/logo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["education", "learning"],
+    "lang": "pt-PT",
+    "dir": "ltr",
+    "screenshots": [
+        {
+            "src": "screenshots/progress-dashboard.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Dashboard de Progresso"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "HTML5",
+            "short_name": "HTML",
+            "description": "Começar curso de HTML5",
+            "url": "/curso-html5/modulo-0.html",
+            "icons": [{ "src": "images/logo.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "CSS3",
+            "short_name": "CSS",
+            "description": "Começar curso de CSS3",
+            "url": "/curso-css/modulo-0.html",
+            "icons": [{ "src": "images/logo.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "JavaScript",
+            "short_name": "JS",
+            "description": "Começar curso de JavaScript",
+            "url": "/curso-javascript/modulo-0.html",
+            "icons": [{ "src": "images/logo.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Angular",
+            "short_name": "Angular",
+            "description": "Começar curso de Angular",
+            "url": "/curso-angular/modulo-0.html",
+            "icons": [{ "src": "images/logo.png", "sizes": "96x96" }]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}

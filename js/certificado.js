@@ -15,59 +15,96 @@ class CertificateSystem {
         }
 
         const canvas = document.createElement('canvas');
-        canvas.width = 800;
-        canvas.height = 600;
+        canvas.width = 1200;
+        canvas.height = 850;
         const ctx = canvas.getContext('2d');
 
-        // Draw Background
-        ctx.fillStyle = '#f8fafc';
+        const courseColors = {
+            'html5': { primary: '#e34f26', secondary: '#f16529' },
+            'css': { primary: '#1572b6', secondary: '#33a9dc' },
+            'js': { primary: '#f7df1e', secondary: '#d4b904' },
+            'angular': { primary: '#dd0031', secondary: '#ff5e62' }
+        };
+        
+        const colors = courseColors[courseName] || { primary: '#2563eb', secondary: '#3b82f6' };
+
+        ctx.fillStyle = '#0f172a';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Border
-        ctx.strokeStyle = '#2563eb';
-        ctx.lineWidth = 20;
-        ctx.strokeRect(0, 0, canvas.width, canvas.height);
+        const centerX = canvas.width / 2;
+        
+        ctx.strokeStyle = colors.primary;
+        ctx.lineWidth = 8;
+        ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+        
+        ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(55, 55, canvas.width - 110, canvas.height - 110);
 
-        // Content
-        ctx.fillStyle = '#1e293b';
+        ctx.fillStyle = colors.primary;
+        ctx.font = 'bold 18px Inter, sans-serif';
         ctx.textAlign = 'center';
+        ctx.fillText('★ ★ ★', centerX, 140);
 
-        ctx.font = 'bold 40px Inter, sans-serif';
-        ctx.fillText('CERTIFICADO DE CONCLUSÃO', canvas.width/2, 100);
-
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 52px Inter, sans-serif';
+        ctx.fillText('CERTIFICADO', centerX, 210);
+        
+        ctx.fillStyle = colors.secondary;
         ctx.font = '20px Inter, sans-serif';
-        ctx.fillText('Certificamos que', canvas.width/2, 180);
+        ctx.fillText('DE CONCLUSÃO', centerX, 245);
 
-        ctx.font = 'bold 35px Inter, serif';
-        ctx.fillStyle = '#2563eb';
-        ctx.fillText(user.name.toUpperCase(), canvas.width/2, 240);
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '18px Inter, sans-serif';
+        ctx.fillText('Certificamos que', centerX, 310);
 
-        ctx.fillStyle = '#1e293b';
-        ctx.font = '20px Inter, sans-serif';
-        ctx.fillText('completou com sucesso o curso de', canvas.width/2, 300);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 44px Inter, sans-serif';
+        ctx.fillText(user.name.toUpperCase(), centerX, 380);
 
-        ctx.font = 'bold 30px Inter, sans-serif';
-        ctx.fillText(courseName.toUpperCase(), canvas.width/2, 350);
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '18px Inter, sans-serif';
+        ctx.fillText('completou com sucesso o curso de', centerX, 440);
 
+        const courseDisplayName = {
+            'html5': 'HTML5',
+            'css': 'CSS3',
+            'js': 'JavaScript',
+            'angular': 'Angular'
+        };
+        
+        ctx.fillStyle = colors.primary;
+        ctx.font = 'bold 56px Inter, sans-serif';
+        ctx.fillText(courseDisplayName[courseName] || courseName.toUpperCase(), centerX, 510);
+
+        ctx.fillStyle = colors.secondary;
+        ctx.font = 'italic 22px Inter, sans-serif';
+        ctx.fillText('Do Zero ao Herói', centerX, 550);
+
+        const date = new Date();
+        const formattedDate = date.toLocaleDateString('pt-PT', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        
+        ctx.fillStyle = '#64748b';
         ctx.font = '16px Inter, sans-serif';
-        const date = new Date().toLocaleDateString('pt-PT');
-        ctx.fillText(`Data de Emissão: ${date}`, canvas.width/2, 450);
+        ctx.fillText(`Data de Emissão: ${formattedDate}`, centerX, 620);
+        
+        ctx.font = '14px Inter, sans-serif';
+        ctx.fillText(`ID: ${user.id}-${courseName}-${date.getTime()}`, centerX, 650);
 
-        ctx.font = 'italic 16px Inter, sans-serif';
-        ctx.fillText('Aprende Web - Do Zero ao Heroi', canvas.width/2, 520);
+        ctx.fillStyle = '#3b82f6';
+        ctx.font = 'bold 18px Inter, sans-serif';
+        ctx.fillText('🚀 Aprende Web', centerX, 720);
+        
+        ctx.fillStyle = '#64748b';
+        ctx.font = '14px Inter, sans-serif';
+        ctx.fillText('www.aprendeweb.pt', centerX, 750);
 
-        // Image template if exists (mockup)
-        /*
-        const img = new Image();
-        img.src = this.templateUrl;
-        await img.decode();
-        ctx.drawImage(img, 0, 0, 800, 600);
-        // ... re-draw text on top
-        */
-
-        // Download
         const link = document.createElement('a');
-        link.download = `Certificado_${courseName}_${user.name.replace(' ', '_')}.png`;
+        link.download = `Certificado_${courseName}_${user.name.replace(/\s+/g, '_')}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
     }

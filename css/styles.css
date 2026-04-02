@@ -604,15 +604,44 @@ ul {
     font-size: 0.9rem;
 }
 
-/* Mobile */
+/* Mobile Navigation */
 @media (max-width: 768px) {
     .hero-title { font-size: 2.5rem; }
     .hero-content { grid-template-columns: 1fr; text-align: center; }
     .hero-buttons { justify-content: center; }
     .instrutor-card { flex-direction: column; text-align: center; }
     .contato-info { flex-direction: column; }
-    .nav-toggle { display: block; background: none; border: none; font-size: 1.5rem; color: white; }
-    .nav-menu { display: none; } /* Add JS toggle logic later */
+    .nav-toggle { 
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        background: none; 
+        border: none; 
+        font-size: 1.5rem; 
+        color: white;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    .nav-toggle::before { content: "☰"; }
+    .nav-toggle.active::before { content: "✕"; }
+    .nav-menu { 
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--glass-border);
+        gap: 0;
+    }
+    .nav-menu.active { display: flex; }
+    .nav-menu li { width: 100%; text-align: center; }
+    .nav-menu a { display: block; padding: 1rem; }
+    .dark-mode-toggle { justify-content: center; margin-top: 1rem; }
 }
 
 /* Stats Grid */
@@ -818,4 +847,17 @@ ul {
 .scroll-to-top:hover {
     transform: translateY(-2px);
     background: #1d4ed8;
+}
+
+/* Accessibility - Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }

@@ -100,5 +100,9 @@ window.addEventListener('beforeunload', () => {
         const folder = path.split('/').slice(-2, -1)[0];
         const moduleId = `${folder}-${filename}`;
         progressManager.trackTime(moduleId);
+        
+        if (typeof streakManager !== 'undefined') {
+            streakManager.recordStudyDate();
+        }
     }
 });

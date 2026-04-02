@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conquistas - Aprende Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .achievements-container {
+            padding: 2rem 0;
+        }
+        .achievements-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .achievements-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .achievement-card {
+            background: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .achievement-card.locked {
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+        .achievement-card.unlocked {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .achievement-card.locked .achievement-icon {
+            filter: grayscale(100%);
+        }
+        .achievement-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .achievement-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .achievement-progress {
+            background: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        .achievement-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 1rem;
+            transition: width 0.5s ease;
+        }
+        .achievement-status {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .achievement-card.unlocked .achievement-status {
+            color: #10b981;
+        }
+        .achievement-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .stat-box {
+            text-align: center;
+        }
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+        }
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .categories {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🏆</span>
+                    <h1>Conquistas</h1>
+                </a>
+                <div id="auth-status"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+        <div class="achievements-container">
+            <div class="achievements-header">
+                <h1>🏆 As Tuas Conquistas</h1>
+                <p class="hero-subtitle">Completa desafios para desbloquear badges e recompensas!</p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="number" id="unlocked-count">0</div>
+                    <div class="label">Desbloqueados</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number" id="total-count">0</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number" id="percentage">0%</div>
+                    <div class="label">Progresso</div>
+                </div>
+            </div>
+
+            <div class="categories">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="learning">Aprendizagem</button>
+                <button class="category-btn" data-category="quizzes">Quizzes</button>
+                <button class="category-btn" data-category="streak">Streak</button>
+                <button class="category-btn" data-category="social">Social</button>
+            </div>
+
+            <div class="achievements-grid" id="achievements-grid">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Aprende Web. Feito com ❤️ em Portugal.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/progress.js"></script>
+    <script>
+        const ACHIEVEMENTS = [
+            {
+                id: 'first_lesson',
+                icon: '🎯',
+                title: 'Primeiros Passos',
+                description: 'Completa a tua primeira lição',
+                category: 'learning',
+                requirement: 1,
+                type: 'lessons'
+            },
+            {
+                id: 'first_quiz',
+                icon: '📝',
+                title: 'Quizzador',
+                description: 'Completa o teu primeiro quiz',
+                category: 'quizzes',
+                requirement: 1,
+                type: 'quizzes'
+            },
+            {
+                id: 'html_starter',
+                icon: '🌐',
+                title: 'HTML Iniciante',
+                description: 'Completa 5 módulos de HTML5',
+                category: 'learning',
+                requirement: 5,
+                type: 'course_modules',
+                course: 'html5'
+            },
+            {
+                id: 'css_starter',
+                icon: '🎨',
+                title: 'CSS Artista',
+                description: 'Completa 5 módulos de CSS',
+                category: 'learning',
+                requirement: 5,
+                type: 'course_modules',
+                course: 'css'
+            },
+            {
+                id: 'js_starter',
+                icon: '⚡',
+                title: 'JavaScripter',
+                description: 'Completa 5 módulos de JavaScript',
+                category: 'learning',
+                requirement: 5,
+                type: 'course_modules',
+                course: 'js'
+            },
+            {
+                id: 'streak_3',
+                icon: '🔥',
+                title: 'No Calor',
+                description: 'Estuda 3 dias seguidos',
+                category: 'streak',
+                requirement: 3,
+                type: 'streak'
+            },
+            {
+                id: 'streak_7',
+                icon: '🔥',
+                title: 'Semana de Fogo',
+                description: 'Estuda 7 dias seguidos',
+                category: 'streak',
+                requirement: 7,
+                type: 'streak'
+            },
+            {
+                id: 'streak_30',
+                icon: '💎',
+                title: 'Mês de Diamante',
+                description: 'Estuda 30 dias seguidos',
+                category: 'streak',
+                requirement: 30,
+                type: 'streak'
+            },
+            {
+                id: 'perfect_quiz',
+                icon: '💯',
+                title: '100%',
+                description: 'Tira 100% num quiz',
+                category: 'quizzes',
+                requirement: 100,
+                type: 'quiz_score'
+            },
+            {
+                id: 'quiz_master',
+                icon: '🧠',
+                title: 'Mestre dos Quizzes',
+                description: 'Completa 20 quizzes',
+                category: 'quizzes',
+                requirement: 20,
+                type: 'quizzes'
+            },
+            {
+                id: 'all_html',
+                icon: '🏅',
+                title: 'HTML Expert',
+                description: 'Completa todos os módulos de HTML5',
+                category: 'learning',
+                requirement: 17,
+                type: 'course_modules',
+                course: 'html5'
+            },
+            {
+                id: 'all_css',
+                icon: '🏅',
+                title: 'CSS Expert',
+                description: 'Completa todos os módulos de CSS',
+                category: 'learning',
+                requirement: 17,
+                type: 'course_modules',
+                course: 'css'
+            },
+            {
+                id: 'all_js',
+                icon: '🏅',
+                title: 'JavaScript Expert',
+                description: 'Completa todos os módulos de JavaScript',
+                category: 'learning',
+                requirement: 17,
+                type: 'course_modules',
+                course: 'js'
+            },
+            {
+                id: 'first_certificate',
+                icon: '📜',
+                title: 'Certificado',
+                description: 'Desbloqueia o teu primeiro certificado',
+                category: 'learning',
+                requirement: 1,
+                type: 'certificates'
+            },
+            {
+                id: 'all_courses',
+                icon: '👑',
+                title: 'Graduação',
+                description: 'Completa todos os cursos',
+                category: 'learning',
+                requirement: 4,
+                type: 'certificates'
+            },
+            {
+                id: 'early_bird',
+                icon: '🌅',
+                title: 'Madrugador',
+                description: 'Estuda antes das 8h da manhã',
+                category: 'streak',
+                requirement: 1,
+                type: 'early_study'
+            },
+            {
+                id: 'night_owl',
+                icon: '🦉',
+                title: 'Coruja',
+                description: 'Estuda depois das 22h',
+                category: 'streak',
+                requirement: 1,
+                type: 'late_study'
+            },
+            {
+                id: 'social_share',
+                icon: '📤',
+                title: 'Partilhador',
+                description: 'Partilha o teu progresso',
+                category: 'social',
+                requirement: 1,
+                type: 'shares'
+            },
+            {
+                id: 'helper',
+                icon: '🤝',
+                title: 'Ajudante',
+                description: 'Ajuda 5 colegas',
+                category: 'social',
+                requirement: 5,
+                type: 'helps'
+            },
+            {
+                id: 'dedicated',
+                icon: '⏰',
+                title: 'Dedicado',
+                description: 'Passa 10 horas a estudar',
+                category: 'streak',
+                requirement: 600,
+                type: 'total_minutes'
+            }
+        ];
+
+        class AchievementsSystem {
+            constructor() {
+                this.achievements = ACHIEVEMENTS;
+                this.unlocked = this.loadUnlocked();
+                this.checkAllAchievements();
+            }
+
+            loadUnlocked() {
+                const saved = localStorage.getItem('achievements_unlocked');
+                return saved ? JSON.parse(saved) : {};
+            }
+
+            saveUnlocked() {
+                localStorage.setItem('achievements_unlocked', JSON.stringify(this.unlocked));
+            }
+
+            unlock(achievementId) {
+                if (!this.unlocked[achievementId]) {
+                    this.unlocked[achievementId] = {
+                        unlockedAt: new Date().toISOString()
+                    };
+                    this.saveUnlocked();
+                    this.showUnlockNotification(achievementId);
+                }
+            }
+
+            isUnlocked(achievementId) {
+                return !!this.unlocked[achievementId];
+            }
+
+            getProgress(achievement) {
+                const progress = JSON.parse(localStorage.getItem('app_progress') || '{}');
+                const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                const userId = user.id || 'guest';
+                const userProgress = progress[userId] || { completedModules: [], quizScores: {}, certificates: [] };
+
+                switch (achievement.type) {
+                    case 'lessons':
+                        return userProgress.completedModules.length;
+                    case 'quizzes':
+                        return Object.keys(userProgress.quizScores).length;
+                    case 'course_modules':
+                        return userProgress.completedModules.filter(m => m.startsWith(achievement.course)).length;
+                    case 'certificates':
+                        return (userProgress.certificates || []).length;
+                    case 'quiz_score':
+                        const scores = Object.values(userProgress.quizScores);
+                        return scores.length > 0 ? Math.max(...scores.map(s => (s.score / s.total) * 100)) : 0;
+                    case 'streak':
+                        return parseInt(localStorage.getItem('current_streak') || '0');
+                    case 'total_minutes':
+                        const times = Object.values(userProgress.timeSpent || {});
+                        return Math.floor(times.reduce((a, b) => a + b, 0) / 60);
+                    default:
+                        return 0;
+                }
+            }
+
+            checkAllAchievements() {
+                this.achievements.forEach(achievement => {
+                    const progress = this.getProgress(achievement);
+                    if (progress >= achievement.requirement) {
+                        this.unlock(achievement.id);
+                    }
+                });
+            }
+
+            showUnlockNotification(achievementId) {
+                const achievement = this.achievements.find(a => a.id === achievementId);
+                if (!achievement) return;
+
+                const notification = document.createElement('div');
+                notification.className = 'achievement-notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <div class="notification-icon">${achievement.icon}</div>
+                        <div class="notification-text">
+                            <h3>🏆 Conquista Desbloqueada!</h3>
+                            <p>${achievement.title}</p>
+                        </div>
+                    </div>
+                `;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #10b981, #059669);
+                    color: white;
+                    padding: 1.5rem;
+                    border-radius: 1rem;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+                    z-index: 10000;
+                    animation: slideIn 0.5s ease, fadeOut 0.5s ease 3s forwards;
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => notification.remove(), 3500);
+            }
+
+            render(filter = 'all') {
+                const grid = document.getElementById('achievements-grid');
+                grid.innerHTML = '';
+
+                let unlockedCount = 0;
+
+                this.achievements.forEach(achievement => {
+                    if (filter !== 'all' && achievement.category !== filter) return;
+
+                    const progress = this.getProgress(achievement);
+                    const isUnlocked = this.isUnlocked(achievement.id);
+                    const percentage = Math.min(100, Math.round((progress / achievement.requirement) * 100));
+
+                    if (isUnlocked) unlockedCount++;
+
+                    const card = document.createElement('div');
+                    card.className = `achievement-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+                    card.innerHTML = `
+                        <div class="achievement-icon">${achievement.icon}</div>
+                        <h3 class="achievement-title">${achievement.title}</h3>
+                        <p class="achievement-description">${achievement.description}</p>
+                        ${!isUnlocked ? `
+                            <div class="achievement-progress">
+                                <div class="achievement-progress-bar" style="width: ${percentage}%"></div>
+                            </div>
+                            <span class="achievement-status">${progress}/${achievement.requirement}</span>
+                        ` : `
+                            <span class="achievement-status">✅ Desbloqueado</span>
+                            ${this.unlocked[achievement.id] ? `<div class="achievement-date">${new Date(this.unlocked[achievement.id].unlockedAt).toLocaleDateString('pt-PT')}</div>` : ''}
+                        `}
+                    `;
+                    grid.appendChild(card);
+                });
+
+                document.getElementById('unlocked-count').textContent = unlockedCount;
+                document.getElementById('total-count').textContent = this.achievements.length;
+                document.getElementById('percentage').textContent = Math.round((unlockedCount / this.achievements.length) * 100) + '%';
+            }
+        }
+
+        const achievementsSystem = new AchievementsSystem();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            achievementsSystem.render();
+
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    achievementsSystem.render(btn.dataset.category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

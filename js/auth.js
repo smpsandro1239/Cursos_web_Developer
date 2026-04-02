@@ -118,14 +118,73 @@ class AuthSystem {
         if (modal) modal.remove();
     }
 
+    validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    validatePassword(password) {
+        return password.length >= 6;
+    }
+
+    validateName(name) {
+        return name.trim().length >= 2;
+    }
+
+    showError(inputId, message) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.classList.add('error');
+            input.setAttribute('aria-invalid', 'true');
+            
+            let errorEl = input.parentElement.querySelector('.field-error');
+            if (!errorEl) {
+                errorEl = document.createElement('span');
+                errorEl.className = 'field-error';
+                errorEl.setAttribute('role', 'alert');
+                input.parentElement.appendChild(errorEl);
+            }
+            errorEl.textContent = message;
+        }
+    }
+
+    clearErrors() {
+        document.querySelectorAll('.field-error').forEach(el => el.remove());
+        document.querySelectorAll('.error').forEach(el => {
+            el.classList.remove('error');
+            el.removeAttribute('aria-invalid');
+        });
+    }
+
     handleFormSubmit(e, type) {
         e.preventDefault();
+        this.clearErrors();
+        
         const email = document.getElementById('auth-email').value;
         const password = document.getElementById('auth-password').value;
+        let hasErrors = false;
+
+        if (!this.validateEmail(email)) {
+            this.showError('auth-email', 'Por favor, insere um email válido.');
+            hasErrors = true;
+        }
+
+        if (!this.validatePassword(password)) {
+            this.showError('auth-password', 'A password deve ter pelo menos 6 caracteres.');
+            hasErrors = true;
+        }
+
+        if (hasErrors) return;
 
         if (type === 'register') {
             const name = document.getElementById('auth-name').value;
             const role = document.getElementById('auth-role').value;
+            
+            if (!this.validateName(name)) {
+                this.showError('auth-name', 'O nome deve ter pelo menos 2 caracteres.');
+                return;
+            }
+
             const res = this.register(name, email, password, role);
             if (res.success) {
                 this.login(email, password);
@@ -137,7 +196,7 @@ class AuthSystem {
             const res = this.login(email, password);
             if (res.success) {
                 this.closeModal();
-                location.reload(); // Refresh to update dashboard etc
+                location.reload();
             } else {
                 alert(res.message);
             }

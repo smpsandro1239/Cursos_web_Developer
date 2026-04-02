@@ -736,9 +736,5 @@ const QUIZ_DATA_CSS = {
     ]
 };
 
-// Se o script de quiz global existir, podemos estender o QUIZ_DATA
-if (typeof QUIZ_DATA !== 'undefined') {
-    Object.assign(QUIZ_DATA, QUIZ_DATA_CSS);
-} else {
-    var QUIZ_DATA = QUIZ_DATA_CSS;
-}
+if (!window.QUIZ_DATA) window.QUIZ_DATA = {};
+Object.assign(window.QUIZ_DATA, QUIZ_DATA_CSS);
