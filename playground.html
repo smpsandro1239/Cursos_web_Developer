@@ -193,6 +193,16 @@
         .console-error { color: #ef4444; }
         
         .hidden { display: none; }
+
+        .challenge-description {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
         
         @media (max-width: 768px) {
             .editor-area { flex-direction: column; }
@@ -206,6 +216,7 @@
         <header class="playground-header">
             <h1>🎮 Code Playground</h1>
             <div class="playground-actions">
+                <a href="#" id="back-to-course" class="btn btn-secondary" style="display:none; text-decoration:none;">⬅ Voltar ao Curso</a>
                 <button class="btn btn-secondary" onclick="resetCode()">🔄 Reset</button>
                 <button class="btn btn-secondary" onclick="saveCode()">💾 Guardar</button>
                 <button class="btn btn-primary" onclick="runCode()">▶️ Executar</button>
@@ -249,126 +260,147 @@
         const jsEditor = document.getElementById('js-editor');
         const previewIframe = document.getElementById('preview-iframe');
         const consoleOutput = document.getElementById('console-output');
-        
-        const defaultHTML = `<!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Projeto</title>
-</head>
-<body>
-    <h1>Olá Mundo! 👋</h1>
-    <p>Escreve o teu código e clica em "Executar"!</p>
-    
-    <button onclick="dizerOla()">Clica-me!</button>
-    
-    <div id="resultado"></div>
-</body>
-</html>`;
-        
-        const defaultCSS = `body {
-    font-family: Arial, sans-serif;
-    padding: 2rem;
-    background: #f0f0f0;
-    color: #333;
-}
 
-h1 {
-    color: #2563eb;
-}
+        // === Challenge mode ===
+        const urlParams = new URLSearchParams(window.location.search);
+        const challengeId = urlParams.get('challenge');
+        let challengeData = null;
+        let currentSolution = null;
 
-button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-}
+        if (challengeId) {
+            const stored = localStorage.getItem('challenge_' + challengeId);
+            if (stored) {
+                challengeData = JSON.parse(stored);
+                currentSolution = challengeData.solution || null;
+                document.querySelector('.playground-header h1').innerHTML = '\u{1F3AE} ' + (challengeData.title || 'Desafio');
+            }
+        }
 
-button:hover {
-    background: #1d4ed8;
-}`;
-        
-        const defaultJS = `function dizerOla() {
-    const resultado = document.getElementById('resultado');
-    resultado.innerHTML = '<p style="color: green; margin-top: 1rem;">🎉 Olá! Bem-vindo ao Code Playground!</p>';
-    console.log('Olá do Code Playground!');
-}`;
+        // === Default code ===
+        const defaultHTML = '<!DOCTYPE html>\n<html lang="pt-PT">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Meu Projeto</title>\n</head>\n<body>\n    <h1>Ol\u00E1 Mundo! \u{1F44B}</h1>\n    <p>Escreve o teu c\u00F3digo e clica em "Executar"!</p>\n    <button onclick="dizerOla()">Clica-me!</button>\n    <div id="resultado"></div>\n</body>\n</html>';
 
-        htmlEditor.value = localStorage.getItem('playground-html') || defaultHTML;
-        cssEditor.value = localStorage.getItem('playground-css') || defaultCSS;
-        jsEditor.value = localStorage.getItem('playground-js') || defaultJS;
+        const defaultCSS = 'body {\n    font-family: Arial, sans-serif;\n    padding: 2rem;\n    background: #f0f0f0;\n    color: #333;\n}\n\nh1 {\n    color: #2563eb;\n}\n\nbutton {\n    background: #2563eb;\n    color: white;\n    border: none;\n    padding: 0.75rem 1.5rem;\n    border-radius: 0.5rem;\n    cursor: pointer;\n    font-size: 1rem;\n}\n\nbutton:hover {\n    background: #1d4ed8;\n}';
 
-        document.querySelectorAll('.editor-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+        const defaultJS = 'function dizerOla() {\n    var resultado = document.getElementById("resultado");\n    resultado.innerHTML = "<p style=\\"color: green; margin-top: 1rem;\\">\u{1F389} Ol\u00E1! Bem-vindo ao Code Playground!</p>";\n    console.log("Ol\u00E1 do Code Playground!");\n}';
+
+        // Load code
+        if (challengeData) {
+            htmlEditor.value = challengeData.html || defaultHTML;
+            cssEditor.value = challengeData.css || defaultCSS;
+            jsEditor.value = challengeData.js || '';
+        } else {
+            htmlEditor.value = localStorage.getItem('playground-html') || defaultHTML;
+            cssEditor.value = localStorage.getItem('playground-css') || defaultCSS;
+            jsEditor.value = localStorage.getItem('playground-js') || defaultJS;
+        }
+
+        // Show back button + description in challenge mode
+        if (challengeData) {
+            var backBtn = document.getElementById('back-to-course');
+            backBtn.style.display = 'inline-block';
+            backBtn.href = document.referrer || '#';
+            if (challengeData.description) {
+                consoleLog('\u{1F4CB} Desafio: ' + challengeData.description, 'info');
+            }
+        }
+
+        // Tab switching
+        document.querySelectorAll('.editor-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.editor-tab').forEach(function(t) { t.classList.remove('active'); });
                 tab.classList.add('active');
-                
-                document.querySelectorAll('.code-editor').forEach(e => e.classList.add('hidden'));
-                
-                const tabName = tab.dataset.tab;
-                document.getElementById(`${tabName}-editor`).classList.remove('hidden');
+                document.querySelectorAll('.code-editor').forEach(function(e) { e.classList.add('hidden'); });
+                var tabName = tab.dataset.tab;
+                document.getElementById(tabName + '-editor').classList.remove('hidden');
             });
         });
 
+        // Run code
         function runCode() {
-            const html = htmlEditor.value;
-            const css = cssEditor.value;
-            const js = jsEditor.value;
-            
-            const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
-            
+            var html = htmlEditor.value;
+            var css = cssEditor.value;
+            var js = jsEditor.value;
+            var iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
             iframeDoc.open();
-            iframeDoc.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <style>${css}</style>
-                </head>
-                <body>
-                    ${html.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '')}
-                    <script>
-                        window.onerror = function(msg, url, line) {
-                            parent.consoleError(msg + ' (linha ' + line + ')');
-                            return true;
-                        };
-                        ${js}
-                    <\/script>
-                </body>
-                </html>
-            `);
+            iframeDoc.write(
+                '<!DOCTYPE html><html><head><style>' + css + '</style></head><body>' +
+                html.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<script>[\s\S]*?<\/script>/g, '') +
+                '<scr' + 'ipt>window.onerror=function(m,u,l){parent.consoleError(m+" (linha "+l+")");return true;};' +
+                js + '</scr' + 'ipt></body></html>'
+            );
             iframeDoc.close();
-            
-            consoleLog('▶️ Código executado', 'info');
+            consoleLog('\u25B6\uFE0F C\u00F3digo executado', 'info');
         }
 
+        // Save code
         function saveCode() {
             localStorage.setItem('playground-html', htmlEditor.value);
             localStorage.setItem('playground-css', cssEditor.value);
             localStorage.setItem('playground-js', jsEditor.value);
-            consoleLog('💾 Código guardado!', 'info');
+            consoleLog('\u{1F4BE} C\u00F3digo guardado!', 'info');
         }
 
+        // Reset code
         function resetCode() {
-            if (confirm('Queres resetar todo o código? Esta ação não pode ser revertida.')) {
-                htmlEditor.value = defaultHTML;
-                cssEditor.value = defaultCSS;
-                jsEditor.value = defaultJS;
-                localStorage.removeItem('playground-html');
-                localStorage.removeItem('playground-css');
-                localStorage.removeItem('playground-js');
+            if (confirm('Queres resetar todo o c\u00F3digo? Esta a\u00E7\u00E3o n\u00E3o pode ser revertida.')) {
+                if (challengeData) {
+                    htmlEditor.value = challengeData.html || defaultHTML;
+                    cssEditor.value = challengeData.css || defaultCSS;
+                    jsEditor.value = challengeData.js || '';
+                } else {
+                    htmlEditor.value = defaultHTML;
+                    cssEditor.value = defaultCSS;
+                    jsEditor.value = defaultJS;
+                    localStorage.removeItem('playground-html');
+                    localStorage.removeItem('playground-css');
+                    localStorage.removeItem('playground-js');
+                }
                 runCode();
-                consoleLog('🔄 Código resetado!', 'info');
+                consoleLog('\u{1F504} C\u00F3digo resetado!', 'info');
             }
         }
 
-        function consoleLog(message, type = 'log') {
-            const line = document.createElement('div');
-            line.className = `console-line console-${type}`;
-            line.textContent = `> ${message}`;
+        // Solution reveal
+        if (currentSolution) {
+            var actionsDiv = document.querySelector('.playground-actions');
+            var solBtn = document.createElement('button');
+            solBtn.className = 'btn btn-secondary';
+            solBtn.innerHTML = '\u{1F440} Ver Solu\u00E7\u00E3o';
+            solBtn.dataset.revealed = 'false';
+            solBtn.addEventListener('click', function() {
+                if (solBtn.dataset.revealed === 'true') {
+                    solBtn.dataset.revealed = 'false';
+                    solBtn.innerHTML = '\u{1F440} Ver Solu\u00E7\u00E3o';
+                    htmlEditor.value = challengeData.html || defaultHTML;
+                    cssEditor.value = challengeData.css || defaultCSS;
+                    jsEditor.value = challengeData.js || '';
+                    runCode();
+                    consoleLog('\u{1F519} C\u00F3digo original restaurado', 'info');
+                } else {
+                    solBtn.dataset.revealed = 'true';
+                    solBtn.innerHTML = '\u{1F519} Voltar ao Meu C\u00F3digo';
+                    var sol = currentSolution.trim();
+                    if (sol.indexOf('<!DOCTYPE') === 0 || sol.indexOf('<html') === 0) {
+                        htmlEditor.value = sol;
+                    } else if (sol.indexOf('function') === 0 || sol.indexOf('const ') === 0 || sol.indexOf('let ') === 0) {
+                        jsEditor.value = sol;
+                    } else {
+                        htmlEditor.value = challengeData.html || defaultHTML;
+                        htmlEditor.value = htmlEditor.value.replace('<!-- Escreve o teu c\u00F3digo HTML aqui \u{1F447} -->', sol);
+                    }
+                    runCode();
+                    consoleLog('\u{1F440} Solu\u00E7\u00E3o revelada!', 'info');
+                }
+            });
+            actionsDiv.insertBefore(solBtn, actionsDiv.firstChild);
+        }
+
+        // Console
+        function consoleLog(message, type) {
+            type = type || 'log';
+            var line = document.createElement('div');
+            line.className = 'console-line console-' + type;
+            line.textContent = '> ' + message;
             consoleOutput.appendChild(line);
             consoleOutput.scrollTop = consoleOutput.scrollHeight;
         }
@@ -377,7 +409,7 @@ button:hover {
             consoleLog(message, 'error');
         };
 
-        window.addEventListener('message', (event) => {
+        window.addEventListener('message', function(event) {
             if (event.data && event.data.type === 'console') {
                 consoleLog(event.data.message, event.data.level);
             }
