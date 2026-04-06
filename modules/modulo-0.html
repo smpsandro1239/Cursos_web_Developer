@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 0: Preparacção - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 0 do Curso HTML5 - Preparacção e configuracção do ambiente">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 0 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 0</span>
+                    <h1 class="module-title">Preparacção</h1>
+                    <p class="module-subtitle">Configurando o ambiente de desenvolvimento</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duracção: 1 aula</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Introdução ao Curso</h2>
+                        <p>Bem-vindo ao curso <strong>HTML5 do Zero ao Expert</strong>! Este curso foi especialmente desenvolvido para levá-lo desde o conhecimento básico até se tornar um verdadeiro especialista em HTML5.</p>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Objetivos deste módulo:</h3>
+                            <ul>
+                                <li>Configurar o ambiente de desenvolvimento</li>
+                                <li>Instalar as ferramentas necessárias</li>
+                                <li>Aprender atalhos essenciais</li>
+                                <li>Iniciar seu primeiro projeto</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Olá! Estou animado para guiá-lo nesta jornada de aprendizado.
+                                    Vamos começar configurando seu ambiente de desenvolvimento."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="setup-illustration">
+                                <div class="tool-icon vscode">📝</div>
+                                <div class="tool-icon browser">🌐</div>
+                                <div class="tool-icon git">📚</div>
+                                <div class="arrow">↓</div>
+                                <div class="result">🚀 Projeto HTML</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: VS Code -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Instalar o VS Code</h2>
+                        <p>O <strong>Visual Studio Code</strong> é o editor de código mais popular e poderoso para desenvolvimento web. É gratuito, leve e altamente personalizável.</p>
+
+                        <div class="steps-list">
+                            <h3>📋 Como instalar:</h3>
+                            <ol>
+                                <li>Acesse <strong>code.visualstudio.com</strong></li>
+                                <li>Baixe a versão para seu sistema operacional</li>
+                                <li>Execute o instalador</li>
+                                <li>Abra o VS Code após a instalacção</li>
+                            </ol>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>💡 Dica:</strong> Durante a instalacção, marque as opções para adicionar ao PATH e abrir arquivos com o VS Code.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="vscode-interface">
+                                <div class="vscode-header">
+                                    <div class="window-controls">
+                                        <span class="control red"></span>
+                                        <span class="control yellow"></span>
+                                        <span class="control green"></span>
+                                    </div>
+                                    <span class="vscode-title">Visual Studio Code</span>
+                                </div>
+                                <div class="vscode-sidebar">
+                                    <div class="sidebar-item active">📁 projeto-html</div>
+                                    <div class="sidebar-item">📄 index.html</div>
+                                </div>
+                                <div class="vscode-editor">
+                                    <div class="editor-content">
+                                        <pre><code>Olá Mundo!</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Extensão Live Server -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Extensão Live Server</h2>
+                        <p>O <strong>Live Server</strong> permite visualizar seu HTML em tempo real no navegador. Sempre que salvar alterações, a página será automaticamente recarregada.</p>
+
+                        <div class="steps-list">
+                            <h3>🔧 Como instalar:</h3>
+                            <ol>
+                                <li>No VS Code, clique no ícone de extensões (quadrado com cantos)</li>
+                                <li>Pesquise por "Live Server"</li>
+                                <li>Clique em "Install" na extensão do Ritwick Dey</li>
+                                <li>Após instalar, clique no ícone do Live Server na barra inferior</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>⚡ Atalhos importantes:</h3>
+                            <ul>
+                                <li><kbd>Alt + B</kbd> - Abrir no navegador padrão</li>
+                                <li><kbd>Ctrl + Shift + P</kbd> - Paleta de comandos</li>
+                                <li><kbd>! + Tab</kbd> - Atalho Emmet para estrutura HTML</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="extension-demo">
+                                <div class="vscode-extensions">
+                                    <div class="extension-item">
+                                        <div class="ext-icon">🔌</div>
+                                        <div class="ext-info">
+                                            <div class="ext-name">Live Server</div>
+                                            <div class="ext-author">Ritwick Dey</div>
+                                        </div>
+                                        <button class="ext-install">Install</button>
+                                    </div>
+                                </div>
+                                <div class="live-server-demo">
+                                    <div class="browser-mock">
+                                        <div class="browser-toolbar">
+                                            <span class="browser-url">http://localhost:8080</span>
+                                            <span class="live-badge">🔴 LIVE</span>
+                                        </div>
+                                        <div class="browser-content">
+                                            <h1>Olá Mundo!</h1>
+                                            <p>Live Server funcionando!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Criar Projeto -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Criando o Projeto HTML</h2>
+                        <p>Vamos criar nossa primeira pasta de projeto e o arquivo HTML básico. Esta será a estrutura que usaremos durante todo o curso.</p>
+
+                        <div class="steps-list">
+                            <h3>📁 Passos para criar o projeto:</h3>
+                            <ol>
+                                <li>Criar uma pasta chamada <code>projeto-html</code></li>
+                                <li>Dentro dela, criar o arquivo <code>index.html</code></li>
+                                <li>Estrutura básica do HTML5</li>
+                                <li>Adicionar conteúdo inicial</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🏗️ Estrutura básica que vamos usar:</h4>
+                            <pre><code><!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Projeto</title>
+</head>
+<body>
+    <h1>Olá Mundo!</h1>
+</body>
+</html></code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="project-structure">
+                                <div class="folder-tree">
+                                    <div class="folder-item">
+                                        <span class="folder-icon">📁</span>
+                                        <span class="folder-name">projeto-html</span>
+                                        <div class="folder-contents">
+                                            <div class="file-item">
+                                                <span class="file-icon">📄</span>
+                                                <span class="file-name">index.html</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Git Básico -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Git Básico</h2>
+                        <p>O <strong>Git</strong> é um sistema de controle de versão que nos permite rastrear mudanças no código e colaborar com outros desenvolvedores.</p>
+
+                        <div class="steps-list">
+                            <h3>🚀 Primeiros passos com Git:</h3>
+                            <ol>
+                                <li><code>git init</code> - Inicializar repositório</li>
+                                <li><code>git add .</code> - Adicionar arquivos</li>
+                                <li><code>git commit -m "mensagem"</code> - Salvar alterações</li>
+                                <li><code>git status</code> - Verificar estado</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>💡 Por que usar Git?</h3>
+                            <ul>
+                                <li>✅ Rastrear todas as mudanças</li>
+                                <li>✅ Reverter erros facilmente</li>
+                                <li>✅ Colaborar com outros</li>
+                                <li>✅ Backup automático</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🎯 Exercício:</strong> Vamos inicializar nosso projeto HTML com Git e fazer o primeiro commit.
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="git-interface">
+                                <div class="terminal-window">
+                                    <div class="terminal-header">
+                                        <span class="terminal-title">Terminal</span>
+                                    </div>
+                                    <div class="terminal-content">
+                                        <div class="terminal-line">
+                                            <span class="prompt">$</span>
+                                            <span class="command">git init</span>
+                                            <span class="output">Initialized empty Git repository</span>
+                                        </div>
+                                        <div class="terminal-line">
+                                            <span class="prompt">$</span>
+                                            <span class="command">git add .</span>
+                                        </div>
+                                        <div class="terminal-line">
+                                            <span class="prompt">$</span>
+                                            <span class="command">git commit -m "primeiro html"</span>
+                                            <span class="output">[main] primeiro commit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 6</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Exercício Prático -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Vamos colocar em prática tudo que aprendemos neste módulo!</p>
+
+                        <div class="exercise-box">
+                            <h3>🎯 Tarefa:</h3>
+                            <p>Crie uma página "Olá Mundo" com título personalizado e favicon do Porto.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Passos:</h4>
+                                <ol>
+                                    <li>Criar pasta <code>projeto-html</code></li>
+                                    <li>Criar arquivo <code>index.html</code></li>
+                                    <li>Usar atalho <kbd>! + Tab</kbd> para estrutura básica</li>
+                                    <li>Personalizar título e conteúdo</li>
+                                    <li>Adicionar favicon (usaremos um ícone padrão)</li>
+                                    <li>Testar com Live Server</li>
+                                    <li>Fazer commit inicial no Git</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado esperado:</h4>
+                            <div class="result-preview">
+                                <div class="browser-mock">
+                                    <div class="browser-toolbar">
+                                        <span class="browser-url">Olá Mundo - HTML5 Expert</span>
+                                    </div>
+                                    <div class="browser-content">
+                                        <h1>Olá Mundo! 🚀</h1>
+                                        <p>Meu primeiro projeto HTML5!</p>
+                                        <p>Professor: Sandro Pereira - 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="file-editor">
+                                    <div class="editor-header">
+                                        <span class="file-name">index.html</span>
+                                    </div>
+                                    <div class="editor-content">
+                                        <pre><code><!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Olá Mundo - HTML5 Expert</title>
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <h1>Olá Mundo! 🚀</h1>
+    <p>Meu primeiro projeto HTML5!</p>
+    <p>Professor: Sandro Pereira - 2025</p>
+</body>
+</html></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 6</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="../index.html" class="btn btn-secondary">← Voltar ao Curso</a>
+                    <a href="modulo-1.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 0:</strong> Preparacção | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 18: Ferramentas Modernas - HTML5 do Zero ao Expert</title>
+    <meta name="description" content="Módulo 18 do Curso HTML5 - Ferramentas modernas de desenvolvimento">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="module-header">
+        <div class="container">
+            <div class="module-navigation">
+                <a href="../index.html" class="nav-back">
+                    <span class="nav-icon">←</span>
+                    Voltar ao Curso
+                </a>
+                <div class="module-progress">
+                    <span class="progress-text">Módulo 18 de 20</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-header-content">
+                <div class="module-info">
+                    <span class="module-number">MÓDULO 18</span>
+                    <h1 class="module-title">Ferramentas Modernas</h1>
+                    <p class="module-subtitle">Desenvolvimento acelerado</p>
+                </div>
+                <div class="module-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">👨‍🏫</span>
+                        <span>Professor: Sandro Pereira</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span>Duracção: 2 aulas</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📅</span>
+                        <span>Ano: 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-content">
+        <div class="container">
+            <!-- Slide 1: Introdução -->
+            <section class="slide" id="slide-1">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Ferramentas Modernas</h2>
+                        <p>Ferramentas modernas aceleram o desenvolvimento, melhoram a produtividade e mantêm código de qualidade.</p>
+
+                        <div class="highlight-box">
+                            <h3>🚀 O que vamos aprender:</h3>
+                            <ul>
+                                <li>Emmet avançado para HTML rápido</li>
+                                <li>Pug para templates elegantes</li>
+                                <li>Markdown para HTML</li>
+                                <li>Vite e Parcel para bundling</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructor-card">
+                            <div class="instructor-avatar">👨‍🏫</div>
+                            <div class="instructor-info">
+                                <h4>Sandro Pereira</h4>
+                                <p>Professor e Desenvolvedor Web</p>
+                                <p class="instructor-message">
+                                    "Ferramentas modernas transformam horas de trabalho em minutos!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="modern-tools-concept">
+                                <div class="tools-showcase">
+                                    <div class="tool-item">
+                                        <span class="tool-icon">⚡</span>
+                                        <span class="tool-name">Emmet</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <span class="tool-icon">📝</span>
+                                        <span class="tool-name">Pug</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <span class="tool-icon">📄</span>
+                                        <span class="tool-name">Markdown</span>
+                                    </div>
+                                    <div class="tool-item">
+                                        <span class="tool-icon">🔧</span>
+                                        <span class="tool-name">Vite</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" disabled>Anterior</button>
+                    <span class="slide-counter">1 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 2: Emmet Avançado -->
+            <section class="slide" id="slide-2" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Emmet Avançado</h2>
+                        <p>Emmet permite escrever HTML complexo com abreviações simples e poderosas.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Abreviaturas básicas:</h4>
+                            <pre><code>nav>ul>li*5>a
+div.container>h1+p
+form>label+input+button</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>⚡ Avançado:</h4>
+                            <pre><code>header.header>nav.nav>ul.nav-list>li.nav-item*3>a.nav-link
+section.hero>div.hero-content>h1.hero-title+p.hero-text
+.card*3>h3.card-title+p.card-desc+button.btn</code></pre>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>💡 Dicas:</h3>
+                            <ul>
+                                <li><kbd>Tab</kbd> para expandir</li>
+                                <li><code>*n</code> para multiplicar</li>
+                                <li><code>+</code> para irmãos</li>
+                                <li><code>></code> para filhos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="emmet-demo">
+                                <div class="emmet-input">
+                                    <span class="input-text">div.container>h1+p*2>button</span>
+                                    <span class="arrow">→</span>
+                                    <div class="emmet-output">
+                                        <pre><code><div class="container">
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <button></button>
+</div></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">2 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 3: Pug Templates -->
+            <section class="slide" id="slide-3" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Pug Templates</h2>
+                        <p>Pug (antigo Jade) é um template engine que usa indentacção em vez de tags HTML.</p>
+
+                        <div class="code-example">
+                            <h4>📝 HTML vs Pug:</h4>
+                            <pre><code><!-- HTML -->
+<div class="container">
+    <h1>Título</h1>
+    <p>Parágrafo</p>
+</div>
+
+<!-- Pug -->
+.container
+    h1 Título
+    p Parágrafo</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🔄 Com variáveis:</h4>
+                            <pre><code>// Pug
+- var title = "Meu Site"
+- var items = ['Item 1', 'Item 2', 'Item 3']
+
+header
+    h1= title
+    nav
+        ul
+            each item in items
+                li= item</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="pug-demo">
+                                <div class="template-comparison">
+                                    <div class="template-side html">
+                                        <span class="template-title">HTML</span>
+                                        <pre><code><ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul></code></pre>
+                                    </div>
+                                    <div class="template-side pug">
+                                        <span class="template-title">Pug</span>
+                                        <pre><code>ul
+    li Item 1
+    li Item 2</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">3 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 4: Markdown para HTML -->
+            <section class="slide" id="slide-4" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Markdown para HTML</h2>
+                        <p>Markdown é uma linguagem de marcacção leve que pode ser convertida para HTML.</p>
+
+                        <div class="code-example">
+                            <h4>📝 Markdown básico:</h4>
+                            <pre><code># Título Principal
+
+## Subtítulo
+
+- Item 1
+- Item 2
+- Item 3
+
+**Texto em negrito**
+*Texto em itálico*
+
+[Link para Google](https://google.com)
+
+```html
+<p>Código HTML</p>
+```</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <h4>🔧 Ferramentas:</h4>
+                            <pre><code># Instalar marked
+npm install marked
+
+# Converter MD para HTML
+marked arquivo.md > arquivo.html</code></pre>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="markdown-demo">
+                                <div class="markdown-preview">
+                                    <div class="markdown-input">
+                                        <span class="input-title">Markdown</span>
+                                        <pre><code># Olá Mundo</code></pre>
+                                    </div>
+                                    <div class="arrow">→</div>
+                                    <div class="html-output">
+                                        <span class="output-title">HTML</span>
+                                        <pre><code><h1>Olá Mundo</h1></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">4 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 5: Vite e Parcel -->
+            <section class="slide" id="slide-5" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Vite e Parcel</h2>
+                        <p>Bundlers modernos como Vite e Parcel otimizam o desenvolvimento com hot reload e builds rápidos.</p>
+
+                        <div class="steps-list">
+                            <h3>🚀 Vite:</h3>
+                            <ol>
+                                <li><code>npm create vite@latest</code></li>
+                                <li>Escolha template (vanilla, vue, react)</li>
+                                <li><code>npm install && npm run dev</code></li>
+                                <li>Hot reload automático</li>
+                            </ol>
+                        </div>
+
+                        <div class="steps-list">
+                            <h3>📦 Parcel:</h3>
+                            <ol>
+                                <li><code>npm install -g parcel</code></li>
+                                <li><code>parcel index.html</code></li>
+                                <li>Zero configuracção</li>
+                                <li>Suporte automático</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="bundler-demo">
+                                <div class="bundler-comparison">
+                                    <div class="bundler-item">
+                                        <span class="bundler-name">Vite</span>
+                                        <span class="bundler-speed">⚡ Ultra Fast</span>
+                                    </div>
+                                    <div class="bundler-item">
+                                        <span class="bundler-name">Parcel</span>
+                                        <span class="bundler-speed">🚀 Zero Config</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">5 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 6: Exercício Prático -->
+            <section class="slide" id="slide-6" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Exercício Prático</h2>
+                        <p>Use ferramentas modernas para criar uma página web rapidamente!</p>
+
+                        <div class="exercise-box">
+                            <h3>⚡ Desenvolvimento Rápido</h3>
+                            <p>Crie uma landing page usando Emmet, Markdown e um bundler.</p>
+
+                            <div class="exercise-steps">
+                                <h4>📋 Tarefas:</h4>
+                                <ol>
+                                    <li>Usar Emmet para estrutura HTML</li>
+                                    <li>Converter Markdown para HTML</li>
+                                    <li>Configurar Vite ou Parcel</li>
+                                    <li>Implementar hot reload</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="expected-result">
+                            <h4>🎉 Resultado:</h4>
+                            <div class="result-preview">
+                                <div class="modern-setup">
+                                    <pre><code># Terminal
+npm create vite@latest landing-page
+cd landing-page
+npm run dev
+
+# Emmet no VS Code
+header.hero>nav+h1+p+button.btn
+
+# Markdown
+# Landing Page
+Bem-vindo ao meu site!</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="exercise-demo">
+                                <div class="modern-workflow">
+                                    <div class="workflow-steps">
+                                        <div class="step">
+                                            <span class="step-icon">📝</span>
+                                            <span class="step-text">Emmet</span>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-icon">🔄</span>
+                                            <span class="step-text">Bundler</span>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-icon">🌐</span>
+                                            <span class="step-text">Live Preview</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">6 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 7: Conclusão -->
+            <section class="slide" id="slide-7" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Conclusão do Módulo</h2>
+                        <p>Parabéns! Agora você domina ferramentas modernas que aceleram o desenvolvimento.</p>
+
+                        <div class="highlight-box">
+                            <h3>📚 O que aprendemos:</h3>
+                            <ul>
+                                <li>✅ Emmet avançado</li>
+                                <li>✅ Pug templates</li>
+                                <li>✅ Markdown para HTML</li>
+                                <li>✅ Vite e Parcel</li>
+                                <li>✅ Desenvolvimento acelerado</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong>🚀 Próximos passos:</strong> No próximo módulo vamos aprender sobre security headers!
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="completion-celebration">
+                                <div class="celebration-icon">🎉</div>
+                                <div class="celebration-text">
+                                    <h3>Módulo 18 Completo!</h3>
+                                    <p>Desenvolvimento moderno dominado!</p>
+                                </div>
+                                <div class="next-module">
+                                    <span class="next-arrow">→</span>
+                                    <span class="next-text">Módulo 19: Security</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">7 / 8</span>
+                    <button class="btn btn-primary" onclick="nextSlide()">Próximo</button>
+                </div>
+            </section>
+
+            <!-- Slide 8: Final -->
+            <section class="slide" id="slide-8" style="display: none;">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2>Parabéns! Módulo Concluído</h2>
+                        <p>Você agora é um desenvolvedor moderno!</p>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="visual-container">
+                            <div class="final-badge">🏆</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-navigation">
+                    <button class="btn btn-secondary" onclick="previousSlide()">Anterior</button>
+                    <span class="slide-counter">8 / 8</span>
+                    <button class="btn btn-success" onclick="completeModule()">Concluir Módulo</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="module-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="module-nav">
+                    <a href="modulo-17.html" class="btn btn-secondary">← Módulo Anterior</a>
+                    <a href="modulo-19.html" class="btn btn-primary">Próximo Módulo →</a>
+                </div>
+                <div class="module-info">
+                    <p><strong>Módulo 18:</strong> Ferramentas Modernas | Professor: Sandro Pereira | 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/module.js"></script>
+</body>
+</html>
