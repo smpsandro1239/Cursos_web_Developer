@@ -6,18 +6,40 @@ class AuthSystem {
     constructor() {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         this.users = JSON.parse(localStorage.getItem('users')) || [];
+        this.storage = null;
         this.init();
     }
 
-    init() {
+    async init() {
+        try {
+            if (typeof EnhancedStorage !== 'undefined') {
+                this.storage = new EnhancedStorage();
+                await this.storage.init();
+                // Carregar usuários do IndexedDB se disponível
+                await this.loadUsersFromStorage();
+            }
+        } catch (error) {
+            console.warn('EnhancedStorage não disponível, usando localStorage fallback:', error);
+        }
         this.renderAuthUI();
+    }
+
+    async loadUsersFromStorage() {
+        try {
+            const storedUsers = [];
+            // Para IndexedDB, precisamos de uma abordagem diferente já que não temos getAll
+            // Por enquanto, mantemos o localStorage como fallback principal
+            // Em uma implementação completa, usaríamos getAll ou armazenaríamos um array de emails
+        } catch (error) {
+            console.warn('Erro ao carregar usuários do IndexedDB:', error);
+        }
     }
 
     getAvatarUrl(name) {
         return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=2563eb&color=fff&bold=true`;
     }
 
-    register(name, email, password, role = 'Student') {
+    async register(name, email, password, role = 'Student') {
         if (this.users.find(u => u.email === email)) {
             return { success: false, message: 'Email já registado.' };
         }
@@ -32,12 +54,28 @@ class AuthSystem {
             joinedAt: new Date()
         };
         this.users.push(newUser);
-        this.saveUsers();
+        await this.saveUsers();
         return { success: true, message: 'Registo efetuado com sucesso!' };
     }
 
-    login(email, password) {
-        const user = this.users.find(u => u.email === email && u.password === password);
+    async login(email, password) {
+        let user;
+        
+        if (this.storage) {
+            try {
+                // Tenta encontrar usuário no IndexedDB
+                const storedUser = await this.storage.getUser(email);
+                user = storedUser;
+            } catch (error) {
+                console.warn('Erro ao buscar usuário do IndexedDB:', error);
+            }
+        }
+        
+        // Se não encontrou no IndexedDB ou houve erro, usa o array em memória
+        if (!user) {
+            user = this.users.find(u => u.email === email && u.password === password);
+        }
+        
         if (user) {
             this.currentUser = user;
             localStorage.setItem('currentUser', JSON.stringify(user));
@@ -56,7 +94,20 @@ class AuthSystem {
         location.reload();
     }
 
-    saveUsers() {
+    async saveUsers() {
+        if (this.storage) {
+            try {
+                // Salva cada usuário individualmente no IndexedDB
+                for (const user of this.users) {
+                    await this.storage.saveUser(user.email, user);
+                }
+                return;
+            } catch (error) {
+                console.warn('Erro ao salvar usuários no IndexedDB:', error);
+            }
+        }
+        
+        // Fallback para localStorage
         localStorage.setItem('users', JSON.stringify(this.users));
     }
 

@@ -7,6 +7,19 @@ class ProgressManager {
         this.userId = this.getCurrentUserId();
         this.progress = this.loadProgress();
         this.startTime = Date.now();
+        this.storage = null;
+        this.initStorage();
+    }
+
+    async initStorage() {
+        try {
+            if (typeof EnhancedStorage !== 'undefined') {
+                this.storage = new EnhancedStorage();
+                await this.storage.init();
+            }
+        } catch (error) {
+            console.warn('EnhancedStorage não disponível, usando localStorage fallback:', error);
+        }
     }
 
     getCurrentUserId() {
@@ -14,7 +27,24 @@ class ProgressManager {
         return user ? user.id : 'guest';
     }
 
-    loadProgress() {
+    async loadProgress() {
+        if (this.storage) {
+            try {
+                const stored = await this.storage.getProgress(this.userId);
+                if (stored) {
+                    return stored.progress || {
+                        completedModules: [],
+                        quizScores: {},
+                        timeSpent: {},
+                        certificates: []
+                    };
+                }
+            } catch (error) {
+                console.warn('Erro ao carregar do IndexedDB:', error);
+            }
+        }
+        
+        // Fallback para localStorage
         const allProgress = JSON.parse(localStorage.getItem('app_progress')) || {};
         return allProgress[this.userId] || {
             completedModules: [],
@@ -24,7 +54,18 @@ class ProgressManager {
         };
     }
 
-    saveProgress() {
+    async saveProgress() {
+        if (this.storage) {
+            try {
+                await this.storage.saveProgress(this.userId, this.progress);
+                window.dispatchEvent(new Event('progressUpdate'));
+                return;
+            } catch (error) {
+                console.warn('Erro ao salvar no IndexedDB:', error);
+            }
+        }
+        
+        // Fallback para localStorage
         const allProgress = JSON.parse(localStorage.getItem('app_progress')) || {};
         allProgress[this.userId] = this.progress;
         localStorage.setItem('app_progress', JSON.stringify(allProgress));
