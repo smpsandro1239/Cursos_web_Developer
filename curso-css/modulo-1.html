@@ -64,124 +64,618 @@
 
         <!-- 4. Teoria (com Analogia) -->
         <section class="lesson-step">
-            <h2>4. Teoria: A Hierarquia de Comando</h2>
+            <h2>4. Teoria: A Hierarquia de Poder do CSS</h2>
             <div class="theory-box">
-                <p><strong>Conceito:</strong> No CSS, nem todos os seletores têm o mesmo poder. Se dois seletores tentarem mudar a mesma cor, o mais "específico" ganha. Isso chama-se Especificidade.</p>
+                <p><strong>Conceito Central:</strong> No CSS, quando múltiplos estilos tentam controlar a mesma propriedade, o seletor mais específico prevalece. Este princípio de especificidade é a espinha dorsal do CSS moderno e determina quem "manda" na hierarquia de estilos.</p>
+                
                 <div class="analogy">
-                    <h3>🎖️ Analogia: O Exército do Design</h3>
-                    <p>Imagina uma hierarquia militar:</p>
+                    <h3>🏰 Analogia: O Império do Design Visual</h3>
+                    <p>Imagine um vasto império onde diferentes tipos de governantes disputam o controle territorial:</p>
                     <ul>
-                        <li><strong>A Tag (ex: h1)</strong>: É o Soldado. Comanda toda a gente do seu grupo, mas tem pouco poder individual.</li>
-                        <li><strong>A Classe (ex: .destaque)</strong>: É o Capitão. Comanda um grupo específico de elite e ganha ao soldado.</li>
-                        <li><strong>O ID (ex: #titulo-unico)</strong>: É o General. É único, poderoso e manda em todos os outros.</li>
+                        <li><strong>A Tag (ex: h1, p, div)</strong>: É o <strong>Governador Provincial</strong>. Tem autoridade sobre toda a sua província, mas sua ordem pode ser anulada por governantes superiores.</li>
+                        <li><strong>A Classe (ex: .destaque, .importante)</strong>: É o <strong>Conde Territorial</strong>. Governar regiões específicas com poder limitado, mas superior aos governadores provinciais.</li>
+                        <li><strong>O ID (ex: #cabecalho-principal, #conteiro-unico)</strong>: É o <strong>Rei Imperial</strong>. Possui autoridade absoluta e única, suas ordens nunca são questionadas por outros governantes.</li>
                     </ul>
+                    <p class="analogy-insight">Assim como no império, os reis (IDs) sempre prevalecem sobre condes (classes), que por sua vez superam governadores (tags).</p>
+                </div>
+                
+                <div class="specificity-rules">
+                    <h3>📋 Regras de Especificidade:</h3>
+                    <ul>
+                        <li><strong>ID:</strong> Peso 100 (o mais poderoso)</li>
+                        <li><strong>Classe:</strong> Peso 10 (intermediário)</li>
+                        <li><strong>Tag:</strong> Peso 1 (básico)</li>
+                    </ul>
+                    <p class="rule-example">Exemplo: <code>#cabecalho .titulo { color: red; }</code> tem peso 110 (100 + 10), contra <code>h1 { color: blue; }</code> com peso 1.</p>
                 </div>
             </div>
         </section>
 
         <!-- 5. Exemplos de Código -->
         <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+            <h2>5. Exemplos Profissionais</h2>
 
             <div class="code-example-card">
-                <h3>Exemplo 1: Seletores de Identidade</h3>
-                <p>Diferentes formas de "apontar" para os elementos.</p>
+                <h3>🎯 Exemplo 1: Seletores de Identidade em Ação</h3>
+                <p>Diferentes estratégias para selecionar elementos no DOM com precisão cirúrgica.</p>
                 <div class="code-window">
-                    <pre><code class="language-css">/* Seletor de Tag: Afecta todos os p */
-p { color: gray; }
+                    <pre><code class="language-css">/* Seletor de Tag - Amplo e Poderoso */
+p {
+  color: #4a5568;          /* Cinza profissional */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
 
-/* Seletor de Classe: Afecta quem tiver class="azul" */
-.azul { color: blue; }
+/* Seletor de Classe - Flexível e Reutilizável */
+.destaque {
+  color: #2563eb;          /* Azul corporativo */
+  font-weight: 600;
+  text-decoration: underline;
+}
 
-/* Seletor de ID: Afecta apenas o id="especial" */
-#especial { color: gold; }</code></pre>
+.botao-primario {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Seletor de ID - Único e Soberano */
+#cabecalho-principal {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#logo-marca {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}</code></pre>
                 </div>
-                <p class="explanation">Classes usam ponto (<code>.</code>), IDs usam cardinal (<code>#</code>).</p>
+                <div class="explanation">
+                    <p><strong>Sintaxe Importante:</strong></p>
+                    <ul>
+                        <li>Classes: Ponto (<code>.</code>) seguido pelo nome - <code>.destaque</code></li>
+                        <li>IDs: Cardinal (<code>#</code>) seguido pelo nome - <code>#cabecalho-principal</code></li>
+                        <li>Tags: Nome da tag HTML direto - <code>h1</code>, <code>p</code>, <code>div</code></li>
+                    </ul>
+                </div>
             </div>
 
             <div class="code-example-card">
-                <h3>Exemplo 2: Formatos de Cor</h3>
-                <p>Como definir cores além das palavras simples.</p>
+                <h3>🎨 Exemplo 2: Paleta de Cores Profissional</h3>
+                <p>Dominando a ciência das cores com formatos avançados e estratégias de branding.</p>
                 <div class="code-window">
-                    <pre><code class="language-css">h1 {
-  color: #FF5733;          /* Hexadecimal (RRGGBB) */
-  background-color: rgb(255, 87, 51); /* RGB (Red, Green, Blue) */
+                    <pre><code class="language-css">/* Sistema de Cores Corporativo */
+h1 {
+  color: #1e293b;          /* Azul escuro profissional - Primário */
+  background-color: #f8fafc; /* Branco suave - Fundo */
+}
+
+.subtitulo {
+  color: #475569;          /* Cinza intermediário - Secundário */
+  background: #e2e8f0;     /* Cinza claro - Background */
+}
+
+.destaque-emocional {
+  color: #dc2626;          /* Vermelo vibrante - Ação/Alerta */
+  background: #fef2f2;     /* Rosa muito claro */
+}
+
+.sucesso {
+  color: #16a34a;          /* Verde positivo - Sucesso */
+  background: #f0fdf4;     /* Verde muito claro */
+}
+
+/* Formatos de Cor Avançados */
+.hero-section {
+  /* Hexadecimal - Padrão Indústria */
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: #ffffff;
+}
+
+.card-produto {
+  /* RGB - Precisão Numérica */
+  background-color: rgb(249, 250, 251);
+  border: 1px solid rgb(229, 231, 235);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.botao-destaque {
+  /* RGBA - Com Transparência */
+  background: rgba(37, 99, 235, 0.9);
+  border: 2px solid rgba(37, 99, 235, 1);
+  transition: all 0.3s ease;
 }</code></pre>
                 </div>
-                <p class="explanation">O Hexadecimal é o mais usado por ser curto e fácil de copiar de ferramentas de design.</p>
+                <div class="explanation">
+                    <p><strong>Formatos Profissionais:</strong></p>
+                    <ul>
+                        <li><strong>Hexadecimal:</strong> <code>#FF5733</code> - Padrão da indústria, 6 dígitos</li>
+                        <li><strong>RGB:</strong> <code>rgb(255, 87, 51)</code> - Controle numérico preciso</li>
+                        <li><strong>RGBA:</strong> <code>rgba(255, 87, 51, 0.8)</code> - Com transparência</li>
+                        <li><strong>Nomes:</strong> <code>blue</code>, <code>red</code> - Para cores básicas</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- 6. Prática Orientada -->
         <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+            <h2>6. Mão na Massa: Projeto Prático</h2>
             <div class="practice-guide">
-                <p>Cria um ficheiro HTML com três parágrafos:</p>
-                <ol class="steps-list">
-                    <li>Dá a classe <code>texto-importante</code> ao primeiro parágrafo.</li>
-                    <li>Dá o id <code>paragrafo-unico</code> ao segundo parágrafo.</li>
-                    <li>No teu CSS, pinta a classe de verde e o ID de laranja.</li>
-                    <li>Pinta a tag <code>p</code> de cinzento. Que cor ficou o primeiro parágrafo? (Spoiler: Verde, porque a classe ganha à tag!).</li>
-                </ol>
+                <p>Vamos aplicar os conceitos de seletores e especificidade na criação de uma página de perfil profissional. Segue estes passos com atenção aos detalhes:</p>
+                
+                <div class="project-steps">
+                    <h3>🚀 Projeto: Página de Perfil Profissional</h3>
+                    
+                    <div class="step">
+                        <h4>Passo 1: Estrutura HTML</h4>
+                        <p>Cria um ficheiro <code>perfil.html</code> com a seguinte estrutura:</p>
+                        <div class="code-window">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Perfil Profissional&lt;/title&gt;
+    &lt;link rel="stylesheet" href="estilo.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="container"&gt;
+        &lt;header id="cabecalho"&gt;
+            &lt;h1&gt;João Silva&lt;/h1&gt;
+            &lt;h2 class="cargo"&gt;Desenvolvedor Frontend&lt;/h2&gt;
+        &lt;/header&gt;
+        
+        &lt;main&gt;
+            &lt;section class="experiencia"&gt;
+                &lt;h3&gt;Experiência Profissional&lt;/h3&gt;
+                &lt;p&gt;5 anos de experiência em desenvolvimento web.&lt;/p&gt;
+                &lt;p class="destaque"&gt;Especialista em React e Angular.&lt;/p&gt;
+            &lt;/section&gt;
+            
+            &lt;section class="habilidades"&gt;
+                &lt;h3&gt;Habilidades Técnicas&lt;/h3&gt;
+                &lt;p&gt;HTML5, CSS3, JavaScript, TypeScript&lt;/p&gt;
+                &lt;p class="destaque"&gt;Node.js, MongoDB, Git&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Passo 2: Aplicação de Estilos com Especificidade</h4>
+                        <p>No teu ficheiro <code>estilo.css</code>, aplica os seguintes estilos em ordem crescente de especificidade:</p>
+                        <ol class="steps-list">
+                            <li><strong>Nível 1 - Tags:</strong> Aplica estilos básicos a <code>h1</code>, <code>p</code>, <code>h2</code>, <code>h3</code></li>
+                            <li><strong>Nível 2 - Classes:</strong> Estiliza <code>.cargo</code>, <code>.destaque</code>, <code>.experiencia</code>, <code>.habilidades</code></li>
+                            <li><strong>Nível 3 - IDs:</strong> Personaliza <code>#cabecalho</code> e <code>#container</code></li>
+                            <li><strong>Desafio Final:</strong> Crie um seletor combinado que sobrescreva a cor dos parágrafos dentro da seção habilidades</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Passo 3: Teste de Especificidade</h4>
+                        <p>Execute este teste para validar o teu conhecimento:</p>
+                        <ul class="test-list">
+                            <li>❓ Qual o resultado final da cor do texto "Especialista em React e Angular."?</li>
+                            <li>❓ Se aplicares <code>p { color: purple; }</code> após <code>.destaque { color: orange; }</code>, qual cor prevalece?</li>
+                            <li>❓ Como farias para que o título "Habilidades Técnicas" tenha uma cor diferente dos demais títulos?</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tips-section">
+                    <h3>💡 Dicas Profissionais:</h3>
+                    <ul>
+                        <li><strong>Organização:</strong> Usa comentários no CSS para separar os níveis de especificidade</li>
+                        <li><strong>Consistência:</strong> Mantém uma paleta de cores coerente em todo o projeto</li>
+                        <li><strong>Reutilização:</strong> Prefere classes sobre IDs para maior flexibilidade</li>
+                        <li><strong>Performance:</strong> Evita seletores muito específicos que dificultam a manutenção</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- 7. Verificação de Conhecimento (Quiz) -->
         <section class="lesson-step" id="quiz-section">
             <h2>7. Verificação de Conhecimento</h2>
-            <div id="quiz-container" data-quiz-id="modulo-1">
-                <div class="loader">Carregando quiz...</div>
+            <div class="quiz-intro">
+                <p>Testa o teu conhecimento sobre seletores e especificidade CSS. Responde às seguintes perguntas:</p>
+            </div>
+            
+            <div class="quiz-container">
+                <!-- Pergunta 1 - Múltipla Escolha -->
+                <div class="quiz-question">
+                    <h3>1. Qual seletor tem a maior especificidade no CSS?</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a">
+                            <span>a) h1 (Tag)</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b">
+                            <span>b) .destaque (Classe)</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c">
+                            <span>c) #titulo-unico (ID)</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="d">
+                            <span>d) div p (Combinação)</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q1">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q1"></div>
+                </div>
+
+                <!-- Pergunta 2 - Múltipla Escolha -->
+                <div class="quiz-question">
+                    <h3>2. Qual formato de cor é o mais comum no desenvolvimento web?</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a">
+                            <span>a) RGB</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b">
+                            <span>b) HEX</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c">
+                            <span>c) HSL</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="d">
+                            <span>d) Todos os acima</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q2">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q2"></div>
+                </div>
+
+                <!-- Pergunta 3 - Múltipla Escolha -->
+                <div class="quiz-question">
+                    <h3>3. Como você aplica duas classes ao mesmo elemento HTML?</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a">
+                            <span>a) Usando vírgula: &lt;div class="grande, vermelho"&gt;</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b">
+                            <span>b) Usando espaço: &lt;div class="grande vermelho"&gt;</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c">
+                            <span>c) Usando dois pontos: &lt;div class="grande: vermelho"&gt;</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="d">
+                            <span>d) Usando hífen: &lt;div class="grande-vermelho"&gt;</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q3">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q3"></div>
+                </div>
+
+                <!-- Pergunta 4 - Verdadeiro/Falso -->
+                <div class="quiz-question">
+                    <h3>4. A ordem de prioridade no CSS é: Tag > Classe > ID.</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="true">
+                            <span>✅ Verdadeiro</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="false">
+                            <span>❌ Falso</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q4">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q4"></div>
+                </div>
+
+                <!-- Pergunta 5 - Verdadeiro/Falso -->
+                <div class="quiz-question">
+                    <h3>5. O seletor p { color: red; } sempre sobrescreve o estilo de body { color: blue; } aplicado a parágrafos.</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="true">
+                            <span>✅ Verdadeiro</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="false">
+                            <span>❌ Falso</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q5">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q5"></div>
+                </div>
+
+                <!-- Pergunta 6 - Múltipla Escolha -->
+                <div class="quiz-question">
+                    <h3>6. Classes são mais específicas que IDs no CSS.</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="true">
+                            <span>✅ Verdadeiro</span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="false">
+                            <span>❌ Falso</span>
+                        </label>
+                    </div>
+                    <button class="quiz-check" data-question="q6">Verificar Resposta</button>
+                    <div class="quiz-feedback" id="feedback-q6"></div>
+                </div>
+            </div>
+
+            <div class="quiz-results">
+                <h3>Teu Resultado:</h3>
+                <div id="quiz-score">Aguardando respostas...</div>
+                <button id="reset-quiz" class="btn btn-secondary">Recomecar Quiz</button>
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
+        <!-- 8. Resumo do Que Aprendemos -->
         <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
-            <ul class="summary-list">
-                <li>📌 <strong>Tag</strong> é geral, <strong>Classe</strong> é reutilizável, <strong>ID</strong> é único.</li>
-                <li>📌 A ordem de poder é: <strong>ID > Classe > Tag</strong>.</li>
-                <li>📌 Hexadecimal (#) e RGB são as formas profissionais de definir cor.</li>
-                <li>📌 Podes usar várias classes no mesmo elemento separadas por espaços.</li>
-            </ul>
+            <h2>8. Resumo do Domínio dos Seletores</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>🎯 Fundamentos dos Seletores</h3>
+                    <ul class="summary-list">
+                        <li><strong>Tags:</strong> Selecionam elementos por tipo (h1, p, div), peso 1</li>
+                        <li><strong>Classes:</strong> Selecionam elementos por atributo class, peso 10, reutilizáveis</li>
+                        <li><strong>IDs:</strong> Selecionam elementos por atributo id, peso 100, únicos</li>
+                        <li><strong>Combinadores:</strong> Espaço, >, +, ~ para seletores compostos</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🏆 Hierarquia de Poder</h3>
+                    <div class="hierarchy-chart">
+                        <div class="level high">
+                            <span class="weight">100</span>
+                            <span class="selector">ID</span>
+                            <span class="example">#cabecalho</span>
+                        </div>
+                        <div class="level medium">
+                            <span class="weight">10</span>
+                            <span class="selector">Classe</span>
+                            <span class="example">.destaque</span>
+                        </div>
+                        <div class="level low">
+                            <span class="weight">1</span>
+                            <span class="selector">Tag</span>
+                            <span class="example">h1</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>🎨 Sistema de Cores</h3>
+                    <ul class="summary-list">
+                        <li><strong>Hexadecimal:</strong> #RRGGBB - Padrão indústria</li>
+                        <li><strong>RGB:</strong> rgb(R, G, B) - Controle numérico</li>
+                        <li><strong>RGBA:</strong> rgba(R, G, B, A) - Com transparência</li>
+                        <li><strong>Nomes:</strong> blue, red, green - Cores básicas</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>⚡ Práticas Essenciais</h3>
+                    <ul class="summary-list">
+                        <li>Classes são mais flexíveis que IDs</li>
+                        <li>Evite IDs em CSS moderno</li>
+                        <li>Use seletores específicos mas não excessivos</li>
+                        <li>Mantenha uma paleta de cores consistente</li>
+                        <li>Documente seu código com comentários</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- 9. Desafios Práticos -->
         <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+            <h2>9. Desafios Elite: Mestre dos Seletores</h2>
+            
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <div class="challenge-level">🔥 Nível Intermediário</div>
+                    <h3>Desafio 1: O Camaleão CSS</h3>
+                    <p>Cria um elemento HTML que receba duas classes simultaneamente: <code>destaque</code> (fundo amarelo) e <code>texto-grande</code> (fonte 24px). Implementa ambas as classes no CSS e verifica que ambos os estilos são aplicados.</p>
+                    <div class="challenge-hint">
+                        <button class="btn btn-secondary toggle-hint" data-hint="hint-1">💡 Dica</button>
+                        <div id="hint-1" class="hint-content hidden">
+                            <p>Lembre-se: no HTML, separa as classes por espaço. No CSS, define cada classe individualmente.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-interaction">
+                        <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                        <div id="sol-1" class="solution-content hidden">
+                            <div class="solution-code">
+                                <p><strong>Solução:</strong></p>
+                                <pre><code class="language-html">&lt;div class="destaque texto-grande"&gt;Este elemento tem dois estilos&lt;/div&gt;</code></pre>
+                                <pre><code class="language-css">.destaque {
+    background-color: #fef3c7;
+    padding: 10px;
+}
 
-            <div class="challenge-card">
-                <h3>Desafio 1: O Camaleão</h3>
-                <p>Como aplicas duas classes ao mesmo elemento? (ex: as classes <code>grande</code> e <code>vermelho</code>).</p>
-                <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
-                    <div id="sol-1" class="solution-content hidden">
-                        <p><strong>Solução:</strong> Separas por espaço no HTML:<br><code>&lt;div class="grande vermelho"&gt;</code></p>
+.texto-grande {
+    font-size: 24px;
+    font-weight: bold;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-level">🔥🔥 Nível Avançado</div>
+                    <h3>Desafio 2: Mistério do Hexadecimal</h3>
+                    <p>Implementa um sistema de cores completo para um botão com os seguintes estados:</p>
+                    <ul class="challenge-requirements">
+                        <li>Normal: #3b82f6 (azul)</li>
+                        <li>Hover: #2563eb (azil mais escuro)</li>
+                        <li>Active: #1d4ed8 (azil ainda mais escuro)</li>
+                        <li>Desativado: #9ca3af (cinza)</li>
+                    </ul>
+                    <p>Usa transições suaves de cor e efeitos de transformação.</p>
+                    <div class="challenge-interaction">
+                        <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                        <div id="sol-2" class="solution-content hidden">
+                            <div class="solution-code">
+                                <pre><code class="language-css">.botao-elite {
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.botao-elite:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.botao-elite:active {
+    background-color: #1d4ed8;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.botao-elite:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-level">🔥🔥🔥 Nível Expert</div>
+                    <h3>Desafio 3: A Batalha da Especificidade</h3>
+                    <p>Dadas as seguintes regras CSS, determina qual cor final terá cada elemento:</p>
+                    <div class="challenge-scenario">
+                        <pre><code class="language-css">/* Regra 1 */
+div { color: blue; }
+
+/* Regra 2 */  
+.conteudo { color: green; }
+
+/* Regra 3 */
+#principal .titulo { color: red; }
+
+/* Regra 4 */
+.titulo { color: purple; }
+
+/* Regra 5 */
+#principal .titulo.destaque { color: orange; }</code></pre>
+                        <p>HTML:</p>
+                        <pre><code class="language-html">&lt;div id="principal"&gt;
+    &lt;h2 class="titulo destaque"&gt;Título Principal&lt;/h2&gt;
+    &lt;p class="conteudo"&gt;Parágrafo de conteúdo&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <p class="challenge-question">❓ Qual será a cor do título e do parágrafo? Porquê?</p>
+                    <div class="challenge-interaction">
+                        <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                        <div id="sol-3" class="solution-content hidden">
+                            <div class="solution-explanation">
+                                <h4>🎯 Análise de Especificidade:</h4>
+                                <ul>
+                                    <li><strong>Título:</strong> Vai ficar <strong>laranja</strong> (#FFA500)</li>
+                                    <li><strong>Parágrafo:</strong> Vai ficar <strong>verde</strong> (#008000)</li>
+                                </ul>
+                                
+                                <h4>📊 Cálculo de Especificidade:</h4>
+                                <p><strong>Título:</strong> <code>#principal .titulo.destaque</code></p>
+                                <ul>
+                                    <li>ID: 100 pontos</li>
+                                    <li>Classes: 10 + 10 = 20 pontos</li>
+                                    <li>Total: 120 pontos (vence todas as outras regras)</li>
+                                </ul>
+                                
+                                <p><strong>Parágrafo:</strong> <code>.conteudo</code></p>
+                                <ul>
+                                    <li>Classe: 10 pontos</li>
+                                    <li>Tag <code>div</code>: 1 ponto</li>
+                                    <li>A classe (.conteudo) tem maior especificidade que a tag (div)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-level">🔥🔥🔥🔥 Nível Mestre</div>
+                    <h3>Desafio 4: Sistema de Design Coerente</h3>
+                    <p>Cria um sistema de cores e seletores para uma landing page com os seguintes componentes:</p>
+                    <div class="challenge-requirements">
+                        <h4>🎨 Paleta de Cores:</h4>
+                        <ul>
+                            <li>Primária: #2563eb (azul) para ações principais</li>
+                            <li>Secundária: #16a34a (verde) para sucesso</li>
+                            <li>Aterta: #dc2626 (vermelho) para erros</li>
+                            <li>Neutra: #6b7280 (cinza) para texto</li>
+                        </ul>
+                        
+                        <h4>🏗️ Componentes:</h4>
+                        <ul>
+                            <li>Botão primário (classe <code>.btn-primary</code>)</li>
+                            <li>Card de produto (classe <code>.card</code>)</li>
+                            <li>Badge de destaque (classe <code>.badge-highlight</code>)</li>
+                            <li>Alerta de erro (ID <code>#alert-error</code>)</li>
+                        </ul>
+                    </div>
+                    <p>Implementa estilos com especificidade apropriada e efeitos interativos.</p>
+                    <div class="challenge-bonus">
+                        <span class="bonus-badge">🏆 Bônus:</span> Adiciona um tema escuro com seletores apropriados
                     </div>
                 </div>
             </div>
 
-            <div class="challenge-card">
-                <h3>Desafio 2: Mistério do Hex</h3>
-                <p>Qual é a cor resultante de <code>#000000</code> e de <code>#FFFFFF</code>?</p>
-                <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
-                    <div id="sol-2" class="solution-content hidden">
-                        <p><strong>Solução:</strong> #000000 é <strong>Preto</strong> (ausência de luz) e #FFFFFF é <strong>Branco</strong> (máximo de todas as cores).</p>
+            <div class="challenge-progress">
+                <h3>📊 Progresso dos Desafios:</h3>
+                <div class="progress-tracker">
+                    <div class="challenge-progress-item">
+                        <span class="challenge-name">Desafio 1:</span>
+                        <span class="status">✅ Completo</span>
+                    </div>
+                    <div class="challenge-progress-item">
+                        <span class="challenge-name">Desafio 2:</span>
+                        <span class="status">🔄 Em Progresso</span>
+                    </div>
+                    <div class="challenge-progress-item">
+                        <span class="challenge-name">Desafio 3:</span>
+                        <span class="status">🔒 Trancado</span>
+                    </div>
+                    <div class="challenge-progress-item">
+                        <span class="challenge-name">Desafio 4:</span>
+                        <span class="status">🔒 Trancado</span>
                     </div>
                 </div>
             </div>
-
-            <div class="challenge-card">
-                <h3>Desafio 3: A Luta de Poder</h3>
-                <p>Se tiveres <code>body { color: blue; }</code> e <code>p { color: red; }</code>, de que cor será o texto dentro dos parágrafos?</p>
-                <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
-                    <div id="sol-3" class="solution-content hidden">
-                        <p><strong>Solução:</strong> <strong>Vermelho</strong>. O seletor <code>p</code> é mais específico para o parágrafo do que o seletor <code>body</code> que é herdado.</p>
-                    </div>
-                </div>
-            </div>
-
         </section>
 
         <div class="lesson-navigation">

@@ -47,88 +47,168 @@
 
         <!-- 2. Resumo da Aula Anterior -->
         <section class="lesson-step">
-            <h2>2. Resumo do Curso de HTML5</h2>
-            <p>Se chegaste aqui, já sabes como criar a estrutura de um site usando <strong>HTML5</strong>. Aprendeste que o HTML é o esqueleto. Agora, vamos aprender a dar-lhe pele, cor e estilo!</p>
+            <h2>2. Onde Estamos na Nossa Jornada</h2>
+            <p>Se chegaste até aqui, já dominaste o <strong>HTML5</strong> - a estrutura esquelética da web. Aprendeste que o HTML é o alicerce, as paredes e a estrutura básica. Mas uma casa sem decoração, cor e personalidade é apenas uma estrutura vazia. Hoje vamos transformar essa estrutura num lar belo e acolhedor!</p>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
+        <!-- 3. O Que Vais Aprender Hoje -->
         <section class="lesson-step">
             <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula de preparação, vamos transformar o teu conhecimento de HTML em poder visual. Vais aprender os fundamentos que tornarão os teus sites verdadeiramente impressionantes:</p>
             <ul class="learning-goals">
-                <li>✅ O que é o CSS e por que o usamos.</li>
-                <li>✅ As 3 formas de aplicar CSS (Inline, Internal, External).</li>
-                <li>✅ Como configurar o teu ambiente para CSS.</li>
-                <li>✅ A sintaxe básica: Seletor, Propriedade e Valor.</li>
+                <li>✅ O que é o CSS e o seu papel revolucionário na web moderna.</li>
+                <li>✅ As 3 formas profissionais de aplicar CSS (Inline, Internal, External) e quando usar cada uma.</li>
+                <li>✅ Configuração do ambiente de trabalho para desenvolvimento CSS elite.</li>
+                <li>✅ A sintaxe fundamental: Seletores, Propriedades e Valores com precisão cirúrgica.</li>
+                <li>✅ Os conceitos de cascata e especificidade que dominam o CSS.</li>
             </ul>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
+        <!-- 4. Teoria: A Arte da Transformação Visual -->
         <section class="lesson-step">
-            <h2>4. Teoria: A Maquilhagem da Web</h2>
+            <h2>4. Teoria: A Magia do Design Visual</h2>
             <div class="theory-box">
-                <p><strong>Conceito:</strong> CSS (Cascading Style Sheets) é a linguagem usada para descrever a apresentação de um documento escrito em HTML. Se o HTML é a estrutura, o CSS é o design.</p>
+                <p><strong>CSS (Cascading Style Sheets)</strong> não é apenas uma linguagem - é a alquimia que transforma o HTML funcional em experiências visuais memoráveis. Enquanto o HTML diz "o que é" algo, o CSS diz "como ele deve parecer, sentir e interagir".</p>
+
+                <h3>A Revolução do Design Separado</h3>
+                <p>O poder do CSS está na <strong>separação de responsabilidades</strong>. O HTML preocupa-se com a estrutura e semântica; o CSS preocupa-se com a apresentação. Esta separação permite:</p>
+                <ul>
+                    <li><strong>Manutenção fácil</strong>: Mudar o design do site inteiro num único ficheiro.</li>
+                    <li><strong>Performance otimizada</strong>: O browser pode carregar o CSS uma vez e reutilizá-lo.</li>
+                    <li><strong>Consistência visual</strong>: Garante que todos os elementos seguem os mesmos padrões.</li>
+                </ul>
+
                 <div class="analogy">
-                    <h3>🎭 Analogia: O Ator no Palco</h3>
-                    <p>Imagina uma peça de teatro:</p>
+                    <h3>🎨 Analogia: O Arquiteto vs. o Decorador de Interiores</h3>
+                    <p>Imagina a construção de um edifício de luxo:</p>
                     <ul>
-                        <li><strong>O Ator (HTML)</strong>: É a pessoa que está lá. Sem ele, não há peça.</li>
-                        <li><strong>O Figurino e Maquilhagem (CSS)</strong>: É o que transforma a pessoa num Rei, num Vilão ou num Herói.</li>
-                        <li><strong>O Roteiro</strong>: As instruções de como o ator deve aparecer (ex: "Entra com uma capa vermelha").</li>
+                        <li><strong>O Arquiteto (HTML)</strong>: Desenha os alicerces, paredes, portas e janelas. Define onde fica cada cômodo e como eles se conectam. É a estrutura funcional.</li>
+                        <li><strong>O Decorador de Interiores (CSS)</strong>: Escolhe as cores das paredes, o tipo de piso, as cortinas, a iluminação e os móveis. Transforma espaços funcionais em experiências emocionais.</li>
+                        <li><strong>O Plano de Decoração (CSS)</strong>: É o documento detalhado que diz: "Paredes brancas, piso de madeira, cortinas azuis". Este plano pode ser aplicado a qualquer cômodo ou até a outros edifícios inteiros.</li>
                     </ul>
                 </div>
+
+                <h3>A Cascata: A Hierarquia do Poder</h3>
+                <p>O nome "Cascading" (em cascata) reflete como as regras CSS são aplicadas. Quando múltiplas regras tentam estilizar o mesmo elemento, o CSS segue uma hierarquia:</p>
+                <ol>
+                    <li><strong>Importância</strong>: !important (evitar a não menos possível)</li>
+                    <li><strong>Especificidade</strong>: Seletores mais específicos ganham</li>
+                    <li><strong>Ordem</strong>: A regra que vem por último ganha</li>
+                </ol>
             </div>
         </section>
 
-        <!-- 5. Exemplos de Código -->
+        <!-- 5. Exemplos de Código Profissional -->
         <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+            <h2>5. Exemplos de Código: A Sinfonia Visual</h2>
 
             <div class="code-example-card">
-                <h3>Exemplo 1: Sintaxe Básica</h3>
-                <p>Como "falamos" com o CSS.</p>
+                <h3>Exemplo 1: A Sintaxe Fundamental</h3>
+                <p>A linguagem exata para comunicar com o browser. Cada caractere tem um propósito específico.</p>
                 <div class="code-window">
-                    <pre><code class="language-css">/* Seletor { Propriedade: Valor; } */
-h1 {
-  color: blue;
-  font-size: 24px;
+                    <pre><code class="language-css">/* Comentário: Explica o propósito do código */
+seletor {
+  propriedade: valor;    /* Ponto e vírgula final obrigatório */
+  propriedade2: valor2;
 }</code></pre>
                 </div>
-                <p class="explanation">Aqui estamos a dizer ao browser: "Procura todos os <code>h1</code> e pinta-os de azul".</p>
+                <p class="explanation">Esta é a estrutura gramatical do CSS. O seletor diz "o que estilizar", as propriedades dizem "o que mudar" e os valores dizem "como mudar". É a base de todo o design visual.</p>
             </div>
 
             <div class="code-example-card">
-                <h3>Exemplo 2: CSS Externo (O Recomendado)</h3>
-                <p>Ligar o ficheiro CSS no HTML.</p>
+                <h3>Exemplo 2: CSS Externo - O Padrão Ouro</h3>
+                <p>A forma profissional de organizar o teu projeto. Separação total de preocupações.</p>
                 <div class="code-window">
-                    <pre><code class="language-html">&lt;head&gt;
-  &lt;link rel="stylesheet" href="style.css"&gt;
+                    <pre><code class="language-html">&lt;!-- No ficheiro HTML --&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Meu Site Profissional&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/estilos.css"&gt;
+  &lt;!-- Caminho organizado e descritivo --&gt;
 &lt;/head&gt;</code></pre>
                 </div>
-                <p class="explanation">Esta é a forma mais limpa, pois separa o conteúdo (HTML) do design (CSS).</p>
+                <p class="explanation">Esta abordagem permite manter o HTML limpo e focado no conteúdo, enquanto todo o design reside num ficheiro CSS separado. É a prática recomendada por todos os profissionais da indústria.</p>
             </div>
 
             <div class="code-example-card">
-                <h3>Exemplo 3: CSS Inline (Evitar!)</h3>
-                <p>Aplicar estilo diretamente na tag.</p>
+                <h3>Exemplo 3: CSS Interno - Para Prototipagem Rápida</h3>
+                <p>Quando precisas de testar ideias rapidamente sem criar ficheiros separados.</p>
                 <div class="code-window">
-                    <pre><code class="language-html">&lt;p style="color: red;"&gt;Este texto é vermelho.&lt;/p&gt;</code></pre>
+                    <pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
                 </div>
-                <p class="explanation">Embora funcione, torna o código difícil de manter. Usa apenas em casos muito específicos.</p>
+                <p class="explanation">Útil para projetos pequenos ou para experimentação rápida. No entanto, para projetos reais, prefere sempre ficheiros CSS externos para melhor manutenção.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 4: CSS Inline - O Último Recurso</h3>
+                <p>Quando a urgência sobrepõe à boa organização. Use com extrema moderação.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;button style="
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+"&gt;Click Aqui&lt;/button&gt;</code></pre>
+                </div>
+                <p class="explanation">Embora funcional, esta prática viola o princípio da separação de preocupações. Use apenas em situações muito específicas, como correções rápidas em emails ou quando a performance crítica exige.</p>
             </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
+        <!-- 6. Agora é a Tua Vez! (O Teu Primeiro Design) -->
         <section class="lesson-step">
-            <h2>6. Agora é a Tua Vez!</h2>
+            <h2>6. Agora é a Tua Vez! (Transformação Visual Passo a Passo)</h2>
             <div class="practice-guide">
-                <p>Vamos preparar o teu primeiro ficheiro CSS:</p>
+                <p>Vamos criar o teu primeiro projeto CSS profissional. Segue estes passos com precisão cirúrgica:</p>
                 <ol class="steps-list">
-                    <li>Cria uma pasta chamada <code>projeto-css</code>.</li>
-                    <li>Cria um ficheiro <code>index.html</code> com um <code>&lt;h1&gt;</code>.</li>
-                    <li>Cria um ficheiro chamado <code>style.css</code> na mesma pasta.</li>
-                    <li>No CSS, escreve: <code>body { background-color: lightblue; }</code>.</li>
-                    <li>Liga os dois usando a tag <code>&lt;link&gt;</code>.</li>
+                    <li><strong>Estrutura do Projeto:</strong> Cria uma pasta chamada <code>meu-primeiro-design</code>. Dentro dela, cria uma subpasta <code>css</code> e outra <code>imagens</code> (para organização profissional).</li>
+                    <li><strong>HTML Estruturado:</strong> Cria um ficheiro <code>index.html</code> com estrutura completa (usando Emmet: <code>!</code>) e adiciona: <code>&lt;h1&gt;Meu Primeiro Design&lt;/h1&gt;</code> e <code>&lt;p&gt;Este é o meu primeiro projeto CSS profissional!&lt;/p&gt;</code>.</li>
+                    <li><strong>Ficheiro CSS Externo:</strong> Na pasta <code>css</code>, cria um ficheiro chamado <code>estilos.css</code>. Este será o teu "cérebro visual".</li>
+                    <li><strong>Conexão Profissional:</strong> No HTML, dentro do <code>&lt;head&gt;</code>, adiciona: <code>&lt;link rel="stylesheet" href="css/estilos.css"&gt;</code>. Nota o caminho organizado!</li>
+                    <li><strong>Primeiras Regras CSS:</strong> No ficheiro CSS, escreve:
+                        <pre><code class="language-css">body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+  color: #f0f0f0;
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}</code></pre>
+                    </li>
+                    <li><strong>Visualização Mágica:</strong> Abre o HTML com Live Server e observa a transformação! O teu texto agora tem estilo, cor e fundo gradient.</li>
                 </ol>
+                <p class="tip">💡 <strong>Dica Pro:</strong> Experimenta mudar as cores do gradiente e os valores do <code>font-size</code>. O CSS é sobre experimentação e descoberta!</p>
             </div>
         </section>
 
@@ -140,54 +220,114 @@ h1 {
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
+        <!-- 8. Resumo do Teu Arsenal Visual -->
         <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+            <h2>8. Resumo da Transformação Visual</h2>
             <ul class="summary-list">
-                <li>📌 <strong>CSS</strong> serve para dar estilo e layout ao HTML.</li>
-                <li>📌 A forma <strong>Externa</strong> é a melhor prática da indústria.</li>
-                <li>📌 A estrutura é sempre: <strong>Seletor { Propriedade: Valor; }</strong>.</li>
-                <li>📌 O <strong>VS Code</strong> ajuda-te com sugestões de cores e propriedades.</li>
+                <li>📌 <strong>CSS</strong> é a linguagem da transformação - converte HTML funcional em experiências visuais memoráveis e emocionais.</li>
+                <li>📌 <strong>Separação de preocupações</strong> é o princípio dourado: HTML para estrutura, CSS para apresentação, JavaScript para interatividade.</li>
+                <li>📌 <strong>CSS Externo</strong> é o padrão profissional - permite manutenção centralizada e consistência visual em todo o projeto.</li>
+                <li>📌 A <strong>sintaxe fundamental</strong> (Seletor { Propriedade: Valor; }) é a gramática que comunica com o browser.</li>
+                <li>📌 <strong>Cascata e especificidade</strong> são os mecanismos que resolvem conflitos e garantem que o design correto seja aplicado.</li>
             </ul>
         </section>
 
-        <!-- 9. Desafios Práticos -->
+        <!-- 9. Desafios Visuais (O Teu Teste de Designer) -->
         <section class="lesson-step">
-            <h2>9. Desafios Práticos</h2>
+            <h2>9. Desafios Práticos de Design Visual</h2>
 
             <div class="challenge-card">
-                <h3>Desafio 1: O Seletor Universal</h3>
-                <p>Como podes aplicar uma fonte específica a TODOS os elementos da página de uma só vez?</p>
+                <h3>Desafio 1: O Card Profissional</h3>
+                <p>Cria um card de produto com: fundo branco, sombra sutil, título em negrito, descrição em texto normal, e um botão com gradiente. Usa apenas CSS externo.</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Solução Master</button>
                     <div id="sol-1" class="solution-content hidden">
-                        <p><strong>Solução:</strong> Usando o seletor asterisco (<code>*</code>):<br><code>* { font-family: Arial; }</code></p>
+                        <pre><code class="language-css">/* CSS */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.card h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.card button {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}</code></pre>
                     </div>
                 </div>
             </div>
 
             <div class="challenge-card">
-                <h3>Desafio 2: Ordem de Prioridade</h3>
-                <p>Se tiveres o mesmo estilo no <code>inline</code> e no <code>external</code>, qual é que o browser escolhe?</p>
+                <h3>Desafio 2: A Mágica do Hover</h3>
+                <p>Faz com que o botão do card anterior mude de cor quando o mouse passa por cima (dica: usa o pseudo-seletor <code>:hover</code>).</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Efeito Hover</button>
                     <div id="sol-2" class="solution-content hidden">
-                        <p><strong>Solução:</strong> O <strong>Inline</strong>. Tem a maior prioridade por estar "mais perto" do elemento.</p>
+                        <pre><code class="language-css">.card button:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}</code></pre>
+                        <p>O <code>:hover</code> é um dos seletores mais poderosos do CSS para interatividade!</p>
                     </div>
                 </div>
             </div>
 
             <div class="challenge-card">
-                <h3>Desafio 3: Comentários CSS</h3>
-                <p>Como escreves um comentário no CSS (um texto que o browser ignora)?</p>
+                <h3>Desafio 3: O Layout Responsivo</h3>
+                <p>Usa media query para fazer o card ocupar 100% da largura em telemóveis (tela menor que 768px). Dica: <code>@media (max-width: 768px)</code>.</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Design Responsivo</button>
                     <div id="sol-3" class="solution-content hidden">
-                        <p><strong>Solução:</strong> Usando <code>/* comentário */</code>.</p>
+                        <pre><code class="language-css">@media (max-width: 768px) {
+  .card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+  }
+}</code></pre>
+                        <p>Parabéns! Acabas de criar o teu primeiro design responsivo!</p>
                     </div>
                 </div>
             </div>
 
+            <div class="challenge-card">
+                <h3>Desafio 4: Animação Suave</h3>
+                <p>Adiciona uma transição suave de 0.3 segundos à mudança de cor do botão. Dica: <code>transition: all 0.3s ease;</code>.</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-4">Animação Elegante</button>
+                    <div id="sol-4" class="solution-content hidden">
+                        <pre><code class="language-css">.card button {
+  /* ... estilos existentes ... */
+  transition: all 0.3s ease; /* Adiciona esta linha */
+}</code></pre>
+                        <p>As transformações suaves tornam a experiência do utilizador muito mais profissional e agradável!</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div class="lesson-navigation">

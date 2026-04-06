@@ -65,52 +65,289 @@
 
         <!-- 4. Teoria (com Analogia) -->
         <section class="lesson-step">
-            <h2>4. Teoria: A Voz do teu Site</h2>
+            <h2>4. Teoria: A Arte da Tipografia Digital</h2>
             <div class="theory-box">
-                <p><strong>Conceito:</strong> A tipografia não é apenas escolher letras bonitas; é sobre legibilidade e tom de voz. Um site de advocacia não usa a mesma fonte que um site de videojogos.</p>
+                <p><strong>Conceito Fundamental:</strong> A tipografia transcende a simples escolha de fontes - é a arquitetura visual da comunicação digital. Define não apenas como o texto aparece, mas como é percebido, compreendido e emocionalmente respondido pelo utilizador. Cada decisão tipográfica comunica intenções, hierarquia e profissionalismo.</p>
+                
                 <div class="analogy">
-                    <h3>🖋️ Analogia: A Caligrafia e o Tom de Voz</h3>
-                    <p>Imagina que estás a ler uma carta:</p>
+                    <h3>🎭 Analogia: O Teatro da Comunicação Visual</h3>
+                    <p>Imagine que cada elemento textual é um actor em uma peça teatral:</p>
                     <ul>
-                        <li><strong>font-size</strong>: É o volume da voz. Um H1 grita, um parágrafo fala calmamente.</li>
-                        <li><strong>font-style (Italic)</strong>: É um sussurro ou um segredo.</li>
-                        <li><strong>font-weight (Bold)</strong>: É um murro na mesa para dar ênfase.</li>
-                        <li><strong>font-family</strong>: É o sotaque ou a personalidade de quem escreve.</li>
+                        <li><strong>font-size</strong>: O volume e presença do actor. Um protagonista (H1) domina o palco com sua presença, enquanto um figurante (p) fala com moderação. O tamanho controla a hierarquia visual e a importância narrativa.</li>
+                        <li><strong>font-weight (Bold/Normal)</strong>: A intensidade emocional da atuação. Um actor em <strong>negrito</strong> transmite urgência, importância ou drama, enquanto o texto normal representa a narração calma e factual.</li>
+                        <li><strong>font-style (Italic)</strong>: O tom confidencial ou reflexivo. Como um actor que se aproxima do público para partilhar um segredo, o itálico cria intimidade e enfatiza conceitos com sutileza.</li>
+                        <li><strong>font-family</strong>: O caráter e personalidade do actor. Uma serifada <strong>Georgia</strong> transmite tradição e autoridade, enquanto uma sans-serif <strong>Inter</strong> comunica modernidade e acessibilidade.</li>
                     </ul>
+                    <p class="analogy-insight">Assim como no teatro, a harmonia entre todos os elementos tipográficos cria uma experiência coerente que engaja o público e transmite a mensagem desejada com impacto e clareza.</p>
+                </div>
+                
+                <div class="typography-principles">
+                    <h3>📚 Princípios Fundamentais da Tipografia:</h3>
+                    <div class="principles-grid">
+                        <div class="principle-item">
+                            <h4>🎯 Hierarquia Visual</h4>
+                            <p>Diferentes tamanhos e pesos criam um caminho visual natural, guiando o olhar do utilizador através do conteúdo de forma intuitiva.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>📖 Legibilidade</h4>
+                            <p>A relação entre tamanho, espaçamento e contraste determina o quão facilmente o texto pode ser lido e compreendido.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>🎪 Personalidade</h4>
+                            <p>A escolha de fontes comunica a identidade da marca e o tom emocional da comunicação.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>⚡ Performance</h4>
+                            <p>O carregamento de fontes afeta a velocidade do site e a experiência do utilizador.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 5. Exemplos de Código -->
         <section class="lesson-step">
-            <h2>5. Exemplos Práticos</h2>
+            <h2>5. Exemplos Profissionais de Tipografia</h2>
 
             <div class="code-example-card">
-                <h3>Exemplo 1: Estilização Básica</h3>
-                <p>As propriedades mais comuns para parágrafos.</p>
+                <h3>📰 Exemplo 1: Sistema de Tipografia Corporativo</h3>
+                <p>Implementação de um sistema tipográfico completo para conteúdo editorial e corporativo.</p>
                 <div class="code-window">
-                    <pre><code class="language-css">p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 400; /* Normal */
-  line-height: 1.6; /* Espaçamento entre linhas */
+                    <pre><code class="language-css">/* Sistema de Tipografia Corporativo */
+:root {
+  /* Escala Tipográfica Base (baseado em raiz quadrada) */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+  
+  /* Sistemas de Linha (baseado na escala) */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+}
+
+/* Tipografia de Cabeçalhos */
+h1, .h1 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.025em;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+h2, .h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.025em;
+  color: #1e293b;
+  margin-bottom: 0.875rem;
+}
+
+h3, .h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  line-height: var(--line-height-snug);
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+/* Tipografia de Conteúdo */
+p, .paragraph {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--line-height-relaxed);
+  color: #475569;
+  margin-bottom: 1rem;
   text-align: justify;
+}
+
+.text-lead {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: #334155;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1.5rem;
+}
+
+.text-small {
+  font-size: var(--font-size-sm);
+  color: #64748b;
+  line-height: var(--line-height-normal);
+}
+
+.text-muted {
+  font-size: var(--font-size-sm);
+  color: #94a3b8;
+  font-style: italic;
 }</code></pre>
                 </div>
-                <p class="explanation">Dica: O <code>line-height</code> de 1.5 ou 1.6 torna o texto muito mais fácil de ler!</p>
+                <div class="explanation">
+                    <p><strong>🎯 Sistema Baseado em CSS Variables:</strong></p>
+                    <ul>
+                        <li>Escalas tipográficas consistentes baseadas em raízes quadradas</li>
+                        <li>Sistemas de linha proporcionais ao tamanho da fonte</li>
+                        <li>Fallbacks de fontes para compatibilidade cross-browser</li>
+                        <li>Cores semanticamente organizadas</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="code-example-card">
-                <h3>Exemplo 2: Decoração e Transformação</h3>
-                <p>Mudar o aspeto sem mudar a fonte.</p>
+                <h3>✨ Exemplo 2: Transformações e Decorações Textuais</h3>
+                <p>Técnicas avançadas de manipulação visual de texto para design impactante.</p>
                 <div class="code-window">
-                    <pre><code class="language-css">a {
-  text-decoration: none;    /* Retira o sublinhado dos links */
-  text-transform: uppercase; /* Coloca tudo em MAIÚSCULAS */
-  letter-spacing: 2px;      /* Espaço entre letras */
+                    <pre><code class="language-css">/* Sistema de Links Profissional */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  position: relative;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #1e40af;
+}
+
+/* Efeito de Sublinhado Animado */
+a.underline-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  transition: width 0.3s ease;
+}
+
+a.underline-animated:hover::after {
+  width: 100%;
+}
+
+/* Sistema de Transformações Textuais */
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-titlecase {
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+}
+
+/* Controle de Espaçamento Avançado */
+.text-tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.text-tracking-normal {
+  letter-spacing: 0;
+}
+
+.text-tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.text-tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+/* Sistema de Alinhamento Responsivo */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-start { text-align: start; }
+.text-end { text-align: end; }
+
+/* Alinhamento Vertical */
+.text-top { vertical-align: top; }
+.text-middle { vertical-align: middle; }
+.text-bottom { vertical-align: bottom; }
+.text-baseline { vertical-align: baseline; }
+
+/* Sistema de Estilos de Texto */
+.text-italic { font-style: italic; }
+.text-bold { font-weight: 700; }
+.text-semibold { font-weight: 600; }
+.text-medium { font-weight: 500; }
+.text-normal { font-weight: 400; }
+.text-light { font-weight: 300; }
+
+.text-underline {
+  text-decoration: underline;
+  text-decoration-color: #2563eb;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+  text-decoration-color: #94a3b8;
+}
+
+.text-no-decoration {
+  text-decoration: none;
+}
+
+/* Efeitos de Texto Profissionais */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px #2563eb;
+  color: transparent;
 }</code></pre>
                 </div>
-                <p class="explanation">Muitos designers usam <code>uppercase</code> com <code>letter-spacing</code> para criar títulos elegantes.</p>
+                <div class="explanation">
+                    <p><strong>🚀 Técnicas Avançadas:</strong></p>
+                    <ul>
+                        <li>Transições suaves para interações de usuário</li>
+                        <li>Efeitos de sublinhado animados com pseudo-elementos</li>
+                        <li>Controle preciso do espaçamento entre caracteres</li>
+                        <li>Sistemas de alinhamento responsivo e accessibility</li>
+                        <li>Efeitos visuais para destaque especial</li>
+                    </ul>
+                </div>
             </div>
         </section>
 

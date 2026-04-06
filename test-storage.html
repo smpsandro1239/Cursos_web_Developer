@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Enhanced Storage</title>
+</head>
+<body>
+    <h1>Teste Enhanced Storage</h1>
+    <div id="results"></div>
+    
+    <script src="js/storage-enhanced.js"></script>
+    <script>
+        async function runTests() {
+            const results = document.getElementById('results');
+            let testResults = [];
+            
+            try {
+                // Test 1: Inicialização
+                const storage = new EnhancedStorage();
+                await storage.init();
+                testResults.push({ name: 'Inicialização IndexedDB', passed: true });
+                
+                // Test 2: Salvar e recuperar progresso
+                const testData = { userId: 'test', progress: { completed: ['module-1'] } };
+                await storage.saveProgress('test', testData);
+                const retrieved = await storage.getProgress('test');
+                
+                if (JSON.stringify(retrieved) === JSON.stringify(testData)) {
+                    testResults.push({ name: 'Salvar e recuperar progresso', passed: true });
+                } else {
+                    testResults.push({ name: 'Salvar e recuperar progresso', passed: false, error: 'Dados não correspondem' });
+                }
+                
+                // Test 3: Salvar usuário
+                const userData = { 
+                    email: 'test@example.com', 
+                    name: 'Test User', 
+                    password: 'password123',
+                    role: 'Student'
+                };
+                await storage.saveUser('test@example.com', userData);
+                const userRetrieved = await storage.getUser('test@example.com');
+                
+                if (userRetrieved && userRetrieved.email === 'test@example.com') {
+                    testResults.push({ name: 'Salvar e recuperar usuário', passed: true });
+                } else {
+                    testResults.push({ name: 'Salvar e recuperar usuário', passed: false, error: 'Usuário não salvo corretamente' });
+                }
+                
+            } catch (error) {
+                testResults.push({ name: 'Testes gerais', passed: false, error: error.message });
+            }
+            
+            // Exibir resultados
+            results.innerHTML = testResults.map(result => `
+                <div style="color: ${result.passed ? 'green' : 'red'}; margin: 10px 0;">
+                    ${result.name}: ${result.passed ? 'PASS' : 'FAIL'} 
+                    ${result.error ? `- ${result.error}` : ''}
+                </div>
+            `).join('');
+        }
+        
+        runTests();
+    </script>
+</body>
+</html>

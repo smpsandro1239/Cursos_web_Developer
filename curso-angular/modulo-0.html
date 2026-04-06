@@ -45,82 +45,215 @@
             <h1>Módulo 0: Bem-vindo ao Angular</h1>
         </div>
 
-        <!-- 2. Resumo da Jornada -->
+        <!-- 2. Resumo da Nossa Jornada -->
         <section class="lesson-step">
-            <h2>2. O Camarote dos Profissionais</h2>
-            <p>Se já dominas HTML, CSS e JavaScript, estás pronto para o próximo nível. O Angular não é apenas uma biblioteca; é uma **Framework completa** usada pelas maiores empresas do mundo para criar aplicações gigantescas e rápidas.</p>
+            <h2>2. O Salto para o Profissionalismo</h2>
+            <p>Se chegaste até aqui, já dominas as três grandes linguagens da web: <strong>HTML5</strong> para estrutura, <strong>CSS3</strong> para visual, e <strong>JavaScript</strong> para interatividade. Mas criar aplicações complexas e escaláveis com JavaScript puro é como construir um arranha-céus com ferramentas manuais. É possível, mas é extremamente difícil e propenso a erros. O Angular é a maquinaria industrial que transforma essa tarefa num processo profissional, robusto e eficiente.</p>
         </section>
 
-        <!-- 3. O Que Vamos Aprender Hoje -->
+        <!-- 3. O Que Vais Aprender Hoje -->
         <section class="lesson-step">
             <h2>3. O Que Vais Aprender Hoje</h2>
+            <p>Nesta aula de introdução ao mundo profissional do desenvolvimento frontend, vais dar o salto do "desenvolvedor" para "arquiteto de software". Vais aprender os fundamentos que dominam as maiores empresas tecnológicas:</p>
             <ul class="learning-goals">
-                <li>✅ O que é uma Framework e por que usar Angular.</li>
-                <li>✅ O conceito de SPA (Single Page Application).</li>
-                <li>✅ A arquitetura base: Componentes.</li>
-                <li>✅ O "Ecossistema" da Google.</li>
+                <li>✅ O que é uma Framework e por que o Angular é a escolha de empresas como Google e Microsoft.</li>
+                <li>✅ O conceito revolucionário de SPA (Single Page Application) e os seus benefícios.</li>
+                <li>✅ A arquitetura base de Componentes - o alicerce de aplicações Angular profissionais.</li>
+                <li>✅ O poderoso ecossistema da Google que suporta aplicações em escala enterprise.</li>
+                <li>✅ A diferença fundamental entre bibliotecas (como jQuery) e frameworks (como Angular).</li>
             </ul>
         </section>
 
-        <!-- 4. Teoria (com Analogia) -->
+        <!-- 4. Teoria: A Revolução das Aplicações Enterprise -->
         <section class="lesson-step">
-            <h2>4. Teoria: A Fábrica de Aplicações</h2>
+            <h2>4. Teoria: A Arquitetura de Sucesso</h2>
             <div class="theory-box">
-                <p><strong>Conceito:</strong> Angular é uma plataforma de desenvolvimento, construída sobre TypeScript, que ajuda a criar aplicações web escaláveis. Ao contrário do JS puro, o Angular dá-te as ferramentas todas "dentro da caixa".</p>
+                <p><strong>Angular</strong> não é apenas mais uma biblioteca JavaScript - é uma plataforma completa de desenvolvimento construída sobre TypeScript que redefine como criamos aplicações web complexas e escaláveis. Ao contrário do JavaScript puro, onde "tudo é possível", o Angular oferece "caminhos certos" de fazer as coisas, garantindo consistência, manutenibilidade e performance.</p>
+
+                <h3>A Filosofia da Opinião Forte</h3>
+                <p>Angular segue o princípio de "opinião forte": em vez de deixar-te fazer o que quiseres, oferece estruturas bem definidas que provaram funcionar em projetos reais. Isto parece limitativo, mas na prática é o que torna o desenvolvimento em equipa e a manutenção a longo prazo possíveis.</p>
+
                 <div class="analogy">
-                    <h3>🏗️ Analogia: O Kit LEGO vs. Peças Soltas</h3>
-                    <p>Imagina que queres construir um castelo:</p>
+                    <h3>🏛️ Analogia: A Construção vs. O Design de Interiores</h3>
+                    <p>Imagina a diferença entre construir uma casa do zero e decorar um apartamento já existente:</p>
                     <ul>
-                        <li><strong>JavaScript Puro</strong>: É como ires à praia apanhar pedras, fazer o teu próprio cimento e esculpir tudo à mão. Dá muito trabalho e é fácil o castelo cair.</li>
-                        <li><strong>Angular</strong>: É como comprares um kit LEGO moderno. Tens instruções, peças que encaixam perfeitamente e uma estrutura sólida que nunca falha.</li>
+                        <li><strong>JavaScript Puro</strong>: É como construir uma casa inteira a partir de zero. Tens que decidir tudo: fundações, estrutura, elétrica, canalização. É total liberdade, mas também total responsabilidade. Um erro pode fazer tudo desmoronar.</li>
+                        <li><strong>Angular</strong>: É como decorar um apartamento de luxo já construído. A estrutura (paredes, janelas, instalações) já está pronta e testada. O teu trabalho é focar na parte importante: o design, a funcionalidade e a experiência dos habitantes. Tens liberdade para criar, mas dentro de limites seguros e estruturados.</li>
                     </ul>
                 </div>
+
+                <h3>Os Pilares do Angular</h3>
+                <p>O Angular é construído sobre quatro conceitos fundamentais:</p>
+                <ol>
+                    <li><strong>Componentes</strong>: Blocos de construção independentes e reutilizáveis que encapsulam HTML, CSS e lógica.</li>
+                    <li><strong>Dependência Injeção</strong>: Um sistema que gerencia "quê" precisa de "quê", tornando o código testável e modular.</li>
+                    <li><strong>Reatividade</strong>: O sistema detecta mudanças automaticamente e atualiza a interface sem intervenção manual.</li>
+                    <li><strong>Metadados</strong>: Informações que dão "superpoderes" às classes TypeScript, transformando-as em componentes Angular.</li>
+                </ol>
             </div>
         </section>
 
-        <!-- 5. Exemplos de Conceitos -->
+        <!-- 5. Exemplos de Código: A Arquitetura Angular -->
         <section class="lesson-step">
-            <h2>5. Conceitos Práticos</h2>
+            <h2>5. Exemplos de Código: Os Primeiros Componentes</h2>
 
             <div class="code-example-card">
-                <h3>Exemplo 1: O que é um Componente?</h3>
-                <p>O Angular divide o site em peças independentes.</p>
+                <h3>Exemplo 1: O Componente Raiz - O Coração da Aplicação</h3>
+                <p>O componente principal que serve como ponto de entrada para toda a aplicação Angular. É onde tudo começa.</p>
                 <div class="code-window">
-                    <pre><code class="language-typescript">// app.component.ts
+                    <pre><code class="language-typescript">// src/app/app.component.ts
+import { Component } from '@angular/core';
+
 @Component({
+  // Seletor único para este componente
   selector: 'app-root',
-  template: '&lt;h1&gt;Olá {{ nome }}!&lt;/h1&gt;'
+  
+  // Template HTML associado ao componente
+  template: `
+    <header>
+      <h1>Bem-vindo ao {{ titulo }}!</h1>
+      <nav>
+        <a routerLink="/">Início</a>
+        <a routerLink="/sobre">Sobre</a>
+      </nav>
+    </header>
+    
+    <main>
+      <!-- O conteúdo das páginas será inserido aqui -->
+      <router-outlet></router-outlet>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 {{ anoAtual }} - Angular App</p>
+    </footer>
+  `,
+  
+  // Estilos CSS específicos do componente
+  styles: [`
+    header { background: #1976d2; color: white; padding: 1rem; }
+    nav a { margin-right: 1rem; color: white; text-decoration: none; }
+    footer { text-align: center; padding: 1rem; background: #f5f5f5; }
+  `]
 })
 export class AppComponent {
-  nome = 'Explorador';
+  // Propriedades do componente
+  titulo = 'Meu Primeiro App Angular';
+  anoAtual = new Date().getFullYear();
+  
+  // Método do componente
+  ngOnInit() {
+    console.log('Aplicação Angular inicializada com sucesso!');
+  }
 }</code></pre>
                 </div>
-                <p class="explanation">Vês as chavetas <code>{{ }}</code>? Chama-se Interpolação e serve para mostrar dados do código diretamente no HTML.</p>
+                <p class="explanation">Este código demonstra a estrutura básica de um componente Angular: decorator <code>@Component</code>, classe TypeScript com propriedades e métodos, e template HTML com interpolação <code>{{ }}</code> para exibir dados dinamicamente.</p>
             </div>
 
             <div class="code-example-card">
-                <h3>Exemplo 2: A Mágica da SPA</h3>
-                <p>O site nunca recarrega.</p>
-                <div class="rich-snippet-preview" style="background: #eef2ff; border: 1px solid #c7d2fe; padding: 20px;">
-                    <p>🌐 <strong>Menu:</strong> [Home] [Perfil] [Definições]</p>
-                    <p>Ao clicares num link, apenas o centro da página muda instantaneamente. Sem a rodinha do browser a girar!</p>
+                <h3>Exemplo 2: O Poder da Single Page Application (SPA)</h3>
+                <p>Comparação entre aplicação tradicional e SPA Angular. A diferença é como noite e dia!</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- APLICAÇÃO TRADICIONAL (Múltiplos Page Loads) --&gt;
+&lt;!-- index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Home&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;&lt;a href="sobre.html"&gt;Sobre&lt;/a&gt;&lt;/nav&gt;
+  &lt;h1&gt;Página Inicial&lt;/h1&gt;
+  &lt;p&gt;Conteúdo da home page...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- sobre.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Sobre&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/nav&gt;
+  &lt;h1&gt;Sobre Nós&lt;/h1&gt;
+  &lt;p&gt;Conteúdo da página sobre...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
                 </div>
-                <p class="explanation">Isso torna a experiência do utilizador muito mais fluida, como se fosse uma aplicação de telemóvel.</p>
+            </div>
+
+            <div class="code-example-card">
+                <h3>Exemplo 3: A SPA Angular em Ação</h3>
+                <p>Como o Angular faz o mesmo trabalho com uma única página e experiência fluida.</p>
+                <div class="code-window">
+                    <pre><code class="language-html">&lt;!-- APLICAÇÃO ANGULAR (Single Page Application) --&gt;
+&lt;!-- index.html (apenas uma página!) --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Meu App Angular&lt;/title&gt;
+  &lt;base href="/"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;app-root&gt;&lt;/app-root&gt;  &lt;!-- A aplicação inteira aqui --&gt;
+  
+  &lt;!-- Scripts do Angular --&gt;
+  &lt;script src="runtime.js"&gt;&lt;/script&gt;
+  &lt;script src="polyfills.js"&gt;&lt;/script&gt;
+  &lt;script src="styles.js"&gt;&lt;/script&gt;
+  &lt;script src="vendor.js"&gt;&lt;/script&gt;
+  &lt;script src="main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="explanation">Na SPA Angular, apenas um ficheiro HTML é carregado. O Angular gerencia a navegação internamente, trocando apenas o conteúdo necessário. Resultado: experiência instantânea, sem carregamentos de página, como uma aplicação nativa!</p>
             </div>
         </section>
 
-        <!-- 6. Prática Orientada -->
+        <!-- 6. Agora é a Tua Vez! (O Teu Primeiro Projeto Angular) -->
         <section class="lesson-step">
-            <h2>6. Preparação do Terreno</h2>
+            <h2>6. Agora é a Tua Vez! (Construindo o Teu Primeiro App)</h2>
             <div class="practice-guide">
-                <p>Para o Angular, precisamos de ferramentas especiais:</p>
+                <p>Vamos criar o teu primeiro projeto Angular do zero. Esta é a porta de entrada para o mundo profissional do desenvolvimento frontend. Segue estes passos com precisão cirúrgica:</p>
                 <ol class="steps-list">
-                    <li>Instala o <strong>Node.js</strong> (essencial para rodar o Angular).</li>
-                    <li>Abre o teu terminal e escreve: <code>npm install -g @angular/cli</code>.</li>
-                    <li>Cria o teu primeiro projeto: <code>ng new meu-app</code>.</li>
-                    <li>Entra na pasta e escreve: <code>ng serve</code>.</li>
-                    <li>Abre o link <code>localhost:4200</code> e vê o teu primeiro site Angular live!</li>
+                    <li><strong>Pré-requisitos Essenciais:</strong> 
+                        <ul>
+                            <li>Instala o <strong>Node.js</strong> (versão LTS) de <a href="https://nodejs.org" target="_blank">nodejs.org</a></li>
+                            <li>Verifica com <code>node --version</code> e <code>npm --version</code> no terminal</li>
+                        </ul>
+                    </li>
+                    <li><strong>Instalação do Angular CLI:</strong> Abre o terminal/linha de comandos e executa:
+                        <pre><code class="language-bash"># Instalar globalmente o Angular Command Line Interface
+npm install -g @angular/cli
+
+# Verificar instalação
+ng version</code></pre>
+                    </li>
+                    <li><strong>Criação do Projeto:</strong> Cria uma pasta para o teu projeto e inicializa o Angular:
+                        <pre><code class="language-bash"># Criar pasta e navegar para ela
+mkdir meu-primeiro-angular
+cd meu-primeiro-angular
+
+# Criar novo projeto Angular com configurações otimizadas
+ng new meu-app --routing=true --style=css --skip-git=true
+
+# Navegar para o diretório do projeto
+cd meu-app</code></pre>
+                    </li>
+                    <li><strong>Execução do Servidor de Desenvolvimento:</strong> Inicia o servidor local:
+                        <pre><code class="language-bash"># Iniciar o servidor de desenvolvimento
+ng serve --open
+
+# Ou ativar o modo watch para atualizações automáticas
+ng serve --watch --open</code></pre>
+                    </li>
+                    <li><strong>Verificação Mágica:</strong> Abre o navegador no endereço <code>http://localhost:4200</code> e vê o teu primeiro app Angular em ação! Deverás ver a página padrão do Angular com "Welcome to app-name!"</li>
+                    <li><strong>Exploração da Estrutura:</strong> No VS Code, abre a pasta <code>meu-app</code> e explora:
+                        <ul>
+                            <li><code>src/app/</code> - Onde vivem os teus componentes</li>
+                            <li><code>src/app/app.component.ts</code> - O componente principal</li>
+                            <li><code>src/app/app.component.html</code> - O template do componente</li>
+                            <li><code>src/app/app.component.css</code> - Os estilos do componente</li>
+                        </ul>
+                    </li>
                 </ol>
+                <p class="tip">💡 <strong>Dica Pro:</strong> Se encontrares erros durante a instalação, verifica se tens permissões de administrador ou tenta executar o terminal como administrador. O Angular CLI é a ferramenta oficial da Google - é o padrão ouro do desenvolvimento Angular!</p>
             </div>
         </section>
 
@@ -132,54 +265,120 @@ export class AppComponent {
             </div>
         </section>
 
-        <!-- 8. Resumo da Aula -->
+        <!-- 8. Resumo da Tua Jornada para o Profissionalismo -->
         <section class="lesson-step">
-            <h2>8. Resumo do Que Aprendemos</h2>
+            <h2>8. Resumo do Teu Salto para o Enterprise</h2>
             <ul class="summary-list">
-                <li>📌 O <strong>Angular</strong> é uma framework robusta para aplicações grandes.</li>
-                <li>📌 Uma <strong>SPA</strong> (Single Page Application) não recarrega a página.</li>
-                <li>📌 O Angular usa <strong>TypeScript</strong> (uma versão turbinada do JS).</li>
-                <li>📌 Tudo no Angular gira em torno de <strong>Componentes</strong>.</li>
+                <li>📌 <strong>Angular</strong> é a plataforma enterprise definitiva - usada por gigantes como Google, Microsoft e Deutsche Bank para aplicações em escala global.</li>
+                <li>📌 <strong>SPA (Single Page Application)</strong> é a revolução da experiência do utilizador - interfaces instantâneas que sentem como aplicações nativas.</li>
+                <li>📌 <strong>TypeScript</strong> é o superpoder do Angular - tipagem estática que previne erros, melhora autocompletar e torna o código mantível.</li>
+                <li>📌 <strong>Componentes</strong> são os blocos de construção LEGO do Angular - encapsulam HTML, CSS e lógica em unidades reutilizáveis e testáveis.</li>
+                <li>📌 <strong>Angular CLI</strong> é a ferramenta oficial que transforma desenvolvimento complexo em processos simples e automatizados.</li>
             </ul>
         </section>
 
-        <!-- 9. Desafios Mentais -->
+        <!-- 9. Desafios de Arquitetura (Os Teus Testes de Mestre) -->
         <section class="lesson-step">
-            <h2>9. Desafios Mentais</h2>
+            <h2>9. Desafios Profissionais de Arquitetura</h2>
 
             <div class="challenge-card">
-                <h3>Desafio 1: Framework vs Biblioteca</h3>
-                <p>Se o React é uma biblioteca (precisas de escolher outras peças para o teu castelo), porque é que dizemos que o Angular é uma Framework?</p>
+                <h3>Desafio 1: A Escolha Estratégica</h3>
+                <p>Estás a planear uma aplicação de e-commerce com milhares de produtos, carrinho de compras, sistema de autenticação e painel de admin. Por que razões o Angular seria a escolha mais segura e profissional em vez de bibliotecas como React ou Vue?</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-1">Análise de Arquitetura</button>
                     <div id="sol-1" class="solution-content hidden">
-                        <p><strong>Solução:</strong> Porque o Angular já traz tudo incluído: roteamento, gestão de formulários, chamadas para bases de dados e muito mais. É uma solução integral.</p>
+                        <p><strong>Análise Profissional:</strong></p>
+                        <ul>
+                            <li><strong>Consistência Garantida:</strong> Angular impõe padrões rigorosos, garantindo que toda a equipa segue as mesmas boas práticas.</li>
+                            <li><strong>Ecossistema Completo:</strong> Angular CLI, Angular Material, RxJS, e Angular Forms fornecem tudo o que é necessário sem ter de escolher bibliotecas de terceiros.</li>
+                            <li><strong>Performance em Escala:</strong> O sistema de change detection otimizado e lazy loading garantem performance mesmo com milhares de componentes.</li>
+                            <li><strong>Manutenção a Longo Prazo:</strong> TypeScript e arquitetura modular tornam o código previsível e fácil de manter quando a equipa cresce.</li>
+                            <li><strong>Segurança Enterprise:</strong> Angular vem com XSS protection, CSRF protection e outras medidas de segurança já implementadas.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="challenge-card">
-                <h3>Desafio 2: O Criador</h3>
-                <p>Que grande empresa tecnológica usa o Angular para os seus próprios serviços e o mantém para a comunidade?</p>
+                <h3>Desafio 2: O Cenário Real do Google</h3>
+                <p>Pesquisa e descreve 3 aplicações Google de grande escala que usam Angular internamente. Como estas aplicações beneficiam da arquitetura Angular em termos de performance, manutenção e escalabilidade?</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-2">Aplicações Google</button>
                     <div id="sol-2" class="solution-content hidden">
-                        <p><strong>Solução:</strong> A <strong>Google</strong>.</p>
+                        <p><strong>Aplicações Google que usam Angular:</strong></p>
+                        <ol>
+                            <li><strong>Google AdWords/Google Ads:</strong> A plataforma de publicidade complexa com múltiplos dashboards, relatórios em tempo real e gestão de campanhas. Beneficia do reatividade e sistema de formulários robusto do Angular.</li>
+                            <li><strong>Google Cloud Console:</strong> O painel de gestão de serviços cloud com centenas de serviços e configurações complexas. Usa a arquitetura modular do Angular para carregar apenas os serviços necessários.</li>
+                            <li><strong>Google Analytics:</strong> A plataforma de análise com dashboards interativos e relatórios complexos. Aproveita os gráficos e visualizações do Angular Material e o sistema de roteamento para navegação fluida.</li>
+                        </ol>
+                        <p><strong>Benefícios Chave:</strong> Consistência UI/UX, performance em aplicações complexas, facilidade de manutenção com equipas grandes, e segurança enterprise-level.</p>
                     </div>
                 </div>
             </div>
 
             <div class="challenge-card">
-                <h3>Desafio 3: Velocidade</h3>
-                <p>Qual é a principal vantagem de uma SPA para um utilizador final?</p>
+                <h3>Desafio 3: A Revolução SPA vs. SEO</h3>
+                <p>Uma SPA Angular tem a vantagem de experiência do utilizador, mas tradicionalmente tinha problemas com SEO. Como o Angular resolve este paradoxo? Pesquisa e explica o conceito de "Server-Side Rendering" (SSR) e "Static Site Generation" (SSG) no contexto Angular.</p>
                 <div class="challenge-interaction">
-                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">Ver Solução</button>
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-3">SEO em Angular</button>
                     <div id="sol-3" class="solution-content hidden">
-                        <p><strong>Solução:</strong> A velocidade de navegação entre ecrãs, que é quase imediata.</p>
+                        <p><strong>Solução SEO para SPAs Angular:</strong></p>
+                        <h4>Server-Side Rendering (SSR) com Angular Universal:</h4>
+                        <ul>
+                            <li>Renderiza a página no servidor antes de enviar para o browser</li>
+                            <li>Conteúdo é indexável por motores de busca desde o primeiro carregamento</li>
+                            <li>Melhora Core Web Vitals (LCP, FID, CLS)</li>
+                            <li>Permite pré-carregamento de dados críticos</li>
+                        </ul>
+                        
+                        <h4>Static Site Generation (SSG) com Angular:</h4>
+                        <ul>
+                            <li>Gera páginas HTML estáticas no build time</li>
+                            <li>Performance instantânea para conteúdo público</li>
+                            <li>Custo de hospedagem reduzido</li>
+                            <li>Perfeito para blogs, documentação e landing pages</li>
+                        </ul>
+                        
+                        <h4>Angular + SEO Moderno:</h4>
+                        <p>O Angular 15+ suporta nativamente SSR/SSG através do Angular Platform Server, permitindo escolher a estratégia ideal para cada tipo de conteúdo: SSR para conteúdo dinâmico, SSG para conteúdo estático, e SPA para áreas interativas.</p>
                     </div>
                 </div>
             </div>
 
+            <div class="challenge-card">
+                <h3>Desafio 4: O Arquiteto do Futuro</h3>
+                <p>Descreve como a arquitetura baseada em componentes do Angular prepara os desenvolvedores para futuras tendências como WebAssembly, PWA (Progressive Web Apps) e integração com IA. Como a modularidade do Angular facilita a adoção de novas tecnologias?</p>
+                <div class="challenge-interaction">
+                    <button class="btn btn-secondary toggle-solution" data-target="sol-4">Arquitetura Futurista</button>
+                    <div id="sol-4" class="solution-content hidden">
+                        <p><strong>Arquitetura Angular para o Futuro:</strong></p>
+                        
+                        <h4>WebAssembly Integration:</h4>
+                        <ul>
+                            <li>Componentes podem carregar módulos WebAssembly dinamicamente</li>
+                            <li>Angular CLI suporta build para WebAssembly</li>
+                            <li>Performance computacional intensiva no browser</li>
+                        </ul>
+                        
+                        <h4>Progressive Web Apps (PWA):</h4>
+                        <ul>
+                            <li>Angular CLI gera manifest.json e service worker automaticamente</li>
+                            <li>Componentes podem ser transformados em PWA com um comando</li>
+                            <li>Suporte a offline, push notifications e app-like experience</li>
+                        </ul>
+                        
+                        <h4>Integração com IA:</h4>
+                        <ul>
+                            <li>Arquitetura modular permite adicionar bibliotecas de IA como módulos</li>
+                            <li>Componentes reativos integram-se perfeitamente com ML.js</li>
+                            <li>Pipes Angular podem transformar dados de IA em visualizações</li>
+                        </ul>
+                        
+                        <h4>A Vantagem Estratégica:</h4>
+                        <p>A arquitetura baseada em módulos do Angular permite adicionar novas tecnologias como dependências sem quebrar o código existente. Esta flexibilidade é o que torna Angular uma escolha estratégica a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div class="lesson-navigation">
