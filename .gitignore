@@ -1,0 +1,27 @@
+# API Keys & Secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# OpenCode
+.opencode/cache/
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+.next/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

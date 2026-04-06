@@ -1,0 +1,134 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/z-ai/glm-4.5-air:free",
+  "small_model": "openrouter/z-ai/glm-4.5-air:free",
+  "provider": {
+    "openrouter": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OpenRouter",
+      "options": {
+        "baseURL": "https://openrouter.ai/api/v1",
+        "apiKey": "{env:OPENROUTER_API_KEY}"
+      },
+      "models": {
+        "z-ai/glm-4.5-air:free": {
+          "name": "GLM 4.5 Air (GRÁTIS - rápido, agentes)"
+        },
+        "qwen/qwen3.6-plus-preview:free": {
+          "name": "Qwen3.6 Plus (GRÁTIS - 1M context, agentic)"
+        },
+        "qwen/qwen3-coder:free": {
+          "name": "Qwen3 Coder 480B (GRÁTIS - coding)"
+        },
+        "minimax/minimax-m2.5:free": {
+          "name": "MiniMax M2.5 (GRÁTIS - SWE-Bench 80%)"
+        },
+        "nvidia/nemotron-3-super-120b-a12b:free": {
+          "name": "Nemotron 3 Super (GRÁTIS - programming)"
+        },
+        "openai/gpt-oss-120b:free": {
+          "name": "OpenAI gpt-oss-120b (GRÁTIS - raciocínio)"
+        },
+        "meta-llama/llama-3.3-70b-instruct:free": {
+          "name": "Llama 3.3 70B (GRÁTIS - geral)"
+        },
+        "arcee-ai/trinity-large-preview:free": {
+          "name": "Arcee Trinity (GRÁTIS - creative, agentes)"
+        }
+      }
+    }
+  },
+  "agent": {
+    "orchestrator": {
+      "path": ".opencode/agents/orchestrator.md",
+      "model": "openrouter/qwen/qwen3.6-plus-preview:free",
+      "mode": "primary",
+      "temperature": 0.2
+    },
+    "frontend-specialist": {
+      "path": ".opencode/agents/frontend-specialist.md",
+      "model": "openrouter/qwen/qwen3.6-plus-preview:free",
+      "mode": "subagent",
+      "temperature": 0.3
+    },
+    "backend-specialist": {
+      "path": ".opencode/agents/backend-specialist.md",
+      "model": "openrouter/qwen/qwen3-coder:free",
+      "mode": "subagent",
+      "temperature": 0.3
+    },
+    "db-architect": {
+      "path": ".opencode/agents/db-architect.md",
+      "model": "openrouter/minimax/minimax-m2.5:free",
+      "mode": "subagent",
+      "temperature": 0.3
+    },
+    "deploy-ops": {
+      "path": ".opencode/agents/deploy-ops.md",
+      "model": "openrouter/z-ai/glm-4.5-air:free",
+      "mode": "subagent",
+      "temperature": 0.2
+    },
+    "github-manager": {
+      "path": ".opencode/agents/github-manager.md",
+      "model": "openrouter/z-ai/glm-4.5-air:free",
+      "mode": "subagent",
+      "temperature": 0.2
+    },
+    "stitch-designer": {
+      "path": ".opencode/agents/stitch-designer.md",
+      "model": "openrouter/qwen/qwen3.6-plus-preview:free",
+      "mode": "subagent",
+      "temperature": 0.4
+    },
+    "tester-qa": {
+      "path": ".opencode/agents/tester-qa.md",
+      "model": "openrouter/qwen/qwen3-coder:free",
+      "mode": "subagent",
+      "temperature": 0.2
+    }
+  },
+  "command": {
+    "model-coding": {
+      "template": "Mude o modelo atual para o Qwen3 Coder (coding). Responda apenas: Modelo alterado para Qwen3 Coder 480B (coding).",
+      "description": "Trocar para modelo de coding (Qwen3 Coder)",
+      "model": "openrouter/qwen/qwen3-coder:free"
+    },
+    "model-reasoning": {
+      "template": "Mude o modelo atual para o OpenAI gpt-oss-120b (raciocínio). Responda apenas: Modelo alterado para OpenAI gpt-oss-120b (raciocínio).",
+      "description": "Trocar para modelo de raciocínio (OpenAI gpt-oss-120b)",
+      "model": "openrouter/openai/gpt-oss-120b:free"
+    },
+    "model-fast": {
+      "template": "Mude o modelo atual para o GLM 4.5 Air (rápido). Responda apenas: Modelo alterado para GLM 4.5 Air (rápido).",
+      "description": "Trocar para modelo rápido (GLM 4.5 Air)",
+      "model": "openrouter/z-ai/glm-4.5-air:free"
+    },
+    "model-creative": {
+      "template": "Mude o modelo atual para o Arcee Trinity (creative). Responda apenas: Modelo alterado para Arcee Trinity (creative).",
+      "description": "Trocar para modelo criativo (Arcee Trinity)",
+      "model": "openrouter/arcee-ai/trinity-large-preview:free"
+    },
+    "model-swebench": {
+      "template": "Mude o modelo atual para o MiniMax M2.5 (SWE-Bench). Responda apenas: Modelo alterado para MiniMax M2.5 (SWE-Bench 80%).",
+      "description": "Trocar para modelo SWE-Bench (MiniMax M2.5)",
+      "model": "openrouter/minimax/minimax-m2.5:free"
+    },
+    "model-list": {
+      "template": "Liste todos os modelos free disponíveis no OpenRouter com uma breve descrição de cada um e quando usar.",
+      "description": "Mostrar todos os modelos free disponíveis"
+    }
+  },
+  "skills": {
+    "paths": [
+      ".agents/skills",
+      ".opencode/skills"
+    ]
+  },
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "write": "allow"
+  },
+  "default_agent": "orchestrator"
+}
